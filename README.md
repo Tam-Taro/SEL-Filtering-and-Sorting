@@ -113,10 +113,10 @@ https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/
 8. Load Template, Save your AIOStreams and enjoy!
 
   > [!NOTE]
-  > Remember to personalize your imported config by going to `Filters` -> `Language`. Select all the languages you may be watching on Stremio as `Required Languages`. Then copy those same ones into `Preferred Languages`, then sort/rank at the bottom according to your preference. **Keep `Dubbed, Dual Audio, Multi, Unknown` in these two lists** as they may contain streams of your preferred languages. You should also select your subtitle languages in SubHero addon - by default only English is selected.
+  > Remember to personalize your imported config by going to `Filters` -> `Language`. Select your main language as the top spot in Preferred Languages, then sort/rank the rest according to your preference. I suggest keeping Dubbed, Dual Audio, Multi, Unknown in the list as they may contain streams of your preferred languages.
 > To further enhance your sorting and filtering, I highly recommend importing Vidhin's regex which tags streams based on the quality of the release group. Scroll down for more information.
 
-## 🧩 Recommended Setup: Outdated (for Template 1.1.0)
+## 🧩 Recommended Setup for Template v1.1.0 (Outdated )
 This is my recommended setup that should work for most of you. If you just want a finished template, then import & use one of the templates described above. Otherwise read on to customize your current AIOStreams instance.
 
 ### **Sorting**
