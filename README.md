@@ -138,7 +138,7 @@ This is my recommended setup that should work for most of you. If you just want 
 > [!NOTE]
 > If your first filter in `Global Sort Order` is `Cached` and you left `Cached/Uncached Sort Order` blank, your sort/filter may not work properly.
 
-## 🎚️ Filtering
+## 🎚️ Filtering for Template v1.1 (Outdated)
 - Define `Preferrence Order` in each of `Resolution, Quality, Encode, Stream Type, Visual Tag, Audio Tag` and `Language`. 
   - This is important for our Sort Order to work.
 > [!NOTE]
