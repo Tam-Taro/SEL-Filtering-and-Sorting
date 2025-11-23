@@ -1,6 +1,6 @@
 {
-  "version": "1.7.2",
-  "exportedAt": "2025-11-06T21:11:59.593Z",
+  "version": "1.11.0",
+  "exportedAt": "2025-11-23T22:29:42.177Z",
   "config": {
     "language": "en-US",
     "includeAdult": false,
@@ -58,6 +58,20 @@
     "searchEnabled": true,
     "sessionId": "",
     "catalogs": [
+      {
+        "id": "mdblist.4526",
+        "type": "movie",
+        "name": "'Tis the Season 🎁",
+        "enabled": true,
+        "showInHome": true,
+        "source": "mdblist",
+        "sort": "default",
+        "order": "asc",
+        "cacheTTL": 40000,
+        "genreSelection": "standard",
+        "displayType": "movie",
+        "randomizePerPage": true
+      },
       {
         "id": "mdblist.88434",
         "type": "series",
@@ -1861,7 +1875,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "movie"
+        "displayType": "movie",
+        "randomizePerPage": true
       },
       {
         "id": "mdblist.84403",
@@ -1874,7 +1889,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "series"
+        "displayType": "series",
+        "randomizePerPage": true
       },
       {
         "id": "mdblist.84487",
@@ -1887,7 +1903,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "series"
+        "displayType": "series",
+        "randomizePerPage": true
       },
       {
         "id": "mdblist.84401",
@@ -1900,7 +1917,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "series"
+        "displayType": "series",
+        "randomizePerPage": true
       },
       {
         "id": "mdblist.83497",
@@ -1913,7 +1931,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "movie"
+        "displayType": "movie",
+        "randomizePerPage": true
       },
       {
         "id": "mdblist.92337",
@@ -2013,16 +2032,17 @@
       }
     },
     "streaming": [],
-    "lastModified": 1761860591978,
-    "configVersion": 1761860591979,
+    "lastModified": 1763936136454,
+    "configVersion": 1763936136455,
     "displayTypeOverrides": {
       "movie": "movie",
       "series": "series"
-    }
+    },
+    "mdblistWatchTracking": true
   },
   "metadata": {
     "apiKeysExcluded": true,
-    "totalCatalogs": 139,
-    "enabledCatalogs": 61
+    "totalCatalogs": 140,
+    "enabledCatalogs": 62
   }
 }

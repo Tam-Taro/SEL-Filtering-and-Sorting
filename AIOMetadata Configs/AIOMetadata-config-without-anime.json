@@ -1,6 +1,6 @@
 {
-  "version": "1.7.2",
-  "exportedAt": "2025-11-06T21:09:38.136Z",
+  "version": "1.11.0",
+  "exportedAt": "2025-11-23T22:27:02.232Z",
   "config": {
     "language": "en-US",
     "includeAdult": false,
@@ -58,6 +58,20 @@
     "searchEnabled": true,
     "sessionId": "",
     "catalogs": [
+      {
+        "id": "mdblist.4526",
+        "type": "movie",
+        "name": "'Tis the Season 🎁",
+        "enabled": true,
+        "showInHome": true,
+        "source": "mdblist",
+        "sort": "default",
+        "order": "asc",
+        "cacheTTL": 40000,
+        "genreSelection": "standard",
+        "displayType": "movie",
+        "randomizePerPage": true
+      },
       {
         "id": "mdblist.88434",
         "type": "series",
@@ -119,8 +133,7 @@
         "showInHome": true,
         "sort": "default",
         "order": "asc",
-        "displayType": "series",
-        "enableRPDB": true
+        "displayType": "series"
       },
       {
         "id": "tmdb.trending",
@@ -720,7 +733,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "movie"
+        "displayType": "movie",
+        "randomizePerPage": true
       },
       {
         "id": "mdblist.84403",
@@ -733,7 +747,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "series"
+        "displayType": "series",
+        "randomizePerPage": true
       },
       {
         "id": "mdblist.84487",
@@ -746,7 +761,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "series"
+        "displayType": "series",
+        "randomizePerPage": true
       },
       {
         "id": "mdblist.84401",
@@ -759,7 +775,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "series"
+        "displayType": "series",
+        "randomizePerPage": true
       },
       {
         "id": "mdblist.83497",
@@ -772,7 +789,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "movie"
+        "displayType": "movie",
+        "randomizePerPage": true
       },
       {
         "id": "mdblist.92337",
@@ -785,7 +803,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "movie"
+        "displayType": "movie",
+        "randomizePerPage": true
       },
       {
         "id": "mdblist.91304",
@@ -798,7 +817,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "movie"
+        "displayType": "movie",
+        "randomizePerPage": true
       },
       {
         "id": "mdblist.91303",
@@ -811,7 +831,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "movie"
+        "displayType": "movie",
+        "randomizePerPage": true
       },
       {
         "id": "mdblist.91302",
@@ -824,7 +845,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "movie"
+        "displayType": "movie",
+        "randomizePerPage": true
       },
       {
         "id": "mdblist.91300",
@@ -837,7 +859,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "movie"
+        "displayType": "movie",
+        "randomizePerPage": true
       },
       {
         "id": "mdblist.91301",
@@ -850,7 +873,8 @@
         "order": "desc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "movie"
+        "displayType": "movie",
+        "randomizePerPage": true
       }
     ],
     "search": {
@@ -859,8 +883,8 @@
       "providers": {
         "movie": "tmdb.search",
         "series": "tvdb.search",
-        "anime_movie": "kitsu.search.movie",
-        "anime_series": "kitsu.search.series"
+        "anime_movie": "mal.search.movie",
+        "anime_series": "mal.search.series"
       },
       "engineEnabled": {
         "tmdb.search": true,
@@ -868,9 +892,7 @@
         "tvdb.collections.search": true,
         "tvmaze.search": true,
         "mal.search.movie": false,
-        "mal.search.series": false,
-        "kitsu.search.series": false,
-        "kitsu.search.movie": false
+        "mal.search.series": false
       }
     },
     "streaming": [
@@ -881,11 +903,12 @@
     "displayTypeOverrides": {
       "movie": "movie",
       "series": "series"
-    }
+    },
+    "mdblistWatchTracking": true
   },
   "metadata": {
     "apiKeysExcluded": true,
-    "totalCatalogs": 63,
-    "enabledCatalogs": 63
+    "totalCatalogs": 64,
+    "enabledCatalogs": 64
   }
 }
