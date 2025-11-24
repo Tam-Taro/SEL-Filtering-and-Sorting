@@ -1,6 +1,6 @@
 {
   "version": "1.11.0",
-  "exportedAt": "2025-11-24T00:13:05.187Z",
+  "exportedAt": "2025-11-24T00:18:14.549Z",
   "config": {
     "language": "en-US",
     "includeAdult": false,
@@ -69,7 +69,7 @@
         "order": "asc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "series",
+        "displayType": "movie",
         "randomizePerPage": true
       },
       {
