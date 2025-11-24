@@ -1,6 +1,6 @@
 {
   "version": "1.11.0",
-  "exportedAt": "2025-11-23T22:29:42.177Z",
+  "exportedAt": "2025-11-24T00:13:05.187Z",
   "config": {
     "language": "en-US",
     "includeAdult": false,
@@ -59,8 +59,8 @@
     "sessionId": "",
     "catalogs": [
       {
-        "id": "mdblist.4526",
-        "type": "movie",
+        "id": "mdblist.126338",
+        "type": "series",
         "name": "'Tis the Season 🎁",
         "enabled": true,
         "showInHome": true,
@@ -69,7 +69,7 @@
         "order": "asc",
         "cacheTTL": 40000,
         "genreSelection": "standard",
-        "displayType": "movie",
+        "displayType": "series",
         "randomizePerPage": true
       },
       {
@@ -2032,8 +2032,8 @@
       }
     },
     "streaming": [],
-    "lastModified": 1763936136454,
-    "configVersion": 1763936136455,
+    "lastModified": 1763936962087,
+    "configVersion": 1763936962088,
     "displayTypeOverrides": {
       "movie": "movie",
       "series": "series"
