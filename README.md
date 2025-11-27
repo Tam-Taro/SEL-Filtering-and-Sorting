@@ -10,6 +10,15 @@ Consider using my setup template as is if you:
 
 Lastly, please do note my AIOStreams template *does not* include any catalogs. This is because many of us prefer AIOMetadata (separate addon from AIOStreams), so just scroll to the end of this page, you will find my config for AIOMetadata for all your metadata and catalog management needs.
 
+
+  <details>
+        <summary>PS. I just switched to TorBox on the Bf deal so now I can finally share my referral code like everyone else woo!!</summary></summary>
+  
+    f1cdd3f8-aeee-48f1-849b-64fc7e5aeb3c
+  > Enter that into your sub page, or use [this link](https://torbox.app/subscription?referral=f1cdd3f8-aeee-48f1-849b-64fc7e5aeb3c). You & I get +84 days on a yearly sub if it's your TorBox account's first ever purchase.
+    
+  </details>
+
 ---
 ## ✨ Changes to template from v1.1 to v1.2
 
