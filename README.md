@@ -21,8 +21,16 @@ Lastly, please do note my AIOStreams template *does not* include any catalogs. T
 
 ---
 ## ✨ Release Notes
+Nov 18, 2025: What's new in template v1.2.0
+- Major SEL Engine Rewrite: Went from 3 to 8 filtering blocks for granular control.
+- Independent Cached/Uncached Filtering: Separates slice(streams, 3) into slice(cached(streams),3) and slice(uncached(streams,3).
+- Revamped Sort Order: Introduces Stream Expressions Matched for nuanced stream ranking.
+- Library Stream Exemption: Library streams are no longer counted against the filter limits.
+- Revamped Formatter: New icons & Smarter icon auto-switching.
+- Bonus: Introduction of the Extended SEL for those who want more results.
+
 <details>
-<summary>Changes in v1.2</summary>
+<summary>Changes in v1.2.0 in details</summary>
 <p></p>
 <details>
 <summary>Formatter</summary> 
@@ -141,8 +149,6 @@ These are setup templates to use with AIOStreams. If you're not sure which AIOSt
 | **Extended SEL Only** | Imports the modified SEL that gives slightly more results than Standard SEL. | 
 | **Formatter Only** | Imports only the custom formatter used in the template for stream display. |
 
----
-
 ## 📥 How to Import
 
 1. **AIOStreams → Save & Install 💾 → Import** 
@@ -166,7 +172,11 @@ https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/
 > 
 > This regex labels all streams with tier rankings based on reputation/quality of release groups per TRaSH Guides. You will need to reimport the regex occassionally whenever Vidhin pushes an update to the regex because many AIOStreams instances will only allow the use of his latest update regex.
 
-## 🧩 Recommended Setup for Template v1.1.0 (Outdated )
+### 🧩 Manual Setup of Template v1.1.0 (Outdated )
+
+<details>
+  <summary>This section is outdated, refer to my Release Notes for latest changees. The best way to use my config is by importing one of my templates above.</summary>
+  <p> </p>
 This is my recommended setup that should work for most of you. If you just want a finished template, then import & use one of the templates described above. Otherwise read on to customize your current AIOStreams instance.
 
 ### **Sorting**
@@ -246,28 +256,99 @@ The first block of SEL for your `Excluded Stream Expressions` (ESE) is the Uncac
 The second block of ESE is the Main Quality/Resolution Filter. It uses `slice(...,3)` to further trim streams, keeping top ~3 results of most `Quality` and `Resolution` combination. Because AIOStreams sorts streams before SEL filtering, you can determine how your streams is sorted first so that the `slice` of the top results of any `quality` /`resolution` will always select your preferred "highest-quality streams". For me, that would be Vidhin's regex-matched streams, so I put `Regex Pattern` right underneath `Quality` in Sort Order. If you value size or language for every resolution + quality pair then put `Size` or `Language` right underneath `Quality`, the `slice` will then keep your top 3 streams for that particular `quality`/`resolution` according to your size or language preference, respectively.
 
 Third block of ESE is the Low Quality/Resolution Filter. It checks how many streams made through the Main Filter above, and removes low quality and low resolution streams when there are already enough present. It also removes regex-matched streams from "Bad" quality release groups when there are enough non-"Bad" streams present (for those that use Vidhin's regex).
+</details>
 
 ---
-
 ## ⚙️ What’s Included for AIOMetadata
-These are setup configs to use with AIOMetadata. It is a powerful tool for all things metadata and catalogs. If you're not sure where to start, pick a AIOMetadata instance from [the list of trusted public instances](https://status.dinsden.top/status/stremio-addons) or use the [Elfhosted instance](https://aiometadata.elfhosted.com/configure/). You can't go wrong with either choice.
 
- > [!NOTE]
- > My previous AIOStreams template does not include any catalogs. This is where AIOMetadata comes in. It is a separate addon from AIOStreams, installed directly into stremio (or via StremThru Side Kick), and is the main place most of us like to keep our catalogs for stremio!
+These are setup configs to use with AIOMetadata. It is a powerful tool for all things metadata and catalogs. If you're not sure where to start, pick an AIOMetadata instance from [the list of trusted public instances](https://status.dinsden.top/status/stremio-addons)  or use the [Elfhosted instance](https://aiometadata.elfhosted.com/configure/). You can't go wrong with either choice.
 
-| Complete config | Description |Download|
-|-----------|--------------|---|
-| **With Anime Catalogs** | Complete configuration with anime metadata preset, tv, movies and anime catalogs. Huge props to Cedya, Snoak & Mr Professor for their awesome lists!|[Direct Link](https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOMetadata%20Configs/AIOMetadata-config-with-anime.json)|
-| **Without Anime Catalogs** | Complete configuration for tv and movies catalogs. No anime. |[Direct Link](https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOMetadata%20Configs/AIOMetadata-config-without-anime.json)|
+> [!NOTE]
+> My previous AIOStreams template does not include any catalogs. This is where AIOMetadata comes in. It is a separate addon from AIOStreams, installed directly into Stremio (or via StremThru Side Kick), and is the main place most of us like to keep our catalogs for Stremio!
+
+
+| Complete config | Description | Download |
+| :-- | :-- | :-- |
+| **With Anime Catalogs** | Complete configuration with anime metadata preset, TV, movies, and anime catalogs. Huge props to Cedya, Snoak \& Mr Professor for their awesome lists! | [Direct Link](https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOMetadata%20Configs/AIOMetadata-config-with-anime.json) |
+| **Without Anime Catalogs** | Complete configuration for TV and movies catalogs. No anime. | [Direct Link](https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOMetadata%20Configs/AIOMetadata-config-without-anime.json) |
+
+## ✨ Release Notes
+
+<details>
+<summary>December 7, 2025 (v1.2.1):</summary> 
+<p></p>
+  
+- MDBList updated sort direction behaviour, so adjust all lists accordingly to now use `ascending` for those lists with last air/released sort
+ - For those not using my AIOM config, make sure the sort direction of any imported MDBLists now says `ascending` (if you adjusted their sort order before).
+- Switched out the previous holiday list (from v1.2.0) with my own "Seasonal" list that will stay permanent on the top spot.  
+  - Will push new seasonal content onto that same list on my end, so you won't need to keep re-updating your AIOM config.  
+  - If you just want this list onto your existing setup, then import it via this URL: `https://mdblist.com/lists/tamtaro/seasonal`.
+- AI Search was implemented by @Din recently, it's now part of this config, so you'll need to obtain your own Gemini key for the integration tab prior to importing. 
+- Some other config changes
+ - Adjusted all imported catalogs TTL to exactly 12 hours (43200s), the "top" lists remain random/shuffled per v1.2.0. 
+</details>
+
+<details>
+<summary>November 23, 2025 (v1.2.0):</summary>
+<p></p>
+  
+- New holiday list introduced to go along with AIOStreams template v1.2.0: a shuffled mix of Christmas classics.
+  - you can directly import the list using this url: `https://mdblist.com/lists/snoak/christmas-movies`
+- Turned on `MDBList Watch Tracking` by default, a new MDBList feature recently supported by AIOMetadata.
+- Added a new shuffle feature for all the "Top" lists.
+- Enabled kitsu search, new AIOM feature
+- Shoutouts to Snoak, Cedya, Din, and The Professor for this config.
+- Two config versions available as before.
+</details>
+
+<details>
+<summary>October 30, 2025 (v1.1.0):</summary> 
+<p></p>
+  
+- AIOMetadata config updated to v1.1.0 to match with AIOStreams template v1.1.0 release
+- Due to difficulty installing previous config due to `max descriptor size` error, each jsons now has just enough catalogs (~60) enabled to allow easy installation into stremio. 
+- Removed traces of disabled catalogs from config without anime content, reducing its json filesize dramatically.
+  - left disabled catalogs in config with anime content, for those that want to enable more catalogs
+- Adjusted `type` to lowercase (`movie/series`) for better compatibility.
+- Rearranged and renamed some catalogs.
+</details>
+
+<details>
+<summary>October 17, 2025 (v1.0.0):</summary> 
+<p></p>
+  
+- Debut of AIOM configs with SEL Setup Version 2.5.1.
+- Removed AIOLists from preconfigured addons in SEL setup, focusing AIOM config for catalogs and AIOStreams config for streaming addons only.
+ - Old AIOLists catalogs replaced by AIOMetadata catalogs (thanks to @Snoak and @Mr. Professor).
+- Requires separate installation of AIOMetadata addon within Stremio, independent from AIOStreams addon.
+- Two JSON configs available: with and without anime catalogs.
+  - anime config: 80 enabled out of 150
+  - non-anime config: 67 enabled out of 150
+- Due to the high amount of catalogs, use StremThru Side Kick to bypass `AddonsPushedToAPI - Max descriptor size reached` error
+- Config uses TMDB for movie meta, TVDB for series/anime meta, and kitsu for anime ID.
+</details>
 
 ## 📥 How to Import
-AIOMetadata setup configuration [For Meta/Catalogs]
 
-- Pick one of these two json files to import into AIOMetadata following the instructions below:
+This import will give you catalogs and meta support for Stremio, to be installed outside AIOStreams. Pick one of the two JSON files shared above to import into AIOMetadata following these instructions:
 
-   1. Integrations tab -> Obtain and enter your TMDB, TVDB, and MDBLists APIs . Use `t0-free-rpdb` for RPDB. Fanart.tv API Key is optional. Hit the `Test All Keys` button to ensure they're all ️:white_check_mark:.
-   2. Configuration tab -> Import Configuration -> Import one of my json files. Feel free to edit/hide/delete various catalogs in Catalogs tab to your liking.
-   3. Configuration tab -> Save Configuration -> Enter a password to save your configuration (if you haven't made an account before) -> Install the addon directly into Stremio. Note: if you encounter `AddonsPushedToAPI - Max descriptor size reached` error, try step
-   4. Copy your `Install URL`. Go to [Stremthru Side Kick](https://stremthru.13377001.xyz/stremio/sidekick/), log in there using your stremio account and use the Install button there to install the addon with the AIOMetadata URL. This *may help to* bypass the `AddonsPushedToAPI - Max descriptor size reached` error, otherwise disable some catalogs to reduce size. 
-- 5. For best compatibility with AIOMetadata, go to https://cinebye.dinsden.top, load up your account and remove all three Cinemeta features (Search, Catalogs, and Meta). Then scroll down to the bottom of cinebye and re-order your addons so that 1. Cinemeta 2. AIOMetadata 3. Rest of addons. Finally, save the changes by clicking `Sync to Stremio`.
-- You can change your default Display Language inside AIOMetadata under General tab. Note that if you notice tv series not displaying any episode information in your language, try to upload the episodes overview for your show via tvdb directly. Alternatively you can switch the TV Series metadata provider to TMDB as it may have the missing information in your language.
+1. **Integrations tab** → Obtain and enter your TMDB, TVDB, MDBList, and Gemini APIs. Use `t0-free-rpdb` for RPDB. Gemini is needed for AI Search. Fanart.tv API Key is optional. Hit the `Test All Keys` button to ensure they're all ✅.
+2. **Configuration tab** → Import Configuration → Import one of my JSON files. Feel free to edit/hide/delete various catalogs in Catalogs tab to your liking.
+3. **Configuration tab** → Save Configuration → Enter a password to save your configuration (if you haven't made an account before) → Install the addon directly into Stremio. **Note**: If you encounter `AddonsPushedToAPI - Max descriptor size reached` error, try step 4.
+4. Copy your `Install URL`. Go to [StremThru Side Kick](https://stremthru.13377001.xyz/stremio/sidekick/), log in there using your Stremio account and use the Install button there to install the addon with the AIOMetadata URL. This *may help* bypass the `AddonsPushedToAPI - Max descriptor size reached` error; otherwise disable some catalogs to reduce size or see below "How to set up 2 AIOMetadata for more catalogs".
+5. For best compatibility with AIOMetadata, go to [https://cinebye.dinsden.top](https://cinebye.dinsden.top), load up your account and remove all three Cinemeta features (Search, Catalogs, and Meta). Then scroll down to the bottom of Cinebye and re-order your addons so that 1. `Cinemeta` 2. `AIOMetadata` 3. `Rest of addons (AIOStreams, subtitle addons, etc)`. Finally, save the changes by clicking `Sync to Stremio`. The re-ordering can also be done inside StremThru Side Kick under "Move" mode.
+6. Personalize your setup by changing the Display Language inside AIOMetadata under General tab. Note that if you notice TV series not displaying any episode information in your language, try to upload the episodes overview for your show via TVDB directly. Alternatively, you can switch the TV Series metadata provider to TMDB as it may have the missing information in your language.
+
+*Some of you seem to want more catalogs*. My config for no anime has most of the "western" content catalogs from AIOMetadata/Snoak's MDBLists enabled and still stayed within the size limit allowed by Stremio for 1 AIOM's UUID installation. For the config with anime, I had to disable half of the "western" catalogs to accommodate for anime catalogs as well. Stremio will only allow around ~60 catalogs per AIOM config before you see the `AddonsPushedToAPI - Max descriptor size reached` error during installation.
+
+### ➕ More Catalogs with 2 AIOMs
+
+If you want more catalogs, do the following:
+
+- Use my config as a base, add/remove/enable all the catalogs you want in the first AIOMetadata UUID you made following my guide.
+- Save and export this "completed" copy into a JSON (with keys included).
+- Then go back to Catalog tab and disable the second half of your catalogs (those that went over the limit).
+- Then save this config again. This will be your **AIOM\#1**.
+- Make another AIOM UUID, and import the "completed" JSON copy from earlier into your **AIOM\#2**.
+- In this new UUID, disable the catalogs you had enabled previously (aka the first half) and before saving, toggle the `Catalog Mode Only` option (on this second UUID).
+- Install both AIOMs into your Stremio and re-order them accordingly per my guide [1. `Cinemeta (Cinebye'd)` 2. `AIOM#1` 3. `AIOM#2` 4. `Rest of your addons (AIOStreams, subtitle addons, etc)`].
