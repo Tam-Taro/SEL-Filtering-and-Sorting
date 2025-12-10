@@ -12,7 +12,7 @@ Lastly, please do note my AIOStreams template *does not* include any catalogs. T
 
 
   <details>
-        <summary>PS. I just switched to TorBox on their BF deal, so now I can share my code like everyone else woo!!</summary></summary>
+        <summary>PS. I just switched to TorBox on their BF deal, so now I can share my code like everyone else woo!! For the best stremio experience, you need a debrid service, and TB is current top recommendation especially if you're like me, and like to share your stremio setup with family and friends. </summary></summary>
   
     f1cdd3f8-aeee-48f1-849b-64fc7e5aeb3c
   > Use my [referral](https://torbox.app/subscription?referral=f1cdd3f8-aeee-48f1-849b-64fc7e5aeb3c) and we both get +84 days on a yearly sub, if it's your first ever purchase.
@@ -30,7 +30,7 @@ Nov 18, 2025: What's new in template v1.2.0
 - Bonus: Introduction of the Extended SEL for those who want more results.
 
 <details>
-<summary>Changes in v1.2.0 in details</summary>
+<summary>Full release notes (v1.2.0)</summary>
 <p></p>
 <details>
 <summary>Formatter</summary> 
@@ -137,7 +137,7 @@ Nov 18, 2025: What's new in template v1.2.0
 
 ## ⚙️ Templates Included for AIOStreams
 
-These are setup templates to use with AIOStreams. If you're not sure which AIOStreams instance to start with, check out the list of trusted public instances [here](https://status.dinsden.top/status/stremio-addons).
+These are setup templates to use with AIOStreams. If you're not sure which AIOStreams instance to start with, check out the list of trusted public instances [here](https://status.dinsden.top/status/stremio-addons). I recommend nightly AIOStreams from Midnight, Yeb, Viren, or Kuu. Make sure they have working Torrentio add-on. If not, switch to a different instance.
 
 | Template | Description |
 |-----------|--------------|
