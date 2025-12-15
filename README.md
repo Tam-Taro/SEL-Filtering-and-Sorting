@@ -334,7 +334,7 @@ This import will give you catalogs and meta support for Stremio, to be installed
 
 1. **Integrations tab** → Obtain and enter your TMDB, TVDB, MDBList, and Gemini APIs. Use `t0-free-rpdb` for RPDB posters or obtain TOP API for alternate TOP posters. Gemini is needed for AI Search. Fanart.tv API Key is optional. Hit the `Test All Keys` button to ensure they're all ✅.
 2. **Configuration tab** → Import Configuration → Import one of my JSON files.
-    - Feel free to edit/hide/delete/import various catalogs in Catalogs tab to your liking. Just note that the current config already has close to the max number of catalogs stremio will allow in one AIOMetadata install.
+    - Feel free to edit/hide/delete/import various catalogs in Catalogs tab to your liking. Just note that the current config already has close to the max number of catalogs stremio will allow in one AIOMetadata install. See below for more on this.
     - Adjust `Display Language` inside AIOMetadata under General tab if you're not using default English.
 3. **Configuration tab** → Save Configuration → Enter a password to save your configuration (if you haven't made an account before) → Install the addon directly into Stremio. **Note**: If you encounter `AddonsPushedToAPI - Max descriptor size reached` error, try step 4.
 4. Copy your `Install URL`. Go to [StremThru Side Kick](https://stremthru.13377001.xyz/stremio/sidekick/), log in there using your Stremio account and use the Install button there to install the addon with the AIOMetadata URL. This *may help* bypass the `AddonsPushedToAPI - Max descriptor size reached` error; otherwise disable some catalogs to reduce size or see below "How to set up 2 AIOMetadata for more catalogs".
