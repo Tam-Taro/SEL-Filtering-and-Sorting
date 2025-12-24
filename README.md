@@ -21,6 +21,130 @@ Lastly, please do note my AIOStreams template *does not* include any catalogs. T
 
 ---
 ## ✨ Release Notes
+December 24, 2025: v1.3.0
+
+__Addons__
+- Current Addons
+  - Debrid Template:
+   - `STore, Torrentio, Comet, MediaFusion, STorz, Knaben, AnimeTosho`
+  - P2P Template:
+   - `Torrentio, Comet, MediaFusion, STorz, TorrentsDB, Peerflix, Nuvio Anime, Nuvio Streams, WebStreamr`
+- Changes:
+  - Addon Fetching Strategy now set to Default
+  - Timeout for all addons set at 7500 ms
+  - Removed meta resource from Torrentio & MediaFusion
+  - STorz now uses Forced Query Search Mode
+
+__Filters__
+- Removed some lower end items in resolution and visual tag
+- Added `AI` into Excluded Visual Tag field (subsequently removed AI filter portion from Anime Filter SEL as no longer needed)
+- Stream type now has debrid → usenet priority (only used for deduplication purpose in this setup)
+- Miscellaneous now has SeaDex integration enabled
+
+__Formatter__
+- Added support for SeaDex, will say "ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ" or "ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ" on streams considered as Best/Alt release per SeaDex website
+- Added support for UsenetStreamer's health checked results; will say ☑ ɴᴢʙ, ☑ ᴇʟғ ɴᴢʙ, ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ, or ☒ ɴᴢʙ
+- Cleaned up formatting for KissKh streams from StreamAsia (currently offline)
+- Last line of formatter will now be in small caps font
+- Check #formatter [thread](https://discord.com/channels/1225024298490662974/1408573854393303242/1408573854393303242) for full details
+
+__Miscellaneous__
+- Disabled Pre-cache Next Episode completely. This feature caused too many #support instances of "why is this file in my dashboard"
+- Switched Language out for releaseGroup in Auto Play Attributes, so now that field has `resolution, quality, releaseGroup`
+- Default logo set to custom SEL logo for AIOS
+
+__SEL__
+- Excluded Stream Expressions 
+  - Added KissKH Filter, Bad NZB Filter, and a few placeholders (blank lines) before my SEL lines for easier customization
+   - Perfect for modifying your SEL setup results if you wish to do more filtering before my SEL filtering engine kicks in. See my Optional SELs for some ideas.
+  - Reduced "Bad" Regex Filter condition from 15 to 10 non-"Bad" so they're more likely to be removed
+  - Inserted seadex(streams) as exemption into various SEL lines so they don't get removed
+  - For the full SEL (Standard and Extended), open up the template jsons to see them.
+  - *New optional SELs*: A couple optional SELs to put into your placeholders as you see fit
+    - __☑ ɴᴢʙ-Only Filter__: A UsenetStreamer filter for those that only want to see health checked results from UsenetStreamer. The SEL line assumes your UsenetStreamer addon is named US, USN, UsenetStreamer, or Usenet Streamer, so avoid naming any other addon with those names.
+    - ```text
+      /*☑ ɴᴢʙ-Only Filter*/ negate(addon(message(streams,'includes','✅','🧝'),'US','UNS','Usenet Streamer','UsenetStreamer'),addon(streams,'US','UNS','Usenet Streamer','UsenetStreamer'))
+	 - __DV-Only Non-Remux Filter__: remove some DV Only streams that give playback issues (purple screen) on some devices. I use this one as my pc doesn't render DV Profile 5 files very well (particularly from Apple TV Web-DLs)
+    - ```text
+      /*DV Only Non-Remux Filter*/ negate(quality(streams,'BluRay REMUX'), visualTag(streams,'DV Only'))
+   - __Size Filter for Travel__: A size filter for a bandwidth conscious setup (aka for traveling). It's a smart size filter that gets applied only if there are >5 results found within each size range for each resolution and query type. So if there are <5 4k movie streams found within 5GB to 15GB, no size filter is applied for 4k streams. The size range was chosen somewhat arbitrarily, with a mindset of not chasing for best quality but for best bandwidth/quality in practice. It's a way to ensure small fake 4k streams don't get pushed to the top, but also a way to remove very large streams (like remuxes) that you're not gonna need when traveling. Please don't complain about the range if you're using this, just tweak the size range to your preference.
+     - <details>
+       <summary>Size Filter for Travel</summary>
+                              
+            /* Size Filter for Travel */
+            merge(
+            /* 2160p / 1440p */
+            count(resolution(size(cached(streams),
+            queryType=='anime.series'?'1.5GB':queryType=='series'?'2GB':queryType=='anime.movie'?'4GB':'5GB',
+            queryType=='anime.series'?'5GB':queryType=='series'?'8GB':queryType=='anime.movie'?'12GB':'15GB'),
+            '2160p','1440p'))>5?
+            negate(merge(library(streams),seadex(streams),
+            resolution(size(streams,
+            queryType=='anime.series'?'1.5GB':queryType=='series'?'2GB':queryType=='anime.movie'?'4GB':'5GB',
+            queryType=='anime.series'?'5GB':queryType=='series'?'8GB':queryType=='anime.movie'?'12GB':'15GB'),
+            '2160p','1440p')),
+            resolution(streams,'2160p','1440p')):[],
+            
+            /* 1080p */
+            count(resolution(size(cached(streams),
+            queryType=='anime.series'?'500MB':queryType=='series'?'800MB':queryType=='anime.movie'?'1.5GB':'2GB',
+            queryType=='anime.series'?'2GB':queryType=='series'?'3.5GB':queryType=='anime.movie'?'4GB':'5GB'),
+            '1080p'))>5?
+            negate(merge(library(streams),seadex(streams),
+            resolution(size(streams,
+            queryType=='anime.series'?'500MB':queryType=='series'?'800MB':queryType=='anime.movie'?'1.5GB':'2GB',
+            queryType=='anime.series'?'2GB':queryType=='series'?'3.5GB':queryType=='anime.movie'?'4GB':'5GB'),
+            '1080p')),
+            resolution(streams,'1080p')):[],
+            
+            /* 720p */
+            count(resolution(size(cached(streams),
+            queryType=='anime.series'?'250MB':queryType=='series'?'400MB':queryType=='anime.movie'?'700MB':'700MB',
+            queryType=='anime.series'?'1GB':queryType=='series'?'1.8GB':queryType=='anime.movie'?'2GB':'2.5GB'),
+            '720p'))>5?
+            negate(merge(library(streams),seadex(streams),
+            resolution(size(streams,
+            queryType=='anime.series'?'250MB':queryType=='series'?'400MB':queryType=='anime.movie'?'700MB':'700MB',
+            queryType=='anime.series'?'1GB':queryType=='series'?'1.8GB':queryType=='anime.movie'?'2GB':'2.5GB'),
+            '720p')),
+            resolution(streams,'720p')):[],
+            
+            /* ≤576p / Unknown */
+            count(resolution(size(cached(streams),
+            queryType=='anime.series'?'150MB':queryType=='series'?'200MB':queryType=='anime.movie'?'300MB':'300MB',
+            queryType=='anime.series'?'400MB':queryType=='series'?'600MB':queryType=='anime.movie'?'800MB':'1GB'),
+            '576p','480p','360p','240p','144p','Unknown'))>5?
+            negate(merge(library(streams),seadex(streams),
+            resolution(size(streams,
+            queryType=='anime.series'?'150MB':queryType=='series'?'200MB':queryType=='anime.movie'?'300MB':'300MB',
+            queryType=='anime.series'?'400MB':queryType=='series'?'600MB':queryType=='anime.movie'?'800MB':'1GB'),
+            '576p','480p','360p','240p','144p','Unknown')),
+            resolution(streams,'576p','480p','360p','240p','144p','Unknown')):[]
+            )
+</details>
+  
+- Preferred Stream Expression
+  - `cached(service(streams, 'torbox'), type(streams, 'debrid'), message(type(streams,'usenet', 'stremio-usenet'),'includes','✅', '🧝'))`
+  - `merge(cached(service(streams, 'nzbdav', 'altmount', 'easynews')), type(streams, 'http', 'p2p', 'stremio-usenet'))`
+  - `uncached(type(streams, 'usenet'))`
+  - `uncached(type(streams, 'debrid'))`
+  - Changes: 
+   - Usenet from easynews dropped to tier 2, Usenet with health checked status moved to tier 1.
+   - Added support for stremio-usenet  
+
+__Sorting__
+- Current Sort Order
+  - __Global__: `Cached`
+  - __Cached Sort Order__: `SeaDex → Library → Resolution → Quality → Stream Expression Matched → Regex Patterns → Language → (Seeders for P2P setup) → Visual Tags → Encode → Audio Tag → Size → Seeders`
+  - __Uncached Sort Order__: `SeaDex → Library → Resolution → Quality → Stream Expression Matched → Regex Patterns → Seeders → Language → Visual Tags → Encode → Audio Tag → Size`
+- Changes: SeaDex now in #1 spot in both Cached & Uncached Sort Order
+
+See Release Notes v1.2.0 for everything else that wasn't changed.
+
+<details>
+  <summary>v1.2.0</summary>
+  <p></p>
+  
 Nov 18, 2025: What's new in template v1.2.0
 - Major SEL Engine Rewrite: Went from 3 to 8 filtering blocks for granular control.
 - Independent Cached/Uncached Filtering: Separates slice(streams, 3) into slice(cached(streams),3) and slice(uncached(streams,3).
@@ -29,8 +153,6 @@ Nov 18, 2025: What's new in template v1.2.0
 - Revamped Formatter: New icons & Smarter icon auto-switching.
 - Bonus: Introduction of the Extended SEL for those who want more results.
 
-<details>
-<summary>Full release notes (v1.2.0)</summary>
 <p></p>
 <details>
 <summary>Formatter</summary> 
