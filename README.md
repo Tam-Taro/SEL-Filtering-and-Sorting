@@ -56,7 +56,7 @@ __Miscellaneous__
 __SEL__
 - Excluded Stream Expressions 
   - Added KissKH Filter, Bad NZB Filter, and a few placeholders (blank lines) before my SEL lines for easier customization
-   - Perfect for modifying your SEL setup results if you wish to do more filtering before my SEL filtering engine kicks in. See my Optional SELs for some ideas.
+    - Perfect for modifying your SEL setup results if you wish to do more filtering before my SEL filtering engine kicks in. See my Optional SELs for some ideas.
   - Reduced "Bad" Regex Filter condition from 15 to 10 non-"Bad" so they're more likely to be removed
   - Inserted seadex(streams) as exemption into various SEL lines so they don't get removed
   - For the full SEL (Standard and Extended), open up the template jsons to see them.
