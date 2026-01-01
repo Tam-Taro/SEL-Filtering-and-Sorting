@@ -21,6 +21,18 @@ Lastly, please do note my AIOStreams template *does not* include any catalogs. T
 
 ---
 ## ✨ Release Notes
+December, 24,  2025
+What's new in template v1.3.0!
+- Addons tuned: Default fetching, 7500 ms timeout.,
+- Filters refined: AI tag excluded, SeaDex integrated.,
+- Formatter upgraded: Best/Alt release tags, NZB health checks, cleaner layout.,
+- SEL improved: New Optional SELs for NZB/DV/Travel filters, easier customization.,
+- Sorting updated: SeaDex now top priority.
+
+<details>
+  <summary>v1.3.0</summary>
+  <p></p>
+	
 December 24, 2025: v1.3.0
 
 __Addons__
@@ -121,7 +133,7 @@ __SEL__
             '576p','480p','360p','240p','144p','Unknown')),
             resolution(streams,'576p','480p','360p','240p','144p','Unknown')):[]
             )
-</details>
+
   
 - Preferred Stream Expression
   - `cached(service(streams, 'torbox'), type(streams, 'debrid'), message(type(streams,'usenet', 'stremio-usenet'),'includes','✅', '🧝'))`
@@ -140,6 +152,8 @@ __Sorting__
 - Changes: SeaDex now in #1 spot in both Cached & Uncached Sort Order
 
 See Release Notes v1.2.0 for everything else that wasn't changed.
+
+</details>
 
 <details>
   <summary>v1.2.0</summary>
