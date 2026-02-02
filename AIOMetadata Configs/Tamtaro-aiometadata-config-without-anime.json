@@ -1,6 +1,6 @@
 {
   "version": "1.24.2",
-  "exportedAt": "2026-02-02T13:48:47.352Z",
+  "exportedAt": "2026-02-02T13:49:32.256Z",
   "config": {
     "language": "en-US",
     "includeAdult": false,
@@ -31,8 +31,8 @@
       },
       "anime": {
         "poster": "meta",
-        "background": "meta",
-        "logo": "meta"
+        "background": "imdb",
+        "logo": "imdb"
       },
       "englishArtOnly": false
     },
@@ -171,28 +171,6 @@
         }
       },
       {
-        "id": "tmdb.trending",
-        "name": "TMDB Trending",
-        "type": "series",
-        "source": "tmdb",
-        "enabled": false,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "series"
-      },
-      {
-        "id": "tmdb.trending",
-        "name": "TMDB Trending",
-        "type": "movie",
-        "source": "tmdb",
-        "enabled": false,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "movie"
-      },
-      {
         "id": "tmdb.top",
         "name": "TMDB Popular",
         "type": "series",
@@ -253,28 +231,6 @@
         "type": "series",
         "source": "tmdb",
         "enabled": true,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "series"
-      },
-      {
-        "id": "tvdb.trending",
-        "name": "TVDB Trending",
-        "type": "movie",
-        "source": "tvdb",
-        "enabled": false,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "movie"
-      },
-      {
-        "id": "tvdb.trending",
-        "name": "TVDB Trending",
-        "type": "series",
-        "source": "tvdb",
-        "enabled": false,
         "showInHome": false,
         "sort": "default",
         "order": "asc",
@@ -308,10 +264,7 @@
         "type": "movie",
         "source": "tvdb",
         "enabled": true,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "movie"
+        "showInHome": false
       },
       {
         "id": "mdblist.88309",
@@ -358,342 +311,6 @@
           "likes": null,
           "updated": "2026-01-05T00:18:25Z"
         }
-      },
-      {
-        "id": "mal.airing",
-        "name": "MAL Airing Now",
-        "type": "anime",
-        "source": "mal",
-        "enabled": true,
-        "showInHome": true,
-        "sort": "default",
-        "order": "asc"
-      },
-      {
-        "id": "anilist.trending",
-        "name": "AniList Trending",
-        "type": "anime",
-        "enabled": true,
-        "showInHome": true,
-        "source": "anilist",
-        "sort": "MEDIA_POPULARITY",
-        "sortDirection": "desc",
-        "cacheTTL": 43200
-      },
-      {
-        "id": "custom.org_stremio_animecatalogs.anime.anidb_latest_ended",
-        "type": "anime",
-        "name": "AniDB Latest Ended",
-        "enabled": true,
-        "showInHome": true,
-        "source": "custom",
-        "sourceUrl": "https://1fe84bc728af-stremio-anime-catalogs.baby-beamup.club/%7B%22anidb_popular%22%3A%22on%22%2C%22anidb_latest-started%22%3A%22on%22%2C%22anidb_latest-ended%22%3A%22on%22%2C%22anilist_trending-now%22%3A%22on%22%7D/catalog/anime/anidb_latest-ended.json",
-        "genres": [],
-        "cacheTTL": 43200,
-        "manifestData": {
-          "id": "anidb_latest-ended",
-          "type": "anime",
-          "name": "Latest Ended AniDB",
-          "extra": [
-            {
-              "name": "genre",
-              "options": [
-                "Action",
-                "Adventure",
-                "Comedy",
-                "Drama",
-                "Sci-Fi",
-                "Space",
-                "Mystery",
-                "Magic",
-                "Supernatural",
-                "Police",
-                "Fantasy",
-                "Sports",
-                "Romance",
-                "Cars",
-                "Slice of Life",
-                "Racing",
-                "Horror",
-                "Psychological",
-                "Thriller",
-                "Martial Arts",
-                "Super Power",
-                "School",
-                "Ecchi",
-                "Vampire",
-                "Historical",
-                "Military",
-                "Dementia",
-                "Mecha",
-                "Demons",
-                "Samurai",
-                "Harem",
-                "Music",
-                "Parody",
-                "Shoujo Ai",
-                "Game",
-                "Shounen Ai",
-                "Kids",
-                "Hentai",
-                "Yuri",
-                "Yaoi",
-                "Anime Influenced",
-                "Gender Bender",
-                "Doujinshi",
-                "Mahou Shoujo",
-                "Mahou Shounen",
-                "Gore",
-                "Law",
-                "Cooking",
-                "Mature",
-                "Medical",
-                "Political",
-                "Tokusatsu",
-                "Youth",
-                "Workplace",
-                "Crime",
-                "Zombies",
-                "Documentary",
-                "Family",
-                "Food",
-                "Friendship",
-                "Tragedy"
-              ]
-            },
-            {
-              "name": "skip"
-            }
-          ],
-          "idPrefixes": [
-            "kitsu:"
-          ]
-        },
-        "displayType": "anime"
-      },
-      {
-        "id": "mal.upcoming",
-        "name": "MAL Upcoming Season",
-        "type": "anime",
-        "source": "mal",
-        "enabled": false,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc"
-      },
-      {
-        "id": "mal.schedule",
-        "name": "MAL Airing Schedule",
-        "type": "anime",
-        "source": "mal",
-        "enabled": false,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc"
-      },
-      {
-        "id": "mal.seasons",
-        "name": "MAL Seasons",
-        "type": "anime",
-        "source": "mal",
-        "enabled": false,
-        "showInHome": false
-      },
-      {
-        "id": "mal.most_favorites",
-        "name": "MAL Most Favorited",
-        "type": "anime",
-        "source": "mal",
-        "enabled": false,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "anime"
-      },
-      {
-        "id": "mal.most_popular",
-        "name": "MAL Most Popular",
-        "type": "anime",
-        "source": "mal",
-        "enabled": false,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc"
-      },
-      {
-        "id": "mal.top_series",
-        "name": "MAL Top Series",
-        "type": "anime",
-        "source": "mal",
-        "enabled": true,
-        "showInHome": true,
-        "sort": "default",
-        "order": "asc",
-        "randomizePerPage": true
-      },
-      {
-        "id": "mal.top_movies",
-        "name": "MAL Top Movies",
-        "type": "anime",
-        "source": "mal",
-        "enabled": true,
-        "showInHome": true,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "anime",
-        "randomizePerPage": true
-      },
-      {
-        "id": "mal.top_anime",
-        "name": "MAL Top All Time",
-        "type": "anime",
-        "source": "mal",
-        "enabled": true,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "anime"
-      },
-      {
-        "id": "mal.20sDecade",
-        "name": "MAL Top 2020s",
-        "type": "anime",
-        "source": "mal",
-        "enabled": true,
-        "showInHome": true,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "anime"
-      },
-      {
-        "id": "mal.10sDecade",
-        "name": "MAL Top 2010s",
-        "type": "anime",
-        "source": "mal",
-        "enabled": true,
-        "showInHome": true,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "anime"
-      },
-      {
-        "id": "mal.00sDecade",
-        "name": "MAL Top 2000s",
-        "type": "anime",
-        "source": "mal",
-        "enabled": true,
-        "showInHome": true,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "anime"
-      },
-      {
-        "id": "mal.90sDecade",
-        "name": "MAL Top 1990s",
-        "type": "anime",
-        "source": "mal",
-        "enabled": true,
-        "showInHome": true,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "anime"
-      },
-      {
-        "id": "mal.80sDecade",
-        "name": "MAL Top 1980s",
-        "type": "anime",
-        "source": "mal",
-        "enabled": true,
-        "showInHome": true,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "anime"
-      },
-      {
-        "id": "mal.genres",
-        "name": "MAL Genres",
-        "type": "anime",
-        "source": "mal",
-        "enabled": true,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc"
-      },
-      {
-        "id": "mal.studios",
-        "name": "MAL By Studio",
-        "type": "anime",
-        "source": "mal",
-        "enabled": false,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc"
-      },
-      {
-        "id": "tmdb.favorites",
-        "name": "TMDB Favorites (Movies)",
-        "type": "movie",
-        "source": "tmdb",
-        "enabled": false,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "movie"
-      },
-      {
-        "id": "tmdb.favorites",
-        "name": "TMDB Favorites (Series)",
-        "type": "series",
-        "source": "tmdb",
-        "enabled": false,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "series"
-      },
-      {
-        "id": "tmdb.watchlist",
-        "name": "TMDB Watchlist (Movies)",
-        "type": "movie",
-        "source": "tmdb",
-        "enabled": false,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "movie"
-      },
-      {
-        "id": "tmdb.watchlist",
-        "name": "TMDB Watchlist (Series)",
-        "type": "series",
-        "source": "tmdb",
-        "enabled": false,
-        "showInHome": false,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "series"
-      },
-      {
-        "id": "streaming.cru",
-        "name": "Crunchyroll Latest",
-        "type": "series",
-        "source": "streaming",
-        "enabled": true,
-        "showInHome": true,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "series"
-      },
-      {
-        "id": "streaming.cru",
-        "name": "Crunchyroll Latest",
-        "type": "movie",
-        "source": "streaming",
-        "enabled": true,
-        "showInHome": true,
-        "sort": "default",
-        "order": "asc",
-        "displayType": "movie"
       },
       {
         "id": "mdblist.86751",
@@ -807,7 +424,7 @@
           "description": "",
           "itemCount": 186,
           "likes": null,
-          "updated": "2026-01-05T05:19:20Z"
+          "updated": "2026-01-04T16:53:18Z"
         }
       },
       {
@@ -1476,7 +1093,7 @@
           "description": "",
           "itemCount": 200,
           "likes": null,
-          "updated": "2026-01-05T04:55:36Z"
+          "updated": "2026-01-04T16:07:11Z"
         }
       },
       {
@@ -1548,7 +1165,7 @@
           "description": "",
           "itemCount": 200,
           "likes": null,
-          "updated": "2026-01-05T05:03:14Z"
+          "updated": "2026-01-04T16:49:28Z"
         }
       },
       {
@@ -1579,14 +1196,15 @@
         "id": "mdblist.92337",
         "type": "movie",
         "name": "Top 2025",
-        "enabled": false,
-        "showInHome": false,
+        "enabled": true,
+        "showInHome": true,
         "source": "mdblist",
         "sort": "random",
         "order": "asc",
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
+        "randomizePerPage": true,
         "mdblist_url": "https://mdblist.com/lists/snoak/2025-popular-movies",
         "metadata": {
           "author": "snoak",
@@ -1602,14 +1220,15 @@
         "id": "mdblist.91304",
         "type": "movie",
         "name": "Top 2020s",
-        "enabled": false,
-        "showInHome": false,
+        "enabled": true,
+        "showInHome": true,
         "source": "mdblist",
         "sort": "random",
         "order": "asc",
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
+        "randomizePerPage": true,
         "mdblist_url": "https://mdblist.com/lists/snoak/top-2020s-movies",
         "metadata": {
           "author": "snoak",
@@ -1625,14 +1244,15 @@
         "id": "mdblist.91303",
         "type": "movie",
         "name": "Top 2010s",
-        "enabled": false,
-        "showInHome": false,
+        "enabled": true,
+        "showInHome": true,
         "source": "mdblist",
         "sort": "random",
         "order": "asc",
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
+        "randomizePerPage": true,
         "mdblist_url": "https://mdblist.com/lists/snoak/top-2010s-movies",
         "metadata": {
           "author": "snoak",
@@ -1648,14 +1268,15 @@
         "id": "mdblist.91302",
         "type": "movie",
         "name": "Top 2000s",
-        "enabled": false,
-        "showInHome": false,
+        "enabled": true,
+        "showInHome": true,
         "source": "mdblist",
         "sort": "random",
         "order": "asc",
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
+        "randomizePerPage": true,
         "mdblist_url": "https://mdblist.com/lists/snoak/top-2000s-movies",
         "metadata": {
           "author": "snoak",
@@ -1671,14 +1292,15 @@
         "id": "mdblist.91300",
         "type": "movie",
         "name": "Top 1990s",
-        "enabled": false,
-        "showInHome": false,
+        "enabled": true,
+        "showInHome": true,
         "source": "mdblist",
         "sort": "random",
         "order": "asc",
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
+        "randomizePerPage": true,
         "mdblist_url": "https://mdblist.com/lists/snoak/top-1990s-movies",
         "metadata": {
           "author": "snoak",
@@ -1694,14 +1316,15 @@
         "id": "mdblist.91301",
         "type": "movie",
         "name": "Top 1980s",
-        "enabled": false,
-        "showInHome": false,
+        "enabled": true,
+        "showInHome": true,
         "source": "mdblist",
         "sort": "random",
         "order": "asc",
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
+        "randomizePerPage": true,
         "mdblist_url": "https://mdblist.com/lists/snoak/top-1980s-movies",
         "metadata": {
           "author": "snoak",
@@ -1712,38 +1335,6 @@
           "likes": null,
           "updated": "2026-01-04T12:09:01Z"
         }
-      },
-      {
-        "id": "tmdb.top_rated",
-        "name": "TMDB Top Rated",
-        "type": "movie",
-        "source": "tmdb",
-        "enabled": false,
-        "showInHome": false
-      },
-      {
-        "id": "tmdb.top_rated",
-        "name": "TMDB Top Rated",
-        "type": "series",
-        "source": "tmdb",
-        "enabled": false,
-        "showInHome": false
-      },
-      {
-        "id": "tmdb.airing_today",
-        "name": "TMDB Airing Today",
-        "type": "series",
-        "source": "tmdb",
-        "enabled": false,
-        "showInHome": false
-      },
-      {
-        "id": "tvmaze.schedule",
-        "name": "TVmaze Daily Schedule",
-        "type": "series",
-        "source": "tvmaze",
-        "enabled": false,
-        "showInHome": false
       }
     ],
     "search": {
@@ -1752,33 +1343,36 @@
       "providers": {
         "movie": "tmdb.search",
         "series": "tvdb.search",
-        "anime_movie": "kitsu.search.movie",
-        "anime_series": "kitsu.search.series"
+        "anime_movie": "mal.search.movie",
+        "anime_series": "mal.search.series"
       },
       "engineEnabled": {
         "tmdb.search": true,
         "tvdb.search": true,
         "tvdb.collections.search": true,
         "tvmaze.search": true,
-        "mal.search.movie": true,
-        "mal.search.series": true
+        "mal.search.movie": false,
+        "mal.search.series": false
+      },
+      "providerNames": {
+        "gemini.search": "Smart Search"
       }
     },
     "streaming": [
       "cru"
     ],
-    "lastModified": 1770023189199,
-    "configVersion": 1770023189200,
+    "lastModified": 1770022950475,
+    "configVersion": 1770022950476,
     "displayTypeOverrides": {
       "movie": "movie",
       "series": "series"
     },
     "mdblistWatchTracking": true,
-    "showDisabledCatalogs": false
+    "hideUnreleasedDigitalSearch": false
   },
   "metadata": {
     "apiKeysExcluded": true,
-    "totalCatalogs": 92,
-    "enabledCatalogs": 68
+    "totalCatalogs": 60,
+    "enabledCatalogs": 60
   }
 }
