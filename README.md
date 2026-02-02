@@ -21,6 +21,18 @@ Lastly, please do note my AIOStreams template *does not* include any catalogs. T
 
 ---
 ## ✨ Release Notes
+December, 24,  2025
+What's new in template v1.3.0!
+- Addons tuned: Default fetching, 7500 ms timeout.,
+- Filters refined: AI tag excluded, SeaDex integrated.,
+- Formatter upgraded: Best/Alt release tags, NZB health checks, cleaner layout.,
+- SEL improved: New Optional SELs for NZB/DV/Travel filters, easier customization.,
+- Sorting updated: SeaDex now top priority.
+
+<details>
+  <summary>v1.3.0</summary>
+  <p></p>
+	
 December 24, 2025: v1.3.0
 
 __Addons__
@@ -121,7 +133,7 @@ __SEL__
             '576p','480p','360p','240p','144p','Unknown')),
             resolution(streams,'576p','480p','360p','240p','144p','Unknown')):[]
             )
-</details>
+
   
 - Preferred Stream Expression
   - `cached(service(streams, 'torbox'), type(streams, 'debrid'), message(type(streams,'usenet', 'stremio-usenet'),'includes','✅', '🧝'))`
@@ -140,6 +152,8 @@ __Sorting__
 - Changes: SeaDex now in #1 spot in both Cached & Uncached Sort Order
 
 See Release Notes v1.2.0 for everything else that wasn't changed.
+
+</details>
 
 <details>
   <summary>v1.2.0</summary>
@@ -289,10 +303,9 @@ https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/
   > Remember to personalize your imported config by going to `Filters` -> `Language`. Select your main language as the top spot in Preferred Languages, then sort/rank the rest according to your preference. I suggest keeping Dubbed, Dual Audio, Multi, Unknown in the list as they may contain streams of your preferred languages.
 > To further enhance your sorting and filtering, I highly recommend importing Vidhin's regex which tags streams based on the quality of the release group.
 
-> How to Import Vidhin's regex: Filters → Regex → Preferred Regex Patterns → Import from url icon
-> ```https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/merged-anime-regexes.json```
+> How to Import Vidhin's regex template: About -> Template Wizard -> Import Template. Paste the template URL: ```https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/merged-anime-regexes-template.json```. Click go, and then load the template.
 > 
-> This regex labels all streams with tier rankings based on reputation/quality of release groups per TRaSH Guides. You will need to reimport the regex occassionally whenever Vidhin pushes an update to the regex because many AIOStreams instances will only allow the use of his latest update regex.
+> This regex labels all streams with tier rankings based on reputation/quality of release groups per TRaSH Guides. You will need to reimport the regex template occassionally whenever Vidhin pushes an update to the regex because many AIOStreams instances will only allow the use of his latest update regex.
 
 ### 🧩 Manual Setup of Template v1.1.0 (Outdated )
 
