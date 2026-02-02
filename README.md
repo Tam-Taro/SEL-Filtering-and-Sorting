@@ -437,7 +437,7 @@ These go into Excluded *after* all my Excluded SELs:
     - ```text
       /*Global Result Limit: 6*/slice(negate(merge(library(streams), cached(seadex(streams))), streams), 6)
 These go into Included Stream Expressions:
-  - __Language Passthrough__: If you want want some amount of your results in another language to always show up, skipping all filters, then this is the SEL for you. Change `yourLanguage` to whatever your language you want to see 5 streams of, these streams will bypass title matching & our excluded SELs. Make multiple of these SELs for another language passthrough if desired. Can adjust the number from 5 to whatever you want. If you still don't see your language in results, it's most likely because your addons didn't return any.
+  - __Language Passthrough__: If you want some amount of your results in another language to always show up, skipping mostly all filters, then this is the SEL for you. Change `yourLanguage` to whatever your language you want to see 5 streams of, these streams will bypass title matching & our excluded SELs. Make multiple of these SELs for other language passthroughs if desired. Can adjust the number from 5 to whatever you want. If you still don't see your language in results, it's most likely because your addons didn't return any.
     - ```text
       /*yourLanguage*/ passthrough(slice(language(cached(streams), 'yourLanguage'), 0, 5), 'title', 'excluded')
 ### 🧩 Manual Setup of Template v1.1.0 (Outdated )
