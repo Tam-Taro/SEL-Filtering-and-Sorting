@@ -537,8 +537,8 @@ These are setup configs to use with AIOMetadata. It is a powerful tool for all t
 
 | Complete config | Description | Download |
 | :-- | :-- | :-- |
-| **With Anime Catalogs** | Complete configuration with anime metadata preset, TV, movies, and anime catalogs. Huge props to Cedya, Snoak \& Mr Professor for their awesome lists! | [Direct Link](https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOMetadata%20Configs/AIOMetadata-config-with-anime.json) [Mobile Link](https://www.dropbox.com/scl/fi/7mfhmz9ptddrqtfqegqeu/Tamtaro-aiometadata-config-with-anime.json?rlkey=3jdolg2pjyxf1ju5axg5vnoiu&st=gzvkid51&dl=1)|
-| **Without Anime Catalogs** | Complete configuration for TV and movies catalogs. No anime. | [Direct Link](https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOMetadata%20Configs/AIOMetadata-config-without-anime.json) [Mobile Link](https://www.dropbox.com/scl/fi/cl6b1z4nof1150aagpoa8/Tamtaro-aiometadata-config-without-anime.json?rlkey=d95gxqr85tna3ujqa933zzhj7&st=wsekixtd&dl=1)|
+| **With Anime Catalogs** | Complete configuration with anime metadata preset, TV, movies, and anime catalogs. Huge props to Cedya, Snoak \& Mr Professor for their awesome lists! | [Direct Link](https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOMetadata%20Configs/Tamtaro-aiometadata-config-with-anime.json) [Mobile Link](https://www.dropbox.com/scl/fi/7mfhmz9ptddrqtfqegqeu/Tamtaro-aiometadata-config-with-anime.json?rlkey=3jdolg2pjyxf1ju5axg5vnoiu&st=gzvkid51&dl=1)|
+| **Without Anime Catalogs** | Complete configuration for TV and movies catalogs. No anime. | [Direct Link](https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOMetadata%20Configs/Tamtaro-aiometadata-config-without-anime.json) [Mobile Link](https://www.dropbox.com/scl/fi/cl6b1z4nof1150aagpoa8/Tamtaro-aiometadata-config-without-anime.json?rlkey=d95gxqr85tna3ujqa933zzhj7&st=wsekixtd&dl=1)|
 
 ## ✨ Release Notes
 
@@ -547,6 +547,7 @@ These are setup configs to use with AIOMetadata. It is a powerful tool for all t
 <p></p>
 
 </details>
+
 <details>
 <summary>December 7, 2025 (v1.2.1):</summary> 
 <p></p>
