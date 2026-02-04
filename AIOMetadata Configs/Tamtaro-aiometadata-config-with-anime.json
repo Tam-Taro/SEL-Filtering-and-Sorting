@@ -75,7 +75,11 @@
         "metadata": {
           "itemCount": 272,
           "author": "tamtaro",
-          "url": "https://mdblist.com/lists/tamtaro/seasonal"
+          "url": "https://mdblist.com/lists/tamtaro/seasonal",
+          "slug": "seasonal",
+          "name": "Seasonal",
+          "description": null,
+          "updated": "2026-02-02T12:19:54.445833Z"
         }
       },
       {
@@ -90,15 +94,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/snoak/trakt-s-trending-shows",
         "metadata": {
           "author": "snoak",
           "slug": "trakt-s-trending-shows",
           "name": "Trending Shows",
-          "description": "",
           "itemCount": 250,
-          "likes": null,
-          "updated": "2026-01-04T12:07:35Z"
+          "updated": "2026-02-04T00:20:46Z",
+          "url": "https://mdblist.com/lists/snoak/trakt-s-trending-shows"
         }
       },
       {
@@ -113,15 +115,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/trending-movies",
         "metadata": {
           "author": "snoak",
           "slug": "trending-movies",
           "name": "Trending Movies",
-          "description": "",
           "itemCount": 250,
-          "likes": null,
-          "updated": "2026-01-04T12:07:31Z"
+          "updated": "2026-02-04T00:20:45Z",
+          "url": "https://mdblist.com/lists/snoak/trending-movies"
         }
       },
       {
@@ -136,15 +136,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/snoak/latest-tv-shows",
         "metadata": {
           "author": "snoak",
           "slug": "latest-tv-shows",
           "name": "Latest Shows",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-04T12:07:46Z"
+          "updated": "2026-02-04T01:04:50Z",
+          "url": "https://mdblist.com/lists/snoak/latest-tv-shows"
         }
       },
       {
@@ -159,15 +157,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/latest-movies-digital-release",
         "metadata": {
           "author": "snoak",
           "slug": "latest-movies-digital-release",
           "name": "Latest Movies (Digital Release)",
-          "description": "",
           "itemCount": 500,
-          "likes": null,
-          "updated": "2026-01-04T12:07:52Z"
+          "updated": "2026-02-04T02:02:56Z",
+          "url": "https://mdblist.com/lists/snoak/latest-movies-digital-release"
         }
       },
       {
@@ -325,15 +321,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/tvgeniekodi/trending-kids-tv-shows",
         "metadata": {
           "author": "tvgeniekodi",
           "slug": "trending-kids-tv-shows",
           "name": "Trending Kids Shows",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-04T21:26:32Z"
+          "updated": "2026-02-03T20:52:39Z",
+          "url": "https://mdblist.com/lists/tvgeniekodi/trending-kids-tv-shows"
         }
       },
       {
@@ -348,15 +342,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/tvgeniekodi/trending-kids-movies",
         "metadata": {
           "author": "tvgeniekodi",
           "slug": "trending-kids-movies",
           "name": "Trending Kids Movies",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-05T00:18:25Z"
+          "updated": "2026-02-03T22:19:13Z",
+          "url": "https://mdblist.com/lists/tvgeniekodi/trending-kids-movies"
         }
       },
       {
@@ -707,15 +699,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/snoak/latest-netflix-tv-shows",
         "metadata": {
           "author": "snoak",
           "slug": "latest-netflix-tv-shows",
           "name": "Latest Netflix Shows",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-04T12:07:47Z"
+          "updated": "2026-02-04T01:07:14Z",
+          "url": "https://mdblist.com/lists/snoak/latest-netflix-tv-shows"
         }
       },
       {
@@ -730,15 +720,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/tvgeniekodi/netflix-movies",
         "metadata": {
           "author": "tvgeniekodi",
           "slug": "netflix-movies",
           "name": "Netflix Movies",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-05T03:24:41Z"
+          "updated": "2026-02-03T23:26:24Z",
+          "url": "https://mdblist.com/lists/tvgeniekodi/netflix-movies"
         }
       },
       {
@@ -753,15 +741,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/snoak/latest-amazon-prime-tv-shows",
         "metadata": {
           "author": "snoak",
           "slug": "latest-amazon-prime-tv-shows",
           "name": "Latest Amazon Prime Shows",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-04T12:07:52Z"
+          "updated": "2026-02-04T00:51:18Z",
+          "url": "https://mdblist.com/lists/snoak/latest-amazon-prime-tv-shows"
         }
       },
       {
@@ -776,15 +762,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/latest-amazon-prime-movies",
         "metadata": {
           "author": "snoak",
           "slug": "latest-amazon-prime-movies",
           "name": "Latest Amazon Prime Movies",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-04T12:08:03Z"
+          "updated": "2026-02-04T01:44:09Z",
+          "url": "https://mdblist.com/lists/snoak/latest-amazon-prime-movies"
         }
       },
       {
@@ -799,15 +783,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/tvgeniekodi/apple-tv-shows",
         "metadata": {
           "author": "tvgeniekodi",
           "slug": "apple-tv-shows",
           "name": "Apple+ Shows",
-          "description": "",
-          "itemCount": 186,
-          "likes": null,
-          "updated": "2026-01-05T05:19:20Z"
+          "itemCount": 188,
+          "updated": "2026-02-03T23:54:48Z",
+          "url": "https://mdblist.com/lists/tvgeniekodi/apple-tv-shows"
         }
       },
       {
@@ -822,15 +804,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/tvgeniekodi/apple-movies",
         "metadata": {
           "author": "tvgeniekodi",
           "slug": "apple-movies",
           "name": "Apple+ Movies",
-          "description": "",
           "itemCount": 105,
-          "likes": null,
-          "updated": "2026-01-04T22:03:06Z"
+          "updated": "2026-02-03T16:43:40Z",
+          "url": "https://mdblist.com/lists/tvgeniekodi/apple-movies"
         }
       },
       {
@@ -845,15 +825,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/snoak/latest-disney-plus-tv-shows",
         "metadata": {
           "author": "snoak",
           "slug": "latest-disney-plus-tv-shows",
           "name": "Latest Disney+ Shows",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-04T12:07:58Z"
+          "updated": "2026-02-04T00:36:39Z",
+          "url": "https://mdblist.com/lists/snoak/latest-disney-plus-tv-shows"
         }
       },
       {
@@ -868,15 +846,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/latest-disney-plus-movies",
         "metadata": {
           "author": "snoak",
           "slug": "latest-disney-plus-movies",
           "name": "Latest Disney+ Movies",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-04T12:08:08Z"
+          "updated": "2026-02-04T00:47:41Z",
+          "url": "https://mdblist.com/lists/snoak/latest-disney-plus-movies"
         }
       },
       {
@@ -891,15 +867,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/snoak/latest-paramount-plus-tv-shows",
         "metadata": {
           "author": "snoak",
           "slug": "latest-paramount-plus-tv-shows",
           "name": "Latest Paramount+ Shows",
-          "description": "",
-          "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-04T12:08:03Z"
+          "itemCount": 195,
+          "updated": "2026-02-04T00:24:56Z",
+          "url": "https://mdblist.com/lists/snoak/latest-paramount-plus-tv-shows"
         }
       },
       {
@@ -914,15 +888,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/latest-paramount-plus-movies",
         "metadata": {
           "author": "snoak",
           "slug": "latest-paramount-plus-movies",
           "name": "Latest Paramount+ Movies",
-          "description": "",
-          "itemCount": 193,
-          "likes": null,
-          "updated": "2026-01-04T12:08:07Z"
+          "itemCount": 124,
+          "updated": "2026-02-04T00:58:35Z",
+          "url": "https://mdblist.com/lists/snoak/latest-paramount-plus-movies"
         }
       },
       {
@@ -937,15 +909,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/snoak/latest-max-tv-shows",
         "metadata": {
           "author": "snoak",
           "slug": "latest-max-tv-shows",
           "name": "Latest HBO Max Shows",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-04T12:08:05Z"
+          "updated": "2026-02-04T01:23:22Z",
+          "url": "https://mdblist.com/lists/snoak/latest-max-tv-shows"
         }
       },
       {
@@ -960,15 +930,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/latest-max-movies",
         "metadata": {
           "author": "snoak",
           "slug": "latest-max-movies",
           "name": "Latest HBO Max Movies",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-04T12:08:09Z"
+          "updated": "2026-02-04T01:26:41Z",
+          "url": "https://mdblist.com/lists/snoak/latest-max-movies"
         }
       },
       {
@@ -983,15 +951,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/tvgeniekodi/hulu-tv-shows",
         "metadata": {
           "author": "tvgeniekodi",
           "slug": "hulu-tv-shows",
           "name": "Hulu Shows",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-04T18:09:27Z"
+          "updated": "2026-02-03T21:40:40Z",
+          "url": "https://mdblist.com/lists/tvgeniekodi/hulu-tv-shows"
         }
       },
       {
@@ -1006,15 +972,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/tvgeniekodi/hulu-movies",
         "metadata": {
           "author": "tvgeniekodi",
           "slug": "hulu-movies",
           "name": "Hulu Movies",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-04T18:20:08Z"
+          "updated": "2026-02-03T23:12:33Z",
+          "url": "https://mdblist.com/lists/tvgeniekodi/hulu-movies"
         }
       },
       {
@@ -1029,15 +993,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/snoak/action-shows",
         "metadata": {
           "author": "snoak",
           "slug": "action-shows",
           "name": "Popular Action Shows",
-          "description": "",
           "itemCount": 500,
-          "likes": null,
-          "updated": "2026-01-04T12:08:25Z"
+          "updated": "2026-02-04T01:15:30Z",
+          "url": "https://mdblist.com/lists/snoak/action-shows"
         }
       },
       {
@@ -1052,15 +1014,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/action-movies",
         "metadata": {
           "author": "snoak",
           "slug": "action-movies",
           "name": "Popular Action Movies",
-          "description": "",
           "itemCount": 500,
-          "likes": null,
-          "updated": "2026-01-04T12:08:27Z"
+          "updated": "2026-02-04T00:19:09Z",
+          "url": "https://mdblist.com/lists/snoak/action-movies"
         }
       },
       {
@@ -1075,15 +1035,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/snoak/popular-animated-shows",
         "metadata": {
           "author": "snoak",
           "slug": "popular-animated-shows",
           "name": "Popular Animated Shows",
-          "description": "",
           "itemCount": 500,
-          "likes": null,
-          "updated": "2026-01-04T12:08:30Z"
+          "updated": "2026-02-04T00:22:46Z",
+          "url": "https://mdblist.com/lists/snoak/popular-animated-shows"
         }
       },
       {
@@ -1098,15 +1056,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/popular-animated-movies",
         "metadata": {
           "author": "snoak",
           "slug": "popular-animated-movies",
           "name": "Popular Animated Movies",
-          "description": "",
           "itemCount": 500,
-          "likes": null,
-          "updated": "2026-01-04T12:08:33Z"
+          "updated": "2026-02-04T00:25:00Z",
+          "url": "https://mdblist.com/lists/snoak/popular-animated-movies"
         }
       },
       {
@@ -1121,15 +1077,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/snoak/comedy-shows",
         "metadata": {
           "author": "snoak",
           "slug": "comedy-shows",
           "name": "Popular Comedy Shows",
-          "description": "",
           "itemCount": 500,
-          "likes": null,
-          "updated": "2026-01-04T12:08:42Z"
+          "updated": "2026-02-04T00:09:39Z",
+          "url": "https://mdblist.com/lists/snoak/comedy-shows"
         }
       },
       {
@@ -1144,15 +1098,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/comedy-movies",
         "metadata": {
           "author": "snoak",
           "slug": "comedy-movies",
           "name": "Popular Comedy Movies",
-          "description": "",
           "itemCount": 500,
-          "likes": null,
-          "updated": "2026-01-04T12:08:46Z"
+          "updated": "2026-02-04T01:21:15Z",
+          "url": "https://mdblist.com/lists/snoak/comedy-movies"
         }
       },
       {
@@ -1167,15 +1119,14 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/garycrawfordgc/crime-shows",
         "metadata": {
           "author": "garycrawfordgc",
           "slug": "crime-shows",
           "name": "Crime Shows",
-          "description": "",
           "itemCount": 500,
           "likes": 61,
-          "updated": "2026-01-05T03:00:19Z"
+          "updated": "2026-02-03T11:34:12Z",
+          "url": "https://mdblist.com/lists/garycrawfordgc/crime-shows"
         }
       },
       {
@@ -1190,15 +1141,14 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/garycrawfordgc/crime",
         "metadata": {
           "author": "garycrawfordgc",
           "slug": "crime",
           "name": "Crime",
-          "description": "",
           "itemCount": 400,
           "likes": 47,
-          "updated": "2026-01-04T17:50:16Z"
+          "updated": "2026-02-03T23:34:07Z",
+          "url": "https://mdblist.com/lists/garycrawfordgc/crime"
         }
       },
       {
@@ -1213,15 +1163,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/snoak/drama-shows",
         "metadata": {
           "author": "snoak",
           "slug": "drama-shows",
           "name": "Popular Drama Shows",
-          "description": "",
           "itemCount": 500,
-          "likes": null,
-          "updated": "2026-01-04T12:08:45Z"
+          "updated": "2026-02-04T00:38:45Z",
+          "url": "https://mdblist.com/lists/snoak/drama-shows"
         }
       },
       {
@@ -1236,15 +1184,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/drama-movies",
         "metadata": {
           "author": "snoak",
           "slug": "drama-movies",
           "name": "Popular Drama Movies",
-          "description": "",
           "itemCount": 500,
-          "likes": null,
-          "updated": "2026-01-04T12:08:51Z"
+          "updated": "2026-02-04T00:54:58Z",
+          "url": "https://mdblist.com/lists/snoak/drama-movies"
         }
       },
       {
@@ -1259,15 +1205,14 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/adamosborne01/history-war",
         "metadata": {
           "author": "adamosborne01",
           "slug": "history-war",
           "name": "History & War",
-          "description": "",
-          "itemCount": 499,
+          "itemCount": 496,
           "likes": 16,
-          "updated": "2026-01-04T15:02:27Z"
+          "updated": "2026-02-03T15:02:30Z",
+          "url": "https://mdblist.com/lists/adamosborne01/history-war"
         }
       },
       {
@@ -1282,15 +1227,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/snoak/horror-shows",
         "metadata": {
           "author": "snoak",
           "slug": "horror-shows",
           "name": "Popular Horror Shows",
-          "description": "",
-          "itemCount": 500,
-          "likes": null,
-          "updated": "2026-01-04T12:08:54Z"
+          "itemCount": 417,
+          "updated": "2026-02-04T00:56:47Z",
+          "url": "https://mdblist.com/lists/snoak/horror-shows"
         }
       },
       {
@@ -1305,15 +1248,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/horror-movies",
         "metadata": {
           "author": "snoak",
           "slug": "horror-movies",
           "name": "Popular Horror Movies",
-          "description": "",
           "itemCount": 500,
-          "likes": null,
-          "updated": "2026-01-04T12:08:52Z"
+          "updated": "2026-02-04T00:36:43Z",
+          "url": "https://mdblist.com/lists/snoak/horror-movies"
         }
       },
       {
@@ -1328,15 +1269,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/must-see-modern-horror",
         "metadata": {
           "author": "snoak",
           "slug": "must-see-modern-horror",
           "name": "Must-See Modern Horror",
-          "description": "",
-          "itemCount": 180,
-          "likes": null,
-          "updated": "2026-01-04T12:08:48Z"
+          "itemCount": 183,
+          "updated": "2026-02-04T00:47:35Z",
+          "url": "https://mdblist.com/lists/snoak/must-see-modern-horror"
         }
       },
       {
@@ -1351,15 +1290,15 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/hdlists/mindfuck-movies",
         "metadata": {
           "author": "hdlists",
           "slug": "mindfuck-movies",
           "name": "Mindfuck Movies",
           "description": "A Growing Collection of Mindfuck Movies!",
-          "itemCount": 285,
+          "itemCount": 286,
           "likes": 114,
-          "updated": "2026-01-04T23:28:29Z"
+          "updated": "2026-02-04T01:42:11Z",
+          "url": "https://mdblist.com/lists/hdlists/mindfuck-movies"
         }
       },
       {
@@ -1374,15 +1313,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/snoak/science-fiction-shows",
         "metadata": {
           "author": "snoak",
           "slug": "science-fiction-shows",
           "name": "Popular Sci-Fi Shows",
-          "description": "",
           "itemCount": 500,
-          "likes": null,
-          "updated": "2026-01-04T12:02:16Z"
+          "updated": "2026-02-04T00:25:02Z",
+          "url": "https://mdblist.com/lists/snoak/science-fiction-shows"
         }
       },
       {
@@ -1397,15 +1334,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/science-fiction-movies",
         "metadata": {
           "author": "snoak",
           "slug": "science-fiction-movies",
           "name": "Popular Sci-Fi Movies",
-          "description": "",
           "itemCount": 500,
-          "likes": null,
-          "updated": "2026-01-04T12:08:56Z"
+          "updated": "2026-02-04T00:56:49Z",
+          "url": "https://mdblist.com/lists/snoak/science-fiction-movies"
         },
         "enableRatingPosters": true
       },
@@ -1421,15 +1356,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "series",
-        "mdblist_url": "https://mdblist.com/lists/snoak/thriller-shows",
         "metadata": {
           "author": "snoak",
           "slug": "thriller-shows",
           "name": "Popular Thriller Shows",
-          "description": "",
           "itemCount": 500,
-          "likes": null,
-          "updated": "2026-01-04T12:08:59Z"
+          "updated": "2026-02-04T01:55:34Z",
+          "url": "https://mdblist.com/lists/snoak/thriller-shows"
         }
       },
       {
@@ -1444,15 +1377,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/thriller-movies",
         "metadata": {
           "author": "snoak",
           "slug": "thriller-movies",
           "name": "Popular Thriller Movies",
-          "description": "",
           "itemCount": 500,
-          "likes": null,
-          "updated": "2026-01-04T12:08:58Z"
+          "updated": "2026-02-04T01:07:20Z",
+          "url": "https://mdblist.com/lists/snoak/thriller-movies"
         }
       },
       {
@@ -1468,15 +1399,13 @@
         "genreSelection": "standard",
         "displayType": "movie",
         "randomizePerPage": true,
-        "mdblist_url": "https://mdblist.com/lists/tvgeniekodi/top-documentary-movies",
         "metadata": {
           "author": "tvgeniekodi",
           "slug": "top-documentary-movies",
           "name": "Top Documentaries (Movies)",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-05T04:55:36Z"
+          "updated": "2026-02-03T22:48:30Z",
+          "url": "https://mdblist.com/lists/tvgeniekodi/top-documentary-movies"
         }
       },
       {
@@ -1492,15 +1421,13 @@
         "genreSelection": "standard",
         "displayType": "series",
         "randomizePerPage": true,
-        "mdblist_url": "https://mdblist.com/lists/tvgeniekodi/top-documentaries",
         "metadata": {
           "author": "tvgeniekodi",
           "slug": "top-documentaries",
           "name": "Top Documentaries (Shows)",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-04T18:39:40Z"
+          "updated": "2026-02-04T00:18:43Z",
+          "url": "https://mdblist.com/lists/tvgeniekodi/top-documentaries"
         }
       },
       {
@@ -1516,15 +1443,13 @@
         "genreSelection": "standard",
         "displayType": "series",
         "randomizePerPage": true,
-        "mdblist_url": "https://mdblist.com/lists/tvgeniekodi/popular-nature-shows",
         "metadata": {
           "author": "tvgeniekodi",
           "slug": "popular-nature-shows",
           "name": "Top Nature Shows",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-05T02:23:00Z"
+          "updated": "2026-02-03T23:34:44Z",
+          "url": "https://mdblist.com/lists/tvgeniekodi/popular-nature-shows"
         }
       },
       {
@@ -1540,15 +1465,13 @@
         "genreSelection": "standard",
         "displayType": "series",
         "randomizePerPage": true,
-        "mdblist_url": "https://mdblist.com/lists/tvgeniekodi/top-reality-tv",
         "metadata": {
           "author": "tvgeniekodi",
           "slug": "top-reality-tv",
           "name": "Top Reality TV",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-05T05:03:14Z"
+          "updated": "2026-02-03T21:04:27Z",
+          "url": "https://mdblist.com/lists/tvgeniekodi/top-reality-tv"
         }
       },
       {
@@ -1564,15 +1487,13 @@
         "genreSelection": "standard",
         "displayType": "movie",
         "randomizePerPage": true,
-        "mdblist_url": "https://mdblist.com/lists/tvgeniekodi/top-standup-comedy",
         "metadata": {
           "author": "tvgeniekodi",
           "slug": "top-standup-comedy",
           "name": "Top Standup Comedy",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-04T21:26:11Z"
+          "updated": "2026-02-03T13:31:04Z",
+          "url": "https://mdblist.com/lists/tvgeniekodi/top-standup-comedy"
         }
       },
       {
@@ -1587,15 +1508,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/2025-popular-movies",
         "metadata": {
           "author": "snoak",
           "slug": "2025-popular-movies",
           "name": "Popular 2025 Movies",
-          "description": "",
           "itemCount": 200,
-          "likes": null,
-          "updated": "2026-01-04T12:09:06Z"
+          "updated": "2026-02-04T01:47:25Z",
+          "url": "https://mdblist.com/lists/snoak/2025-popular-movies"
         }
       },
       {
@@ -1610,15 +1529,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/top-2020s-movies",
         "metadata": {
           "author": "snoak",
           "slug": "top-2020s-movies",
           "name": "Popular 2020s Movies",
-          "description": "",
-          "itemCount": 178,
-          "likes": null,
-          "updated": "2026-01-04T12:09:06Z"
+          "itemCount": 181,
+          "updated": "2026-02-04T01:00:52Z",
+          "url": "https://mdblist.com/lists/snoak/top-2020s-movies"
         }
       },
       {
@@ -1633,15 +1550,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/top-2010s-movies",
         "metadata": {
           "author": "snoak",
           "slug": "top-2010s-movies",
           "name": "Popular 2010s Movies",
-          "description": "",
-          "itemCount": 365,
-          "likes": null,
-          "updated": "2026-01-04T12:09:07Z"
+          "itemCount": 394,
+          "updated": "2026-02-04T00:36:44Z",
+          "url": "https://mdblist.com/lists/snoak/top-2010s-movies"
         }
       },
       {
@@ -1656,15 +1571,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/top-2000s-movies",
         "metadata": {
           "author": "snoak",
           "slug": "top-2000s-movies",
           "name": "Popular 2000s Movies",
-          "description": "",
-          "itemCount": 436,
-          "likes": null,
-          "updated": "2026-01-04T12:09:04Z"
+          "itemCount": 440,
+          "updated": "2026-02-04T00:42:56Z",
+          "url": "https://mdblist.com/lists/snoak/top-2000s-movies"
         }
       },
       {
@@ -1679,15 +1592,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/top-1990s-movies",
         "metadata": {
           "author": "snoak",
           "slug": "top-1990s-movies",
           "name": "Popular 1990s Movies",
-          "description": "",
-          "itemCount": 312,
-          "likes": null,
-          "updated": "2026-01-04T12:09:02Z"
+          "itemCount": 310,
+          "updated": "2026-02-04T00:58:34Z",
+          "url": "https://mdblist.com/lists/snoak/top-1990s-movies"
         }
       },
       {
@@ -1702,15 +1613,13 @@
         "cacheTTL": 43200,
         "genreSelection": "standard",
         "displayType": "movie",
-        "mdblist_url": "https://mdblist.com/lists/snoak/top-1980s-movies",
         "metadata": {
           "author": "snoak",
           "slug": "top-1980s-movies",
           "name": "Popular 1980s Movies",
-          "description": "",
-          "itemCount": 217,
-          "likes": null,
-          "updated": "2026-01-04T12:09:01Z"
+          "itemCount": 216,
+          "updated": "2026-02-03T23:59:27Z",
+          "url": "https://mdblist.com/lists/snoak/top-1980s-movies"
         }
       },
       {
