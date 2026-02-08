@@ -37,11 +37,61 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
     - Enable Torbox (default disabled) or add any addons as desired.
     - Browse & try [optional SELs](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/edit/main/README.md#-optional-sels).  
     - Import `Extended SEL Only` Template (included in imported url) if you want more results.
-    - Import `Vidhin's Regexes - Advanced` Template ([see thread](https://discord.com/channels/1225024298490662974/1468792330973872148/1468792330973872148)) if you are using an AIOStreams instance that supports it & want more than the included release group regex & scoring.
+    - Adjust Ranked Stream Expressions score as you wish for more nuanced sorting. See ⁠his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more details on customization.
 4. [AIOMetadata for catalogs/meta](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata): Import one of my JSONs (with/without anime) via trusted AIOMetadata instances from [this page](https://status.dinsden.top/status/stremio-addons). 
     - Refer to full AIOMetadata guide at end of page.
 ---
 ## ✨ Release Notes
+
+February 8, 2026: What's new in template v1.5.0!
+
+<details>
+  <summary>v1.5.0</summary>
+  <p></p>
+
+**Addons**
+- Current Addons (no change from 1.4) 
+- Debrid Template: STore, TB Search (optional), SeaDex, STorz, Comet, MediaFusion, Knaben, AnimeTosho, Torrentio.
+- P2P Template: Comet, STorz, MediaFusion, Torrentio, TorrentsDB, Peerflix, Nuvio Anime, Nuvio Streams, WebStreamr.  
+
+**Filters/SELs**
+- Switched out "Bad Regex" SEL with  "Low SEL Score" in ESE, filtering low RSE scores when enough high ones exist.
+- Previous SELs that relied on regexMatched(streams, "Bad") no longer worked, so I rewrote them to use scores instead
+- Once known for my SEL's brevity, I managed to achieve that again by cutting 2k chars off my  SELs
+
+**Ranked Stream Expressions**
+- Imported from [Vidhin's Regexes - Advanced v0.2.2](https://github.com/Vidhin05/Releases-Regex), which also comes with corresponding Ranked Stream Expressions (and scores) for release groups and other attributes, used in sorting. See his GitHub for more details on customization. 
+- The regex portion is the synced url which auto updates daily. When Vidhin releases new updates beyond the version 0.2.2 included in my setup template, you simply import his new template version after you've imported my template first. This will update any RSEs or scoring changes he has made since.
+
+**Sorting**
+- Current Sort Order   
+  - Global: Cached.    
+  - Cached: SeaDex → Library → Resolution → Quality → Stream Expression Matched → **Stream Expression Score** → Language → Encode → Bitrate (new) → Seeders.    
+ - Uncached: Same, with Seeders before Language.  
+- Changes:    
+  - Removed Visual Tag & Audio Tag from sort order  
+  - Switched Bitrate for previous Size
+**Formatter** 
+- Size, folder size and bitrate now uses ::sbytes
+- Normalized RSE score as stars out of 5 
+- Edited last line to include & format rseMatched and score in small caps
+- Removed some old attributes that overlap with rseMatched
+ 
+**Miscellaneous**  
+- New template option "Complete Setup without Formatter"
+- Extended SEL Only Template now keeps slightly more streams than before (slice 6 instead of 5)
+- as before, Standalone SEL Only template has Excluded, Included and Preferred Stream Expressions.  
+- Ranked Stream Expressions are handled by Vidhin's Template
+- More Optional SELs on [Github](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting#-optional-sels) to further customize your filtering.
+
+**AIOMetadata**
+- No change to AIOMetadata since v1.4.0
+
+</details>
+<details>
+  <summary>v1.4.0</summary>
+  <p></p>
+	
 February 4, 2026: What's new in template v1.4.3!
 - G's Low Bitrate ESE now fixed to only trigger if triggering it results in greater than 10 total remaining cached.
 - STorz now switched back to using Torznab endpoint.`"torznabUrl": "https://stremthru.13377001.xyz/v0/torznab",`
@@ -56,10 +106,7 @@ February 2, 2026: What's new in template v1.4.0!
 - Formatter upgraded: Bitrate display, shorter titles, everything tweaked for a cleaner than ever look.
 - Sort Order updated: Stream Expression Score added replacing Regex Patterns from before.
 - Full list of Optional SELs (more to come) are found [here](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting?tab=readme-ov-file#-optional-sels).
-<details>
-  <summary>v1.4.0</summary>
-  <p></p>
-	
+
 **Addons** 
 - Current Addons
   - Debrid Template: STore, TB Search (new, optional), SeaDex (new), STorz, Comet, MediaFusion, Knaben, AnimeTosho, Torrentio.
