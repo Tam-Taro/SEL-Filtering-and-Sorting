@@ -35,7 +35,7 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
 3. Personalize AIOStreams: 
     - Adjust `Preferred Languages` in Filters > Language. 
     - Enable Torbox (default disabled) or add any addons as desired.
-    - Browse & try [optional SELs](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/edit/main/README.md#-optional-sels).  
+    - Browse & try [optional SELs](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-optional-sels).  
     - Import `Extended SEL Only` Template (included in imported url) if you want more results.
     - Adjust Ranked Stream Expressions score as you wish for more nuanced sorting. See ⁠his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more details on customization.
 4. [AIOMetadata for catalogs/meta](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata): Import one of my JSONs (with/without anime) via trusted AIOMetadata instances from [this page](https://status.dinsden.top/status/stremio-addons). 
@@ -164,7 +164,7 @@ February 2, 2026: What's new in template v1.4.0!
 - TVDB API now back to mandatory during template onboarding, as various AIOS requires it for better accuracy.
 - Descriptions updated across templates to reflect v1.4.0, new features.
 - Standalone SEL Only template will now have Excluded, Included and Preferred Stream Expressions.
-- Sharing more Optional SELs on [Github](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/edit/main/README.md#-optional-sels) to further customize your filtering.
+- Sharing more Optional SELs on [Github](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-optional-sels) to further customize your filtering.
 
 See v1.3.1 for unchanged items.
 
@@ -454,7 +454,7 @@ https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/
 > To further enhance your sorting, Vidhin's regex template is now incorporated, which tags and scores streams based on the quality of the release groups and other attributes. Check his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more instructions on further customization, and updates.
 
 > How to Import new updates of Vidhin's regex template: About -> Template Wizard -> Import Template. Paste the template URL:
-> ```https://github.com/Vidhin05/Releases-Regex```. Click go, and then load the template.
+> ```https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/advanced-template.json```. Click go, and then load the template.
 > 
 > This regex labels and scores all streams according to TRaSH Guides. The template from Vidhin has two portions. The regex portion is the synced url which auto updates daily. The second portion is the Ranked Stream Expressions (RSEs) with scores attached. When Vidhin releases new updates beyond the version included in my setup template, you will need to import his new template version after you've imported my template first. This will update any RSEs or scoring changes he has made since.
 
