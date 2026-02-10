@@ -1,9 +1,0 @@
-{
-  "values": [
-    "/* Advanced Stream Type: This is how stream types are prioritized, used in Sort Order via Stream Expressions Matched */ []",
-    "/*Tier 1 Cached*/ cached(merge(library(streams), seadex(streams), type(streams, 'debrid'), type(service(streams, 'torbox'), 'usenet'), message(type(streams,'usenet', 'stremio-usenet'),'includes','✅', '🧝')))",
-    "/*Tier 2 Cached*/ cached(merge(service(streams, 'nzbdav', 'altmount', 'easynews'), type(streams, 'http', 'p2p', 'stremio-usenet')))",
-    "/*Tier 3 Uncached*/ uncached(type(streams, 'usenet'))",
-    "/*Tier 4 Uncached*/ uncached(type(streams, 'debrid'))"
-  ]
-}
