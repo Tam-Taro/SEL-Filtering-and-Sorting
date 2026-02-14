@@ -520,9 +520,10 @@ These go into Included Stream Expressions, order doesn't matter here:
   - __Language Passthrough__: If you want some amount of your results in another language to always show up, skipping mostly all filters, then this is the SEL for you. Change `yourLanguage` to whatever your language you want to see ~ 5 streams of, these streams will bypass title matching & our excluded SELs (`title`, `excluded`).  We're not bypassing a lot of other filters like deduplication so you may see less than 5. This is the full list of passthrough filters you can skip: `filter,dedup, limit, excluded, required, title, year, episode, digitalRelease, language`. Make multiple of these SELs for other language passthroughs if desired. Can adjust the number from 5 to whatever you want. If you still don't see your language in results, it's most likely because your addons didn't return any.
     - ```text
       /*yourLanguage*/ passthrough(slice(language(cached(streams), 'yourLanguage'), 0, 5), 'title', 'excluded')
-  - __Addon Passthrough__: This SEL will passthrough cached results from `yourAddon` so that they skip the Excluded Stream Expression filters (`excluded`). Same as above, adjust the number 5 to 99+ if you want to passthrough all results. Adjust the passthrough filters if you want to skip more stages, see above for full list.
-    - ```text
-      /*yourAddon*/ passthrough(slice(addon(cached(streams), 'yourAddon'), 0, 5), 'excluded')
+  - __Addon Passthrough__: This SEL will passthrough cached results (or uncached usenet) from `yourAddon` so that they skip the Excluded Stream Expression filters (`excluded`). Same as above, adjust the number 5 to 99+ if you want to passthrough all results. Adjust the passthrough filters if you want to skip more stages, see above for full list.
+    - ```cached
+      /*yourAddon*/ passthrough(slice(addon(merge(cached(streams), type(streams, 'usenet')), 'yourAddon'), 0, 5), 'excluded')
+
   - __DV Passthrough__: This will passthrough all DV streams in 4k/1080p, and if there are less than 5 of such present, it will also passthrough DV streams in 720p. Specifically, my exclusion SELs won't work on these DV streams. 
     - ```text
       /*DV Passthrough*/ count(resolution(visualTag(cached(streams), 'DV'), '2160p', '1080p')) > 5 ? passthrough(resolution(visualTag(cached(streams), 'DV'), '2160p', '1080p'), 'excluded') : passthrough(resolution(visualTag(cached(streams), 'DV'), '2160p', '1080p', '720p'), 'excluded')
