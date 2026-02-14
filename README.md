@@ -513,10 +513,16 @@ These go into Excluded *after* all my Excluded SELs:
   - __Global Result Limit__: After all my filtering SELs have ran you get left off with 3 of each category, totalling about 20 streams in all. You can simply cut this number down to any number you want, I will go with 6 to get even amount from 2 categories (eg. 3 x 4k Remux + 3 x 4k Bluray). Library and Seadex results are not counted.
     - ```text
       /*Global Result Limit: 6*/slice(negate(merge(library(streams), cached(seadex(streams))), streams), 6)
+  - __Global Result Limit__: Same as above, to be used by folks with torbox usenet only. This passthroughs 6 non-usenet and 6 usenet results.
+    - ```text
+      ```/*Global Result Limit: 6*/ merge(slice(negate(merge(library(streams),cached(seadex(streams))), (type(streams, 'debrid', 'http', 'p2p'))), 6), slice(negate(merge(library(streams),seadex(streams)), (type(streams, 'usenet'))), 6))
 These go into Included Stream Expressions, order doesn't matter here:
-  - __Language Passthrough__: If you want some amount of your results in another language to always show up, skipping mostly all filters, then this is the SEL for you. Change `yourLanguage` to whatever your language you want to see ~ 5 streams of, these streams will bypass title matching & our excluded SELs. We're not bypassing a lot of other filters like deduplication so you may see less than 5. Make multiple of these SELs for other language passthroughs if desired. Can adjust the number from 5 to whatever you want. If you still don't see your language in results, it's most likely because your addons didn't return any.
+  - __Language Passthrough__: If you want some amount of your results in another language to always show up, skipping mostly all filters, then this is the SEL for you. Change `yourLanguage` to whatever your language you want to see ~ 5 streams of, these streams will bypass title matching & our excluded SELs (`title`, `excluded`).  We're not bypassing a lot of other filters like deduplication so you may see less than 5. This is the full list of passthrough filters you can skip: `filter,dedup, limit, excluded, required, title, year, episode, digitalRelease, language`. Make multiple of these SELs for other language passthroughs if desired. Can adjust the number from 5 to whatever you want. If you still don't see your language in results, it's most likely because your addons didn't return any.
     - ```text
       /*yourLanguage*/ passthrough(slice(language(cached(streams), 'yourLanguage'), 0, 5), 'title', 'excluded')
+  - __Addon Passthrough__: This SEL will passthrough cached results from `yourAddon` so that they skip the Excluded Stream Expression filters (`excluded`). Same as above, adjust the number 5 to 99+ if you want to passthrough all results. Adjust the passthrough filters if you want to skip more stages, see above for full list.
+    - ```text
+      /*yourAddon*/ passthrough(slice(addon(cached(streams), 'yourAddon'), 0, 5), 'excluded')
   - __DV Passthrough__: This will passthrough all DV streams in 4k/1080p, and if there are less than 5 of such present, it will also passthrough DV streams in 720p. Specifically, my exclusion SELs won't work on these DV streams. 
     - ```text
       /*DV Passthrough*/ count(resolution(visualTag(cached(streams), 'DV'), '2160p', '1080p')) > 5 ? passthrough(resolution(visualTag(cached(streams), 'DV'), '2160p', '1080p'), 'excluded') : passthrough(resolution(visualTag(cached(streams), 'DV'), '2160p', '1080p', '720p'), 'excluded')
