@@ -465,7 +465,7 @@ While my SEL setup is a complete setup, it can always be tweaked further for var
 These go into Excluded *before* all my Excluded SELs, in one of the empty placeholders on top:
   - __☑ ɴᴢʙ-Only Filter__: A UsenetStreamer filter for those that only want to see health checked results from UsenetStreamer. The SEL line assumes your UsenetStreamer addon is named US, USN, UsenetStreamer, or Usenet Streamer, so avoid naming any other addon with those names.
 	- ```text
-  	  /*☑ ɴᴢʙ-Only Filter*/ negate(addon(message(streams,'includes','✅','🧝'),'US','UNS','Usenet Streamer','UsenetStreamer'),addon(streams,'US','UNS','Usenet Streamer','UsenetStreamer'))```
+  	  /*☑ ɴᴢʙ-Only Filter*/ negate(addon(message(streams,'includes','✅','🧝'),'US','UNS','Usenet Streamer','UsenetStreamer'),addon(streams,'US','UNS','Usenet Streamer','UsenetStreamer'))
   - __DV-Only Non-Remux Filter__: remove some DV Only streams that give playback issues (purple screen) on some devices. I use this one as my pc doesn't render DV Profile 5 files very well (particularly from Apple TV Web-DLs)
     - ```text
       /*DV Only Non-Remux*/ isAnime?[]:negate(merge(quality(streams,'BluRay REMUX'),releaseGroup(streams, 'Flights'),regexMatched(streams, 'Hulu')),visualTag(streams,'DV Only'))
@@ -515,7 +515,7 @@ These go into Excluded *after* all my Excluded SELs:
       /*Global Result Limit: 6*/slice(negate(merge(library(streams), cached(seadex(streams))), streams), 6)
   - __Global Result Limit__: Same as above, to be used by folks with torbox usenet only. This passthroughs 6 non-usenet and 6 usenet results.
     - ```text
-      ```/*Global Result Limit: 6*/ merge(slice(negate(merge(library(streams),cached(seadex(streams))), (type(streams, 'debrid', 'http', 'p2p'))), 6), slice(negate(merge(library(streams),seadex(streams)), (type(streams, 'usenet'))), 6))
+      /*Global Result Limit: 6*/ merge(slice(negate(merge(library(streams),cached(seadex(streams))), (type(streams, 'debrid', 'http', 'p2p'))), 6), slice(negate(merge(library(streams),seadex(streams)), (type(streams, 'usenet'))), 6))
 These go into Included Stream Expressions, order doesn't matter here:
   - __Language Passthrough__: If you want some amount of your results in another language to always show up, skipping mostly all filters, then this is the SEL for you. Change `yourLanguage` to whatever your language you want to see ~ 5 streams of, these streams will bypass title matching & our excluded SELs (`title`, `excluded`).  We're not bypassing a lot of other filters like deduplication so you may see less than 5. This is the full list of passthrough filters you can skip: `filter,dedup, limit, excluded, required, title, year, episode, digitalRelease, language`. Make multiple of these SELs for other language passthroughs if desired. Can adjust the number from 5 to whatever you want. If you still don't see your language in results, it's most likely because your addons didn't return any.
     - ```text
