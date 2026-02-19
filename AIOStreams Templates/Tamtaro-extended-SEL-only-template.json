@@ -5,7 +5,7 @@
     "description": "This template includes a modified version of the Standard SEL in the Complete SEL Setup to show twice as many results. It will import all my synced URLs for Excluded + Included + Preferred Stream Expressions, so everything on Stream Expressions page except Ranked Stream Expressions. Nothing else will get overridden in your setup. To make use of the Preferred Stream Expressions, you will need to add Stream Expressions Matched into your Sort Order. Check out some optional SELs on [Github](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting) for you to try. The Extended SEL comes with multiple lines that smartly filter your results when necessary so that your final result page has a complete coverage of quality streams and minimal clutter. Around 40 streams should remain after filtering on average, depending on your source availability.",
     "source": "external",
     "author": "Tamtaro",
-    "version": "1.6.0",
+    "version": "1.6.1",
     "category": "SEL",
     "serviceRequired": false
   },

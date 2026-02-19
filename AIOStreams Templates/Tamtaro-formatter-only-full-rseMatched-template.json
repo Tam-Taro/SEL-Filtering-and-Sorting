@@ -5,7 +5,7 @@
     "description": "Unlike the standard Formatter, this formatter keeps the full rseMatched information to use for debugging rseMatched scores with TRaSH guides. The template will still only import the formatter, nothing else will be affected.The formatter is clean without flashy emojis, while comprehensive for stream selection. Smartly detects status for cached (⚡/⏳), proxied (⛊/⛉), library (☁︎/▤), season packs (❖/◈) and HDR/DV (✦/✧). The last line in sᴍᴀʟʟ ᴄᴀᴘs displays your preferred language options, Usenet's health (☑ ɴᴢʙ), SeaDex (ᴀʟᴛ/ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ), networks and special editions via matched ranked SEL.",
     "source": "external",
     "author": "Tamtaro",
-    "version": "1.6.0",
+    "version": "1.6.1",
     "category": "Formatter",
     "serviceRequired": false
   },

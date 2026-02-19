@@ -2,169 +2,36 @@
   "metadata": {
     "id": "tamtaro.complete.no-formatter",
     "name": "SEL Setup without Formatter",
-    "description": "Fully configured setup based on Tamtaro's recommended filters, sort orders, and Standard SEL described [here](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting). Designed for those with debrid or usenet services, while seeking the highest quality results, minimal clutter, and complete coverage even when options are few. \n\n * **Comes with everything except custom formatter** \n * Standard SEL keeps around 20 results. Import Extended SEL Only template afterwards to keep x2 more. Github has more SEL options to try out. \n * **ⓘ For catalogs, check out Github for AIOMetadata configs.**\n * Review the Language filter. Add your main languages to Preferred Languages, keep rest the same. \n * Some addons are included but disabled; just turn them on if you use them (eg. Torbox). \n * \n * Comes with auto-synced urls for [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) to score & tag streams with my custom Formatter.",
+    "description": "Fully configured setup based on Tamtaro's recommended filters, sort orders, and Standard SEL described [here](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting). Designed for those with debrid or usenet services, while seeking the highest quality results, minimal clutter, and complete coverage even when options are few. \n\n * **Comes with everything except custom formatter** \n * Standard SEL keeps around 20 results. Import Extended SEL Only template afterwards to keep x2 more. Github has more SEL options to try out. \n * **ⓘ For catalogs, check out Github for AIOMetadata configs.**\n * Review the Language filter. Add your main languages to Preferred Languages, keep rest the same. \n * Some addons are included but disabled; just turn them on if you use them (eg. Torbox). \n * Comes with auto-synced urls for [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) to score & tag streams with my custom Formatter.",
     "source": "external",
     "author": "Tamtaro",
-    "version": "1.6.0",
+    "version": "1.6.1",
     "category": "Debrid",
     "serviceRequired": false
   },
   "config": {
-    "presets": [
-      {
-        "type": "stremthruStore",
-        "instanceId": "d7e",
-        "enabled": true,
-        "options": {
-          "name": "STore",
-          "timeout": 7000,
-          "resources": [
-            "stream"
-          ],
-          "mediaTypes": [],
-          "url": "",
-          "usenet": false,
-          "webDl": true
-        }
-      },
-      {
-        "type": "torbox-search",
-        "instanceId": "8ae",
-        "enabled": false,
-        "options": {
-          "name": "Search",
-          "timeout": 7000,
-          "sources": [
-            "torrent"
-          ],
-          "mediaTypes": [],
-          "userSearchEngines": false,
-          "onlyShowUserSearchResults": false,
-          "useMultipleInstances": false
-        }
-      },
-      {
-        "type": "seadex",
-        "instanceId": "326",
-        "enabled": true,
-        "options": {
-          "name": "SeaDex",
-          "timeout": 7000,
-          "mediaTypes": [
-            "anime"
-          ]
-        }
-      },
-      {
-        "type": "torznab",
-        "instanceId": "a08",
-        "enabled": true,
-        "options": {
-          "name": "STorz",
-          "torznabUrl": "https://stremthru.13377001.xyz/v0/torznab",
-          "apiPath": "/api",
-          "timeout": 7000,
-          "mediaTypes": [],
-          "searchMode": "both",
-          "paginate": false,
-          "useMultipleInstances": false
-        }
-      },
-      {
-        "type": "comet",
-        "instanceId": "b0f",
-        "enabled": true,
-        "options": {
-          "name": "Comet",
-          "timeout": 7000,
-          "resources": [
-            "stream"
-          ],
-          "includeP2P": false,
-          "removeTrash": false,
-          "mediaTypes": [],
-          "url": "https://comet.stremio.ru"
-        }
-      },
-      {
-        "type": "mediafusion",
-        "instanceId": "276",
-        "enabled": true,
-        "options": {
-          "name": "MediaFusion",
-          "timeout": 7000,
-          "resources": [
-            "stream"
-          ],
-          "useCachedResultsOnly": true,
-          "enableWatchlistCatalogs": false,
-          "downloadViaBrowser": false,
-          "contributorStreams": false,
-          "certificationLevelsFilter": [],
-          "nudityFilter": [],
-          "mediaTypes": [],
-          "url": ""
-        }
-      },
-      {
-        "type": "knaben",
-        "instanceId": "dc9",
-        "enabled": true,
-        "options": {
-          "name": "Knaben",
-          "timeout": 7000,
-          "mediaTypes": [],
-          "useMultipleInstances": false
-        }
-      },
-      {
-        "type": "animetosho",
-        "instanceId": "d1c",
-        "enabled": true,
-        "options": {
-          "name": "AnimeTosho",
-          "timeout": 7000,
-          "mediaTypes": [
-            "anime"
-          ],
-          "useMultipleInstances": false
-        }
-      },
-      {
-        "type": "sootio",
-        "instanceId": "30b",
-        "enabled": true,
-        "options": {
-          "name": "Sootio",
-          "timeout": 7000,
-          "resources": [
-            "stream"
-          ],
-          "url": "undefined",
-          "httpProviders": [
-            "http4khdhub",
-            "httpHDHub4u",
-            "httpUHDMovies"
-          ],
-          "mediaTypes": [],
-          "useMultipleInstances": false
-        }
-      },
-      {
-        "type": "torrentio",
-        "instanceId": "4ef",
-        "enabled": true,
-        "options": {
-          "name": "Torrentio",
-          "timeout": 7000,
-          "resources": [
-            "stream"
-          ],
-          "providers": [],
-          "useMultipleInstances": false
-        }
-      }
+    "trusted": false,
+    "showChanges": false,
+    "addonName": "AIOStreams",
+    "addonLogo": "https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/blob/main/logo.png?raw=true",
+    "excludedResolutions": [],
+    "includedResolutions": [],
+    "requiredResolutions": [],
+    "preferredResolutions": [
+      "2160p",
+      "1440p",
+      "1080p",
+      "720p",
+      "576p",
+      "480p",
+      "360p",
+      "240p",
+      "144p",
+      "Unknown"
     ],
+    "excludedQualities": [],
+    "includedQualities": [],
+    "requiredQualities": [],
     "preferredQualities": [
       "BluRay REMUX",
       "BluRay",
@@ -180,225 +47,6 @@
       "CAM",
       "Unknown"
     ],
-    "preferredResolutions": [
-      "2160p",
-      "1440p",
-      "1080p",
-      "720p",
-      "576p",
-      "480p",
-      "360p",
-      "240p",
-      "144p",
-      "Unknown"
-    ],
-    "excludedQualities": [],
-    "excludedVisualTags": [
-      "3D",
-      "H-OU",
-      "H-SBS",
-      "AI"
-    ],
-    "sortCriteria": {
-      "global": [
-        {
-          "key": "cached",
-          "direction": "desc"
-        }
-      ],
-      "series": [],
-      "anime": [],
-      "cached": [
-        {
-          "key": "seadex",
-          "direction": "desc"
-        },
-        {
-          "key": "resolution",
-          "direction": "desc"
-        },
-        {
-          "key": "quality",
-          "direction": "desc"
-        },
-        {
-          "key": "library",
-          "direction": "desc"
-        },
-        {
-          "key": "streamExpressionMatched",
-          "direction": "desc"
-        },
-        {
-          "key": "streamExpressionScore",
-          "direction": "desc"
-        },
-        {
-          "key": "language",
-          "direction": "desc"
-        },
-        {
-          "key": "visualTag",
-          "direction": "desc"
-        },
-        {
-          "key": "audioTag",
-          "direction": "desc"
-        },
-        {
-          "key": "encode",
-          "direction": "desc"
-        },
-        {
-          "key": "bitrate",
-          "direction": "desc"
-        },
-        {
-          "key": "seeders",
-          "direction": "desc"
-        }
-      ],
-      "uncached": [
-        {
-          "key": "seadex",
-          "direction": "desc"
-        },
-        {
-          "key": "library",
-          "direction": "desc"
-        },
-        {
-          "key": "resolution",
-          "direction": "desc"
-        },
-        {
-          "key": "quality",
-          "direction": "desc"
-        },
-        {
-          "key": "streamExpressionMatched",
-          "direction": "desc"
-        },
-        {
-          "key": "streamExpressionScore",
-          "direction": "desc"
-        },
-        {
-          "key": "seeders",
-          "direction": "desc"
-        },
-        {
-          "key": "language",
-          "direction": "desc"
-        },
-        {
-          "key": "visualTag",
-          "direction": "desc"
-        },
-        {
-          "key": "audioTag",
-          "direction": "desc"
-        },
-        {
-          "key": "encode",
-          "direction": "desc"
-        },
-        {
-          "key": "bitrate",
-          "direction": "desc"
-        }
-      ],
-      "cachedMovies": []
-    },
-    "posterService": "rpdb",
-    "deduplicator": {
-      "enabled": true,
-      "excludeAddons": [],
-      "multiGroupBehaviour": "aggressive",
-      "keys": [
-        "filename",
-        "infoHash",
-        "smartDetect"
-      ],
-      "cached": "single_result",
-      "uncached": "single_result",
-      "p2p": "single_result"
-    },
-    "autoPlay": {
-      "attributes": [
-        "resolution",
-        "quality",
-        "releaseGroup"
-      ]
-    },
-    "cacheAndPlay": {
-      "enabled": true,
-      "streamTypes": [
-        "usenet"
-      ]
-    },
-    "statistics": {
-      "enabled": false,
-      "position": "bottom",
-      "statsToShow": [
-        "addon",
-        "filter"
-      ]
-    },
-    "digitalReleaseFilter": {
-      "enabled": true,
-      "tolerance": 1,
-      "requestTypes": [
-        "movie",
-        "series",
-        "anime"
-      ],
-      "addons": []
-    },
-    "ageRangeTypes": [],
-    "seasonEpisodeMatching": {
-      "enabled": true,
-      "strict": true,
-      "requestTypes": [
-        "movie",
-        "series",
-        "anime"
-      ],
-      "addons": []
-    },
-    "yearMatching": {
-      "enabled": true,
-      "tolerance": 1,
-      "strict": true,
-      "requestTypes": [
-        "movie",
-        "series",
-        "anime"
-      ],
-      "addons": []
-    },
-    "titleMatching": {
-      "mode": "exact",
-      "similarityThreshold": 1,
-      "enabled": true,
-      "requestTypes": [
-        "movie",
-        "series",
-        "anime"
-      ],
-      "addons": []
-    },
-    "precacheSelector": "count(cached(streams)) == 0 ? uncached(streams) : []",
-    "enableSeadex": true,
-    "regexOverrides": [],
-    "showChanges": false,
-    "addonName": "AIOStreams",
-    "addonLogo": "https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/blob/main/logo.png?raw=true",
-    "excludedResolutions": [],
-    "includedResolutions": [],
-    "requiredResolutions": [],
-    "includedQualities": [],
-    "requiredQualities": [],
     "excludedLanguages": [],
     "includedLanguages": [],
     "requiredLanguages": [],
@@ -409,6 +57,12 @@
       "Multi",
       "Dubbed",
       "Unknown"
+    ],
+    "excludedVisualTags": [
+      "3D",
+      "H-OU",
+      "H-SBS",
+      "AI"
     ],
     "includedVisualTags": [],
     "requiredVisualTags": [],
@@ -474,6 +128,12 @@
     "syncedPreferredStreamExpressionUrls": [
       "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-PSEs.json"
     ],
+    "syncedExcludedStreamExpressionUrls": [
+      "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ESEs-standard.json"
+    ],
+    "syncedIncludedStreamExpressionUrls": [
+      "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ISEs.json"
+    ],
     "syncedRankedStreamExpressionUrls": [
       "https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/English/expressions.json"
     ],
@@ -497,6 +157,18 @@
       1000
     ],
     "seederRangeTypes": [],
+    "ageRangeTypes": [],
+    "digitalReleaseFilter": {
+      "enabled": true,
+      "tolerance": 1,
+      "requestTypes": [
+        "movie",
+        "series",
+        "anime"
+      ],
+      "addons": []
+    },
+    "enableSeadex": true,
     "excludeCachedFromAddons": [],
     "excludeCachedFromServices": [],
     "excludeCachedFromStreamTypes": [],
@@ -521,22 +193,8 @@
         "enabled": true
       }
     ],
-    "selOverrides": [
-      {
-        "expression": "/* Advanced Stream Type: This is how stream types are prioritized, used in Sort Order via Stream Expressions Matched */ []",
-        "exprNames": [
-          "Advanced Stream Type: This is how stream types are prioritized, used in Sort Order via Stream Expressions Matched"
-        ],
-        "disabled": true
-      },
-      {
-        "expression": "/*x265 (HD)*/ isAnime ? [] : regexMatched(negate(resolution(streams, '2160p'), streams), 'x265 (HD)')",
-        "exprNames": [
-          "x265 (HD)"
-        ],
-        "disabled": true
-      }
-    ],
+    "regexOverrides": [],
+    "selOverrides": [],
     "dynamicAddonFetching": {
       "enabled": false,
       "condition": ""
@@ -544,6 +202,118 @@
     "groups": {
       "enabled": false
     },
+    "sortCriteria": {
+      "global": [
+        {
+          "key": "cached",
+          "direction": "desc"
+        }
+      ],
+      "series": [],
+      "anime": [],
+      "cached": [
+        {
+          "key": "seadex",
+          "direction": "desc"
+        },
+        {
+          "key": "resolution",
+          "direction": "desc"
+        },
+        {
+          "key": "quality",
+          "direction": "desc"
+        },
+        {
+          "key": "library",
+          "direction": "desc"
+        },
+        {
+          "key": "streamExpressionMatched",
+          "direction": "desc"
+        },
+        {
+          "key": "streamExpressionScore",
+          "direction": "desc"
+        },
+        {
+          "key": "language",
+          "direction": "desc"
+        },
+        {
+          "key": "visualTag",
+          "direction": "desc"
+        },
+        {
+          "key": "audioTag",
+          "direction": "desc"
+        },
+        {
+          "key": "encode",
+          "direction": "desc"
+        },
+        {
+          "key": "bitrate",
+          "direction": "desc"
+        },
+        {
+          "key": "seeders",
+          "direction": "desc"
+        }
+      ],
+      "uncached": [
+        {
+          "key": "seadex",
+          "direction": "desc"
+        },
+        {
+          "key": "resolution",
+          "direction": "desc"
+        },
+        {
+          "key": "quality",
+          "direction": "desc"
+        },
+        {
+          "key": "library",
+          "direction": "desc"
+        },
+        {
+          "key": "streamExpressionMatched",
+          "direction": "desc"
+        },
+        {
+          "key": "streamExpressionScore",
+          "direction": "desc"
+        },
+        {
+          "key": "seeders",
+          "direction": "desc"
+        },
+        {
+          "key": "language",
+          "direction": "desc"
+        },
+        {
+          "key": "visualTag",
+          "direction": "desc"
+        },
+        {
+          "key": "audioTag",
+          "direction": "desc"
+        },
+        {
+          "key": "encode",
+          "direction": "desc"
+        },
+        {
+          "key": "bitrate",
+          "direction": "desc"
+        }
+      ],
+      "cachedMovies": []
+    },
+    "posterService": "rpdb",
     "usePosterRedirectApi": true,
     "resultLimits": {},
     "size": {
@@ -581,22 +351,237 @@
     },
     "hideErrors": true,
     "hideErrorsForResources": [],
+    "statistics": {
+      "enabled": false,
+      "position": "bottom",
+      "statsToShow": [
+        "addon",
+        "filter"
+      ]
+    },
     "tmdbAccessToken": "<template_placeholder>",
     "tmdbApiKey": "<template_placeholder>",
     "tvdbApiKey": "<template_placeholder>",
+    "yearMatching": {
+      "enabled": true,
+      "tolerance": 1,
+      "strict": true,
+      "requestTypes": [
+        "movie",
+        "series",
+        "anime"
+      ],
+      "addons": []
+    },
+    "titleMatching": {
+      "mode": "exact",
+      "similarityThreshold": 1,
+      "enabled": true,
+      "requestTypes": [
+        "movie",
+        "series",
+        "anime"
+      ],
+      "addons": []
+    },
+    "seasonEpisodeMatching": {
+      "enabled": true,
+      "strict": true,
+      "requestTypes": [
+        "movie",
+        "series",
+        "anime"
+      ],
+      "addons": []
+    },
+    "deduplicator": {
+      "enabled": true,
+      "excludeAddons": [],
+      "multiGroupBehaviour": "aggressive",
+      "keys": [
+        "filename",
+        "infoHash",
+        "smartDetect"
+      ],
+      "cached": "single_result",
+      "uncached": "single_result",
+      "p2p": "single_result"
+    },
+    "autoPlay": {
+      "attributes": [
+        "resolution",
+        "quality",
+        "releaseGroup"
+      ]
+    },
     "areYouStillThere": {
       "enabled": false
     },
     "precacheNextEpisode": false,
+    "precacheSelector": "count(cached(streams)) == 0 ? uncached(streams) : []",
+    "presets": [
+      {
+        "type": "seadex",
+        "instanceId": "326",
+        "enabled": true,
+        "options": {
+          "name": "SeaDex",
+          "timeout": 7000,
+          "mediaTypes": [
+            "anime"
+          ]
+        }
+      },
+      {
+        "type": "stremthruStore",
+        "instanceId": "d7e",
+        "enabled": true,
+        "options": {
+          "name": "STore",
+          "timeout": 7000,
+          "resources": [
+            "stream"
+          ],
+          "mediaTypes": [],
+          "url": "",
+          "usenet": false,
+          "webDl": true
+        }
+      },
+      {
+        "type": "torbox-search",
+        "instanceId": "8ae",
+        "enabled": false,
+        "options": {
+          "name": "Search",
+          "timeout": 7000,
+          "sources": [
+            "torrent"
+          ],
+          "mediaTypes": [],
+          "userSearchEngines": false,
+          "onlyShowUserSearchResults": false,
+          "useMultipleInstances": false
+        }
+      },
+      {
+        "type": "torznab",
+        "instanceId": "a08",
+        "enabled": true,
+        "options": {
+          "name": "STorz",
+          "torznabUrl": "https://stremthru.13377001.xyz/v0/torznab",
+          "apiPath": "/api",
+          "timeout": 7000,
+          "mediaTypes": [],
+          "searchMode": "both",
+          "paginate": false,
+          "useMultipleInstances": false
+        }
+      },
+      {
+        "type": "comet",
+        "instanceId": "b0f",
+        "enabled": true,
+        "options": {
+          "name": "Comet",
+          "timeout": 7000,
+          "resources": [
+            "stream"
+          ],
+          "includeP2P": false,
+          "removeTrash": false,
+          "mediaTypes": [],
+          "url": ""
+        }
+      },
+      {
+        "type": "mediafusion",
+        "instanceId": "276",
+        "enabled": true,
+        "options": {
+          "name": "MediaFusion",
+          "timeout": 7000,
+          "resources": [
+            "stream"
+          ],
+          "useCachedResultsOnly": true,
+          "enableWatchlistCatalogs": false,
+          "downloadViaBrowser": false,
+          "contributorStreams": false,
+          "certificationLevelsFilter": [],
+          "nudityFilter": [],
+          "mediaTypes": [],
+          "url": ""
+        }
+      },
+      {
+        "type": "knaben",
+        "instanceId": "dc9",
+        "enabled": true,
+        "options": {
+          "name": "Knaben",
+          "timeout": 7000,
+          "mediaTypes": [],
+          "useMultipleInstances": false
+        }
+      },
+      {
+        "type": "animetosho",
+        "instanceId": "d1c",
+        "enabled": true,
+        "options": {
+          "name": "AnimeTosho",
+          "timeout": 7000,
+          "mediaTypes": [
+            "anime"
+          ],
+          "useMultipleInstances": false
+        }
+      },
+      {
+        "type": "sootio",
+        "instanceId": "30b",
+        "enabled": true,
+        "options": {
+          "name": "Sootio",
+          "timeout": 7000,
+          "resources": [
+            "stream"
+          ],
+          "httpProviders": [
+            "http4khdhub",
+            "httpHDHub4u",
+            "httpUHDMovies"
+          ],
+          "mediaTypes": [],
+          "useMultipleInstances": false
+        }
+      },
+      {
+        "type": "torrentio",
+        "instanceId": "4ef",
+        "enabled": true,
+        "options": {
+          "name": "Torrentio",
+          "timeout": 7000,
+          "resources": [
+            "stream"
+          ],
+          "providers": [],
+          "useMultipleInstances": false
+        }
+      }
+    ],
     "catalogModifications": [],
     "mergedCatalogs": [],
     "externalDownloads": false,
-    "autoRemoveDownloads": false,
-    "syncedExcludedStreamExpressionUrls": [
-      "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ESEs-standard.json"
-    ],
-    "syncedIncludedStreamExpressionUrls": [
-      "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ISEs.json"
-    ]
+    "cacheAndPlay": {
+      "enabled": true,
+      "streamTypes": [
+        "usenet"
+      ]
+    },
+    "autoRemoveDownloads": false
   }
 }

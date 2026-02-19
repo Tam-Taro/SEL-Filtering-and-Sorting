@@ -5,13 +5,20 @@
     "description": "This template has only the Standard SEL used in the Complete SEL Setup. It will import all my synced URLs for Excluded + Included + Preferred Stream Expressions, so everything on Stream Expressions page except Ranked Stream Expressions. Read up on [Github](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting) for more info & optional SELs to try. Nothing else will get overridden in your setup. To make use of the Preferred Stream Expressions, you will need to add Stream Expressions Matched into your Sort Order. The SEL template comes with multiple lines that smartly filter your results when necessary so that your final result page has a complete coverage of quality streams and minimal clutter. Around 20 streams should remain after filtering on average, depending on your source availability. Check out Extended SEL Only Template if you want to keep 2x more.",
     "source": "external",
     "author": "Tamtaro",
-    "version": "1.6.0",
+    "version": "1.6.1",
     "category": "SEL",
     "serviceRequired": false
   },
   "config": {
+    "trusted": false,
     "syncedPreferredStreamExpressionUrls": [
       "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-PSEs.json"
+    ],
+    "syncedExcludedStreamExpressionUrls": [
+      "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ESEs-standard.json"
+    ],
+    "syncedIncludedStreamExpressionUrls": [
+      "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ISEs.json"
     ],
     "excludedStreamExpressions": [
       "/*Synced SELs (Standard) v1.0: Add optional SELs from GitHub here, such as DV-Only or ☑ ɴᴢʙ-Only Filter*/ []",
@@ -20,12 +27,6 @@
     "preferredStreamExpressions": [
       "/*If you are only using my SEL Only Template, add Stream Expressions in Sort Order to use my synced url below.*/ []"
     ],
-    "includedStreamExpressions": [],
-    "syncedExcludedStreamExpressionUrls": [
-      "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ESEs-standard.json"
-    ],
-    "syncedIncludedStreamExpressionUrls": [
-      "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ISEs.json"
-    ]
+    "includedStreamExpressions": []
   }
 }
