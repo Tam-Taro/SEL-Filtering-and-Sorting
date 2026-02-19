@@ -1,0 +1,15 @@
+{
+  "metadata": {
+    "name": "preferredStreamExpressions",
+    "author": "Tamtaro",
+    "description": "You should not need to import this synced url manually. It's included in my SEL Setup templates. Ensure your AIOStreams instance has appropriate permissions in their .env to support my urls. Simply add my all-in-one template url to TEMPLATE_URLS = https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/Tamtaro-All-Templates-for-AIOStreams.json. Alternatively, to only import this json, use this url inside Filter-> Stream Expressions -> Preferred: https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-PSEs.json",
+    "version": "1.0.0"
+  },
+  "values": [
+    "/*Add Stream Expressions in Sort Order to prioritize stream types below.*/[]",
+    "/*Tier 1 Cached*/ cached(merge(library(streams),seadex(streams),type(streams,'debrid'),type(service(streams,'torbox'),'usenet'),message(type(streams,'usenet','stremio-usenet'),'includes','✅','🧝')))",
+    "/*Tier 2 Cached*/ cached(merge(service(streams,'nzbdav','altmount','easynews'),type(streams,'http','p2p','stremio-usenet')))",
+    "/*Tier 3 Uncached*/uncached(type(streams,'usenet'))",
+    "/*Tier 4 Uncached*/uncached(type(streams,'debrid'))"
+  ]
+}
