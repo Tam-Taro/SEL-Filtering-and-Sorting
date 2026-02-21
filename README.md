@@ -526,7 +526,7 @@ These go into Included Stream Expressions, order doesn't matter here:
 
   - __DV Passthrough__: This will passthrough 5 DV streams in 4k/1080p, and if there are less than 5 of such present, it will also passthrough 5 DV streams in 720p. Specifically, my exclusion SELs won't work on these DV streams. Adjust 5 to 99+ if you want to passthrough all.
     - ```text
-      /*DV Passthrough*/ count(resolution(visualTag(merge(cached(streams), type(streams, 'usenet')), 'DV'), '2160p', '1080p')) > 5 ? passthrough(slice(resolution(visualTag(merge(cached(streams), type(streams, 'usenet')), 'DV'), '2160p', '1080p'), 'excluded'), 0, 5) : passthrough(slice(resolution(visualTag(merge(cached(streams), type(streams, 'usenet')), 'DV'), '2160p', '1080p', '720p'), 'excluded'), 0, 5)
+      /*DV Passthrough*/ count(resolution(visualTag(merge(cached(streams), type(streams, 'usenet')), 'DV'), '2160p', '1080p')) > 5 ? passthrough(slice(resolution(visualTag(merge(cached(streams), type(streams, 'usenet')), 'DV'), '2160p', '1080p'), 0, 5), 'excluded') : passthrough(slice(resolution(visualTag(merge(cached(streams), type(streams, 'usenet')), 'DV'), '2160p', '1080p', '720p'), 0, 5), 'excluded')
 
 ### 🧩 Manual Setup of Template v1.1.0 (Outdated )
 
