@@ -471,9 +471,9 @@ These go into Excluded *before* all my Excluded SELs, in one of the empty placeh
       /*DV Only Non-Remux*/ isAnime?[]:negate(merge(quality(streams,'BluRay REMUX'),releaseGroup(streams, 'Flights'),regexMatched(streams, 'Hulu')),visualTag(streams,'DV Only'))
   - __TorBox Download Limit__: TB Essential and Standard have a max uncached download size of 200GB, which is increased to 1TB for TB Pro. Use the appropriate SEL if you're with TB.
     - ```text
-      /*TB Non-Pro Download Limit*/ size(uncached(streams), '200GB')
+      /*TB Non-Pro Download Limit*/ size(uncached(service(streams, 'torbox')), '200GB')
     - ```text
-      /*TB Pro Download Limit*/ size(uncached(streams), '1TB')
+      /*TB Pro Download Limit*/ size(uncached(service(streams, 'torbox')), '1TB')
   - __Bitrate Hardcap for Mobile__: Unlike the one below, where if no results for 4k or 1080p at bitrate cap, it fallbacks to show higher bitrate anyway. This SEL however will set a hardcap based on your mobile internet connection. Will assume 4-5G mobile: 4K @ 8Mbps, 1080p @ 3Mbps, 720p or lower @ 2Mbps
     - ```text
       /*Bitrate Hardcap*/
