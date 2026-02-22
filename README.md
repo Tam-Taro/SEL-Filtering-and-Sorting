@@ -71,6 +71,15 @@ February Feb 19, 2026:
   - Added Sootio for better content coverage on niche searches (has HTTP sources and library search as well)
   - Moved SeaDex to top to prevent deduplication. Again, this addon won't get used when searching non-anime.
 
+**Sorting**
+- Current Sort Order
+  - Global: Cached.
+  - Cached: SeaDex → Resolution → Quality → Library (change) → Stream Expression → Stream Expression Score→ Language → Visual Tag → Audio Tag → Encode → Bitrate → Seeders.
+  - Uncached/P2P Setup: Same as above, with Seeders before Language.  
+- Changes:
+  - Moved Library sort down the list, it will still be first of its respective Resolution/Quality bucket    
+  - Put back Visual Tag & Audio Tag to sort order. This does not affect those that use RSEs to sort stream, so there was no reason to remove them in the first place. Allows sorting to work on setup with a different scoring or without one completely.
+
 **Filters/SELs**
 - Synced URLS!!!!
   - All 4 of them, yes I remember to make one for extended ESEs.
