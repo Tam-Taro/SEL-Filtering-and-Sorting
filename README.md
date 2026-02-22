@@ -43,7 +43,8 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
 ---
 ## ✨ Release Notes
 
-February Feb 19, 2026: What's new in the lates template, v1.6.0!
+February Feb 19, 2026:  
+- Click below to see what's new in the latest template, v1.6.0!
 
 <details>
   <summary>v1.6.0</summary>
@@ -106,7 +107,7 @@ February Feb 19, 2026: What's new in the lates template, v1.6.0!
 <details>
   <summary>v1.5.0</summary>
   <p></p>
-February 8, 2026: Click below to see what's new in template v1.5.0!
+February 8, 2026: What's new in template v1.5.0!
 	
 **Addons**
 - Current Addons (no change from 1.4) 
