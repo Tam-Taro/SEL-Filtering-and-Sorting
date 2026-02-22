@@ -1,6 +1,6 @@
 # SEL-Filtering-and-Sorting
 
-Tired of Stremio pages flooded with streams you'll never use? My **SEL**-driven AIOStreams setup keeps all the good stuff while hiding the clutter. It started as a personal project during the early v2 AIOStreams betas, when I wanted one config I could share with family and friends: mid-resolution options for slower devices, premium remuxes for my own setup, all in a single, smart template.
+Tired of Stremio pages flooded with streams you'll never use? My SEL-driven AIOStreams setup keeps all the good stuff while hiding the clutter. It started as a personal project during the early v2 AIOStreams betas, when I wanted one config I could share with family and friends: mid-resolution options for slower devices, premium remuxes for my own setup, all in a single, smart template.
 
 With [Stream Expression Language (SEL)](https://github.com/Viren070/AIOStreams/wiki/Stream-Expression-Language) in AIOStreams, that "perfect balance" finally became possible. After months of tinkering, testing new features, chasing bugs, and trading tips in the [AIOStreams Discord](https://discord.gg/zRq8dVh5rJ), this guide shares my day-to-day config plus ready-to-import templates focused on SEL filtering and sensible sorting.
 
@@ -8,9 +8,9 @@ With [Stream Expression Language (SEL)](https://github.com/Viren070/AIOStreams/w
 
 Use this setup as-is, or as a base to tweak for your tastes. It's especially useful if you:
 
-- Want **fewer, higher-quality results** without blunt filters like `Exclude Uncached` or simple `Result Limits`
-- Prefer **dynamic filtering** that tightens when lots of results exist (1080p/4K first) but keeps 480p/720p fallbacks when needed
-- Spent **hours fiddling** with priorities/sort orders and still aren't happy? This is battle-tested so you can import, try, then adjust instead of starting from scratch.
+- Want fewer, higher-quality results without blunt filters like `Exclude Uncached` or simple `Result Limits`
+- Prefer dynamic filtering that tightens when lots of results exist (1080p/4K first) but keeps 480p/720p fallbacks when needed
+- Spent hours fiddling with priorities/sort orders and still aren't happy? This is tried and tested already, so you can import to see for yoursef, then adjust instead of starting from scratch.
 
 > [!IMPORTANT]
 > 1. My AIOStreams template *does not* include any catalogs. This is because many of us prefer AIOMetadata (separate addon from AIOStreams), so just scroll down to the [AIOMetadata section](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata) for all your metadata and catalog management needs.
