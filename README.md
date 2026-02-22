@@ -10,7 +10,7 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
 
 - Want fewer, higher-quality results without blunt filters like `Exclude Uncached` or simple `Result Limits`
 - Prefer dynamic filtering that tightens when lots of results exist (1080p/4K first) but keeps 480p/720p fallbacks when needed
-- Spent hours fiddling with priorities/sort orders and still aren't happy? This is tried and tested already, so you can import to see for yoursef, then adjust instead of starting from scratch.
+- Spent hours fiddling with priorities/sort orders and still aren't happy? This is tried and tested already, so you can import to see for yourself, then adjust instead of starting from scratch.
 
 > [!IMPORTANT]
 > 1. My AIOStreams template *does not* include any catalogs. This is because many of us prefer AIOMetadata (separate addon from AIOStreams), so just scroll down to the [AIOMetadata section](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata) for all your metadata and catalog management needs.
