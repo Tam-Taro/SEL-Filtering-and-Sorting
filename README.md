@@ -36,19 +36,78 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
     - Adjust `Preferred Languages` in Filters > Language. 
     - Enable Torbox (default disabled) or add any addons as desired.
     - Browse & try [optional SELs](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-optional-sels).  
-    - Import `Extended SEL Only` Template (included in imported url) if you want more results.
+    - Import `Extended SEL Only` Template (included in imported url) if you want more results. This works in conjunction with one of my "SEL Setup" templates.
     - Adjust Ranked Stream Expressions score as you wish for more nuanced sorting. See ⁠his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more details on customization.
 4. [AIOMetadata for catalogs/meta](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata): Import one of my JSONs (with/without anime) via trusted AIOMetadata instances from [this page](https://status.dinsden.top/status/stremio-addons). 
     - Refer to full AIOMetadata guide at end of page.
 ---
 ## ✨ Release Notes
 
-February 8, 2026: What's new in template v1.5.0!
+February Feb 19, 2026: What's new in the lates template, v1.6.0!
 
+<details>
+  <summary>v1.6.0</summary>
+  <p></p>
+
+**Selfhosters**
+- The last template incorporated Ranked SEL and synced URLs from Vidhin, but some issues needed addressing. I'm now updating our setup to work with all those cool features. In particular, all my SELs (Excluded, Included, and Preferred) will have synced urls baked into the templates. All instance hosters and selfhosters, please enable my and Vidhin's URLs and auto-sync env with the following:
+     - <details>
+       <summary>.env for selfhosters to enable my templates</summary>
+                         
+			WHITELISTED_REGEX_PATTERNS_URLS=["https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/English/regexes.json", "https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/German/regexes.json"]
+			WHITELISTED_SEL_URLS=["https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ESEs-extended.json", "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ESEs-standard.json", "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ISEs.json", "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-PSEs.json", "https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/English/expressions.json", "https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/German/expressions.json", "https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/English/legacy-expressions.json"]
+			
+			TEMPLATE_URLS=["https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/Tamtaro-All-Templates-for-AIOStreams.json", "https://raw.githubusercontent.com/Vidhin05/Releases-Regex/refs/heads/main/all-templates.json"]
+			TEMPLATE_REFRESH_INTERVAL=3600 #1 hour. Default: 86400 (1 day)
+			WHITELISTED_SYNC_REFRESH_INTERVAL=3600 #1 hour. Default: 86400 (1 day)
+
+
+**Addons**
+- Current Addons
+  - Debrid Template: SeaDex (change), STore, TB Search (optional), STorz, Comet, MediaFusion, Knaben, AnimeTosho, Sootio (new), Torrentio.
+  - P2P Template: Comet, STorz, MediaFusion, Torrentio, TorrentsDB, Peerflix, Nuvio Anime, Nuvio Streams, WebStreamr.]
+- Change
+  - Added Sootio for better content coverage on niche searches (has HTTP sources and library search as well)
+  - Moved SeaDex to top to prevent deduplication. Again, this addon won't get used when searching non-anime.
+
+**Filters/SELs**
+- Synced URLS!!!!
+  - All 4 of them, yes I remember to make one for extended ESEs.
+  - Once inserted into your config, they will auto-sync with any changes I push. Default is 24hr but if your instance hoster use my recommended env above, it'll be every hour. 
+  - For changes to the rest of our setup (Sort Order, Basic Filters, Addons, Formatters, etc), you still need to import via templates (or do it manually).
+  - Optional SELs will be coming directly to synced urls (as disabled) in future updates
+- Some ESEs got reworked
+  - `Low SEL Score`: minimum score is now at -50 for both anime/non-anime, to be excluded if >10 with >-50 score
+  - Previous Movie 4K now merged with anime to become `Bad 4K`: Meant to predict when 4ks are unwanted (eg. fake Blurays). Fixed issue where intentionally removing 4k Remux broke the old filter.
+  - Previous Anime filter became `Extra SeaDex`, removing extra SeaDex results that usually happens when it uses release group fallback (when no exact hash match found)
+  - Re-labeled them all to be clearer with what they do.
+- Ranked Stream Expressions/Regex**
+  - Fixed the issue of wrong url from 1.5.0, now using updated urls from [Vidhin's Template for English Regexes](https://github.com/Vidhin05/Releases-Regex), for both RSE and Ranked Regex. 
+  - See his GitHub for more details on customization of RSEs. You can disable various RSEs as you wish. It'll stay disabled even after syncing (as long as he hasn't edited that exact SEL you touched, so do check back once awhile to see what's new in the synced URLs. Same tip for my synced SELs). 
+- Fleshed out Audio Tag Preferrence Order from lossless to lossy, as followed: 
+  - Atmos, DTS:X, TrueHD, DTS-HD MA, FLAC, DTS-HD,DTS-ES, DTS, DD+, DD, OPUS, AAC
+
+**Formatter**
+- This part took me the longest to update and fix, esp to make them looking perfect on older TVs @devilsingh understands. The rest of you that don't use my formatter, you can laugh, but :middle_finger: 
+  - Complete overhaul to icons used. Kept old ones that were compatible on WebOS, replaced the rest.
+  - Fixed issues of some tv not rendering small caps s & f 
+  - "Fixed" popular request to remove audio tags and visual tags from rseMatched. 
+  - `Formatter Only (Full rseMatched) Template` is now included in my template, special gift for you Vidhin. It keeps all rseMatched information intended for use in debugging rseMatched scores with TRaSH guides.
+  - Fixed alignment issues in title section, where things don't break at different scaling, like single rating star rating not starting in a new line
+- Added ⚿ ᴘʀɪᴠᴀᴛᴇ  indicator
+- Fixed a bunch of redundant visual tags & audio tags (like double HDR, double DD, IMAX)
+- No more 1/2 as half stars, found one that works on TVs
+
+**Miscellaneous**  
+- Title Match threshold from 0.95 → 1
+- In case you didn't know, v1.5.0 Formatter is built into AIOStreams dropdown selection. My Formatter Only Templates may or may not be the same as the built-in depending on when Viren updates it inside AIOStreams. And of course the new "Formatter Only (Full rseMatched) Template" is template-exclusive.
+
+</details>
 <details>
   <summary>v1.5.0</summary>
   <p></p>
-
+February 8, 2026: Click below to see what's new in template v1.5.0!
+	
 **Addons**
 - Current Addons (no change from 1.4) 
 - Debrid Template: STore, TB Search (optional), SeaDex, STorz, Comet, MediaFusion, Knaben, AnimeTosho, Torrentio.
@@ -460,9 +519,9 @@ https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/
 
 ## 🔧 Optional SELs
 
-While my SEL setup is a complete setup, it can always be tweaked further for various specific needs. Over the months I've shared these SELs with you guys on Discord, or found them useful, shared by others. Most of these are Excluded Stream Expressions, which you can either put *before* or *after* all my ESEs. Where to put them is important and will be noted.
+While my SEL setup is a complete setup, it can always be tweaked further for various specific needs. Over the months I've shared these SELs with you guys on Discord, or found them useful, shared by others. Most of these are Excluded Stream Expressions, which are meant to be used *before* my ESEs/synced url. Some are Included expressions, which is meant to bypass certain streams before filtering. Some are Required expressions, which is meant to provide one last filtering that will run *after* all previous filtering. Where to put each optional SEL is important and will be noted.
 
-These go into Excluded *before* all my Excluded SELs, in one of the empty placeholders on top:
+These go into Excluded *before* all my Excluded SELs, by adding a box yourself above my synced url:
   - __☑ ɴᴢʙ-Only Filter__: A UsenetStreamer filter for those that only want to see health checked results from UsenetStreamer. The SEL line assumes your UsenetStreamer addon is named US, USN, UsenetStreamer, or Usenet Streamer, so avoid naming any other addon with those names.
 	- ```text
   	  /*☑ ɴᴢʙ-Only Filter*/ negate(addon(message(streams,'includes','✅','🧝'),'US','UNS','Usenet Streamer','UsenetStreamer'),addon(streams,'US','UNS','Usenet Streamer','UsenetStreamer'))
