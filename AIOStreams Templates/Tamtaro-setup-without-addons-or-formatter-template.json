@@ -5,7 +5,7 @@
     "description": "Fully configured setup based on Tamtaro's recommended filters, sort orders, and Standard SEL described [here](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting). Designed for those with debrid or usenet services, while seeking the highest quality results, minimal clutter, and complete coverage even when options are few. \n\n * **Comes with no addons or formatter, so your existing addons page and formatter won't be affected** \n * Standard SEL keeps around 20 results. Import Extended SEL Only template afterwards to keep 2x more. Github has more SEL options to try out. \n * **ⓘ For catalogs, check out Github for AIOMetadata configs.**\n * Review the Language filter. Add your main languages to Preferred Languages, keep rest the same. \n * Some addons are included but disabled; just turn them on if you use them (eg. Torbox). \n * Comes with auto-synced urls for [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) to score & tag streams with my custom Formatter.",
     "source": "external",
     "author": "Tamtaro",
-    "version": "1.6.1",
+    "version": "1.6.2",
     "category": "Debrid",
     "serviceRequired": false
   },
