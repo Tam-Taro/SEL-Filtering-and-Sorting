@@ -520,12 +520,7 @@ https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/
 
   > [!NOTE]
   > Remember to personalize your imported config by going to `Filters` -> `Language`. Select your main language as the top spot in Preferred Languages, then sort/rank the rest according to your preference. I suggest keeping Dubbed, Dual Audio, Multi, Unknown in the list as they may contain streams of your preferred languages.
-> To further enhance your sorting, Vidhin's regex template is now incorporated, which tags and scores streams based on the quality of the release groups and other attributes. Check his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more instructions on further customization, and updates.
-
-> How to Import new updates of Vidhin's regex template: About -> Template Wizard -> Import Template. Paste the template URL:
-> ```https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/advanced-template.json```. Click go, and then load the template.
-> 
-> This regex labels and scores all streams according to TRaSH Guides. The template from Vidhin has two portions. The regex portion is the synced url which auto updates daily. The second portion is the Ranked Stream Expressions (RSEs) with scores attached. When Vidhin releases new updates beyond the version included in my setup template, you will need to import his new template version after you've imported my template first. This will update any RSEs or scoring changes he has made since.
+> To further enhance your sorting, Vidhin's regex template is now incorporated, which tags and scores streams based on the quality of the release groups and other attributes. Check his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more instructions on further customization
 
 ## 🔧 Optional SELs
 
