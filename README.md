@@ -553,28 +553,31 @@ These go into Excluded *before* all my Excluded SELs, by adding a box yourself a
      - <details>
        <summary>Bitrate softcap for Travel</summary>
                          
-			/*Bitrate Softcap*/
-			merge(bitrate(cached(resolution(streams,'2160p')),
-			count(bitrate(cached(resolution(streams,'2160p')),1,'6Mbps'))>5?'6Mbps':
-			count(bitrate(cached(resolution(streams,'2160p')),1,'9Mbps'))>5?'9Mbps':
-			count(bitrate(cached(resolution(streams,'2160p')),1,'12Mbps'))>5?'12Mbps':
-			count(bitrate(cached(resolution(streams,'2160p')),1,'15Mbps'))>5?'15Mbps':
-			count(bitrate(cached(resolution(streams,'2160p')),1,'20Mbps'))>5?'20Mbps':
-			max(values(cached(resolution(streams,'2160p')),'bitrate'))
-			),bitrate(cached(resolution(streams,'1440p','1080p')),
-			count(bitrate(cached(resolution(streams,'1440p','1080p')),1,'6Mbps'))>5?'6Mbps':
-			count(bitrate(cached(resolution(streams,'1440p','1080p')),1,'9Mbps'))>5?'9Mbps':
-			count(bitrate(cached(resolution(streams,'1440p','1080p')),1,'12Mbps'))>5?'12Mbps':
-			count(bitrate(cached(resolution(streams,'1440p','1080p')),1,'15Mbps'))>5?'15Mbps':
-			count(bitrate(cached(resolution(streams,'1440p','1080p')),1,'20Mbps'))>5?'20Mbps':
-			max(values(cached(resolution(streams,'1440p','1080p')),'bitrate'))
-			),bitrate(cached(resolution(streams,'720p')),
-			count(bitrate(cached(resolution(streams,'720p')),1,'6Mbps'))>5?'6Mbps':
-			count(bitrate(cached(resolution(streams,'720p')),1,'9Mbps'))>5?'9Mbps':
-			count(bitrate(cached(resolution(streams,'720p')),1,'12Mbps'))>5?'12Mbps':
-			count(bitrate(cached(resolution(streams,'720p')),1,'15Mbps'))>5?'15Mbps':
-			count(bitrate(cached(resolution(streams,'720p')),1,'20Mbps'))>5?'20Mbps':
-			max(values(cached(resolution(streams,'720p')),'bitrate'))
+			/*Bitrate Softcap for Travel*/
+			merge(
+			    bitrate(resolution(streams,'2160p'),
+			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),1,'6Mbps'))>5?'6Mbps':
+			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),1,'9Mbps'))>5?'9Mbps':
+			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),1,'12Mbps'))>5?'12Mbps':
+			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),1,'15Mbps'))>5?'15Mbps':
+			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),1,'20Mbps'))>5?'20Mbps':
+			max(values(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'2160p'),'bitrate'))
+			),
+			bitrate(resolution(streams,'1440p','1080p'),
+			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),1,'6Mbps'))>5?'6Mbps':
+			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),1,'9Mbps'))>5?'9Mbps':
+			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),1,'12Mbps'))>5?'12Mbps':
+			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),1,'15Mbps'))>5?'15Mbps':
+			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),1,'20Mbps'))>5?'20Mbps':
+			max(values(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'1440p','1080p'),'bitrate'))
+			),
+			bitrate(resolution(streams,'720p'),
+			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'6Mbps'))>5?'6Mbps':
+			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'9Mbps'))>5?'9Mbps':
+			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'12Mbps'))>5?'12Mbps':
+			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'15Mbps'))>5?'15Mbps':
+			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'20Mbps'))>5?'20Mbps':
+			max(values(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),'bitrate'))
 			))
 </details>
 
