@@ -6,7 +6,7 @@
     "version": "1.0.2"
   },
   "values": [
-    "/*SeaDex*/merge(count(addon(cached(streams),'SeaDex'))>0?passthrough(addon(streams,'SeaDex'),'title','year'):passthrough(seadex(streams),'title','year'),queryType=='anime.movie'?passthrough(seadex(streams),'episode'):[])",
+    "/*SeaDex*/merge(count(addon(cached(streams),'SeaDex'))>0?passthrough(addon(streams,'SeaDex'),'filter','title','year'):passthrough(seadex(streams),'filter','title','year'),queryType=='anime.movie'?passthrough(seadex(streams),'episode'):[])",
     "/*Library*/count(streams)==count(library(streams))?library(streams):[]",
     "/*digitalRelease*/queryType=='movie' or queryType=='anime.movie'?passthrough(quality(streams,'CAM','TS','TC','SCR'),'digitalRelease') : []",
     "/*0Cached*/count(cached(streams))==0?passthrough(negate(type(streams,'usenet','stremio-usenet'),(streams)),'title'):[]"
