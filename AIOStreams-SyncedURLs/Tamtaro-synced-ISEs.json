@@ -3,7 +3,7 @@
     "name": "includedStreamExpressions",
     "author": "Tamtaro",
     "description": "You should not need to import this synced url manually. It's included in my SEL Setup templates. Ensure your AIOStreams instance has appropriate permissions in their .env to support my urls. Simply add my all-in-one template url to TEMPLATE_URLS = https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/Tamtaro-All-Templates-for-AIOStreams.json. Alternatively, to only import this json, use this url inside Filter-> Stream Expressions -> Included: https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ISEs.json",
-    "version": "1.0.2"
+    "version": "1.0.3"
   },
   "values": [
     "/*SeaDex*/merge(count(addon(cached(streams),'SeaDex'))>0?passthrough(addon(streams,'SeaDex'),'filter','title','year'):passthrough(seadex(streams),'filter','title','year'),queryType=='anime.movie'?passthrough(seadex(streams),'episode'):[])",
