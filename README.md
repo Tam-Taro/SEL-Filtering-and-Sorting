@@ -44,7 +44,7 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
 
 <details>
 	
-  <summary>v1.6.0 - 1.6.2</summary>
+  <summary>v1.6.0</summary>
 	  <p></p>
 	  
 February 22, 2026: v1.6.2
