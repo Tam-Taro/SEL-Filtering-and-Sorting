@@ -499,19 +499,99 @@ Nov 18, 2025: What's new in template v1.2.0
 </details>
 </details>
 
+<details>
+  <summary>v1.0.0 - 1.1.0</summary>
+  <p> </p>
+This is my recommended setup that should work for most of you. If you just want a finished template, then import & use one of the templates described above. Otherwise read on to customize your current AIOStreams instance.
+
+### **Sorting**
+- __Global Sort Order Type:__  `Cached`
+  - We put `Cached` here since we want our results to show cached before uncached
+  - If `Cached` is first item, the sort algorithm automatically goes to Cached & Uncached Sort Order, nothing else after `Cached` matters in Global Sort Order
+- Cached Sort Order Type: `Resolution → Library → Quality → Regex Patterns → Stream Type → (if p2p only, Seeders here) → Visual Tag → Audio Tag → Encode → Language → Size → Seeders`
+  - There is a lot of flexibility here, re-arrange to your preference as to what your top results should prioritize
+  - Note that p2p is considered cached and therefore p2p sorting uses this sort order, so if you're using a p2p setup, move `Seeders` up
+- Uncached Sort Order Type: `Resolution → Library → Stream Type → Seeders → Regex Patterns → Quality → Language → Size`
+  - Generally the same as `Cached Sort Order` except Seeders is higher 
+  - There should be very little to no uncached streams in your results (unless you're using usenet which are mostly uncached), therefore you don't need an exclusive list in this uncached sort order
+
+> [!NOTE]
+> If your first filter in `Global Sort Order` is `Cached` and you left `Cached/Uncached Sort Order` blank, your sort/filter may not work properly.
+
+### 🎚️ Filtering for Template v1.1 (Outdated)
+- Define `Preferrence Order` in each of `Resolution, Quality, Encode, Stream Type, Visual Tag, Audio Tag` and `Language`. 
+  - This is important for our Sort Order to work.
+> [!NOTE]
+> You will have to edit this section to your personal preference.
+  - Under `Language` -> `Required Language`, select all your required languages there. This is ensure streams of the language you watch will be included in the results.
+  - Set `Preferred Languages` to be the same as your `Required Languages`, reorder/rank them to your preferrence. 
+  - By default my setup has the following languages: `English, Japanese, Korean, Dubbed, Dual Audio, Multi, Unknown`. Regardless of your choice, do not remove `Dubbed, Dual Audio, Multi, Unknown` from either lists, as some streams of your language may fall under these language tags.
+
+- Default is recommended in the rest of the filters. If not sure, check my AIOStreams template json for how I configured them 
+  - `Quality`: Remove default items in `Excluded` since my SEL will remove CAM/TS/etc when necessary
+  - `Visual Tag`:  If your device doesn't support DV add `DV Only` into `Excluded`. Same for 3D. 
+  -   `Encode`: `Exclude H-OU, H-SBS` for non 3DTV
+ - Optional: Import [Vidhin's json for merged anime regexes](https://github.com/Vidhin05/Releases-Regex/blob/main/README.md) into `Regex → Preferred Regex Patterns → Import from url icon` 
+ ```text
+https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/merged-anime-regexes.json
+```
+   - This regex labels all streams with tier rankings based on reputation/quality of release groups per [TRaSH Guides](https://trash-guides.info/). You will need to reimport the regex occassionally whenever Vidhin pushes an update to the regex because many AIOStreams instances will only allow the use of his latest update regex. 
+ - Optional: Under `Matching`, enable `Season/Episode Matching` and `Title Matching`  with `Match Year (1 Year Tolerance)` and `Exact Matching Mode` selected. I suggest boosting the `Similarity Threshold` from `0.85 to 1`. Adjust these settings as needed.
+ - Under `Deduplicator`, select all 3 `Detection Methods`. Set to `Aggressive` for `Multi-Group Behaviour`. Leave everything else as default (Single Result). 
+
+> [!IMPORTANT]
+> Leave all remainder filters setting, `Excluded` `Included` and `Required` boxes empty. As tempting as it sounds to select `Exclude Uncached` or set your `Result Limits`, my SEL will do that for you. This is the first troubleshooting step if your sort/filter looks off!
+
+### 🎚️🤖 Filtering with Stream Expression Language (SEL) for Template v1.1 (Outdated)
+
+- All filtering (besides title match and dedupe) can be done with stream expressions. My setup leaves the language filtering to AIOStreams basic language filter (altho can be done using SEL - just think the basic filter is good enough).
+- There are two schools of thought with regards to SEL Filtering:
+  - using it to filter during fetching stage via `Dynamic Group Exit Condition` or,
+  - using it after all initial filtering has been done by AIOStreams via  `Excluded Stream Expressions` (ESE) 
+- My setup has been fine-tuned using the second method for over 3 months now with feedback from users. I may incorporate the first method into my setup in the future, however for now heavy work of filtering is done using my three lines of ESE. Copy-paste the codes below into `AIOStreams -> Excluded Stream Expressions` or import them using the SEL-only template json at the top of this page.
+  <p>
+    <details>
+        <summary>First line into ESE: Uncached Filter</summary>
+  
+    ```text
+ 
+     ```   
+    </details>
+  </p>
+  <p>
+    <details>
+        <summary>Second line into ESE: Main Quality/Resolution Filter</summary>
+  
+    ```text
+    ```
+    </details>
+  </p>
+  <p>
+    <details>
+        <summary>Third line into ESE: Low Quality/Resolution Filter</summary>
+  
+    ```text
+
+    ```
+    </details>
+  </p>
+
+The first block of SEL for your `Excluded Stream Expressions` (ESE) is the Uncached Filter. It checks and removes uncached debrid streams with low resolution and low seeder count, except for good regex-matched. It also removes P2P streams if present for low seeder count. Usenet results are exempt from this Uncached Filter.
+
+The second block of ESE is the Main Quality/Resolution Filter. It uses `slice(...,3)` to further trim streams, keeping top ~3 results of most `Quality` and `Resolution` combination. Because AIOStreams sorts streams before SEL filtering, you can determine how your streams is sorted first so that the `slice` of the top results of any `quality` /`resolution` will always select your preferred "highest-quality streams". For me, that would be Vidhin's regex-matched streams, so I put `Regex Pattern` right underneath `Quality` in Sort Order. If you value size or language for every resolution + quality pair then put `Size` or `Language` right underneath `Quality`, the `slice` will then keep your top 3 streams for that particular `quality`/`resolution` according to your size or language preference, respectively.
+
+Third block of ESE is the Low Quality/Resolution Filter. It checks how many streams made through the Main Filter above, and removes low quality and low resolution streams when there are already enough present. It also removes regex-matched streams from "Bad" quality release groups when there are enough non-"Bad" streams present (for those that use Vidhin's regex).
+</details>
+
+
 ## ⚙️ Templates Included for AIOStreams
 
-These are setup templates to use with AIOStreams. If you're not sure which AIOStreams instance to start with, check out the list of trusted public instances [here](https://status.dinsden.top/status/stremio-addons). I recommend *nightly* AIOStreams from Midnight, Yeb, Viren, or Kuu. My setup is fine-tuned and tested on latest nightly, so you don't have to worry about features not working. Make sure the instance you chose have a working Torrentio add-on. If not, switch to a different instance.
+These are setup templates to use with AIOStreams. If you're not sure which AIOStreams instance to start with, check out the list of trusted public instances [here](https://status.dinsden.top/status/stremio-addons). I recommend *nightly* AIOStreams from Midnight, Yeb, Viren, or Kuu. My setup is fine-tuned and tested on latest nightly, so you don't have to worry about features not yet released. Make sure the instance you chose have a working Torrentio add-on. If not, switch to a different instance.
 
 | Template | Description |
 |-----------|--------------|
-| **Complete Setup** | Complete configuration with filters, sort orders, streaming addons, and formatter. |
-| **Without Addons** | Keeps your existing add-ons while applying the complete setup config. |
-| **Without Addons & Formatter** | Applies the complete set up but keeps both your add-ons and formatter untouched. |
-| **Complete Setup for P2P** | Complete setup, with p2p/http addons and sort order tailored for those without debrid service |
-| **Standard SEL Only** | Imports only the Excluded, Included & Preferred Stream Expressions used in the Complete Setup. | 
-| **Extended SEL Only** | Imports the modified SEL that gives slightly more results than Standard SEL. | 
-| **Formatter Only** | Imports only the custom formatter used in the template for stream display. |
+| **Tamtaro Complete SEL Setup** | Complete configuration with filters, sort orders, streaming addons, and formatter. Template Wizard will guide you through various options, such as without addons or without formatter setup to keep your existing addons or formatter |
+| **Formatter & SEL Only Template** | Imports only the core filtering Engine (Standard or Extended SEL, which consists of Excluded, Included & Preferred Stream Expressions synced urls) or formatter used in the Complete SEL Setup | 
 
 ## 📥 How to Import
 
@@ -522,19 +602,18 @@ These are setup templates to use with AIOStreams. If you're not sure which AIOSt
 https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/Tamtaro-All-Templates-for-AIOStreams.json
 ```
 4. "Confirm Import" to import all templates available from me.  This will save them into your browser cache for future use. If you already imported previously, this will refresh them to the latest version. 
-5. Select one of the templates as you wish to use. I recommend to start with "Complete SEL Setup" as it has the most of my configs shared here.
-6. Follow the prompt to configure your debrid credentials (optional if you chose the P2P template). API Keys already configured inside AIOStreams will be prefilled.
+5. Select "Tamtaro Complete SEL Setup". Read through the various options to customize. Leaving everything default gets you my recommended setup. 
+6. Follow the prompt to configure your debrid credentials. API Keys already configured inside AIOStreams will be prefilled.
 7. Enter your TMDB/TVDB credentials for Title Matching and various other features.
 8. Load Template, Save your AIOStreams, install into stremio.
 9. Go to end of this page for instructions on how to setup your catalogs via AIOMetadata addon (which is a separate addon from AIOStrems).
 
   > [!NOTE]
-  > Remember to personalize your imported config by going to `Filters` -> `Language`. Select your main language as the top spot in Preferred Languages, then sort/rank the rest according to your preference. I suggest keeping Dubbed, Dual Audio, Multi, Unknown in the list as they may contain streams of your preferred languages.
 > To further enhance your sorting, Vidhin's regex template is now incorporated, which tags and scores streams based on the quality of the release groups and other attributes. Check his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more instructions on further customization
 
 ## 🔧 Optional SELs
 
-While my SEL setup is a complete setup, it can always be tweaked further for various specific needs. Over the months I've shared these SELs with you guys on Discord, or found them useful, shared by others. Most of these are Excluded Stream Expressions, which are meant to be used *before* my ESEs/synced url. Some are Included expressions, which is meant to bypass certain streams before filtering. Some are Required expressions, which is meant to provide one last filtering that will run *after* all previous filtering. Where to put each optional SEL is important and will be noted.
+While my default SEL setup is a complete setup, it can be tweaked further for various specific needs. Over the months I've shared these SELs with you guys on Discord, or found them useful, shared by others. Most of these are Excluded Stream Expressions, which are meant to be used *before* my ESEs/synced url. Some are Included expressions, which is meant to bypass certain streams before filtering. Some are Required expressions, which is meant to provide one last filtering that will run *after* all previous filtering. Where to put each optional SEL is important and will be noted. It's recommended to use the Template Wizard as that will automatically adjust and place the SELs appropriately for your config. A lot of these SELs is incoropated into the template already.
 
 These go into Excluded *before* all my Excluded SELs, by adding a box yourself above my synced url:
   - __☑ ɴᴢʙ-Only Filter__: A UsenetStreamer filter for those that only want to see health checked results from UsenetStreamer. The SEL line assumes your UsenetStreamer addon is named US, USN, UsenetStreamer, or Usenet Streamer, so avoid naming any other addon with those names.
@@ -610,92 +689,6 @@ These go into Included Stream Expressions, order doesn't matter here:
   - __SDR Passthrough__: This will passthrough up to 5 non-DV/HDR (aka SDR) streams in 4k/1080p, and if there are less than 5 of such present, it will also passthrough up to 5 more in 720p. Specifically, my exclusion SELs won't work on these DV streams. Adjust 5 to 99+ if you want to passthrough all.
     - ```text
       /*SDR Passthrough*/ count(resolution(negate(merge(visualTag(streams, 'HDR', 'HDR10', 'HDR10+', 'DV')), visualTag(merge(cached(streams), type(streams, 'usenet')), 'SDR', 'HLG', '10bit', 'IMAX', 'Unknown')), '2160p', '1080p')) > 5 ? passthrough(slice(resolution(negate(merge(visualTag(streams, 'HDR', 'HDR10', 'HDR10+', 'DV')), visualTag(merge(cached(streams), type(streams, 'usenet')), 'SDR', 'HLG', '10bit', 'IMAX', 'Unknown')), '2160p', '1080p'), 0, 5), 'excluded') : passthrough(slice(resolution(negate(merge(visualTag(streams, 'HDR', 'HDR10', 'HDR10+', 'DV')), visualTag(merge(cached(streams), type(streams, 'usenet')), 'SDR', 'HLG', '10bit', 'IMAX', 'Unknown')), '2160p', '1080p', '720p'), 0, 5), 'excluded')
-
-### 🧩 Manual Setup of Template v1.1.0 (Outdated )
-
-<details>
-  <summary>This section is outdated, refer to my Release Notes for latest changees. The best way to use my config is by importing one of my templates above.</summary>
-  <p> </p>
-This is my recommended setup that should work for most of you. If you just want a finished template, then import & use one of the templates described above. Otherwise read on to customize your current AIOStreams instance.
-
-### **Sorting**
-- __Global Sort Order Type:__  `Cached`
-  - We put `Cached` here since we want our results to show cached before uncached
-  - If `Cached` is first item, the sort algorithm automatically goes to Cached & Uncached Sort Order, nothing else after `Cached` matters in Global Sort Order
-- Cached Sort Order Type: `Resolution → Library → Quality → Regex Patterns → Stream Type → (if p2p only, Seeders here) → Visual Tag → Audio Tag → Encode → Language → Size → Seeders`
-  - There is a lot of flexibility here, re-arrange to your preference as to what your top results should prioritize
-  - Note that p2p is considered cached and therefore p2p sorting uses this sort order, so if you're using a p2p setup, move `Seeders` up
-- Uncached Sort Order Type: `Resolution → Library → Stream Type → Seeders → Regex Patterns → Quality → Language → Size`
-  - Generally the same as `Cached Sort Order` except Seeders is higher 
-  - There should be very little to no uncached streams in your results (unless you're using usenet which are mostly uncached), therefore you don't need an exclusive list in this uncached sort order
-
-> [!NOTE]
-> If your first filter in `Global Sort Order` is `Cached` and you left `Cached/Uncached Sort Order` blank, your sort/filter may not work properly.
-
-## 🎚️ Filtering for Template v1.1 (Outdated)
-- Define `Preferrence Order` in each of `Resolution, Quality, Encode, Stream Type, Visual Tag, Audio Tag` and `Language`. 
-  - This is important for our Sort Order to work.
-> [!NOTE]
-> You will have to edit this section to your personal preference.
-  - Under `Language` -> `Required Language`, select all your required languages there. This is ensure streams of the language you watch will be included in the results.
-  - Set `Preferred Languages` to be the same as your `Required Languages`, reorder/rank them to your preferrence. 
-  - By default my setup has the following languages: `English, Japanese, Korean, Dubbed, Dual Audio, Multi, Unknown`. Regardless of your choice, do not remove `Dubbed, Dual Audio, Multi, Unknown` from either lists, as some streams of your language may fall under these language tags.
-
-- Default is recommended in the rest of the filters. If not sure, check my AIOStreams template json for how I configured them 
-  - `Quality`: Remove default items in `Excluded` since my SEL will remove CAM/TS/etc when necessary
-  - `Visual Tag`:  If your device doesn't support DV add `DV Only` into `Excluded`. Same for 3D. 
-  -   `Encode`: `Exclude H-OU, H-SBS` for non 3DTV
- - Optional: Import [Vidhin's json for merged anime regexes](https://github.com/Vidhin05/Releases-Regex/blob/main/README.md) into `Regex → Preferred Regex Patterns → Import from url icon` 
- ```text
-https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/merged-anime-regexes.json
-```
-   - This regex labels all streams with tier rankings based on reputation/quality of release groups per [TRaSH Guides](https://trash-guides.info/). You will need to reimport the regex occassionally whenever Vidhin pushes an update to the regex because many AIOStreams instances will only allow the use of his latest update regex. 
- - Optional: Under `Matching`, enable `Season/Episode Matching` and `Title Matching`  with `Match Year (1 Year Tolerance)` and `Exact Matching Mode` selected. I suggest boosting the `Similarity Threshold` from `0.85 to 1`. Adjust these settings as needed.
- - Under `Deduplicator`, select all 3 `Detection Methods`. Set to `Aggressive` for `Multi-Group Behaviour`. Leave everything else as default (Single Result). 
-
-> [!IMPORTANT]
-> Leave all remainder filters setting, `Excluded` `Included` and `Required` boxes empty. As tempting as it sounds to select `Exclude Uncached` or set your `Result Limits`, my SEL will do that for you. This is the first troubleshooting step if your sort/filter looks off!
-
-## 🎚️🤖 Filtering with Stream Expression Language (SEL) for Template v1.1 (Outdated)
-
-- All filtering (besides title match and dedupe) can be done with stream expressions. My setup leaves the language filtering to AIOStreams basic language filter (altho can be done using SEL - just think the basic filter is good enough).
-- There are two schools of thought with regards to SEL Filtering:
-  - using it to filter during fetching stage via `Dynamic Group Exit Condition` or,
-  - using it after all initial filtering has been done by AIOStreams via  `Excluded Stream Expressions` (ESE) 
-- My setup has been fine-tuned using the second method for over 3 months now with feedback from users. I may incorporate the first method into my setup in the future, however for now heavy work of filtering is done using my three lines of ESE. Copy-paste the codes below into `AIOStreams -> Excluded Stream Expressions` or import them using the SEL-only template json at the top of this page.
-  <p>
-    <details>
-        <summary>First line into ESE: Uncached Filter</summary>
-  
-    ```text
- 
-     ```   
-    </details>
-  </p>
-  <p>
-    <details>
-        <summary>Second line into ESE: Main Quality/Resolution Filter</summary>
-  
-    ```text
-    ```
-    </details>
-  </p>
-  <p>
-    <details>
-        <summary>Third line into ESE: Low Quality/Resolution Filter</summary>
-  
-    ```text
-
-    ```
-    </details>
-  </p>
-
-The first block of SEL for your `Excluded Stream Expressions` (ESE) is the Uncached Filter. It checks and removes uncached debrid streams with low resolution and low seeder count, except for good regex-matched. It also removes P2P streams if present for low seeder count. Usenet results are exempt from this Uncached Filter.
-
-The second block of ESE is the Main Quality/Resolution Filter. It uses `slice(...,3)` to further trim streams, keeping top ~3 results of most `Quality` and `Resolution` combination. Because AIOStreams sorts streams before SEL filtering, you can determine how your streams is sorted first so that the `slice` of the top results of any `quality` /`resolution` will always select your preferred "highest-quality streams". For me, that would be Vidhin's regex-matched streams, so I put `Regex Pattern` right underneath `Quality` in Sort Order. If you value size or language for every resolution + quality pair then put `Size` or `Language` right underneath `Quality`, the `slice` will then keep your top 3 streams for that particular `quality`/`resolution` according to your size or language preference, respectively.
-
-Third block of ESE is the Low Quality/Resolution Filter. It checks how many streams made through the Main Filter above, and removes low quality and low resolution streams when there are already enough present. It also removes regex-matched streams from "Bad" quality release groups when there are enough non-"Bad" streams present (for those that use Vidhin's regex).
-</details>
 
 ---
 ## ⚙️ What’s Included for AIOMetadata
