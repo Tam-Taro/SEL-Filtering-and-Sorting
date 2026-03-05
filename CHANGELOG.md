@@ -2,6 +2,7 @@
 
 ## 2.0.8 (2026-03-04)
 
+- Update: Integrated changelog directly into templates.
 - Update: Usenet overhaul; all Usenet options are now under their own main header.
     - New Boost Uncached Usenet to alter how uncached Usenet vs. Debrid content sorting is handled.
     - Selecting "Boost Uncached Usenet" will move all sorting to 'Global' only.
