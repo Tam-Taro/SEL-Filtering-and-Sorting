@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.9 (2026-03-05)
+
+- Update: Service wrap is now enabled only for Torrentio. This prevents Torrentio from returning results when the Torrentio service is down.
+- Fix: `Pin Top 1 Resolution` & `Pin Top 1 Resolution/Quality` now properly returns Library stream if library stream happens to be sorted on top.
+    - If you don't want Top 1 to always pick your library stream (as that defaults to top sort), then you may need to choose No Library Boost under Sort Option
+- Partial Template Update: New option to "Import Only Synced URLs".
+    - If selected, this will import only the synced URLs for your core filter selection, keeping your existing regular SEL fields intact (such as optional SELs from the Complete Setup or manual additions).
+
 ## 2.0.8 (2026-03-04)
 
 - Update: Integrated changelog directly into templates.
