@@ -2,19 +2,27 @@
   "metadata": {
     "id": "tamtaro.complete",
     "name": "Tamtaro Complete SEL Setup",
-    "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Comes with optional addons and optional formatter. \n * Dynamic core filtering options: Standard SEL (keeps ~20 results) or Extended SEL (keeps ~40).\n * Comes with auto-synced urls for SELs & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so you'll receive latest SEL hotfixes automatically. Set & forget.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
+    "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://git.tamtaro.de). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Comes with optional addons and optional formatter. \n * Dynamic core filtering options: Standard SEL (keeps ~20 results) or Extended SEL (keeps ~40).\n * Comes with auto-synced urls for SELs & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so you'll receive latest SEL hotfixes automatically. Set & forget.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
     "source": "external",
     "author": "Tamtaro",
-    "version": "2.0.10",
+    "version": "2.1.0",
     "category": "AIO",
     "serviceRequired": false,
     "changelogUrl": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/CHANGELOG.md",
     "inputs": [
       {
+        "__if": "services",
+        "id": "header.intro",
+        "name": "Complete SEL Setup v2.1.0: Debrid/Usenet Mode",
+        "description": "An advanced filtering & sorting setup powered by Stream Expression Language (SEL) & [Vidhin's Regex Patterns](https://github.com/Vidhin05/Releases-Regex)",
+        "type": "alert",
+        "intent": "success"
+      },
+      {
         "__if": "!services",
         "id": "header.p2p",
-        "name": "",
-        "description": "No services selected - proceeding with P2P setup. If torrenting is forbidden where you live, VPN or a service from previous page is required.",
+        "name": "Complete SEL Setup v2.1.0: P2P Mode",
+        "description": "No services selected. In some countries, torrenting is restricted,so a VPN or a debrid service from previous page may be required.",
         "type": "alert",
         "intent": "warning"
       },
@@ -265,6 +273,426 @@
             "default": false
           },
           {
+            "id": "subtitleLanguages",
+            "name": "Subtitle Addon Options",
+            "description": "Select the languages for the OpenSubtitles V3+ addon. Empty or select Disabled to remove this addon from your setup.",
+            "type": "multi-select",
+            "required": false,
+            "default": [
+              "en"
+            ],
+            "options": [
+              {
+                "label": "Disabled",
+                "value": "disabled"
+              },
+              {
+                "label": "Abkhazian",
+                "value": "ab"
+              },
+              {
+                "label": "Afrikaans",
+                "value": "af"
+              },
+              {
+                "label": "Albanian",
+                "value": "sq"
+              },
+              {
+                "label": "Aragonese",
+                "value": "an"
+              },
+              {
+                "label": "Arabic",
+                "value": "ar"
+              },
+              {
+                "label": "Armenian",
+                "value": "hy"
+              },
+              {
+                "label": "Assamese",
+                "value": "as"
+              },
+              {
+                "label": "Asturian",
+                "value": "at"
+              },
+              {
+                "label": "Azerbaijani",
+                "value": "az"
+              },
+              {
+                "label": "Basque",
+                "value": "eu"
+              },
+              {
+                "label": "Belarusian",
+                "value": "be"
+              },
+              {
+                "label": "Bengali",
+                "value": "bn"
+              },
+              {
+                "label": "Bosnian",
+                "value": "bs"
+              },
+              {
+                "label": "Breton",
+                "value": "br"
+              },
+              {
+                "label": "Bulgarian",
+                "value": "bg"
+              },
+              {
+                "label": "Burmese",
+                "value": "my"
+              },
+              {
+                "label": "Catalan",
+                "value": "ca"
+              },
+              {
+                "label": "Chinese (simplified)",
+                "value": "zh-cn"
+              },
+              {
+                "label": "Chinese (traditional)",
+                "value": "zh-tw"
+              },
+              {
+                "label": "Chinese bilingual",
+                "value": "ze"
+              },
+              {
+                "label": "Croatian",
+                "value": "hr"
+              },
+              {
+                "label": "Czech",
+                "value": "cs"
+              },
+              {
+                "label": "Danish",
+                "value": "da"
+              },
+              {
+                "label": "Dari",
+                "value": "pr"
+              },
+              {
+                "label": "Dutch",
+                "value": "nl"
+              },
+              {
+                "label": "English",
+                "value": "en"
+              },
+              {
+                "label": "Esperanto",
+                "value": "eo"
+              },
+              {
+                "label": "Estonian",
+                "value": "et"
+              },
+              {
+                "label": "Extremaduran",
+                "value": "ex"
+              },
+              {
+                "label": "Finnish",
+                "value": "fi"
+              },
+              {
+                "label": "French",
+                "value": "fr"
+              },
+              {
+                "label": "Gaelic",
+                "value": "gd"
+              },
+              {
+                "label": "Galician",
+                "value": "gl"
+              },
+              {
+                "label": "Georgian",
+                "value": "ka"
+              },
+              {
+                "label": "German",
+                "value": "de"
+              },
+              {
+                "label": "Greek",
+                "value": "el"
+              },
+              {
+                "label": "Hebrew",
+                "value": "he"
+              },
+              {
+                "label": "Hindi",
+                "value": "hi"
+              },
+              {
+                "label": "Hungarian",
+                "value": "hu"
+              },
+              {
+                "label": "Icelandic",
+                "value": "is"
+              },
+              {
+                "label": "Igbo",
+                "value": "ig"
+              },
+              {
+                "label": "Indonesian",
+                "value": "id"
+              },
+              {
+                "label": "Interlingua",
+                "value": "ia"
+              },
+              {
+                "label": "Irish",
+                "value": "ga"
+              },
+              {
+                "label": "Italian",
+                "value": "it"
+              },
+              {
+                "label": "Japanese",
+                "value": "ja"
+              },
+              {
+                "label": "Kannada",
+                "value": "kn"
+              },
+              {
+                "label": "Kazakh",
+                "value": "kk"
+              },
+              {
+                "label": "Khmer",
+                "value": "km"
+              },
+              {
+                "label": "Korean",
+                "value": "ko"
+              },
+              {
+                "label": "Kurdish",
+                "value": "ku"
+              },
+              {
+                "label": "Latvian",
+                "value": "lv"
+              },
+              {
+                "label": "Lithuanian",
+                "value": "lt"
+              },
+              {
+                "label": "Luxembourgish",
+                "value": "lb"
+              },
+              {
+                "label": "Macedonian",
+                "value": "mk"
+              },
+              {
+                "label": "Malay",
+                "value": "ms"
+              },
+              {
+                "label": "Malayalam",
+                "value": "ml"
+              },
+              {
+                "label": "Manipuri",
+                "value": "ma"
+              },
+              {
+                "label": "Marathi",
+                "value": "mr"
+              },
+              {
+                "label": "Mongolian",
+                "value": "mn"
+              },
+              {
+                "label": "Montenegrin",
+                "value": "me"
+              },
+              {
+                "label": "Navajo",
+                "value": "nv"
+              },
+              {
+                "label": "Nepali",
+                "value": "ne"
+              },
+              {
+                "label": "Northern Sami",
+                "value": "se"
+              },
+              {
+                "label": "Norwegian",
+                "value": "no"
+              },
+              {
+                "label": "Occitan",
+                "value": "oc"
+              },
+              {
+                "label": "Odia",
+                "value": "or"
+              },
+              {
+                "label": "Persian",
+                "value": "fa"
+              },
+              {
+                "label": "Polish",
+                "value": "pl"
+              },
+              {
+                "label": "Portuguese",
+                "value": "pt-pt"
+              },
+              {
+                "label": "Portuguese (BR)",
+                "value": "pt-br"
+              },
+              {
+                "label": "Portuguese (MZ)",
+                "value": "pm"
+              },
+              {
+                "label": "Pushto",
+                "value": "ps"
+              },
+              {
+                "label": "Romanian",
+                "value": "ro"
+              },
+              {
+                "label": "Russian",
+                "value": "ru"
+              },
+              {
+                "label": "Santali",
+                "value": "sx"
+              },
+              {
+                "label": "Serbian",
+                "value": "sr"
+              },
+              {
+                "label": "Sindhi",
+                "value": "sd"
+              },
+              {
+                "label": "Sinhalese",
+                "value": "si"
+              },
+              {
+                "label": "Slovak",
+                "value": "sk"
+              },
+              {
+                "label": "Slovenian",
+                "value": "sl"
+              },
+              {
+                "label": "Somali",
+                "value": "so"
+              },
+              {
+                "label": "Spanish",
+                "value": "es"
+              },
+              {
+                "label": "Spanish (EU)",
+                "value": "sp"
+              },
+              {
+                "label": "Spanish (LA)",
+                "value": "ea"
+              },
+              {
+                "label": "Swahili",
+                "value": "sw"
+              },
+              {
+                "label": "Swedish",
+                "value": "sv"
+              },
+              {
+                "label": "Syriac",
+                "value": "sy"
+              },
+              {
+                "label": "Tagalog",
+                "value": "tl"
+              },
+              {
+                "label": "Tamil",
+                "value": "ta"
+              },
+              {
+                "label": "Tatar",
+                "value": "tt"
+              },
+              {
+                "label": "Telugu",
+                "value": "te"
+              },
+              {
+                "label": "Thai",
+                "value": "th"
+              },
+              {
+                "label": "Toki Pona",
+                "value": "tp"
+              },
+              {
+                "label": "Turkish",
+                "value": "tr"
+              },
+              {
+                "label": "Turkmen",
+                "value": "tk"
+              },
+              {
+                "label": "Ukrainian",
+                "value": "uk"
+              },
+              {
+                "label": "Urdu",
+                "value": "ur"
+              },
+              {
+                "label": "Uzbek",
+                "value": "uz"
+              },
+              {
+                "label": "Vietnamese",
+                "value": "vi"
+              },
+              {
+                "label": "Welsh",
+                "value": "cy"
+              }
+            ]
+          },
+          {
             "id": "timeout",
             "name": "Global Timeout",
             "description": "Enter the time in ms you're willing to wait for results before your add-ons timeout. Default: 7000 ms.",
@@ -281,6 +709,7 @@
         "description": "By defaults, AI and 3D visual tags are excluded. If your device does not support DV, select 'DV Only' to exclude all DV streams with no HDR fallbacks. You will remove all HDR+DV streams if you simply exclude 'DV'.",
         "type": "multi-select",
         "required": false,
+        "advanced": true,
         "default": [
           "AI",
           "3D",
@@ -338,7 +767,7 @@
         "__if": "services",
         "id": "sorting",
         "name": "Sorting Options",
-        "description": "Streams are sorted under Global Cached: SeaDex → Resolution → Quality → Library → Stream Expression → Stream Expression Score → Language → Encode → Bitrate → Seeders.",
+        "description": "Streams are sorted by Cached first: SeaDex → Resolution → Quality → Library → Stream Expression → Stream Expression Score → Language → Encode → Bitrate → Seeders.",
         "type": "subsection",
         "required": false,
         "advanced": true,
@@ -608,7 +1037,8 @@
               }
             ]
           },
-          { "id": "bitrateBoostRank",
+          {
+            "id": "bitrateBoostRank",
             "name": "Low Bitrate Ranking Boost",
             "description": "Instead of removing high-bitrate streams, this option prioritizes streams within bitrate limit by boosting their ranking in preferred stream expressions. Within each Resolution/Quality category, large files are pushed to the bottom of the result list and only kept as backup options if lower bitrate options are few or unavailable.",
             "type": "boolean",
@@ -616,7 +1046,8 @@
             "advanced": true,
             "default": false
           },
-          { "id": "bitrateBoostSort",
+          {
+            "id": "bitrateBoostSort",
             "name": "Low Bitrate Sorting Boost",
             "description": "If selected, streams will be sorted within each Resolution/Quality category based on their bitrate, lowest to highest. A selection in Bitrate Limit is required to enable this feature.",
             "type": "boolean",
@@ -1093,18 +1524,6 @@
             "intent": "warning-basic"
           },
           {
-            "id": "global",
-            "name": "Global Result Limit",
-            "description": "Limit the remaining results after Standard/Extended SEL to just the overall top results (passthrough, library and SeaDex exempted). Rest will be removed. Leave blank (recommended) to keep a dynamic results list with different Resolution/Quality.",
-            "type": "number",
-            "required": false,
-            "constraints": {
-              "min": 1,
-              "max": 20,
-              "forceInUi": true
-            }
-          },
-          {
             "id": "top1Res",
             "name": "Top Results Per Resolution",
             "description": "Limit the total remaining results after Standard/Extended SEL to top X results from each Resolution for max of 3 top resolutions (passthrough, library and SeaDex exempted). Rest will be removed.",
@@ -1187,6 +1606,18 @@
             "type": "boolean",
             "required": false,
             "default": false
+          },
+          {
+            "id": "global",
+            "name": "Global Result Limit",
+            "description": "Limit the remaining results after Standard/Extended SEL to just the overall top results (passthrough, library and SeaDex exempted). Rest will be removed. Leave blank (recommended) to keep a dynamic results list with different Resolution/Quality.",
+            "type": "number",
+            "required": false,
+            "constraints": {
+              "min": 1,
+              "max": 20,
+              "forceInUi": true
+            }
           }
         ]
       },
@@ -1200,7 +1631,7 @@
       {
         "id": "keepScore",
         "name": "Keep Custom SEL Edits",
-        "description": "Select this option if you want to prevent your custom edits to SEL or regex in synced urls from being overwritten with default values. Leave it unchecked to benefit from Vidhin's default SEL scores, which are designed to work well with this template.",
+        "description": "Select this option to prevent custom edits to synced urls SEL or regex from being overwritten with default values. Leave it unchecked to benefit from Vidhin's default SEL scores, which are designed to work well with this template. 4k/1080P Remux Filters will not work if you enable this option, since they rely on synced ESE edits.",
         "type": "boolean",
         "required": false,
         "default": false
@@ -1221,11 +1652,15 @@
         "socials": [
           {
             "id": "github",
-            "url": "https://github.com/Tam-Taro/SEL-Filtering-and-Sorting"
+            "url": "https://git.tamtaro.de"
           },
           {
             "id": "ko-fi",
             "url": "https://ko-fi.com/tamtaro"
+          },
+          {
+            "id": "ko-fi",
+            "url": "https://ko-fi.com/vidhin"
           }
         ]
       }
@@ -1416,12 +1851,16 @@
     "excludedStreamExpressions": [
       {
         "__if": "inputs.coreFilter includes extended",
-        "expression": "/*Core Filtering by Extended SEL. Reimport Tamtaro's template or visit GitHub for more optional SELs*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.0: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+        "enabled": true
+      },
+      {
+        "expression": "/*𝚐𝚒𝚝.𝚝𝚊𝚖𝚝𝚊𝚛𝚘.𝚍𝚎 𝚏𝚘𝚛 𝚏𝚞𝚕𝚕 𝚐𝚞𝚒𝚍𝚎 & 𝚊𝚍𝚍𝚒𝚝𝚒𝚘𝚗𝚊𝚕 𝚂𝙴𝙻𝚜*/[]",
         "enabled": true
       },
       {
         "__if": "inputs.coreFilter includes standard",
-        "expression": "/*Core Filtering by Standard SEL. Reimport Tamtaro's template or visit GitHub for more optional SELs*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.0: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 SEL filtering engine*/ []",
         "enabled": true
       },
       {
@@ -1445,6 +1884,11 @@
         "enabled": true
       },
       {
+        "__if": "!inputs.includeAddon.none",
+        "expression": "/*No Library from Sootio*/ addon(library(streams), 'Sootio')",
+        "enabled": true
+      },
+      {
         "__if": "inputs.torboxTier == nonPro",
         "expression": "/*TB Non-Pro Download Limit*/ size(uncached(service(streams, 'torbox')), '200GB')",
         "enabled": true
@@ -1452,16 +1896,6 @@
       {
         "__if": "inputs.torboxTier == pro",
         "expression": "/*TB Pro Download Limit*/ size(uncached(service(streams, 'torbox')), '1TB')",
-        "enabled": true
-      },
-      {
-        "__if": "inputs.optionalFilters includes 4kRemux",
-        "expression": "/*4k Remux Filter*/ resolution(quality(streams,'BluRay REMUX'), '2160p')",
-        "enabled": true
-      },
-      {
-        "__if": "inputs.optionalFilters includes 1080pRemux",
-        "expression": "/*1080p Remux Filter*/ resolution(quality(streams,'BluRay REMUX'), '1080p')",
         "enabled": true
       },
       {
@@ -1553,10 +1987,6 @@
         "__if": "inputs.bitrate.bitrateCap != 150 and !inputs.bitrate.bitrateBoostRank",
         "expression": "/*Bitrate Hardcap: {{inputs.bitrate.bitrateCap}} Mbps*/ merge(bitrate(resolution(streams, '2160p'), '{{inputs.bitrate.bitrateCap}}'*0.8*1000000), bitrate(resolution(streams, '1080p'), {{inputs.bitrate.bitrateCap}}'*0.5*1000000), bitrate(resolution(streams, '720p'), {{inputs.bitrate.bitrateCap}}'*0.3*1000000))",
         "enabled": true
-      },
-      {
-        "expression": "/*Selfhosters: Enable synced urls by setting SEL_SYNC_ACCESS=all or TEMPLATE_URLS env https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/Tamtaro-All-Templates-for-AIOStreams.json */[]",
-        "enabled": true
       }
     ],
     "requiredStreamExpressions": [
@@ -1598,14 +2028,14 @@
         "enabled": true
       },
       {
-        "expression": "/*If you are using SEL Only Template, add Stream Expressions in Sort Order to use synced url below.*/ []",
+        "expression": "/*𝙸𝚏 𝚢𝚘𝚞 𝚞𝚜𝚎𝚍 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚃𝚎𝚖𝚙𝚕𝚊𝚝𝚎, 𝚊𝚍𝚍 𝚂𝚝𝚛𝚎𝚊𝚖 𝙴𝚡𝚙𝚛𝚎𝚜𝚜𝚒𝚘𝚗𝚜 𝚒𝚗 𝚂𝚘𝚛𝚝 𝙾𝚛𝚍𝚎𝚛 𝚊𝚏𝚝𝚎𝚛 𝚀𝚞𝚊𝚕𝚒𝚝𝚢 𝚝𝚘 𝚞𝚜𝚎 𝙿𝚂𝙴 𝚜𝚢𝚗𝚌𝚎𝚍 𝚞𝚛𝚕 𝚋𝚎𝚕𝚘𝚠.*/ []",
         "enabled": true
       }
     ],
     "includedStreamExpressions": [],
     "rankedStreamExpressions": [
       {
-        "expression": "/*#Vidhin's regex is used to score and tags streams via rseMatched in formatter*/ []",
+        "expression": "/*#𝚅𝚒𝚍𝚑𝚒𝚗'𝚜 𝚛𝚎𝚐𝚎𝚡 𝚒𝚜 𝚞𝚜𝚎𝚍 𝚝𝚘 𝚜𝚌𝚘𝚛𝚎 𝚊𝚗𝚍 𝚝𝚊𝚐𝚜 𝚜𝚝𝚛𝚎𝚊𝚖𝚜, 𝚟𝚒𝚜𝚒𝚋𝚕𝚎 𝚒𝚗 𝚏𝚘𝚛𝚖𝚊𝚝𝚝𝚎𝚛*/ []",
         "score": 0,
         "enabled": true
       }
@@ -1616,7 +2046,24 @@
     },
     "selOverrides": {
       "__if": "!inputs.keepScore",
-      "__value": []
+      "__value": [
+        {
+          "__if": "inputs.optionalFilters includes 4kRemux",
+          "expression": "/*No 4K Remux*/ quality(resolution(streams,'2160p'),'Bluray REMUX')",
+          "exprNames": [
+            "No 4K Remux"
+          ],
+          "disabled": false
+        },
+        {
+          "__if": "inputs.optionalFilters includes 1080pRemux",
+          "expression": "/*No 1080P Remux*/ quality(resolution(streams,'1080p'),'Bluray REMUX')",
+          "exprNames": [
+            "No 1080P Remux"
+          ],
+          "disabled": false
+        }
+      ]
     },
     "enableSeadex": {
       "__if": "inputs.includeAddon.noAnime",
@@ -1643,9 +2090,10 @@
           "direction": "desc"
         },
         {
-          "__if": "inputs.usenet.usenetUncachedSort",
+          "__if": "inputs.usenet.usenetUncachedSort or !services",
           "__value": [
             {
+              "__if": "inputs.usenet.usenetUncachedSort",
               "key": "streamExpressionMatched",
               "direction": "desc"
             },
@@ -1660,7 +2108,7 @@
               "direction": "desc"
             },
             {
-              "__if": "services and inputs.sorting.language == high or !services and inputs.sortingP2P.language == 'high'",
+              "__if": "services and inputs.sorting.language == high or !services and inputs.sortingP2P.language == high",
               "key": "language",
               "direction": "desc"
             },
@@ -1670,7 +2118,7 @@
               "direction": "desc"
             },
             {
-              "__if": "!inputs.includeAddon.noAnime",
+              "__if": "services and !inputs.includeAddon.noAnime",
               "key": "seadex",
               "direction": "desc"
             },
@@ -1683,11 +2131,17 @@
               "direction": "desc"
             },
             {
-              "__if": "services and inputs.sorting.library == 'default'",
+              "__if": "services and inputs.sorting.library == default",
               "key": "library",
               "direction": "desc"
             },
-            { "__if": "inputs.bitrate.bitrateCap != 150 and inputs.bitrate.bitrateBoostSort",
+            {
+              "__if": "!services",
+              "key": "streamExpressionMatched",
+              "direction": "desc"
+            },
+            {
+              "__if": "inputs.bitrate.bitrateCap != 150 and inputs.bitrate.bitrateBoostSort",
               "key": "bitrate",
               "direction": "asc"
             },
@@ -1697,12 +2151,12 @@
               "direction": "desc"
             },
             {
-              "__if": "!services and inputs.sortingP2P.seeders == 'default'",
+              "__if": "!services and inputs.sortingP2P.seeders == default",
               "key": "seeders",
               "direction": "desc"
             },
             {
-              "__if": "services and inputs.sorting.language == 'default' or !services and inputs.sortingP2P.language == 'default'",
+              "__if": "services and inputs.sorting.language == default or !services and inputs.sortingP2P.language == default",
               "key": "language",
               "direction": "desc"
             },
@@ -1718,7 +2172,8 @@
               "key": "encode",
               "direction": "desc"
             },
-            { "__if": "inputs.bitrate.bitrateCap == 150",
+            {
+              "__if": "inputs.bitrate.bitrateCap == 150",
               "key": "bitrate",
               "direction": "desc"
             },
@@ -1734,7 +2189,7 @@
       "anime": [],
       "cached": [
         {
-          "__if": "!inputs.usenet.usenetUncachedSort",
+          "__if": "!inputs.usenet.usenetUncachedSort and services",
           "__value": [
             {
               "__if": "services and inputs.sorting.library == high",
@@ -1778,7 +2233,8 @@
               "key": "streamExpressionMatched",
               "direction": "desc"
             },
-            { "__if": "inputs.bitrate.bitrateCap != 150 and inputs.bitrate.bitrateBoostSort",
+            {
+              "__if": "inputs.bitrate.bitrateCap != 150 and inputs.bitrate.bitrateBoostSort",
               "key": "bitrate",
               "direction": "asc"
             },
@@ -1809,7 +2265,8 @@
               "key": "encode",
               "direction": "desc"
             },
-            { "__if": "inputs.bitrate.bitrateCap == 150",
+            {
+              "__if": "inputs.bitrate.bitrateCap == 150",
               "key": "bitrate",
               "direction": "desc"
             },
@@ -1861,7 +2318,8 @@
             "key": "streamExpressionMatched",
             "direction": "desc"
           },
-          { "__if": "inputs.bitrate.bitrateCap != 150 and inputs.bitrate.bitrateBoostSort",
+          {
+            "__if": "inputs.bitrate.bitrateCap != 150 and inputs.bitrate.bitrateBoostSort",
             "key": "bitrate",
             "direction": "asc"
           },
@@ -1891,7 +2349,8 @@
             "key": "encode",
             "direction": "desc"
           },
-          { "__if": "inputs.bitrate.bitrateCap == 150",
+          {
+            "__if": "inputs.bitrate.bitrateCap == 150",
             "key": "bitrate",
             "direction": "desc"
           }
@@ -1899,7 +2358,6 @@
       },
       "cachedMovies": []
     },
-    "posterService": "rpdb",
     "usePosterRedirectApi": true,
     "formatter": {
       "__switch": "inputs.formatterChoice",
@@ -2294,6 +2752,23 @@
                 "includeExternalUrls": false,
                 "showErrors": false
               }
+            },
+            {
+              "__if": "inputs.includeAddon.subtitleLanguages != disabled or inputs.includeAddon.subtitleLanguages != ",
+              "type": "opensubtitles-v3-plus",
+              "instanceId": "262",
+              "enabled": true,
+              "options": {
+                "name": "OpenSubtitles V3+",
+                "timeout": "{{inputs.includeAddon.timeout}}",
+                "resources": [
+                  "subtitles"
+                ],
+                "language": "{{inputs.includeAddon.subtitleLanguages}}",
+                "sources": "all",
+                "includeAiTranslated": false,
+                "movieHashPlusAutoAdjustment": false
+              }
             }
           ]
         },
@@ -2556,6 +3031,25 @@
               ],
               "includeExternalUrls": false,
               "showErrors": false
+            }
+          },
+          {
+            "__if": "inputs.includeAddon.subtitleLanguages != 'disabled' and inputs.includeAddon.subtitleLanguages !=",
+            "__value": {
+              "type": "opensubtitles-v3-plus",
+              "instanceId": "262",
+              "enabled": true,
+              "options": {
+                "name": "OpenSubtitles V3+",
+                "timeout": "{{inputs.includeAddon.timeout}}",
+                "resources": [
+                  "subtitles"
+                ],
+                "language": "{{inputs.includeAddon.subtitleLanguages}}",
+                "sources": "all",
+                "includeAiTranslated": false,
+                "movieHashPlusAutoAdjustment": false
+              }
             }
           }
         ]

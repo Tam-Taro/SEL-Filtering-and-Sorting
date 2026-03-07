@@ -5,13 +5,21 @@
     "description": "A focused template for importing partial aspects of Tamtaro SEL Setup, without overriding your existing configurations. Use this 'Partial' template if you want to keep your current setup but upgrade your filtering and sorting logic. \n* **Core Filtering Engine**: Choose between **Standard** (keeps top 3 streams per Quality/Resolution, approx. 20 total) or **Extended** (keeps top 6, approx. 40 total) to eliminate clutter while maintaining quality coverage.\n* **Synced URL Integration**: Automatically pulls the latest synced URLs for Excluded, Included, and Preferred Stream Expressions from [GitHub](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting).\n* To use Preferred Stream Expressions, ensure 'Stream Expressions' is added to your Sort Order.\n* **Custom Formatter Only**: Includes the custom Tamtaro formatter with options for a clean look or a full debug view (RSE Matched).",
     "source": "external",
     "author": "Tamtaro",
-    "version": "2.0.10",
+    "version": "2.1.0",
     "category": "AIO",
     "serviceRequired": false,
     "services": [],
+    "changelogUrl": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/CHANGELOG.md",
     "inputs": [
       {
-        "id": "header.intro",
+        "id": "header.intro1",
+        "name": "",
+        "description": "Welcome to Partial SEL Setup v2.1.0",
+        "type": "alert",
+        "intent": "success"
+      },
+      {
+        "id": "header.intro2",
         "name": "",
         "description": "Only selected options will be imported into AIOStreams. Everything else is untouched.",
         "type": "alert",
@@ -27,7 +35,7 @@
       {
         "id": "formatterChoice",
         "name": "Formatter Only",
-        "description": "This will import only the formatter used in Complete SEL Setup. **Tamtaro (Recommended)** strips audio/video tags from the rseMatched line for a cleaner look. **Tamtaro (Full RSE Matched)** keeps all matched Vidhin regex tags in the last line, useful for debugging scores. **AppleTV Stremio** (dividedby & stepthomas) modified version to fit the 4-line format on tvOS. **None** retains your existing formatter (no changes will be made to the formatter, but other filters and settings will still be imported).",
+        "description": "This will import only the formatter used in Complete SEL Setup. **Tamtaro (Recommended)** strips audio/video tags from the rseMatched line for a cleaner look. **Tamtaro (Full RSE Matched)** keeps all matched Vidhin regex tags in the last line, useful for debugging scores. **AppleTV Stremio** (dividedby & stepthomas) modified version to fit the 4-line format on tvOS. **None** retains your existing formatter (no changes will be made to the formatter).",
         "type": "select",
         "required": false,
         "default": "retain",
@@ -82,7 +90,7 @@
       {
         "id": "syncedOnly",
         "name": "Import Only Synced URLs",
-        "description": "If selected, this will import only the synced URLs for your core filter selection above, keeping your existing regular SEL fields intact (such as optional SELs from the Complete Setup or manual additions).",
+        "description": "If selected, this will import only the synced URLs for your core filter selection above, keeping your existing SEL fields intact (such as additional SELs from the Complete Setup or manual additions).",
         "type": "boolean",
         "required": false,
         "default": false
@@ -184,21 +192,21 @@
         "cases": {
           "standard": [
             {
-              "expression": "/*Core Filtering by Standard SEL. Reimport Tamtaro's template or visit GitHub for more optional SELs*/ []",
+              "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.0: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
               "enabled": true
             },
             {
-              "expression": "/*Selfhosters: Enable synced urls by setting SEL_SYNC_ACCESS=all or TEMPLATE_URLS env https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/Tamtaro-All-Templates-for-AIOStreams.json */[]",
+              "expression": "/*𝚐𝚒𝚝.𝚝𝚊𝚖𝚝𝚊𝚛𝚘.𝚍𝚎 𝚏𝚘𝚛 𝚏𝚞𝚕𝚕 𝚐𝚞𝚒𝚍𝚎 & 𝚊𝚍𝚍𝚒𝚝𝚒𝚘𝚗𝚊𝚕 𝚂𝙴𝙻𝚜*/[]",
               "enabled": true
             }
           ],
           "extended": [
             {
-              "expression": "/*Core Filtering by Extended SEL. Reimport Tamtaro's template or visit GitHub for more optional SELs*/ []",
+              "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.0: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
               "enabled": true
             },
             {
-              "expression": "/*Selfhosters: Enable synced urls by setting SEL_SYNC_ACCESS=all or TEMPLATE_URLS env https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/Tamtaro-All-Templates-for-AIOStreams.json */ []",
+              "expression": "/*𝚐𝚒𝚝.𝚝𝚊𝚖𝚝𝚊𝚛𝚘.𝚍𝚎 𝚏𝚘𝚛 𝚏𝚞𝚕𝚕 𝚐𝚞𝚒𝚍𝚎 & 𝚊𝚍𝚍𝚒𝚝𝚒𝚘𝚗𝚊𝚕 𝚂𝙴𝙻𝚜*/[]",
               "enabled": true
             }
           ]
@@ -212,13 +220,13 @@
         "cases": {
           "standard": [
             {
-              "expression": "/*If you are using SEL Only Template, add Stream Expressions in Sort Order to use synced url below.*/ []",
+              "expression": "/*𝙸𝚏 𝚢𝚘𝚞 𝚞𝚜𝚎𝚍 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚃𝚎𝚖𝚙𝚕𝚊𝚝𝚎, 𝚊𝚍𝚍 𝚂𝚝𝚛𝚎𝚊𝚖 𝙴𝚡𝚙𝚛𝚎𝚜𝚜𝚒𝚘𝚗𝚜 𝚒𝚗 𝚂𝚘𝚛𝚝 𝙾𝚛𝚍𝚎𝚛 𝚊𝚏𝚝𝚎𝚛 𝚀𝚞𝚊𝚕𝚒𝚝𝚢 𝚝𝚘 𝚞𝚜𝚎 𝙿𝚂𝙴 𝚜𝚢𝚗𝚌𝚎𝚍 𝚞𝚛𝚕 𝚋𝚎𝚕𝚘𝚠.*/ []",
               "enabled": true
             }
           ],
           "extended": [
             {
-              "expression": "/*If you are using SEL Only Template, add Stream Expressions in Sort Order to use synced url below.*/ []",
+              "expression": "/*𝙸𝚏 𝚢𝚘𝚞 𝚞𝚜𝚎𝚍 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚃𝚎𝚖𝚙𝚕𝚊𝚝𝚎, 𝚊𝚍𝚍 𝚂𝚝𝚛𝚎𝚊𝚖 𝙴𝚡𝚙𝚛𝚎𝚜𝚜𝚒𝚘𝚗𝚜 𝚒𝚗 𝚂𝚘𝚛𝚝 𝙾𝚛𝚍𝚎𝚛 𝚊𝚏𝚝𝚎𝚛 𝚀𝚞𝚊𝚕𝚒𝚝𝚢 𝚝𝚘 𝚞𝚜𝚎 𝙿𝚂𝙴 𝚜𝚢𝚗𝚌𝚎𝚍 𝚞𝚛𝚕 𝚋𝚎𝚕𝚘𝚠.*/ []",
               "enabled": true
             }
           ]
