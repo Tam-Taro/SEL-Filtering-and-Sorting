@@ -27,7 +27,7 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
 ---
 ## Quick Setup Overview
 1. Choose an AIOStreams instance from [this page](https://status.dinsden.top/status/stremio-addons) or click the link below to directly access my template. Nightly is recommended but not required.
-2. [Import templates](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-how-to-import): Paste `https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json` into *AIOStreams → Save & Install :floppy_disk: → Import Template*
+2. [Import templates](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-how-to-import): Paste `https://git.tamtaro.de/complete.json` into *AIOStreams → Save & Install :floppy_disk: → Import Template*
 
 > [!NOTE]
 > * [**Yeb's Nightly**](https://aiostreams-nightly.fortheweak.cloud/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) | [**Kuu's Nightly**](https://aiostreams-nightly.206111.xyz/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)| [**Midnight's Nightly**](https://aiostreamsfortheweebs.midnightignite.me/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) | [**Viren's Nightly**](https://aiostreams.viren070.me/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
