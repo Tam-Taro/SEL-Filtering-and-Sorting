@@ -45,6 +45,8 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
 ---
 ## ✨ Release Notes
 
+### For latest updates to template, see the [CHANGELOG.md](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/blob/main/CHANGELOG.md)
+
 <details>
  <summary>v2.0.0 - 2.0.6 </summary>
 	  <p></p>
