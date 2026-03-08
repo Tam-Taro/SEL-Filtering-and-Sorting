@@ -5,7 +5,7 @@
     "description": "A focused template for importing partial aspects of Tamtaro SEL Setup, without overriding your existing configurations. Use this 'Partial' template if you want to keep your current setup but upgrade your filtering and sorting logic. \n* **Core Filtering Engine**: Choose between **Standard** (keeps top 3 streams per Quality/Resolution, approx. 20 total) or **Extended** (keeps top 6, approx. 40 total) to eliminate clutter while maintaining quality coverage.\n* **Synced URL Integration**: Automatically pulls the latest synced URLs for Excluded, Included, and Preferred Stream Expressions from [GitHub](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting).\n* To use Preferred Stream Expressions, ensure 'Stream Expressions' is added to your Sort Order.\n* **Custom Formatter Only**: Includes the custom Tamtaro formatter with options for a clean look or a full debug view (RSE Matched).",
     "source": "external",
     "author": "Tamtaro",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "category": "AIO",
     "serviceRequired": false,
     "services": [],
@@ -14,7 +14,7 @@
       {
         "id": "header.intro1",
         "name": "",
-        "description": "Welcome to Partial SEL Setup v2.1.1",
+        "description": "Welcome to Partial SEL Setup v2.1.2",
         "type": "alert",
         "intent": "success"
       },
@@ -28,7 +28,7 @@
       {
         "id": "header.formatterinfo",
         "name": "",
-        "description": "This formatter displays special tags from ranked stream expressions (RSE) matched. Designed to work with [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex), which you'll need to import separately.",
+        "description": "This formatter displays special tags from ranked stream expressions (RSE) matched. Designed to work with [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex), which you'll need to import separately (or via my Complete SEL Setup template).",
         "type": "alert",
         "intent": "info-basic"
       },
@@ -90,7 +90,7 @@
       {
         "id": "syncedOnly",
         "name": "Import Only Synced URLs",
-        "description": "If selected, this will import only the synced URLs for your core filter selection above, keeping your existing SEL fields intact (such as additional SELs from the Complete Setup or manual additions).",
+        "description": "If selected, this will import only the synced URLs for your core filter selection above, keeping your existing SEL fields intact (such as additional SELs from the Complete Setup or manual additions). These other fields are normally overridden to ensure the full SEL Setup experience, but it should still be compatible with most additional SELs.",
         "type": "boolean",
         "required": false,
         "default": false
@@ -192,7 +192,7 @@
         "cases": {
           "standard": [
             {
-              "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.1: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+              "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.2: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
               "enabled": true
             },
             {
@@ -202,7 +202,7 @@
           ],
           "extended": [
             {
-              "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.1: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+              "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.2: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
               "enabled": true
             },
             {

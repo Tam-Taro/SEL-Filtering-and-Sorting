@@ -6,7 +6,7 @@
       "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://git.tamtaro.de). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Comes with optional addons and optional formatter. \n * Dynamic core filtering options: Standard SEL (keeps ~20 results) or Extended SEL (keeps ~40).\n * Comes with auto-synced urls for SELs & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so you'll receive latest SEL hotfixes automatically. Set & forget.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
       "source": "external",
       "author": "Tamtaro",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "category": "AIO",
       "serviceRequired": false,
       "changelogUrl": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/CHANGELOG.md",
@@ -14,7 +14,7 @@
         {
           "__if": "services",
           "id": "header.intro",
-          "name": "Complete SEL Setup v2.1.1: Debrid/Usenet Mode",
+          "name": "Complete SEL Setup v2.1.2: Debrid/Usenet Mode",
           "description": "An advanced filtering & sorting setup powered by Stream Expression Language (SEL) & [Vidhin's Regex Patterns](https://github.com/Vidhin05/Releases-Regex)",
           "type": "alert",
           "intent": "success"
@@ -22,7 +22,7 @@
         {
           "__if": "!services",
           "id": "header.p2p",
-          "name": "Complete SEL Setup v2.1.1: P2P Mode",
+          "name": "Complete SEL Setup v2.1.2: P2P Mode",
           "description": "No services selected. In some countries, torrenting is restricted,so a VPN or a debrid service from previous page may be required.",
           "type": "alert",
           "intent": "warning"
@@ -30,14 +30,14 @@
         {
           "id": "header.basicUI",
           "name": "",
-          "description": "Basic UI Filters Settings",
+          "description": "Basic UI Filters",
           "type": "alert",
           "intent": "info"
         },
         {
           "id": "languages",
           "name": "Preferred Languages",
-          "description": "Select your preferred stream languages. These are placed first in the language ranking. Original, Dual Audio, Multi, Dubbed, and Unknown are automatically appended after your selections. Fine-tune the full order in Filters → Language after import. The included formatter will display only your preferred languages. Streams without any of your preferred languages, beside title's Original language, will be removed.",
+          "description": "Select your preferred stream languages. These are placed first in the language ranking. Original, Dual Audio, Multi, Dubbed, and Unknown are automatically appended after your selections. Fine-tune the full order in Filters → Language after import. The included formatter will display only your preferred languages. Preferred is duplicated as Required, so streams with non-preferred languages will be removed.",
           "type": "multi-select",
           "required": true,
           "default": [
@@ -768,7 +768,7 @@
           "__if": "services",
           "id": "sorting",
           "name": "Sorting Options",
-          "description": "Streams are sorted by Cached first: SeaDex → Resolution → Quality → Library → Stream Expression → Stream Expression Score → Language → Encode → Bitrate → Seeders.",
+          "description": "Default: Cached → SeaDex → Resolution → Quality → Library → Stream Expression → Stream Expression Score → Language → Encode → Bitrate → Seeders.",
           "type": "subsection",
           "required": false,
           "advanced": true,
@@ -948,7 +948,7 @@
         {
           "id": "header.advancedSEL",
           "name": "",
-          "description": "Advanced SEL Filters Settings",
+          "description": "Advanced SEL Filters",
           "type": "alert",
           "advanced": true,
           "intent": "info"
@@ -974,7 +974,7 @@
         },
         {
           "id": "optionalFilters",
-          "name": "Recommended Optional SELs",
+          "name": "Optional SELs",
           "description": "**☑ NZB Only**: keeps only health-checked Zyclops/UsenetStreamer results, removes rest. **DV Profile 5**: removes DV Only Non-Remux streams. **4K Remux or 1080p Remux**: removes 1080p or 4k Remux due to device compatability or file size.",
           "type": "multi-select",
           "required": false,
@@ -1050,7 +1050,7 @@
             {
               "id": "bitrateBoostSort",
               "name": "Low Bitrate Sorting Boost",
-              "description": "If selected, streams will be sorted within each Resolution/Quality category based on their bitrate, lowest to highest. A selection in Bitrate Limit is required to enable this feature.",
+              "description": "If selected, streams will be sorted within each Resolution/Quality category based on their bitrate, lowest to highest. A selection below 150 Mbps in Bitrate Limit is required to enable this feature.",
               "type": "boolean",
               "required": false,
               "advanced": true,
@@ -1060,7 +1060,7 @@
         },
         {
           "id": "passthrough",
-          "name": "Pin & Passthrough Options",
+          "name": "Passthrough Options",
           "description": "Bypass select streams from SEL filters, and optionally pin them to the top. Rest of the results will still follow default SEL setup. Any streams selected for passthrough will be exempted from any additional filtering limits you set below",
           "type": "subsection",
           "advanced": true,
@@ -1391,16 +1391,8 @@
           ]
         },
         {
-          "id": "usenetNotice",
-          "name": "Usenet Options",
-          "description": "",
-          "type": "alert",
-          "advanced": true,
-          "intent": "info-basic"
-        },
-        {
           "id": "usenet",
-          "name": "Usenet Passthrough & Sort",
+          "name": "Usenet Options",
           "description": "Various passthrough and sort options for Usenet. Any streams selected for passthrough will be exempted from any additional filtering limits you set below.",
           "type": "subsection",
           "advanced": true,
@@ -1487,9 +1479,9 @@
         {
           "id": "header.filteringLimit",
           "name": "",
-          "description": "Filtering Limit",
+          "description": "Advanced Filtering Limits",
           "type": "alert",
-          "intent": "info-basic"
+          "intent": "info"
         },
         {
           "id": "coreFilter",
@@ -1640,7 +1632,7 @@
         {
           "id": "header.catalogsNotice",
           "name": "",
-          "description": "**This template does not include any catalogs**. Many prefer AIOMetadata (separate addon from AIOStreams), so after you finish importing this template, access [Tamtaro's AIOMetadata guide](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata) for your metadata and catalog management needs.",
+          "description": "**This template does not include any catalogs**. Many prefer AIOMetadata (separate addon from AIOStreams), so after you finish importing this template, access [Tamtaro's AIOMetadata guide](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata) to complete your perfect stremio setup.",
           "type": "alert",
           "advanced": true,
           "intent": "alert"
@@ -1852,7 +1844,7 @@
       "excludedStreamExpressions": [
         {
           "__if": "inputs.coreFilter includes extended",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.1: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.2: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
           "enabled": true
         },
         {
@@ -1861,7 +1853,7 @@
         },
         {
           "__if": "inputs.coreFilter includes standard",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.1: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 SEL filtering engine*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.2: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 SEL filtering engine*/ []",
           "enabled": true
         },
         {
@@ -1981,7 +1973,7 @@
         },
         {
           "__if": "inputs.bitrate.bitrateCap != 150 and !inputs.bitrate.bitrateBoostRank",
-          "expression": "/*Bitrate Hardcap: {{inputs.bitrate.bitrateCap}} Mbps*/ merge(bitrate(resolution(streams, '2160p'), {{inputs.bitrate.bitrateCap}}*0.8*1000000), bitrate(resolution(streams, '1080p'), {{inputs.bitrate.bitrateCap}}*0.5*1000000), bitrate(resolution(streams, '720p'), {{inputs.bitrate.bitrateCap}}*0.3*1000000))",
+          "expression": "/*{{inputs.bitrate.bitrateCap}} Mbps Bitrate Limit*/ merge(bitrate(resolution(streams, '2160p'), {{inputs.bitrate.bitrateCap}}*0.8*1000000), bitrate(resolution(streams, '1080p'), {{inputs.bitrate.bitrateCap}}*0.5*1000000), bitrate(resolution(streams, '720p'), {{inputs.bitrate.bitrateCap}}*0.3*1000000))",
           "enabled": true
         }
       ],
@@ -2819,7 +2811,7 @@
               }
             },
             {
-              "__if": "inputs.torboxTier == pro",
+              "__if": "inputs.torboxTier == pro and services.torbox",
               "type": "newznab",
               "instanceId": "8f3",
               "enabled": true,
@@ -3085,7 +3077,7 @@
       "description": "A focused template for importing partial aspects of Tamtaro SEL Setup, without overriding your existing configurations. Use this 'Partial' template if you want to keep your current setup but upgrade your filtering and sorting logic. \n* **Core Filtering Engine**: Choose between **Standard** (keeps top 3 streams per Quality/Resolution, approx. 20 total) or **Extended** (keeps top 6, approx. 40 total) to eliminate clutter while maintaining quality coverage.\n* **Synced URL Integration**: Automatically pulls the latest synced URLs for Excluded, Included, and Preferred Stream Expressions from [GitHub](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting).\n* To use Preferred Stream Expressions, ensure 'Stream Expressions' is added to your Sort Order.\n* **Custom Formatter Only**: Includes the custom Tamtaro formatter with options for a clean look or a full debug view (RSE Matched).",
       "source": "external",
       "author": "Tamtaro",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "category": "AIO",
       "serviceRequired": false,
       "services": [],
@@ -3094,7 +3086,7 @@
         {
           "id": "header.intro1",
           "name": "",
-          "description": "Welcome to Partial SEL Setup v2.1.1",
+          "description": "Welcome to Partial SEL Setup v2.1.2",
           "type": "alert",
           "intent": "success"
         },
@@ -3108,7 +3100,7 @@
         {
           "id": "header.formatterinfo",
           "name": "",
-          "description": "This formatter displays special tags from ranked stream expressions (RSE) matched. Designed to work with [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex), which you'll need to import separately.",
+          "description": "This formatter displays special tags from ranked stream expressions (RSE) matched. Designed to work with [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex), which you'll need to import separately (or via my Complete SEL Setup template).",
           "type": "alert",
           "intent": "info-basic"
         },
@@ -3170,7 +3162,7 @@
         {
           "id": "syncedOnly",
           "name": "Import Only Synced URLs",
-          "description": "If selected, this will import only the synced URLs for your core filter selection above, keeping your existing SEL fields intact (such as additional SELs from the Complete Setup or manual additions).",
+          "description": "If selected, this will import only the synced URLs for your core filter selection above, keeping your existing SEL fields intact (such as additional SELs from the Complete Setup or manual additions). These other fields are normally overridden to ensure the full SEL Setup experience, but it should still be compatible with most additional SELs.",
           "type": "boolean",
           "required": false,
           "default": false
@@ -3272,7 +3264,7 @@
           "cases": {
             "standard": [
               {
-                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.1: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.2: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
                 "enabled": true
               },
               {
@@ -3282,7 +3274,7 @@
             ],
             "extended": [
               {
-                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.1: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.2: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
                 "enabled": true
               },
               {
