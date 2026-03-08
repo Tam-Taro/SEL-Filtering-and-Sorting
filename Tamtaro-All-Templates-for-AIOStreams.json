@@ -6,7 +6,7 @@
       "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://git.tamtaro.de). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Comes with optional addons and optional formatter. \n * Dynamic core filtering options: Standard SEL (keeps ~20 results) or Extended SEL (keeps ~40).\n * Comes with auto-synced urls for SELs & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so you'll receive latest SEL hotfixes automatically. Set & forget.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
       "source": "external",
       "author": "Tamtaro",
-      "version": "2.1.2",
+      "version": "2.1.3",
       "category": "AIO",
       "serviceRequired": false,
       "changelogUrl": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/CHANGELOG.md",
@@ -14,7 +14,7 @@
         {
           "__if": "services",
           "id": "header.intro",
-          "name": "Complete SEL Setup v2.1.2: Debrid/Usenet Mode",
+          "name": "Complete SEL Setup v2.1.3: Debrid/Usenet Mode",
           "description": "An advanced filtering & sorting setup powered by Stream Expression Language (SEL) & [Vidhin's Regex Patterns](https://github.com/Vidhin05/Releases-Regex)",
           "type": "alert",
           "intent": "success"
@@ -22,7 +22,7 @@
         {
           "__if": "!services",
           "id": "header.p2p",
-          "name": "Complete SEL Setup v2.1.2: P2P Mode",
+          "name": "Complete SEL Setup v2.1.3: P2P Mode",
           "description": "No services selected. In some countries, torrenting is restricted,so a VPN or a debrid service from previous page may be required.",
           "type": "alert",
           "intent": "warning"
@@ -1619,7 +1619,8 @@
           "name": "",
           "description": "Misc Options",
           "type": "alert",
-          "intent": "info-basic"
+          "advanced": true,
+          "intent": "info"
         },
         {
           "id": "keepScore",
@@ -1627,14 +1628,49 @@
           "description": "Select this option to prevent custom edits to synced urls SEL or regex from being overwritten with default values. Leave it unchecked to benefit from Vidhin's default SEL scores, which are designed to work well with this template. 4k/1080P Remux Filters will not work if you enable this option, since they rely on synced ESE edits.",
           "type": "boolean",
           "required": false,
+          "advanced": true,
           "default": false
+        },
+        {
+          "id": "addonName",
+          "name": "Addon name",
+          "description": "What to call AIOStreams in Stremio?",
+          "type": "select-with-custom",
+          "required": false,
+          "advanced": true,
+          "default": "AIOStreams",
+          "options": [
+            {
+              "value": "AIOStreams",
+              "label": "AIOStreams"
+            },
+            {
+              "value": "The SELection",
+              "label": "The SELection"
+            },
+            {
+              "value": "Xx_AIOStreams_xX",
+              "label": "Xx_AIOStreams_xX"
+            },
+            {
+              "value": "Ham Streams",
+              "label": "Ham Streams"
+            },
+            {
+              "value": "Taro Streams",
+              "label": "Taro Streams"
+            },
+            {
+              "value": "none",
+              "label": "Keep Existing Name"
+            }
+          ]
         },
         {
           "id": "header.catalogsNotice",
           "name": "",
           "description": "**This template does not include any catalogs**. Many prefer AIOMetadata (separate addon from AIOStreams), so after you finish importing this template, access [Tamtaro's AIOMetadata guide](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata) to complete your perfect stremio setup.",
           "type": "alert",
-          "advanced": true,
           "intent": "alert"
         },
         {
@@ -1662,7 +1698,16 @@
     "config": {
       "trusted": false,
       "showChanges": false,
-      "addonName": "AIOStreams",
+      "addonName": {
+        "__switch": "inputs.addonName",
+        "cases": {
+          "none": {
+            "__remove": true
+          }
+        },
+        "default": "{{inputs.addonName}}"
+      },
+      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.1.3. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
       "addonLogo": "https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/blob/main/logo.png?raw=true",
       "excludedResolutions": [],
       "includedResolutions": [],
@@ -1844,7 +1889,7 @@
       "excludedStreamExpressions": [
         {
           "__if": "inputs.coreFilter includes extended",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.2: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.3: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
           "enabled": true
         },
         {
@@ -1853,7 +1898,7 @@
         },
         {
           "__if": "inputs.coreFilter includes standard",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.2: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 SEL filtering engine*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.3: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 SEL filtering engine*/ []",
           "enabled": true
         },
         {
@@ -3077,7 +3122,7 @@
       "description": "A focused template for importing partial aspects of Tamtaro SEL Setup, without overriding your existing configurations. Use this 'Partial' template if you want to keep your current setup but upgrade your filtering and sorting logic. \n* **Core Filtering Engine**: Choose between **Standard** (keeps top 3 streams per Quality/Resolution, approx. 20 total) or **Extended** (keeps top 6, approx. 40 total) to eliminate clutter while maintaining quality coverage.\n* **Synced URL Integration**: Automatically pulls the latest synced URLs for Excluded, Included, and Preferred Stream Expressions from [GitHub](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting).\n* To use Preferred Stream Expressions, ensure 'Stream Expressions' is added to your Sort Order.\n* **Custom Formatter Only**: Includes the custom Tamtaro formatter with options for a clean look or a full debug view (RSE Matched).",
       "source": "external",
       "author": "Tamtaro",
-      "version": "2.1.2",
+      "version": "2.1.3",
       "category": "AIO",
       "serviceRequired": false,
       "services": [],
@@ -3086,7 +3131,7 @@
         {
           "id": "header.intro1",
           "name": "",
-          "description": "Welcome to Partial SEL Setup v2.1.2",
+          "description": "Welcome to Partial SEL Setup v2.1.3",
           "type": "alert",
           "intent": "success"
         },
@@ -3186,6 +3231,8 @@
       ]
     },
     "config": {
+      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.1.3. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+      "addonLogo": "https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/blob/main/logo.png?raw=true",
       "formatter": {
         "__switch": "inputs.formatterChoice",
         "cases": {
@@ -3264,7 +3311,7 @@
           "cases": {
             "standard": [
               {
-                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.2: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.3: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
                 "enabled": true
               },
               {
@@ -3274,7 +3321,7 @@
             ],
             "extended": [
               {
-                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.2: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.3: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
                 "enabled": true
               },
               {
