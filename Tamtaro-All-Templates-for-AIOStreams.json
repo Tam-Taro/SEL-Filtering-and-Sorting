@@ -6,7 +6,7 @@
       "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://git.tamtaro.de). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Comes with optional addons and optional formatter. \n * Dynamic core filtering options: Standard SEL (keeps ~20 results) or Extended SEL (keeps ~40).\n * Comes with auto-synced urls for SELs & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so you'll receive latest SEL hotfixes automatically. Set & forget.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
       "source": "external",
       "author": "Tamtaro",
-      "version": "2.1.5",
+      "version": "2.1.6",
       "category": "AIO",
       "serviceRequired": false,
       "changelogUrl": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/CHANGELOG.md",
@@ -14,7 +14,7 @@
         {
           "__if": "services",
           "id": "header.intro",
-          "name": "Complete SEL Setup v2.1.5: Debrid/Usenet Mode",
+          "name": "Complete SEL Setup v2.1.6: Debrid/Usenet Mode",
           "description": "An advanced filtering & sorting setup powered by Stream Expression Language (SEL) & [Vidhin's Regex Patterns](https://github.com/Vidhin05/Releases-Regex)",
           "type": "alert",
           "intent": "success"
@@ -22,7 +22,7 @@
         {
           "__if": "!services",
           "id": "header.p2p",
-          "name": "Complete SEL Setup v2.1.5: P2P Mode",
+          "name": "Complete SEL Setup v2.1.6: P2P Mode",
           "description": "No services selected. In some countries, torrenting is restricted,so a VPN or a debrid service from previous page may be required.",
           "type": "alert",
           "intent": "warning"
@@ -939,7 +939,7 @@
             },
             {
               "value": "trueHD",
-              "label": "TrueHD Audio"
+              "label": "TrueHD"
             },
             {
               "value": "dts",
@@ -948,6 +948,10 @@
             {
               "value": "DVonly",
               "label": "DV-Only"
+            },
+            {
+              "value": "DVall",
+              "label": "DV (All)"
             },
             {
               "value": "HDR10+",
@@ -975,7 +979,7 @@
               "id": "bitrateCap",
               "name": "Bitrate Limit (Mbps)",
               "description": "Select your desired bitrate limit. Streams exceeding 80% of this limit at 4K, 50% at 1080P and 30% at 720P will be removed.",
-              "type": "select",
+              "type": "select-with-custom",
               "required": false,
               "advanced": true,
               "default": "150",
@@ -1432,8 +1436,8 @@
             },
             {
               "id": "usenetUncachedSort",
-              "name": "Boost Uncached Usenet",
-              "description": "If selected, uncached usenet results will be merged into the global results instead of being separated into an 'Uncached' group. This effectively treats uncached usenet with the same priority rules as cached results.",
+              "name": "Boost All Usenet",
+              "description": "If selected, uncached usenet (Torbox) & cached usenet results will merge with cached debrid instead of being separated into an 'Uncached' group. This treats uncached usenet with the same priority as cached results during sorting.",
               "type": "boolean",
               "required": false,
               "default": false
@@ -1671,7 +1675,7 @@
         },
         "default": "{{inputs.addonName}}"
       },
-      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.1.5. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.1.6. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
       "addonLogo": "https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/blob/main/logo.png?raw=true",
       "excludedResolutions": [],
       "includedResolutions": [],
@@ -1862,7 +1866,7 @@
       "excludedStreamExpressions": [
         {
           "__if": "inputs.coreFilter includes extended",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.5: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.6: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
           "enabled": true
         },
         {
@@ -1871,7 +1875,7 @@
         },
         {
           "__if": "inputs.coreFilter includes standard",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.5: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 SEL filtering engine*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.6: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 SEL filtering engine*/ []",
           "enabled": true
         },
         {
@@ -2014,13 +2018,13 @@
           "enabled": true
         },
         {
-          "__if": "inputs.usenet.usenetSort",
+          "__if": "inputs.usenet.usenetSort and !inputs.usenet.usenetUncachedSort",
           "expression": "/*Boost Cached Usenet*/ merge(cached(type(streams, 'usenet', 'debrid')), type(streams, 'stremio-usenet'))",
           "enabled": true
         },
         {
           "__if": "inputs.usenet.usenetUncachedSort",
-          "expression": "/*Boost Uncached Usenet*/ merge(cached(type(streams, 'debrid')), type(streams, 'usenet', 'stremio-usenet'))",
+          "expression": "/*Boost All Usenet*/ merge(cached(type(streams, 'debrid')), type(streams, 'usenet', 'stremio-usenet'))",
           "enabled": true
         },
         {
@@ -2097,6 +2101,14 @@
             "expression": "/*No DV-Only*/ visualTag(streams,'DV Only')",
             "exprNames": [
               "No DV-Only"
+            ],
+            "disabled": false
+          },
+          {
+            "__if": "inputs.deviceExclude includes DVall",
+            "expression": "/*No DV (All)*/ visualTag(streams,'DV')",
+            "exprNames": [
+              "No DV (All)"
             ],
             "disabled": false
           },
@@ -2648,20 +2660,6 @@
                 }
               },
               {
-                "type": "torrentio",
-                "instanceId": "4ef",
-                "enabled": true,
-                "options": {
-                  "name": "Torrentio",
-                  "timeout": "{{inputs.includeAddon.timeout}}",
-                  "resources": [
-                    "stream"
-                  ],
-                  "providers": [],
-                  "useMultipleInstances": false
-                }
-              },
-              {
                 "type": "torrents-db",
                 "instanceId": "a15",
                 "enabled": true,
@@ -2740,6 +2738,20 @@
                   "mediaTypes": [],
                   "useMultipleInstances": false,
                   "url": "https://sooti.info"
+                }
+              },
+              {
+                "type": "torrentio",
+                "instanceId": "4ef",
+                "enabled": true,
+                "options": {
+                  "name": "Torrentio",
+                  "timeout": "{{inputs.includeAddon.timeout}}",
+                  "resources": [
+                    "stream"
+                  ],
+                  "providers": [],
+                  "useMultipleInstances": false
                 }
               },
               {
@@ -2964,20 +2976,6 @@
               }
             },
             {
-              "type": "torrentio",
-              "instanceId": "4ef",
-              "enabled": true,
-              "options": {
-                "name": "Torrentio",
-                "timeout": "{{inputs.includeAddon.timeout}}",
-                "resources": [
-                  "stream"
-                ],
-                "providers": [],
-                "useMultipleInstances": false
-              }
-            },
-            {
               "type": "mediafusion",
               "instanceId": "276",
               "enabled": true,
@@ -3050,6 +3048,20 @@
                   }
                 ],
                 "mediaTypes": [],
+                "useMultipleInstances": false
+              }
+            },
+            {
+              "type": "torrentio",
+              "instanceId": "4ef",
+              "enabled": true,
+              "options": {
+                "name": "Torrentio",
+                "timeout": "{{inputs.includeAddon.timeout}}",
+                "resources": [
+                  "stream"
+                ],
+                "providers": [],
                 "useMultipleInstances": false
               }
             },
@@ -3155,7 +3167,7 @@
       "description": "A focused template for importing partial aspects of Tamtaro SEL Setup, without overriding your existing configurations. Use this 'Partial' template if you want to keep your current setup but upgrade your filtering and sorting logic. \n* **Core Filtering Engine**: Choose between **Standard** (keeps top 3 streams per Quality/Resolution, approx. 20 total) or **Extended** (keeps top 6, approx. 40 total) to eliminate clutter while maintaining quality coverage.\n* **Synced URL Integration**: Automatically pulls the latest synced URLs for Excluded, Included, and Preferred Stream Expressions from [GitHub](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting).\n* To use Preferred Stream Expressions, ensure 'Stream Expressions' is added to your Sort Order.\n* **Custom Formatter Only**: Includes the custom Tamtaro formatter with options for a clean look or a full debug view (RSE Matched).",
       "source": "external",
       "author": "Tamtaro",
-      "version": "2.1.5",
+      "version": "2.1.6",
       "category": "AIO",
       "serviceRequired": false,
       "services": [],
@@ -3164,7 +3176,7 @@
         {
           "id": "header.intro1",
           "name": "",
-          "description": "Welcome to Partial SEL Setup v2.1.5",
+          "description": "Welcome to Partial SEL Setup v2.1.6",
           "type": "alert",
           "intent": "success"
         },
@@ -3264,7 +3276,7 @@
       ]
     },
     "config": {
-      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.1.5. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.1.6. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
       "addonLogo": "https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/blob/main/logo.png?raw=true",
       "formatter": {
         "__switch": "inputs.formatterChoice",
@@ -3344,7 +3356,7 @@
           "cases": {
             "standard": [
               {
-                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.5: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.6: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
                 "enabled": true
               },
               {
@@ -3354,7 +3366,7 @@
             ],
             "extended": [
               {
-                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.5: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.1.6: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
                 "enabled": true
               },
               {
