@@ -8,7 +8,8 @@
   - All Device Specific Exclusions will now run right after the 3 fake filters, follows by any language passthroughs, follows by any visual tags passthroughs
   - Lastly, rest of synced url ESE (minus the fake filters as are they are disabled here) will run, then follows by any Limiting SELs (which will run inside Required)
   - This order ensures your Remux/DV exclusion streams will not be included in your subsequent passthroughs.
-- Update: Language Passthrough now adds an additional IncludedSE to passthrough 'language' filter in case the passthrough language is not one of the preferred languages.
+- Update: Language Passthrough now adds an additional IncludedSE to passthrough 'language' filter in case the passthrough language is excluded in language filter
+  - Also adds your passthrough language into Preferred so it would appear in Formatter.
 - Update: Usenet Sorting Boost (merging cached/uncached usenet with debrid) now has an edited PSE to also merge cached library & SeaDex result
   - Solves report of SeaDex results disappearing when using optional Usenet Sorting Boost
 - New: `Ignore RSE` to prevent your Ranked Stream Expression entries from being overwritten
