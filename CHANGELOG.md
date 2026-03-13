@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.1.7 (2026-03-12)
+## 2.1.7 (2026-03-13)
 
 - Update: Reworked filtering logic & sequencing
   - When any additional SEL is selected, 3 "fake filtering SELs" (`Bad 4k Anime`, `Upscaled 4k` and `Bad 1080P Bluray`) are disabled in synced url ESE, and get placed into top spots of regular ESE field.
