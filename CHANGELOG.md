@@ -11,7 +11,7 @@
 - Update: Language Passthrough now adds an additional IncludedSE to passthrough 'language' filter in case the passthrough language is excluded in language filter
   - Also adds your passthrough language into Preferred so it would appear in Formatter.
 - Update: Usenet Sorting Boost (merging cached/uncached usenet with debrid) now has an edited PSE to also merge cached library & SeaDex result
-  - Solves report of SeaDex results disappearing when using optional Usenet Sorting Boost
+  - Solves report of SeaDex results disappearing when using optional Usenet Sorting Boost (or passthroughs)
 - New: `Ignore RSE` to prevent your Ranked Stream Expression entries from being overwritten
   - All misc options now belong in its own submenu
 - Formatter:
