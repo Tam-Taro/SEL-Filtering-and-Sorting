@@ -2148,7 +2148,7 @@
       },
       {
         "__if": "inputs.usenet.usenetSort and !inputs.usenet.usenetUncachedSort",
-        "expression": "/*Boost Cached Usenet*/ merge(cached(merge(library(streams),seadex(streams),type(streams,'debrid','usenet')), type(streams, 'stremio-usenet'))",
+        "expression": "/*Boost Cached Usenet*/ merge(cached(merge(library(streams)),seadex(streams),type(streams,'debrid','usenet')), type(streams, 'stremio-usenet'))",
         "enabled": true
       },
       {
@@ -3240,4 +3240,5 @@
       "position": "beforeSEL"
     }
   }
+
 }
