@@ -3251,14 +3251,8 @@
     "autoRemoveDownloads": false,
     "checkOwned": true,
     "serviceWrap": {
-      "__if": "services and !inputs.includeAddon.none",
-      "__value": {
-        "enabled": false,
-        "reconfigureService": false,
-        "presets": [
-          "4ef"
-        ]
-      }
+      "enabled": false,
+      "reconfigureService": false
     },
     "nzbFailover": {
       "enabled": true,
