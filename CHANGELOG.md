@@ -1,5 +1,24 @@
 # Changelog
 
+## 2.2.0 (2026-03-21)
+
+- New: DV Bluray (P7) as an option for "Device Specific Exclusions" courtesy of Vidhin
+  - Will need to run templatae import again to place the exclusion at appropriate spot
+- Formatter: `sᴜʙ` is added onto language format, it'll display `sᴜʙ` if filename indicates subtitles (regardless of which language)
+  - Useful for anime, as anything with `sᴜʙ` is a good indicator original (Japanese) audio is present
+  - Note that `ᴇɴ · sᴜʙ` could either be English audio or English sub only; currently AIOS does not differentiate
+- Changes to default template:
+  - Service Wrap is now disabled for all addons (previously was enabled for Torrentio) due to reports of extended fetch time
+  - Failover NZB is now set to `Last` (previously `Before SEL`); Make sure to set NZB passthrough if you wish to see usenet (even when there are lots of debrid results)
+- Synced URLs update:
+  - New: `Bad 4k Bluray` to remove only 4k Bluray (conditions loosened vs `Upscaled 4k`)
+  - New: `No DV Bluray (P7)` (disabled) courtesy of Vidhin, now added onto Template's Device Specific Exclusions as selectable option
+  - Update: `Upscaled 4k` now removes everything in 4K if triggered
+    - Will this auto-update? If currently disabled in your synced URL (and present inside your main ESE field) then you'll need to manually reimport template. 
+  - Update: `0Cached` ISE to include non-debrid sources (http, p2p & usenet) in its conditional check
+    - If triggered (0 cached results found), title matching is skipped/passthrough to show potentially filtered results
+    - Will this auto-update? Yes
+
 ## 2.1.9 (2026-03-13)
 
 - Fix: fixed Usenet Cached Sorting Boost specifically

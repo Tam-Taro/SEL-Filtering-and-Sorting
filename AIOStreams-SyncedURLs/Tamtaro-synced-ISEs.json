@@ -4,7 +4,7 @@
     "enabled": true
   },
   {
-    "expression": "/*ISE v1.2.0* [git.tamtaro.de]*/[]",
+    "expression": "/*ISE v1.2.1* [git.tamtaro.de]*/[]",
     "enabled": true
   },
   {
@@ -20,7 +20,7 @@
     "enabled": true
   },
   {
-    "expression": "/*0Cached*/count(cached(streams))==0?passthrough(negate(type(streams,'usenet','stremio-usenet'),streams),'title'):[]",
+    "expression": "/*0Cached*/count(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')))==0?passthrough(negate(type(streams,'usenet','stremio-usenet'),streams),'title'):[]",
     "enabled": true
   }
 ]

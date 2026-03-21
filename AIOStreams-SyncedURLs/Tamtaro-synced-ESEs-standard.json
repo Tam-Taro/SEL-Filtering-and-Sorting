@@ -4,7 +4,7 @@
     "enabled": true
   },
   {
-    "expression": "/*Standard ESE v1.2.2 [git.tamtaro.de]*/[]",
+    "expression": "/*Standard ESE v1.2.4 [git.tamtaro.de]*/[]",
     "enabled": true
   },
   {
@@ -32,7 +32,11 @@
     "enabled": true
   },
   {
-    "expression": "/*Upscaled 4k*/(queryType=='movie' or queryType =='series') and (count(quality(resolution(streams,'1080p'),'Bluray REMUX'))>=1) and count(quality(resolution(streams,'2160p'),'Bluray REMUX')) == 0 and count(rseMatched(resolution(streams, '2160p'), 'DE Bluray T1', 'DE Bluray T2', 'DE Bluray T3', 'UHD Bluray T1', 'HD Bluray T1', 'UHD Bluray T2', 'HD Bluray T2', 'UHD Bluray T3', 'HD Bluray T3')) == 0? negate(merge(seadex(streams),library(streams), quality(streams, 'Web-DL')),resolution(streams,'2160p')):[]",
+    "expression": "/*Upscaled 4k*/(queryType=='movie' or queryType =='series') and (count(quality(resolution(streams,'1080p'),'Bluray REMUX'))>=1) and count(quality(resolution(streams,'2160p'),'Bluray REMUX')) == 0 and count(rseMatched(resolution(streams, '2160p'), 'DE Bluray T1', 'DE Bluray T2', 'DE Bluray T3', 'UHD Bluray T1', 'HD Bluray T1', 'UHD Bluray T2', 'HD Bluray T2', 'UHD Bluray T3', 'HD Bluray T3', 'DE Web T1', 'DE Web T2', 'DE Web T3', 'DE Web Scene', 'Web T1', 'Web T2', 'Web T3', 'Web Scene')) == 0? negate(merge(seadex(streams),library(streams)),resolution(streams,'2160p')):[]",
+    "enabled": true
+  },
+  {
+    "expression": "/*Bad 4k Bluray*/(queryType=='movie' or queryType =='series') and count(quality(resolution(streams,'2160p'),'Bluray REMUX')) == 0 and count(rseMatched(resolution(streams, '2160p'), 'DE Bluray T1', 'DE Bluray T2', 'DE Bluray T3', 'UHD Bluray T1', 'HD Bluray T1', 'UHD Bluray T2', 'HD Bluray T2', 'UHD Bluray T3', 'HD Bluray T3')) == 0? negate(merge(seadex(streams),library(streams)),resolution(quality(streams, 'Bluray'),'2160p')):[]",
     "enabled": true
   },
   {
@@ -68,15 +72,23 @@
     "enabled": false
   },
   {
+    "expression": "/*No DV-Only Non-Remux (P5)*/ isAnime?[]:negate(merge(quality(streams,'BluRay REMUX'),releaseGroup(streams, 'Flights'),regexMatched(streams, 'Hulu')),visualTag(streams,'DV Only'))",
+    "enabled": false
+  },
+  {
+    "expression": "/*No DV (All)*/ visualTag(streams,'DV')",
+    "enabled": false
+  },
+  {
+    "expression": "/*No DV Bluray (P7)*/ negate(rseMatched(streams, 'Hybrid'),merge(quality(visualTag(resolution(streams, '2160p'), 'DV'), 'Bluray Remux', 'Bluray')))",
+    "enabled": false
+  },
+  {
     "expression": "/*No HDR10+ Only*/ visualTag(streams, 'HDR10+')",
     "enabled": false
   },
   {
     "expression": "/*No HDR (All)*/ visualTag(streams, 'HDR', 'HDR10','HDR10+')",
-    "enabled": false
-  },
-  {
-    "expression": "/*No DV-Only Non-Remux*/ isAnime?[]:negate(merge(quality(streams,'BluRay REMUX'),releaseGroup(streams, 'Flights'),regexMatched(streams, 'Hulu')),visualTag(streams,'DV Only'))",
     "enabled": false
   },
   {
