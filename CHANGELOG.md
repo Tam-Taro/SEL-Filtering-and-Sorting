@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.3.0 (2026-04-03)
+## 2.3.0 (2026-04-04)
 - New: Submenu buttons inside Template Wizard get a new look (no more ugly gear icons) 
 - New: `Unknown Bluray Audio` in Device Specific Exclusions. 
   - If your TV can't play DTS audio for example, this prevents mislabeled Blurays from bypassing your filters.
