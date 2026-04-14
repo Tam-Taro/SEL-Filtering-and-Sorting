@@ -15,7 +15,7 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
 > [!IMPORTANT]
 > 1. My AIOStreams template *does not* include any catalogs. This is because many of us prefer AIOMetadata (separate addon from AIOStreams), so just scroll down to the [AIOMetadata section](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata) for all your metadata and catalog management needs.
 >
-> 2. While my AIOStreams template works on stable AIOStreams, I suggest nightly AIOStreams to receive the latest cool features immediately. You can choose a nightly AIOStreams as found on [this page](https://status.dinsden.top/status/stremio-addons). If selfhosting, change your container tag from :latest to :nightly, and do `docker compose up -d --force-recreate --pull always aiostreams`.
+> 2. While my AIOStreams template works on stable AIOStreams, I recommend a nightly jnstance as it is just as reliable as stable, plus it has lateat unreleased features. You can choose an AIOStreams as found on [this page](https://status.dinsden.top/status/stremio-addons). If selfhosting, make sure to set `SEL_SYNC_ACCESS=all` and `REGEX_FILTER_ACCESS=all` in your .env.
   <details>
         <summary>PS. I just switched to TorBox on their BF deal, so now I can share my code like everyone else woo!! For the best stremio experience, you need a debrid service, and TB is current top recommendation especially if you're like me, and like to share your stremio setup with family and friends. </summary></summary>
   
@@ -26,7 +26,7 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
 
 ---
 ## Quick Setup Overview
-1. Choose an AIOStreams instance from [this page](https://status.dinsden.top/status/stremio-addons) or click the link below to directly access my template. Nightly is recommended but not required.
+1. Choose an AIOStreams instance from [this page](https://status.dinsden.top/status/stremio-addons) or click the link below to directly access my template. Nightly is recommended but not required. **Selfhosters**:  Set `SEL_SYNC_ACCESS=all` and `REGEX_FILTER_ACCESS=all` in your .env
 2. [Import templates](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-how-to-import): Paste `https://git.tamtaro.de/complete.json` into *AIOStreams → Save & Install :floppy_disk: → Import Template*
 
 > [!NOTE]
@@ -36,11 +36,11 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
    - Select your debrid services (skip for P2P), and follow the customization steps that appear to personalize your setup.
    - TMDB and TVDB credentials are required for matching, bitrate and other features.
    - Load Template, Save your AIOStreams into Stremio.
-4. Advanced setup after template import:
+3. Advanced setup after template import:
   - Browse complete list of [Optional SELs](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-optional-sels), most of which are incoroprated into the Template Wizard.  
   - Adjust Ranked Stream Expressions score as you wish for more nuanced sorting. See ⁠his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more details on customization.
   - Add usenet addons or others you find useful.
-5. [AIOMetadata for catalogs/meta](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata): Import one of my JSONs (with/without anime) via trusted AIOMetadata instances from [this page](https://status.dinsden.top/status/stremio-addons). 
+4. [AIOMetadata for catalogs/meta](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata): Import one of my JSONs (with/without anime) via trusted AIOMetadata instances from [this page](https://status.dinsden.top/status/stremio-addons). 
   - Refer to full AIOMetadata guide at end of page.
 ---
 ## ✨ Release Notes
