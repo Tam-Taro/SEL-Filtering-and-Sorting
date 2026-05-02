@@ -4,11 +4,11 @@
     "enabled": true
   },
   {
-    "expression": "/*PSE v1.2.0 [git.tamtaro.de]*/[]",
+    "expression": "/*PSE v1.2.1 [git.tamtaro.de]*/[]",
     "enabled": true
   },
   {
-    "expression": "/*Tier 1 Cached*/ cached(merge(library(streams),seadex(streams),type(streams,'debrid'),type(service(streams,'torbox'),'usenet'),message(type(streams,'usenet','stremio-usenet'),'includes','✅','🧝')))",
+    "expression": "/*Tier 1 Cached*/ cached(merge(library(streams),seadex(streams),type(streams,'debrid'),type(service(streams,'torbox'),'usenet'),message(type(streams,'usenet','stremio-usenet'),'includes','✅','🧝','💚')))",
     "enabled": true
   },
   {
