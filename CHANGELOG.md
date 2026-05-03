@@ -5,7 +5,8 @@
   - Filters -> Deduplicator now has `Library Stream Behaviour` set to `Prefer`
   - Filters -> Miscellaneous -> Digital Release Filter now disabled, by popular vote. You can enable inside template `Miscellaneous Options`. My `digitalRelease Bypass` synced ISE will remain for those that use this filter. Instead of seeing no streams at all, my synced ISE lets through properly labeled quality leaks (`'CAM','TS','TC','SCR','WEBRip'`) reducing the chance of fake streams while allowing you keep this digital filter enabled.
   - Filters -> Regex -> Excluded Regex, now has the following regex to exclude various non-stream extensions (replacing previous Excluded Keywords): `\.(iso|r\d{2}|zip|rar|7z|tar|gz|zipx|arj|txt|nfo|jpg|png|pdf|exe|bat|cmd|scr|msi|ps1|vbs|js|jar|com|pif|reg|dll|sys|lnk|url)$`
-    - Selfhosters, please add `REGEX_FILTER_ACCESS=all` if you haven't already so this custom regex works. Public AIOStreams users should be fine, once my template syncs up (in 24h).
+    - Selfhosters, please add `REGEX_FILTER_ACCESS=all` if you haven't already so this custom regex works
+    - Public AIOStreams users should be fine, once my template syncs up (in 24h; ***otherwise if you see error, just disable this Regex until it's allowed in 24h***).
 
 - **Addon Settings**
   - Updated UI so now it's required to choose the addon preset, and easier for you to select "Addon Preset: None" to retain your existing addons
