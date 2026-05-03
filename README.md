@@ -15,7 +15,7 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
 > [!IMPORTANT]
 > 1. My AIOStreams template *does not* include any catalogs. This is because many of us prefer AIOMetadata (separate addon from AIOStreams), so just scroll down to the [AIOMetadata section](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata) for all your metadata and catalog management needs.
 >
-> 2. While my AIOStreams template works on stable AIOStreams, I recommend a nightly instance as it is just as reliable as stable, plus it has the latest unreleased features. You can choose an AIOStreams as found on [this page](https://status.dinsden.top/status/stremio-addons). If selfhosting, make sure to set `SEL_SYNC_ACCESS=all` and `REGEX_FILTER_ACCESS=all` in your .env.
+> 2. While my AIOStreams template works on stable AIOStreams, I recommend a nightly instance as it is just as reliable as stable, plus it has the latest unreleased features. You can choose any AIOStreams instance (a list is found below or in [viren-guide](https://docs.aiostreams.viren070.me/getting-started/public-instances/)) . If selfhosting, make sure to set `SEL_SYNC_ACCESS=all` and `REGEX_FILTER_ACCESS=all` in your .env.
   <details>
         <summary>PS. I just switched to TorBox on their BF deal, so now I can share my code like everyone else woo!! For the best stremio experience, you need a debrid service, and TB is current top recommendation especially if you're like me, and like to share your stremio setup with family and friends. </summary></summary>
   
