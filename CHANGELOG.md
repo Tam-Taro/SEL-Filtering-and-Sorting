@@ -1,5 +1,74 @@
 # Changelog
 
+## 2.4.0 (2026-05-03)
+- **Various AIOStreams Default Settings**
+  - Filters -> Deduplicator now has `Library Stream Behaviour` set to `Prefer`
+  - Filters -> Miscellaneous -> Digital Release Filter now disabled, by popular vote. You can enable inside template `Miscellaneous Options`. My `digitalRelease Bypass` synced ISE will remain for those that use this filter. Instead of seeing no streams at all, my synced ISE lets through properly labeled quality leaks (`'CAM','TS','TC','SCR','WEBRip'`) reducing the chance of fake streams while allowing you keep this digital filter enabled.
+  - Filters -> Regex -> Excluded Regex, now has the following regex to exclude various non-stream extensions (replacing previous Excluded Keywords): `\.(iso|r\d{2}|zip|rar|7z|tar|gz|zipx|arj|txt|nfo|jpg|png|pdf|exe|bat|cmd|scr|msi|ps1|vbs|js|jar|com|pif|reg|dll|sys|lnk|url)$`
+    - Selfhosters, please add `REGEX_FILTER_ACCESS=all` if you haven't already so this custom regex works. Public AIOStreams users should be fine, once my template syncs up (in 24h).
+
+- **Addon Settings**
+  - Updated UI so now it's required to choose the addon preset, and easier for you to select "Addon Preset: None" to retain your existing addons
+  - Re-arranged priority of addon preset so that those addons with pontetial for accurate languages media-info are prioritized (built-in -- SeaDex, Library, STorz, Knaben, NekoBT -- & Meteor, Torrentio)
+  - Removed `Torbox Search`, in favour of Meteor's TorBox searching capabilities. The newznab addon `Searchⁿᶻᵇ` (appears if you toggle Torbox Pro) is kept for now, until Meteor usenet search capability is fleshed out.
+  - `NekoBT` replaces `AnimeTosho` for anime addon
+  - HTTP Update: 
+    - Added yastream (korean streams + 2 kisskh catalogs), added HdHub, updated webstreamr addon url, removed Nuvio Streams
+  - Debridio Update:
+    - Added Debridio TV (merging all into two catalogs: `English-Speaking` and `Non-English`)
+  - Enabled catalogs (Discovery only) for `Library` addon
+    - Useful to directly watch stuff you personally added, when they fail to show up in the usual way due to filename issues
+  - **REMEMBER TO RE-INSTALL AIOS after editing catalogs**
+
+- **Language Settings**
+  - New `Preferred Embedded Subtitle` option. You can now add priority for embedded sub languages (if available, usually from built-in addons, StremThru Torz, Meteor, or Torrentio)
+  - New `Language Passthrough Options` submenu
+    - All passthrough options related to Language now moved to this section
+    - New `Embedded Subtitle Passthrough`: similar to `language()` passthrough, but using `subtitles()` which takes advantage of accurate media-info if available
+    - For example, you can now passthrough & pin `Portugese` subtitles for Anime only, without having to also passthrough Portugese audio.
+
+- **Formatter**`
+  - Added smallcap font parsing for `AvailNZB 💚` {stream.message}
+
+- **Sorting Options**
+  - New `Embedded Subtitle Boost`: Priority given to streams with embedded subtitle of your preferred subtitle languages. This will only affect streams that have accurate media info showing subtitle languages, such as some streams from built-in addons, Stremthru Storz, Meteor, or Torrentio.
+
+- **Device Specific Exclusions**
+  - Audio exclusions (DTS or TrueHD) now include "Unknown BD Audio" by default so one less selection necessary.
+
+- **Bitrate Options**
+  - Reworked this submenu for better clarity and function
+    - Two ESEs: 
+      - `Static Bitrate Cap` (default when selecting <150 Mbps)
+      - `Dynamic Bitrate Cap` (previous SEL that further caps bitrate based on resolution for an even further bandwidth-saving setup: 80% at 4K resolution, 50% at 1080P and 30% at 720P)
+    - Two PSEs: 
+      - Toggle `Soft Bitrate Cap` to move either of the Static or Dynamic Bitrate Cap SEL into PSE field to rank lower bitrate streams higher (thus keeping streams outside bitrate cap instead of excluding them).
+
+- **`Passthrough Options`**
+  - This section now only has Visual Tag & Top 1 passthrough SELs (previous Language passthrough now found inside its own `Language Passthrough Options` submenu)
+
+- **New to Usenet Options**
+  - Pin options for `☑ NZB` and `☑ NZB-Only`: you can now pin health checked nzbs to the top
+  - Added `AvailNZB 💚` from StreamNZB to be part of health-☑ usenet
+
+- **New to `Miscellaneous Options`**
+  - `Digital Release Filter` now a toggle, default is disabled.
+  - `Show Statistics & Errors` toggle to quickly enable Statistic and Error streams at the bottom for debugging
+  - `Addon Logo` is now customizable with custom URL possible. Use this and Hamtaro will miss you, so don't.
+
+- **New to Synced URLs (auto-updates)**
+  - PSE v1.2.1: Added `AvailNZB 💚` to be part of stream ranking
+  - ESE v1.2.6: Removed all disabled Device Specific Exclusion SELs - please use template to add these so they can appear in appropriate order (before your various additional/passthrough SELs)
+  - ISE v1.2.3: Updated digitalRelease Bypass SEL
+
+- **Partial Template**
+  - Copied the "Core Filter Modifications" submenu from the Complete template, you can now select `Remove Unknown Resolution` and `Remove Unknown Quality` in Partial SEL Only import
+
+- **Credits**
+  - You can quickly access GitHub and ko-fi for both myself & Vidhin at the bottom of the template
+  - Also direct links to discord channel for support & Torbox for referral
+
+
 ## 2.3.0 (2026-04-04)
 - New: Submenu buttons inside Template Wizard get a new look (no more ugly gear icons) 
 - New: `Unknown Bluray Audio` in Device Specific Exclusions. 
