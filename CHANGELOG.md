@@ -27,7 +27,7 @@
     - New `Embedded Subtitle Passthrough`: similar to `language()` passthrough, but using `subtitles()` which takes advantage of accurate media-info if available
     - For example, you can now passthrough & pin `Portugese` subtitles for Anime only, without having to also passthrough Portugese audio.
 
-- **Formatter**`
+- **Formatter**
   - Added smallcap font parsing for `AvailNZB 💚` {stream.message}
 
 - **Sorting Options**
