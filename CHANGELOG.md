@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.4.1 (2026-05-03)
+- Bug fixes
+  - DebridioTV addon shouldn't be included anymore if you didn't select Debridio
+  - logoURL now defaults to proper url for our SEL logo
+  - inline syncedURL should now switch to proper standard or extended per your selection
+
 ## 2.4.0 (2026-05-03)
 - **Various AIOStreams Default Settings**
   - Filters -> Deduplicator now has `Library Stream Behaviour` set to `Prefer`
