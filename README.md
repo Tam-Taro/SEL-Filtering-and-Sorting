@@ -37,7 +37,7 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
    - TMDB and TVDB credentials are required for matching, bitrate and other features.
    - Load Template, Save your AIOStreams into Stremio.
 3. Advanced setup after template import:
-  - Browse complete list of [Optional SELs](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-optional-sels), most of which are incoroprated into the Template Wizard.  
+  - Browse list of [Optional SELs](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-optional-sels), most of which are incoroprated into the Template Wizard.  
   - Adjust Ranked Stream Expressions score as you wish for more nuanced sorting. See ⁠his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more details on customization.
   - Add usenet addons or others you find useful.
 4. [AIOMetadata for catalogs/meta](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata): Import one of my JSONs (with/without anime) via trusted AIOMetadata instances from [this page](https://status.dinsden.top/status/stremio-addons). 
