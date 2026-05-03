@@ -4060,6 +4060,7 @@
             "category": "HTTP"
           },
           {
+            "__if": "inputs.includeAddon.debridio",
             "type": "debridio-tv",
             "instanceId": "11a",
             "enabled": true,
