@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.4.2 (2026-05-04)
+- `AV1 Encode` option is now added to `Device Specific Exclusions`
+- Bug fixes
+  - `Keep Existing` Logo option no longer returns 'none' URL
+  - inline syncedUrl issue now fixed for Partial Template
+
 ## 2.4.1 (2026-05-03)
 - Bug fixes
   - DebridioTV addon shouldn't be included anymore if you didn't select Debridio
@@ -67,6 +73,7 @@
   - PSE v1.2.1: Added `AvailNZB 💚` to be part of stream ranking
   - ESE v1.2.6: Removed all disabled Device Specific Exclusion SELs - please use template to add these so they can appear in appropriate order (before your various additional/passthrough SELs)
   - ISE v1.2.3: Updated digitalRelease Bypass SEL
+  - `Low SEL Score` (along with `Bad 4k Anime`, `Upscaled 4k`, `Bad 4k Bluray` & `Bad 1080P Bluray`) from synced url ESE will be auto-added to inline ESE field, ensuring they run first before any other ESEs. 
 
 - **Partial Template**
   - Copied the "Core Filter Modifications" submenu from the Complete template, you can now select `Remove Unknown Resolution` and `Remove Unknown Quality` in Partial SEL Only import

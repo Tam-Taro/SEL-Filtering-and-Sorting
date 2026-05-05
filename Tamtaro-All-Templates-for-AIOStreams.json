@@ -3,10 +3,10 @@
     "metadata": {
       "id": "tamtaro.complete",
       "name": "Tamtaro Complete SEL Setup",
-      "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://git.tamtaro.de). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Comes with optional addons and optional formatter. \n * Dynamic core filtering options: Standard SEL (keeps ~20 results) or Extended SEL (keeps ~40).\n * Comes with auto-synced urls for SELs & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so you'll receive latest SEL hotfixes automatically. Set & forget.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
+      "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://git.tamtaro.de). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Comes with optional add-ons and optional formatter. \n * Dynamic core filtering options: Standard SEL (keeps ~20 results) or Extended SEL (keeps ~40).\n * Comes with auto-synced urls for SELs & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so you'll receive latest SEL hotfixes automatically. Set & forget.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
       "source": "external",
       "author": "Tamtaro",
-      "version": "2.4.1",
+      "version": "2.4.2",
       "category": "AIO",
       "serviceRequired": false,
       "changelogUrl": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/CHANGELOG.md",
@@ -14,7 +14,7 @@
         {
           "__if": "services",
           "id": "header.intro",
-          "name": "Complete SEL Setup v2.4.1: Debrid/Usenet Mode",
+          "name": "Complete SEL Setup v2.4.2: Debrid/Usenet Mode",
           "description": "An advanced filtering & sorting setup powered by Stream Expression Language (SEL) & [Vidhin's Regex Patterns](https://github.com/Vidhin05/Releases-Regex)",
           "type": "alert",
           "intent": "success"
@@ -22,7 +22,7 @@
         {
           "__if": "!services",
           "id": "header.p2p",
-          "name": "Complete SEL Setup v2.4.1: P2P Mode",
+          "name": "Complete SEL Setup v2.4.2: P2P Mode",
           "description": "No services selected. In some countries, torrenting is restricted,so a VPN or a debrid service from previous page may be required.",
           "type": "alert",
           "intent": "warning"
@@ -973,14 +973,14 @@
         {
           "id": "header.addonSettings",
           "name": "",
-          "description": "Addon Settings",
+          "description": "Add-on Settings",
           "type": "alert",
           "intent": "info"
         },
         {
           "id": "addonPreset",
-          "name": "Addon Preset",
-          "description": "Choose between recommended preset (default) or retaining your current addons. The recommended preset includes a base set of addons that works for most users, while retaining your current addons allows you to keep your existing addon list, groups, dynamic fetching strategy.",
+          "name": "Add-on Preset",
+          "description": "Choose between recommended preset (default) or retaining your current addons. The recommended preset includes a base set of add-ons that works for most users, while *None (Use Your Current Addons)* allows you to keep your existing add-on list, catalogs, groups, and dynamic fetching strategy. NOTE: First-time users are encouraged to import the default preset, customize the add-on list afterward, and then select 'None' during subsequent template updates or re-imports to avoid losing customizations.",
           "type": "select",
           "required": true,
           "default": "default",
@@ -997,8 +997,8 @@
         },
         {
           "id": "includeAddon",
-          "name": "Addon Preset Options",
-          "description": "Customize the default addons from this template. Ignore this if you selected *Addon Preset: None (Use Your Current Addons)* above.",
+          "name": "Add-on Preset Modifications",
+          "description": "Customize the default add-ons from this template. This section is ignored if you selected *Add-on Preset: None (Use Your Current Addons)* above.",
           "type": "subsection",
           "required": false,
           "subsectionIntent": "block",
@@ -1016,7 +1016,7 @@
             {
               "id": "noAnime",
               "name": "No Anime",
-              "description": "If selected, anime addons will be removed from the addon list.",
+              "description": "If selected, anime add-ons will be removed from the add-on list.",
               "type": "boolean",
               "required": false,
               "default": false
@@ -1047,8 +1047,8 @@
             },
             {
               "id": "subtitleLanguages",
-              "name": "Subtitle Addon Language",
-              "description": "Select the languages for the OpenSubtitles V3+ addon. Select Disabled to remove this addon from your setup.",
+              "name": "Subtitle Add-on Language",
+              "description": "Select the languages for the OpenSubtitles V3+ addon. Select Disabled to remove this add-on from your setup.",
               "type": "multi-select",
               "required": false,
               "default": [
@@ -1719,7 +1719,7 @@
           "__if": "services.torbox",
           "id": "torboxTier",
           "name": "TorBox Tier Limit",
-          "description": "Apply a size cap to uncached downloads matching your TorBox subscription tier. Selecting Pro will auto-add Torbox Search (Usenet) addon to your config.",
+          "description": "Apply a size cap to uncached downloads matching your TorBox subscription tier. Selecting Pro will auto-add Torbox Search (Usenet) add-on to your config.",
           "type": "select",
           "required": true,
           "advanced": false,
@@ -1785,7 +1785,7 @@
         {
           "id": "deviceExclude",
           "name": "Device Specific Exclusions",
-          "description": "Some TVs can't play *any DV Bluray (P7)*, *Non-Remux with only DV (P5)*,  *TrueHD* or *DTS* audio. Select appropriate exclusions right here, and not inside AIOS UI filter because these removals need to happen at specific stage in the SEL filering process to allow various fake/upscaled detection filters to work effectively.",
+          "description": "Some TVs can't play *any DV Bluray (P7)*, *Non-Remux with only DV (P5)*,  *TrueHD* & *DTS* audio, or *AV1 Encode* (Shield TV). Select appropriate exclusions right here, and not inside AIOStreams UI filter because these removals need to happen at specific stage in the SEL filering process to allow various fake/upscaled detection filters to work effectively.",
           "type": "multi-select",
           "required": false,
           "advanced": true,
@@ -1806,6 +1806,10 @@
             {
               "value": "720pRemux",
               "label": "720P Remux"
+            },
+            {
+              "value": "av1",
+              "label": "AV1 Encode"
             },
             {
               "value": "trueHD",
@@ -2209,7 +2213,7 @@
         {
           "id": "misc",
           "name": "Miscellaneous Options",
-          "description": "Keep SEL Edits, Ignore RSE, and Addon Name options.",
+          "description": "Various options such as Keep SEL Edits, Ignore RSE, Show Statistics & Errors, Digital Release Filter, Add-on Name, and Add-on Logo.",
           "type": "subsection",
           "required": false,
           "advanced": true,
@@ -2226,8 +2230,8 @@
             },
             {
               "id": "ignoreRSE",
-              "name": "Ignore RSE",
-              "description": "Select this option to prevent your Ranked Stream Expression additional entries from being overwritten. Vidhin's synced url for RSE will still be imported.",
+              "name": "Ignore Inline RSE",
+              "description": "Select this option to prevent your additional inline Ranked Stream Expression entries from being overwritten. Vidhin's synced url for RSE will still be imported.",
               "type": "boolean",
               "required": false,
               "advanced": true,
@@ -2253,7 +2257,7 @@
             },
             {
               "id": "addonName",
-              "name": "Addon Name",
+              "name": "Add-on Name",
               "description": "What to call AIOStreams in Stremio?",
               "type": "select-with-custom",
               "required": false,
@@ -2284,7 +2288,7 @@
             },
             {
               "id": "addonLogo",
-              "name": "Addon Logo",
+              "name": "Add-on Logo",
               "description": "Select a logo for your AIOStreams addon. Custom: Paste direct image URL.",
               "type": "select-with-custom",
               "required": false,
@@ -2310,7 +2314,7 @@
         {
           "id": "header.catalogsNotice",
           "name": "",
-          "description": "**This template does not include any catalogs**. Many prefer AIOMetadata (separate addon from AIOStreams), so after you finish importing this template, access [Tamtaro's AIOMetadata guide](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata) to complete your perfect stremio setup.",
+          "description": "**This template does not include any catalogs**. Many prefer AIOMetadata (separate add-on from AIOStreams), so after you finish importing this template, access [Tamtaro's AIOMetadata guide](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata) to complete your perfect stremio setup.",
           "type": "alert",
           "intent": "alert"
         },
@@ -2360,9 +2364,9 @@
         },
         "default": "{{inputs.misc.addonName}}"
       },
-      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.4.1. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.4.2. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
       "addonLogo": {
-        "__switch": "inputs.misc.addLogo",
+        "__switch": "inputs.misc.addonLogo",
         "cases": {
           "none": {
             "__remove": true
@@ -2584,7 +2588,7 @@
       "excludedStreamExpressions": [
         {
           "__if": "inputs.coreFilter includes extended",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.4.1: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.4.2: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
           "enabled": true
         },
         {
@@ -2593,7 +2597,7 @@
         },
         {
           "__if": "inputs.coreFilter includes standard",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.4.1: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 SEL filtering engine*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.4.2: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 SEL filtering engine*/ []",
           "enabled": true
         },
         {
@@ -2645,6 +2649,14 @@
           "expression": "/*No 720P Remux*/ quality(resolution(streams,'720p'),'Bluray REMUX')",
           "exprNames": [
             "No 720P Remux"
+          ],
+          "enabled": true
+        },
+        {
+          "__if": "inputs.deviceExclude includes av1",
+          "expression": "/*No AV1*/ encode(streams, 'AV1')",
+          "exprNames": [
+            "No AV1"
           ],
           "enabled": true
         },
@@ -4498,7 +4510,7 @@
       "description": "A focused template for importing partial aspects of Tamtaro SEL Setup, without overriding your existing configurations. Use this 'Partial' template if you want to keep your current setup but upgrade your filtering and sorting logic. \n* **Core Filtering Engine**: Choose between **Standard** (keeps top 3 streams per Quality/Resolution, approx. 20 total) or **Extended** (keeps top 6, approx. 40 total) to eliminate clutter while maintaining quality coverage.\n* **Synced URL Integration**: Automatically pulls the latest synced URLs for Excluded, Included, and Preferred Stream Expressions from [GitHub](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting).\n* To use Preferred Stream Expressions, ensure 'Stream Expressions' is added to your Sort Order.\n* **Custom Formatter Only**: Includes the custom Tamtaro formatter with options for a clean look or a full debug view (RSE Matched).",
       "source": "external",
       "author": "Tamtaro",
-      "version": "2.4.1",
+      "version": "2.4.2",
       "category": "AIO",
       "serviceRequired": false,
       "services": [],
@@ -4507,7 +4519,7 @@
         {
           "id": "header.intro1",
           "name": "",
-          "description": "Welcome to Partial SEL Setup v2.4.1",
+          "description": "Welcome to Partial SEL Setup v2.4.2",
           "type": "alert",
           "intent": "success"
         },
@@ -4663,7 +4675,7 @@
       ]
     },
     "config": {
-      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.4.1. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.4.2. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
       "addonLogo": "https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/blob/main/logo.png?raw=true",
       "formatter": {
         "__switch": "inputs.formatterChoice",
@@ -4750,7 +4762,7 @@
           "cases": {
             "standard": [
               {
-                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.4.1: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.4.2: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
                 "enabled": true
               },
               {
@@ -4758,13 +4770,13 @@
                 "enabled": true
               },
               {
-                "expression": "<SYNCED: https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ESEs.json>",
+                "expression": "<SYNCED: https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ESEs-standard.json>",
                 "enabled": true
               }
             ],
             "extended": [
               {
-                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.4.1: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.4.2: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
                 "enabled": true
               },
               {
