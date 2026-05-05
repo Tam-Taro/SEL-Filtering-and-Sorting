@@ -25,7 +25,7 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
 
 ---
 ## Quick Setup Overview
-1. Choose an AIOStreams instance from [this page](https://status.dinsden.top/status/stremio-addons) or click the link below to directly access my template. Nightly is recommended but not required. **Selfhosters**:  Set `SEL_SYNC_ACCESS=all` and `REGEX_FILTER_ACCESS=all` in your .env
+1. Choose an AIOStreams instance from [this page](https://docs.aiostreams.viren070.me/getting-started/public-instances/) or click the link below to directly access my template. Nightly is recommended but not required. **Selfhosters**:  Set `SEL_SYNC_ACCESS=all` and `REGEX_FILTER_ACCESS=all` in your .env
 2. [Import templates](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-how-to-import): Paste `https://git.tamtaro.de/complete.json` into *AIOStreams → Save & Install :floppy_disk: → Import Template*
 
 > [!NOTE]
@@ -39,7 +39,7 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
   - Browse list of [Optional SELs](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-optional-sels), most of which are incoroprated into the Template Wizard.  
   - Adjust Ranked Stream Expressions score as you wish for more nuanced sorting. See ⁠his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more details on customization.
   - Add usenet addons or others you find useful.
-4. [AIOMetadata for catalogs/meta](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata): Import one of my JSONs (with/without anime) via trusted AIOMetadata instances from [this page](https://status.dinsden.top/status/stremio-addons). 
+4. [AIOMetadata for catalogs/meta](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata): Import one of my JSONs (with/without anime) via trusted AIOMetadata instances from [this page](https://docs.aiostreams.viren070.me/getting-started/public-instances/). 
   - Refer to full AIOMetadata guide at end of page.
 ---
 ## ✨ Release Notes
@@ -732,7 +732,7 @@ Third block of ESE is the Low Quality/Resolution Filter. It checks how many stre
 
 ## ⚙️ Templates Included for AIOStreams
 
-These are setup templates to use with AIOStreams. If you're not sure which AIOStreams instance to start with, check out the list of trusted public instances [here](https://status.dinsden.top/status/stremio-addons). I recommend *nightly* AIOStreams from Midnight, Yeb, Viren, or Kuu. My setup is fine-tuned and tested on latest nightly, so you don't have to worry about features not yet released. Make sure the instance you chose have a working Torrentio add-on. If not, switch to a different instance.
+These are setup templates to use with AIOStreams. If you're not sure which AIOStreams instance to start with, check out the list of trusted public instances [here](https://docs.aiostreams.viren070.me/getting-started/public-instances/). I recommend *nightly* AIOStreams from Midnight, Yeb, Viren, or Kuu. My setup is fine-tuned and tested on latest nightly, so you don't have to worry about features not yet released. Make sure the instance you chose have a working Torrentio add-on. If not, switch to a different instance.
 
 | Template | Description |
 |-----------|--------------|
@@ -839,7 +839,7 @@ These go into Included Stream Expressions, order doesn't matter here:
 ---
 ## ⚙️ What’s Included for AIOMetadata
 
-These are setup configs to use with AIOMetadata. It is a powerful tool for all things metadata and catalogs. If you're not sure where to start, pick an AIOMetadata instance from [the list of trusted public instances](https://status.dinsden.top/status/stremio-addons)  or use the [Elfhosted instance](https://aiometadata.elfhosted.com/configure/). You can't go wrong with either choice.
+These are setup configs to use with AIOMetadata. It is a powerful tool for all things metadata and catalogs. If you're not sure where to start, pick an AIOMetadata instance from [here](https://uptime.ibbylabs.dev/aiometadata). I recommend the public [Elfhosted instance](https://aiometadata.elfhosted.com/configure/).
 
 > [!NOTE]
 > My previous AIOStreams template does not include any catalogs. This is where AIOMetadata comes in. It is a separate addon from AIOStreams, installed directly into Stremio (or via StremThru Side Kick), and is the main place most of us like to keep our catalogs for Stremio!
@@ -936,9 +936,9 @@ This import will give you catalogs and meta support for Stremio, to be installed
 2. **Configuration tab** → Import Configuration → Import one of my JSON files.
     - Feel free to edit/hide/delete/import various catalogs in Catalogs tab to your liking. Just note that the current config already has close to the max number of catalogs stremio will allow in one AIOMetadata install. See below for more on this.
     - Adjust `Display Language` inside AIOMetadata under General tab if you're not using default English.
-3. **Configuration tab** → Save Configuration → Enter a password to save your configuration (if you haven't made an account before) → Install the addon directly into Stremio. **Note**: If you encounter `AddonsPushedToAPI - Max descriptor size reached` error, try step 4 otherwise if your AIOM installed fine directly into stremio, skip to step 5.
-4. Copy your `Install URL`. Go to [StremThru Side Kick](https://stremthru.13377001.xyz/stremio/sidekick/), log in there using your Stremio account and use the Install button there to install the addon with the AIOMetadata URL. This *may help* bypass the `AddonsPushedToAPI - Max descriptor size reached` error; otherwise disable some catalogs to reduce size or see below "How to set up 2 AIOMetadata for more catalogs".
-5. Go to [https://cinebye.dinsden.top](https://cinebye.dinsden.top), load up your account and remove all three Cinemeta features (Search, Catalogs, and Meta). Then scroll down to the bottom of Cinebye and re-order your addons so that 1. `Cinemeta (cinebyed)` 2. `AIOMetadata` 3. `Rest of addons (AIOStreams, subtitle addons, etc)`. Finally, save the changes by clicking `Sync to Stremio`. The re-ordering can also be done inside StremThru Side Kick under "Move" mode.
+3. **Configuration tab** → Save Configuration → Enter a password to save your configuration (if you haven't made an account before) → Install the addon directly into Stremio. **Note**: If you encounter `AddonsPushedToAPI - Max descriptor size reached` error, it means you got too many catalogs. Try to disable some catalogs to reduce size or see below "How to set up 2 AIOMetadata for more catalogs".
+4. Go to [https://cinebye.dinsden.top](https://cinebye.dinsden.top), load up your account and remove all three Cinemeta features (Search, Catalogs, and Meta). Then scroll down to the bottom of Cinebye and re-order your addons so that 1. `Cinemeta (cinebyed)` 2. `AIOMetadata` 3. `Rest of addons (AIOStreams, subtitle addons, etc)`. Finally, save the changes by clicking `Sync to Stremio`.
+5. Each time you make catalog changes, you need to re-install your AIOMetadata. Quickly reload/re-install AIOMetadata while presere your addons order by using Cinebye, [StremThru SideKick](https://stremthru.13377001.xyz/stremio/sidekick/), [Syncio](https://synciofortheweak.nhyira.dev/), or [AIOManager](https://aiomanager.elfhosted.com).
 
 > [!NOTE]
 > If you make any catalog changes in your AIOMetadata, you will need to re-install AIOMetadata for it to be updated inside Stremio. Instead of re-installing and re-ordering your AIOMetadata again each time, you should use StremThru Side Kick "reload" feature, which effectively does the re-install in one click of a button.
