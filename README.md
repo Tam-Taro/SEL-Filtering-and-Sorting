@@ -932,12 +932,12 @@ These are setup configs to use with AIOMetadata. It is a powerful tool for all t
 
 This import will give you catalogs and meta support for Stremio, to be installed outside AIOStreams. Pick one of the two JSON files shared above to import into AIOMetadata following these instructions:
 
-1. **Integrations tab** → Obtain and enter your TMDB, TVDB, MDBList, and Gemini APIs. Use `t0-free-rpdb` for RPDB posters or obtain TOP API for alternate TOP posters. Gemini is needed for AI Search. Fanart.tv API Key is optional. Hit the `Test All Keys` button to ensure they're all ✅.
+1. **Integrations tab** → Obtain and enter your TMDB, TVDB, MDBList, and Gemini APIs. Use `t0-free-rpdb-rounded-blocks` for RPDB posters or obtain TOP API for alternate TOP posters. Gemini is needed for AI Search. Fanart.tv API Key is optional. Hit the `Test All Keys` button to ensure they're all ✅.
 2. **Configuration tab** → Import Configuration → Import one of my JSON files.
     - Feel free to edit/hide/delete/import various catalogs in Catalogs tab to your liking. Just note that the current config already has close to the max number of catalogs stremio will allow in one AIOMetadata install. See below for more on this.
     - Adjust `Display Language` inside AIOMetadata under General tab if you're not using default English.
 3. **Configuration tab** → Save Configuration → Enter a password to save your configuration (if you haven't made an account before) → Install the addon directly into Stremio. **Note**: If you encounter `AddonsPushedToAPI - Max descriptor size reached` error, it means you got too many catalogs. Try to disable some catalogs to reduce size or see below "How to set up 2 AIOMetadata for more catalogs".
-4. Go to [https://cinebye.dinsden.top](https://cinebye.dinsden.top), load up your account and remove all three Cinemeta features (Search, Catalogs, and Meta). Then scroll down to the bottom of Cinebye and re-order your addons so that 1. `Cinemeta (cinebyed)` 2. `AIOMetadata` 3. `Rest of addons (AIOStreams, subtitle addons, etc)`. Finally, save the changes by clicking `Sync to Stremio`.
+4. Go to [https://cinebye.elfhosted.com](https://cinebye.elfhosted.com), load up your account and remove all three Cinemeta features (Search, Catalogs, and Meta). Then scroll down to the bottom of Cinebye and re-order your addons so that 1. `Cinemeta (cinebyed)` 2. `AIOMetadata` 3. `Rest of addons (AIOStreams, subtitle addons, etc)`. Finally, save the changes by clicking `Sync to Stremio`.
 5. Each time you make catalog changes, you need to re-install your AIOMetadata. Quickly reload/re-install AIOMetadata while presere your addons order by using Cinebye, [StremThru SideKick](https://stremthru.13377001.xyz/stremio/sidekick/), [Syncio](https://synciofortheweak.nhyira.dev/), or [AIOManager](https://aiomanager.elfhosted.com).
 
 > [!NOTE]
