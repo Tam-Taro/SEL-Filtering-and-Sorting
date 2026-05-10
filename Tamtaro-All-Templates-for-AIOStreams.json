@@ -6,7 +6,7 @@
       "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://git.tamtaro.de). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Comes with optional add-ons and optional formatter. \n * Dynamic core filtering options: Standard SEL (keeps ~20 results) or Extended SEL (keeps ~40).\n * Comes with auto-synced urls for SELs & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so you'll receive latest SEL hotfixes automatically. Set & forget.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
       "source": "external",
       "author": "Tamtaro",
-      "version": "2.4.2",
+      "version": "2.5.0",
       "category": "AIO",
       "serviceRequired": false,
       "changelogUrl": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/CHANGELOG.md",
@@ -14,7 +14,7 @@
         {
           "__if": "services",
           "id": "header.intro",
-          "name": "Complete SEL Setup v2.4.2: Debrid/Usenet Mode",
+          "name": "Complete SEL Setup v2.5.0: Debrid/Usenet Mode",
           "description": "An advanced filtering & sorting setup powered by Stream Expression Language (SEL) & [Vidhin's Regex Patterns](https://github.com/Vidhin05/Releases-Regex)",
           "type": "alert",
           "intent": "success"
@@ -22,7 +22,7 @@
         {
           "__if": "!services",
           "id": "header.p2p",
-          "name": "Complete SEL Setup v2.4.2: P2P Mode",
+          "name": "Complete SEL Setup v2.5.0: P2P Mode",
           "description": "No services selected. In some countries, torrenting is restricted,so a VPN or a debrid service from previous page may be required.",
           "type": "alert",
           "intent": "warning"
@@ -1040,7 +1040,7 @@
             {
               "id": "debridio",
               "name": "Debridio",
-              "description": "If selected, [Debridio Addons](https://debridio.com) (Debridio Scraper for Debrid streams, Watchtower for HTTP streams, and Debridio TV for live channels) will be added. **Debridio is a paid subscription**. You will need to enter your Debridio API key.",
+              "description": "If selected, [Debridio](https://debridio.com) (Debridio Scraper for Debrid streams) will be added. Debridio Watchtower for HTTP streams will be added if 'HTTP Addons' option above is toggled. **Debridio is a paid subscription**. You will need to enter your Debridio API key.",
               "type": "boolean",
               "required": false,
               "default": false
@@ -1737,7 +1737,7 @@
         {
           "id": "coreFilter",
           "name": "Core Filtering Engine",
-          "description": "The core filtering engine defaults to the Standard SEL, which dynamically keeps top 3 per Quality/Resolution, resulting in about 20 total streams. Choose the Extended SEL option to keep 2x more (top 6 per Quality/Resolution).",
+          "description": "The core filtering engine defaults to the Standard SEL, which dynamically keeps top 3 per Quality/Resolution, resulting in about 20 total streams. Choose the Extended SEL option to keep 2x more (top 6 per Quality/Resolution). *You may increase this limit by adjusting `Overall Passthrough Per Quality/Resolution` inside 'Passthrough Options'*.",
           "type": "select",
           "required": true,
           "advanced": false,
@@ -1745,11 +1745,11 @@
           "options": [
             {
               "value": "standard",
-              "label": "Standard SEL"
+              "label": "Standard SEL - 3 per Q/R"
             },
             {
               "value": "extended",
-              "label": "Extended SEL"
+              "label": "Extended SEL - 6 per Q/R"
             }
           ]
         },
@@ -1848,7 +1848,7 @@
         {
           "id": "bitrate",
           "name": "Bitrate Options",
-          "description": "Configure low bitrate settings for stream filtering, ranking, and sorting.",
+          "description": "Configure low bitrate and mobile backup settings for filtering and sorting.",
           "type": "subsection",
           "advanced": true,
           "required": false,
@@ -1912,13 +1912,69 @@
               "required": false,
               "advanced": true,
               "default": false
+            },
+            {
+              "id": "header.mobileBackup",
+              "name": "",
+              "description": "Mobile Backup Options",
+              "type": "alert",
+              "advanced": true,
+              "intent": "info"
+            },
+            {
+              "id": "mobileBackup",
+              "name": "Mobile Backup Bitrate (Mbps)",
+              "description": "Select a bitrate cap to add a few lighter backup streams for mobile data or unstable connections. **These are pinned to the bottom of your normal results**. Set to 0 to disable. Recommended: 4 Mbps, so that a 2-hr movie will be about 3.6 GB.",
+              "type": "select-with-custom",
+              "required": false,
+              "advanced": true,
+              "default": "0.0",
+              "options": [
+                {
+                  "value": "0.0",
+                  "label": "0 Disable"
+                },
+                {
+                  "value": "3.0",
+                  "label": "3"
+                },
+                {
+                  "value": "4.0",
+                  "label": "4"
+                },
+                {
+                  "value": "5.0",
+                  "label": "5"
+                },
+                {
+                  "value": "8.0",
+                  "label": "8"
+                },
+                {
+                  "value": "10.0",
+                  "label": "10"
+                }
+              ]
+            },
+            {
+              "id": "mobileBackupAmount",
+              "name": "Mobile Backup Amount",
+              "description": "Number of backup streams to keep per selected resolution. For example, '2' returns up to 2x 1080p and 2x 720p backup streams, pinned to the bottom. If less than 2 is found, then 480p resolution is also checked.",
+              "type": "number",
+              "required": false,
+              "default": 2,
+              "constraints": {
+                "min": 1,
+                "max": 5,
+                "forceInUi": true
+              }
             }
           ]
         },
         {
           "id": "miscPassthrough",
           "name": "Passthrough Options",
-          "description": "Bypass select visual tag and Top 1 streams from SEL filters, and optionally pin them to the top. Rest of the results will still follow default SEL setup.",
+          "description": "Bypass select visual tag and Top Quality/Resolution streams from the Core Filtering Engine, and optionally pin them to the top.",
           "type": "subsection",
           "advanced": true,
           "required": false,
@@ -1935,7 +1991,7 @@
             {
               "id": "visualTag",
               "name": "Visual Tags Passthrough",
-              "description": "Allow up to 5 results containing each selected visual tags to bypass SEL filters. Use this option if the default filtering does not provide enough streams in your preferred visual tags.",
+              "description": "Allow up to 5 results containing each selected visual tags to bypass the Core Filtering Engine. Use this option if the default filtering does not provide enough streams in your preferred visual tags.",
               "type": "multi-select",
               "required": false,
               "default": [],
@@ -1967,16 +2023,16 @@
               "default": false
             },
             {
-              "id": "Top1Notice",
+              "id": "TopQRNotice",
               "name": "",
-              "description": "Top 1 Pin Options",
+              "description": "Top Quality/Resolution Options",
               "type": "alert",
               "intent": "info-basic"
             },
             {
               "id": "top1ResPin",
               "name": "Pin Top 1 Per Resolution",
-              "description": "This will pin the top 1 result for each resolution (3 different resolutions max), bypassing SEL filters.",
+              "description": "This will pin the top 1 result for each resolution (3 different resolutions max), bypassing Core Filtering Engine.",
               "type": "boolean",
               "required": false,
               "default": false
@@ -1988,13 +2044,26 @@
               "type": "boolean",
               "required": false,
               "default": false
+            },
+            {
+              "id": "overallTopQualRes",
+              "name": "Overall Passthrough Per Quality/Resolution",
+              "description": "Allows top results from each Quality/Resolution category to bypass Core Filtering Engine's limit or 3 (Standard SEL) or 6 (Extended SEL). Set a number higher than the default (3 or 6) to see an effect. This option takes the overall top results (among all stream types except uncached debrid, from 4K to 720P) as sorted by setup. To increase only usenet results, use the same option inside 'Usenet Options'.",
+              "type": "number",
+              "required": false,
+              "default": 0,
+              "constraints": {
+                "min": 0,
+                "max": 15,
+                "forceInUi": true
+              }
             }
           ]
         },
         {
           "id": "usenet",
           "name": "Usenet Options",
-          "description": "Various passthrough and sort options for Usenet. Any streams selected for passthrough will be exempted from any additional filtering limits you set below.",
+          "description": "Various passthrough and sort options for Usenet.",
           "type": "subsection",
           "advanced": true,
           "required": false,
@@ -2033,41 +2102,16 @@
             },
             {
               "id": "usenetTopQualRes",
-              "name": "Usenet Per Quality/Resolution Passthrough",
-              "description": "Allow top usenet results from each Quality/Resolution category to bypass SEL filters. Usenet results (unless health checked) will be ranked lower than cached debrid for any given Quality/Resolution category. You can merge cached Usenet and cached Debrid using the Boost Usenet toggle.",
-              "type": "select",
+              "name": "Usenet Passthrough Per Quality/Resolution",
+              "description": "Allow top usenet results from each Quality/Resolution category to bypass Core Filtering Engine's limit. Usenet results (unless health checked) will be ranked lower than cached debrid for any given Quality/Resolution category. You can merge cached Usenet and cached Debrid using the Boost Usenet toggle.",
+              "type": "number",
               "required": false,
-              "default": "0",
-              "options": [
-                {
-                  "value": "0",
-                  "label": "Disabled"
-                },
-                {
-                  "value": "1",
-                  "label": "1 per Quality/Resolution"
-                },
-                {
-                  "value": "2",
-                  "label": "2 per Quality/Resolution"
-                },
-                {
-                  "value": "3",
-                  "label": "3 per Quality/Resolution"
-                },
-                {
-                  "value": "4",
-                  "label": "4 per Quality/Resolution"
-                },
-                {
-                  "value": "5",
-                  "label": "5 per Quality/Resolution"
-                },
-                {
-                  "value": "6",
-                  "label": "6 per Quality/Resolution"
-                }
-              ]
+              "default": 0,
+              "constraints": {
+                "min": 0,
+                "max": 15,
+                "forceInUi": true
+              }
             },
             {
               "id": "usenetSort",
@@ -2100,14 +2144,14 @@
             {
               "id": "filterLimitNotice",
               "name": "",
-              "description": "These options will add SELs that run after Standard/Extended SEL, reducing remaining streams even more. Any streams not selected here will be removed (exceptions: previously passthrough streams, library and SeaDex).",
+              "description": "These options will add SELs that run after Standard/Extended SEL, reducing remaining streams even more. Any streams not selected here will be removed (exceptions: some passthrough streams, library and SeaDex).",
               "type": "alert",
               "intent": "info-basic"
             },
             {
               "id": "topRes",
               "name": "Top Resolution Only",
-              "description": "If there are >5 remaining results in 4k after Standard/Extended SEL, this option will keep only 4K results and remove all lower resolutions (passthrough, library and SeaDex exempted). If 4k check fails, 1080p and 720p are then checked for same condition.",
+              "description": "If there are >5 remaining results in 4k after Standard/Extended SEL, this option will keep only 4K results and remove all lower resolutions (some passthrough, library and SeaDex exempted). If 4k check fails, 1080p and 720p are then checked for same condition.",
               "type": "boolean",
               "required": false,
               "default": false
@@ -2115,7 +2159,7 @@
             {
               "id": "top1Res",
               "name": "Top Results Per Resolution",
-              "description": "Keep only top X results from each Resolution, for max of 3 top resolutions (passthrough, library and SeaDex exempted). Rest will be removed unless selected by another SEL.",
+              "description": "Keep only top X results from each Resolution, for max of 3 top resolutions (some passthrough, library and SeaDex exempted). Rest will be removed unless selected by another SEL.",
               "type": "select",
               "required": false,
               "default": "0",
@@ -2153,7 +2197,7 @@
             {
               "id": "top1QualRes",
               "name": "Top Results Per Quality/Resolution",
-              "description": "Keep only the top X results from each Quality/Resolution category (passthrough, library and SeaDex exempted). Rest will be removed unless selected by another SEL. May choose up to 3 if on Standard SEL, up to 6 if on Extended SEL.",
+              "description": "Keep only the top X results from each Quality/Resolution category (some passthrough, library and SeaDex exempted). Rest will be removed unless selected by another SEL. May choose up to 3 if on Standard SEL, up to 6 if on Extended SEL.",
               "type": "select",
               "required": false,
               "default": "0",
@@ -2191,7 +2235,7 @@
             {
               "id": "visualTag",
               "name": "Top 5 DV+HDR, 5 HDR Only, 5 SDR",
-              "description": "Keep up to 5 DV/HDR, 5 HDR Only and 5 non-DV/HDR streams (passthrough, library and SeaDex exempted). Rest will be removed unless selected by another SEL. Pair this option with Device Specific visual tag exclusions to remove DV/HDR, if you only want 5 results in SDR.",
+              "description": "Keep up to 5 DV/HDR, 5 HDR Only and 5 non-DV/HDR streams (somepassthrough, library and SeaDex exempted). Rest will be removed unless selected by another SEL. Pair this option with Device Specific visual tag exclusions to remove DV/HDR, if you only want 5 results in SDR.",
               "type": "boolean",
               "required": false,
               "default": false
@@ -2199,7 +2243,7 @@
             {
               "id": "global",
               "name": "Global Result Limit",
-              "description": "Keep only the overall top X results (passthrough, library and SeaDex exempted). Rest will be removed unless selected by another SEL.",
+              "description": "Keep only the overall top X results (some passthrough, library and SeaDex exempted). Rest will be removed unless selected by another SEL.",
               "type": "number",
               "required": false,
               "constraints": {
@@ -2364,7 +2408,7 @@
         },
         "default": "{{inputs.misc.addonName}}"
       },
-      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.4.2. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.5.0. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
       "addonLogo": {
         "__switch": "inputs.misc.addonLogo",
         "cases": {
@@ -2588,7 +2632,7 @@
       "excludedStreamExpressions": [
         {
           "__if": "inputs.coreFilter includes extended",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.4.2: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.0: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
           "enabled": true
         },
         {
@@ -2597,11 +2641,11 @@
         },
         {
           "__if": "inputs.coreFilter includes standard",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.4.2: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 SEL filtering engine*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.0: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 SEL filtering engine*/ []",
           "enabled": true
         },
         {
-          "expression": "/*Bad 4k Anime*/ (isAnime and originalLanguage != 'English' and count(quality(resolution(cached(streams), '2160p'), 'Bluray REMUX')) == 0 and count(seadex(resolution(streams, '2160p'))) == 0 and count(rseMatched(resolution(streams, '2160p'), 'BD T1', 'BD T2', 'BD T3', 'BD T4', 'BD T5', 'BD T6', 'BD T7', 'BD T8', 'Remux T1', 'Remux T2', 'Remux T3', 'Web T1', 'Web T2', 'Web T3', 'Web T4', 'Web T5', 'Web T6')) == 0 )? negate(merge(library(streams), seadex(streams)), resolution(streams, '2160p')) : []",
+          "expression": "/*Bad 4k Anime*/ (isAnime and originalLanguage == 'Japanese' and count(quality(resolution(cached(streams), '2160p'), 'Bluray REMUX')) == 0 and count(seadex(resolution(streams, '2160p'))) == 0 and count(rseMatched(resolution(streams, '2160p'), 'BD T1', 'BD T2', 'BD T3', 'BD T4', 'BD T5', 'BD T6', 'BD T7', 'BD T8', 'Remux T1', 'Remux T2', 'Remux T3', 'Web T1', 'Web T2', 'Web T3', 'Web T4', 'Web T5', 'Web T6')) == 0 )? negate(merge(library(streams), seadex(streams)), resolution(streams, '2160p')) : []",
           "enabled": true
         },
         {
@@ -2735,6 +2779,21 @@
           "enabled": true
         },
         {
+          "__if": "inputs.bitrate.bitrateCap != 150 and !inputs.bitrate.bitrateCapDynamic and !inputs.bitrate.bitrateCapSoft",
+          "expression": "/*{{inputs.bitrate.bitrateCap}} Mbps Bitrate Cap (Static)*/ bitrate(streams, {{inputs.bitrate.bitrateCap}}*1000000)",
+          "enabled": true
+        },
+        {
+          "__if": "inputs.bitrate.bitrateCap != 150 and inputs.bitrate.bitrateCapDynamic and !inputs.bitrate.bitrateCapSoft",
+          "expression": "/*{{inputs.bitrate.bitrateCap}} Mbps Bitrate Cap (Dynamic Soft): 80% @ 4k, 50% @ 1080P, 30% @ 720P*/ merge(bitrate(resolution(streams, '2160p'), {{inputs.bitrate.bitrateCap}}*0.8*1000000), bitrate(resolution(streams, '1080p'), {{inputs.bitrate.bitrateCap}}*0.5*1000000), bitrate(resolution(streams, '720p'), {{inputs.bitrate.bitrateCap}}*0.3*1000000))",
+          "enabled": true
+        },
+        {
+          "__if": "inputs.bitrate.mobileBackup != 0.0",
+          "expression": "/*Mobile Backup: {{inputs.bitrate.mobileBackupAmount}} x 1080p/720p/(480p) @ {{inputs.bitrate.mobileBackup}} Mbps Cap*/ count(perGroup(bitrate(negate(merge(library(streams), seadex(streams)),merge(cached(streams),type(streams,'p2p','http'))), 200000,  {{inputs.bitrate.mobileBackup}}*1000000), 'resolution', {{inputs.bitrate.mobileBackupAmount}}, '1080p', '720p')) >= {{inputs.bitrate.mobileBackupAmount}} ?  pin(passthrough(perGroup(bitrate(negate(merge(library(streams), seadex(streams)),merge(cached(streams),type(streams,'p2p','http'))), 200000,  {{inputs.bitrate.mobileBackup}}*1000000), 'resolution', {{inputs.bitrate.mobileBackupAmount}}, '1080p', '720p'), 'excluded', 'required'), 'bottom') : pin(passthrough(perGroup(bitrate(negate(merge(library(streams), seadex(streams)),merge(cached(streams),type(streams,'p2p','http'))), 200000,  {{inputs.bitrate.mobileBackup}}*1000000), 'resolution', {{inputs.bitrate.mobileBackupAmount}}, '1080p', '720p', '480'), 'excluded', 'required'), 'bottom')",
+          "enabled": true
+        },
+        {
           "__if": "inputs.usenet.usenetHealth includes Checkednzb",
           "expression": "/*☑ NZB Passthrough*/ passthrough(message(type(streams, 'usenet', 'stremio-usenet'),'includes','✅','🧝','💚'), 'excluded', 'required')",
           "enabled": true
@@ -2815,7 +2874,7 @@
           "enabled": true
         },
         {
-          "__if": "inputs.miscPassthrough.visualTag includes DV and inputs.miscPassthrough.visualTagPin",
+          "__if": "inputs.miscPassthrough.visualTag includes DV and !inputs.miscPassthrough.visualTagPin",
           "expression": "/*DV Passthrough*/ passthrough(slice(resolution(visualTag(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')), 'DV'), '2160p', '1080p', '720p', '480p', 'Unknown'), 0, 5), 'excluded', 'required')",
           "enabled": true
         },
@@ -2825,7 +2884,7 @@
           "enabled": true
         },
         {
-          "__if": "inputs.miscPassthrough.visualTag includes dvHDR and inputs.miscPassthrough.visualTagPin",
+          "__if": "inputs.miscPassthrough.visualTag includes dvHDR and !inputs.miscPassthrough.visualTagPin",
           "expression": "/*Top 5 DV+HDR Passthrough*/ passthrough(slice(resolution(visualTag(visualTag(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')), 'DV'), 'HDR', 'HDR10','HDR10+'), '2160p', '1080p', '720p', '480p', 'Unknown'), 0, 5), 'excluded', 'required')",
           "enabled": true
         },
@@ -2835,7 +2894,7 @@
           "enabled": true
         },
         {
-          "__if": "inputs.miscPassthrough.visualTag includes HDRonly and inputs.miscPassthrough.visualTagPin",
+          "__if": "inputs.miscPassthrough.visualTag includes HDRonly and !inputs.miscPassthrough.visualTagPin",
           "expression": "/*Top 5 HDRonly Passthrough*/ passthrough(slice(resolution(negate(visualTag(streams, 'DV'), visualTag(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')), 'HDR', 'HDR10','HDR10+')),  '2160p', '1080p', '720p', '480p', 'Unknown'), 0, 5), 'excluded', 'required')",
           "enabled": true
         },
@@ -2845,7 +2904,7 @@
           "enabled": true
         },
         {
-          "__if": "inputs.miscPassthrough.visualTag includes SDR and inputs.miscPassthrough.visualTagPin",
+          "__if": "inputs.miscPassthrough.visualTag includes SDR and !inputs.miscPassthrough.visualTagPin",
           "expression": "/*Top 5 SDR*/ passthrough(slice(resolution(negate(visualTag(streams, 'HDR', 'HDR10', 'HDR10+', 'DV'), visualTag(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')), 'SDR', 'HLG', '10bit', 'IMAX', 'Unknown')), '2160p', '1080p', '720p', '480p', 'Unknown'), 0, 5), 'excluded', 'required')",
           "enabled": true
         },
@@ -2865,18 +2924,13 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.usenet.usenetTopQualRes or inputs.usenet.usenetTopQualRes != 0",
-          "expression": "/*Top {{inputs.usenet.usenetTopQualRes}} Usenet Per Quality/Resolution*/ passthrough(slice(negate(merge(library(streams), message(streams,'includes','✅','🧝','💚')), merge(slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'2160p'),'Bluray REMUX'),0,{{inputs.usenet.usenetTopQualRes}}),slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'2160p'),'Bluray'),0,{{inputs.usenet.usenetTopQualRes}}), slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'2160p'),'WEB-DL'),0,{{inputs.usenet.usenetTopQualRes}}),slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'1080p'),'Bluray REMUX'),0,{{inputs.usenet.usenetTopQualRes}}), slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'1080p'),'Bluray'),0,{{inputs.usenet.usenetTopQualRes}}),slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'1080p'),'WEB-DL'),0,{{inputs.usenet.usenetTopQualRes}}), slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'720p'),'Bluray REMUX'),0,{{inputs.usenet.usenetTopQualRes}}),slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'720p'),'Bluray'),0,{{inputs.usenet.usenetTopQualRes}}), slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'720p'),'WEB-DL'),0,{{inputs.usenet.usenetTopQualRes}}))), 0, {{inputs.usenet.usenetTopQualRes}}*6), 'excluded', 'required')",
+          "__if": "inputs.miscPassthrough.overallTopQualRes and inputs.miscPassthrough.overallTopQualRes > 0",
+          "expression": "/*Top {{inputs.miscPassthrough.overallTopQualRes}} Overall Per Quality/Resolution*/ passthrough(slice(merge(perGroup(resolution(negate(merge(library(streams), seadex(streams)),merge(cached(streams),type(streams,'p2p','http'))), '2160p'), 'quality', {{inputs.miscPassthrough.overallTopQualRes}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(negate(merge(library(streams), seadex(streams)),merge(cached(streams),type(streams,'p2p','http'))), '1440p'), 'quality', {{inputs.miscPassthrough.overallTopQualRes}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(negate(merge(library(streams), seadex(streams)),merge(cached(streams),type(streams,'p2p','http'))), '1080p'), 'quality', {{inputs.miscPassthrough.overallTopQualRes}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(negate(merge(library(streams), seadex(streams)),merge(cached(streams),type(streams,'p2p','http'))), '720p'), 'quality', {{inputs.miscPassthrough.overallTopQualRes}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')  ),  0, {{inputs.miscPassthrough.overallTopQualRes}}*6),  'excluded')",
           "enabled": true
         },
         {
-          "__if": "inputs.bitrate.bitrateCap != 150 and !inputs.bitrate.bitrateCapDynamic and !inputs.bitrate.bitrateCapSoft",
-          "expression": "/*{{inputs.bitrate.bitrateCap}} Mbps Bitrate Cap (Static)*/ bitrate(streams, {{inputs.bitrate.bitrateCap}}*1000000)",
-          "enabled": true
-        },
-        {
-          "__if": "inputs.bitrate.bitrateCap != 150 and inputs.bitrate.bitrateCapDynamic and !inputs.bitrate.bitrateCapSoft",
-          "expression": "/*{{inputs.bitrate.bitrateCap}} Mbps Bitrate Cap (Dynamic Soft): 80% @ 4k, 50% @ 1080P, 30% @ 720P*/ merge(bitrate(resolution(streams, '2160p'), {{inputs.bitrate.bitrateCap}}*0.8*1000000), bitrate(resolution(streams, '1080p'), {{inputs.bitrate.bitrateCap}}*0.5*1000000), bitrate(resolution(streams, '720p'), {{inputs.bitrate.bitrateCap}}*0.3*1000000))",
+          "__if": "inputs.usenet.usenetTopQualRes and inputs.usenet.usenetTopQualRes > 0",
+          "expression": "/*Top {{inputs.usenet.usenetTopQualRes}} Usenet Per Quality/Resolution*/ passthrough(slice(negate(merge(library(streams), message(streams,'includes','✅','🧝','💚')), merge(slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'2160p'),'Bluray REMUX'),0,{{inputs.usenet.usenetTopQualRes}}),slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'2160p'),'Bluray'),0,{{inputs.usenet.usenetTopQualRes}}), slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'2160p'),'WEB-DL'),0,{{inputs.usenet.usenetTopQualRes}}),slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'1080p'),'Bluray REMUX'),0,{{inputs.usenet.usenetTopQualRes}}), slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'1080p'),'Bluray'),0,{{inputs.usenet.usenetTopQualRes}}),slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'1080p'),'WEB-DL'),0,{{inputs.usenet.usenetTopQualRes}}), slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'720p'),'Bluray REMUX'),0,{{inputs.usenet.usenetTopQualRes}}),slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'720p'),'Bluray'),0,{{inputs.usenet.usenetTopQualRes}}), slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'720p'),'WEB-DL'),0,{{inputs.usenet.usenetTopQualRes}}))), 0, {{inputs.usenet.usenetTopQualRes}}*6), 'excluded')",
           "enabled": true
         },
         {
@@ -2912,7 +2966,7 @@
           "enabled": true
         },
         {
-          "__if": "inputs.filterLimit.global",
+          "__if": "inputs.filterLimit.global and inputs.filterLimit.global > 0",
           "expression": "/*Global Result Limit: {{inputs.filterLimit.global}} */ merge(library(streams), seadex(streams), slice(negate(merge(library(streams),seadex(streams)), streams), 0, {{inputs.filterLimit.global}}))",
           "enabled": true
         }
@@ -2987,7 +3041,7 @@
         "__if": "!inputs.misc.keepScore",
         "__value": [
           {
-            "expression": "/*Bad 4k Anime*/ (isAnime and originalLanguage != 'English' and count(quality(resolution(cached(streams), '2160p'), 'Bluray REMUX')) == 0 and count(seadex(resolution(streams, '2160p'))) == 0 and count(rseMatched(resolution(streams, '2160p'), 'BD T1', 'BD T2', 'BD T3', 'BD T4', 'BD T5', 'BD T6', 'BD T7', 'BD T8', 'Remux T1', 'Remux T2', 'Remux T3', 'Web T1', 'Web T2', 'Web T3', 'Web T4', 'Web T5', 'Web T6')) == 0 )? negate(merge(library(streams), seadex(streams)), resolution(streams, '2160p')) : []",
+            "expression": "/*Bad 4k Anime*/ (isAnime and originalLanguage == 'Japanese' and count(quality(resolution(cached(streams), '2160p'), 'Bluray REMUX')) == 0 and count(seadex(resolution(streams, '2160p'))) == 0 and count(rseMatched(resolution(streams, '2160p'), 'BD T1', 'BD T2', 'BD T3', 'BD T4', 'BD T5', 'BD T6', 'BD T7', 'BD T8', 'Remux T1', 'Remux T2', 'Remux T3', 'Web T1', 'Web T2', 'Web T3', 'Web T4', 'Web T5', 'Web T6')) == 0 )? negate(merge(library(streams), seadex(streams)), resolution(streams, '2160p')) : []",
             "exprNames": [
               "Bad 4k Anime"
             ],
@@ -3614,7 +3668,7 @@
               {
                 "type": "mediafusion",
                 "instanceId": "276",
-                "enabled": true,
+                "enabled": false,
                 "options": {
                   "name": "MediaFusion",
                   "timeout": "{{inputs.includeAddon.timeout}}",
@@ -4062,7 +4116,7 @@
               "category": "Usenet"
             },
             {
-              "__if": "inputs.includeAddon.debridio",
+              "__if": "inputs.includeAddon.debridio and inputs.includeAddon.httpAddons",
               "type": "debridio-watchtower",
               "instanceId": "79c",
               "enabled": true,
@@ -4075,42 +4129,6 @@
                 "url": "",
                 "debridioApiKey": "<template_placeholder>",
                 "mediaTypes": []
-              },
-              "category": "HTTP"
-            },
-            {
-              "__if": "inputs.includeAddon.debridio",
-              "type": "debridio-tv",
-              "instanceId": "11a",
-              "enabled": true,
-              "options": {
-                "name": "Debridio TV",
-                "timeout": "{{inputs.includeAddon.timeout}}",
-                "resources": [
-                  "catalog",
-                  "meta",
-                  "stream"
-                ],
-                "url": "",
-                "channels": [
-                  "au",
-                  "br",
-                  "ca",
-                  "cl",
-                  "es",
-                  "events",
-                  "mx",
-                  "uk",
-                  "usa_locals",
-                  "usa",
-                  "247",
-                  "za",
-                  "nz",
-                  "in",
-                  "it",
-                  "fr"
-                ],
-                "resultPassthrough": true
               },
               "category": "HTTP"
             },
@@ -4270,28 +4288,6 @@
             "addonName": "yastream"
           },
           {
-            "__if": "inputs.includeAddon.debridio",
-            "id": "aiostreams.merged.1767565122243",
-            "type": "tv",
-            "name": "English Speaking",
-            "shuffle": false,
-            "enabled": true,
-            "usePosterService": true,
-            "hideable": true,
-            "searchable": false
-          },
-          {
-            "__if": "inputs.includeAddon.debridio",
-            "id": "aiostreams.merged.1767565241116",
-            "type": "tv",
-            "name": "Non-English",
-            "shuffle": false,
-            "enabled": true,
-            "usePosterService": true,
-            "hideable": true,
-            "searchable": false
-          },
-          {
             "id": "ae74bd7.aiostreams::library.torbox",
             "name": "TorBox",
             "type": "library",
@@ -4439,50 +4435,7 @@
       },
       "mergedCatalogs": {
         "__if": "inputs.addonPreset == default",
-        "__value": [
-          {
-            "__if": "inputs.includeAddon.debridio",
-            "id": "aiostreams.merged.1767565122243",
-            "name": "English Speaking",
-            "type": "tv",
-            "catalogIds": [
-              "id=11ae3b0.events&type=tv",
-              "id=11ae3b0.usa&type=tv",
-              "id=11ae3b0.usa_locals&type=tv",
-              "id=11ae3b0.uk&type=tv",
-              "id=11ae3b0.au&type=tv",
-              "id=11ae3b0.247&type=tv",
-              "id=11ae3b0.nz&type=tv",
-              "id=11ae3b0.za&type=tv",
-              "id=11ae3b0.ca&type=tv"
-            ],
-            "enabled": true,
-            "deduplicationMethods": [
-              "id"
-            ],
-            "mergeMethod": "sequential"
-          },
-          {
-            "__if": "inputs.includeAddon.debridio",
-            "id": "aiostreams.merged.1767565241116",
-            "name": "Non-English",
-            "type": "tv",
-            "catalogIds": [
-              "id=11ae3b0.cl&type=tv",
-              "id=11ae3b0.mx&type=tv",
-              "id=11ae3b0.es&type=tv",
-              "id=11ae3b0.br&type=tv",
-              "id=11ae3b0.fr&type=tv",
-              "id=11ae3b0.in&type=tv",
-              "id=11ae3b0.it&type=tv"
-            ],
-            "enabled": true,
-            "deduplicationMethods": [
-              "id"
-            ],
-            "mergeMethod": "sequential"
-          }
-        ]
+        "__value": []
       },
       "externalDownloads": false,
       "cacheAndPlay": {
@@ -4510,7 +4463,7 @@
       "description": "A focused template for importing partial aspects of Tamtaro SEL Setup, without overriding your existing configurations. Use this 'Partial' template if you want to keep your current setup but upgrade your filtering and sorting logic. \n* **Core Filtering Engine**: Choose between **Standard** (keeps top 3 streams per Quality/Resolution, approx. 20 total) or **Extended** (keeps top 6, approx. 40 total) to eliminate clutter while maintaining quality coverage.\n* **Synced URL Integration**: Automatically pulls the latest synced URLs for Excluded, Included, and Preferred Stream Expressions from [GitHub](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting).\n* To use Preferred Stream Expressions, ensure 'Stream Expressions' is added to your Sort Order.\n* **Custom Formatter Only**: Includes the custom Tamtaro formatter with options for a clean look or a full debug view (RSE Matched).",
       "source": "external",
       "author": "Tamtaro",
-      "version": "2.4.2",
+      "version": "2.5.0",
       "category": "AIO",
       "serviceRequired": false,
       "services": [],
@@ -4519,7 +4472,7 @@
         {
           "id": "header.intro1",
           "name": "",
-          "description": "Welcome to Partial SEL Setup v2.4.2",
+          "description": "Welcome to Partial SEL Setup v2.5.0",
           "type": "alert",
           "intent": "success"
         },
@@ -4675,7 +4628,7 @@
       ]
     },
     "config": {
-      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.4.2. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.5.0. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
       "addonLogo": "https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/blob/main/logo.png?raw=true",
       "formatter": {
         "__switch": "inputs.formatterChoice",
@@ -4762,7 +4715,7 @@
           "cases": {
             "standard": [
               {
-                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.4.2: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.0: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
                 "enabled": true
               },
               {
@@ -4776,7 +4729,7 @@
             ],
             "extended": [
               {
-                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.4.2: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.0: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
                 "enabled": true
               },
               {

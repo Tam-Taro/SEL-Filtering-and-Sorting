@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.5.0 (2026-05-10)
+- **New:** 
+  - `Mobile Backup Bitrate (Mbps)` & `Mobile Backup Amount` inside `Bitrate Options` submenu. 
+    - Allows you to pin some streams in 1080p/720p to the bottom of your regular results; amount & bitrate cap are adjustable.
+  - `Overall Passthrough Per Quality/Resolution` inside `Passthrough Options` submeu.
+    - Allows you to bypass the default 3 or 6 Per Quality/Resolution set by Standard/Extended Core Filtering Engine
+    - Set a number higher than the default (3 or 6) to see an effect. This option takes the overall top results (among all stream types except uncached debrid, from 4K to 720P) as sorted by setup. To increase only usenet results, use the same option inside 'Usenet Options'
+- **Update:**
+  - `Bitrate Cap` (Static or Dynamic) now placed higher up in the ESE list, so various visual tags and language passthroughs respect the bitrate cap
+  - `Bad 4K Anime` ESE filter has a slight change, to check `originalLanguage == 'Japanese'` before triggering itself
+    - To manually update this SEL, replace the old `originalLanguage != 'English'` with the change above
+  - `Usenet Passthrough Per Quality/Resolution` was limited to 6, now extends option to 15 streams per Q/R
+  - `Debridio TV` addon & catalogs removed
+  - `MediaFusion` defaults to disabled. Enable this yourself whenever MediaFusion servers are back online.
+
 ## 2.4.2 (2026-05-04)
 - `AV1 Encode` option is now added to `Device Specific Exclusions`
 - Bug fixes
