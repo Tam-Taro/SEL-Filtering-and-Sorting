@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.5.1 (2026-05-10)
+- Bug fix:
+  -Min restraint increased from 0 to 1 for `Overall Passthrough Per Quality/Resolution` and `Usenet Passthrough Per Quality/Resolution`
+
 ## 2.5.0 (2026-05-10)
 - **New:** 
   - `Mobile Backup Bitrate (Mbps)` & `Mobile Backup Amount` inside `Bitrate Options` submenu. 
