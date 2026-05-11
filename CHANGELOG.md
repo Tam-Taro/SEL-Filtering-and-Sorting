@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.5.2 (2026-05-11)
+- Bug fixes:
+  - MediaFusion add-on now actually defaults to disabled - enable whenever server is online.
+  - Catalogs from un-selected services or add-on options (such as yastream) will not show inside AIOStreams config page anymore
+
 ## 2.5.1 (2026-05-10)
 - Bug fix:
   - Min restraint increased from 0 to 1 for `Overall Passthrough Per Quality/Resolution` and `Usenet Passthrough Per Quality/Resolution`

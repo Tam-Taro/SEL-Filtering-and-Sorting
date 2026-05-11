@@ -6,7 +6,7 @@
       "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://git.tamtaro.de). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Comes with optional add-ons and optional formatter. \n * Dynamic core filtering options: Standard SEL (keeps ~20 results) or Extended SEL (keeps ~40).\n * Comes with auto-synced urls for SELs & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so you'll receive latest SEL hotfixes automatically. Set & forget.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
       "source": "external",
       "author": "Tamtaro",
-      "version": "2.5.1",
+      "version": "2.5.2",
       "category": "AIO",
       "serviceRequired": false,
       "changelogUrl": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/CHANGELOG.md",
@@ -14,7 +14,7 @@
         {
           "__if": "services",
           "id": "header.intro",
-          "name": "Complete SEL Setup v2.5.1: Debrid/Usenet Mode",
+          "name": "Complete SEL Setup v2.5.2: Debrid/Usenet Mode",
           "description": "An advanced filtering & sorting setup powered by Stream Expression Language (SEL) & [Vidhin's Regex Patterns](https://github.com/Vidhin05/Releases-Regex)",
           "type": "alert",
           "intent": "success"
@@ -22,7 +22,7 @@
         {
           "__if": "!services",
           "id": "header.p2p",
-          "name": "Complete SEL Setup v2.5.1: P2P Mode",
+          "name": "Complete SEL Setup v2.5.2: P2P Mode",
           "description": "No services selected. In some countries, torrenting is restricted,so a VPN or a debrid service from previous page may be required.",
           "type": "alert",
           "intent": "warning"
@@ -2408,7 +2408,7 @@
         },
         "default": "{{inputs.misc.addonName}}"
       },
-      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.5.1. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.5.2. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
       "addonLogo": {
         "__switch": "inputs.misc.addonLogo",
         "cases": {
@@ -2632,7 +2632,7 @@
       "excludedStreamExpressions": [
         {
           "__if": "inputs.coreFilter includes extended",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.1: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.2: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
           "enabled": true
         },
         {
@@ -2641,7 +2641,7 @@
         },
         {
           "__if": "inputs.coreFilter includes standard",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.1: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 SEL filtering engine*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.2: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 SEL filtering engine*/ []",
           "enabled": true
         },
         {
@@ -4036,7 +4036,7 @@
             {
               "type": "mediafusion",
               "instanceId": "276",
-              "enabled": true,
+              "enabled": false,
               "options": {
                 "name": "MediaFusion",
                 "timeout": "{{inputs.includeAddon.timeout}}",
@@ -4243,6 +4243,7 @@
         "__if": "inputs.addonPreset == default",
         "__value": [
           {
+            "__if": "inputs.includeAddon.kdramaAddons",
             "id": "28fe3b0.kisskh.series.Korean",
             "type": "series",
             "name": "[yastream] kisskh Korean",
@@ -4255,6 +4256,7 @@
             "addonName": "yastream"
           },
           {
+            "__if": "inputs.includeAddon.kdramaAddons",
             "id": "28fe3b0.kisskh.movie.Korean",
             "type": "movie",
             "name": "[yastream] kisskh Korean",
@@ -4266,6 +4268,7 @@
             "addonName": "yastream"
           },
           {
+            "__if": "inputs.includeAddon.kdramaAddons",
             "id": "28fe3b0.kisskh.series.Search",
             "type": "series",
             "name": "[yastream] kisskh Search",
@@ -4277,6 +4280,7 @@
             "addonName": "yastream"
           },
           {
+            "__if": "inputs.includeAddon.kdramaAddons",
             "id": "28fe3b0.kisskh.movie.Search",
             "type": "movie",
             "name": "[yastream] kisskh Search",
@@ -4288,6 +4292,7 @@
             "addonName": "yastream"
           },
           {
+            "__if": "services.torbox",
             "id": "ae74bd7.aiostreams::library.torbox",
             "name": "TorBox",
             "type": "library",
@@ -4300,6 +4305,7 @@
             "onlyOnDiscover": true
           },
           {
+            "__if": "services.realdebrid",
             "id": "ae74bd7.aiostreams::library.realdebrid",
             "name": "Real-Debrid",
             "type": "library",
@@ -4312,6 +4318,7 @@
             "onlyOnDiscover": true
           },
           {
+            "__if": "services.alldebrid",
             "id": "ae74bd7.aiostreams::library.alldebrid",
             "name": "AllDebrid",
             "type": "library",
@@ -4324,6 +4331,7 @@
             "onlyOnDiscover": true
           },
           {
+            "__if": "services.premiumize",
             "id": "ae74bd7.aiostreams::library.premiumize",
             "name": "Premiumize",
             "type": "library",
@@ -4336,6 +4344,7 @@
             "onlyOnDiscover": true
           },
           {
+            "__if": "services.debridlink",
             "id": "ae74bd7.aiostreams::library.debridlink",
             "name": "Debrid-Link",
             "type": "library",
@@ -4348,6 +4357,7 @@
             "onlyOnDiscover": true
           },
           {
+            "__if": "services.offcloud",
             "id": "ae74bd7.aiostreams::library.offcloud",
             "name": "Offcloud",
             "type": "library",
@@ -4360,6 +4370,7 @@
             "onlyOnDiscover": true
           },
           {
+            "__if": "services.easydebrid",
             "id": "ae74bd7.aiostreams::library.easydebrid",
             "name": "EasyDebrid",
             "type": "library",
@@ -4372,6 +4383,7 @@
             "onlyOnDiscover": true
           },
           {
+            "__if": "services.debrider",
             "id": "ae74bd7.aiostreams::library.debrider",
             "name": "Debrider",
             "type": "library",
@@ -4384,6 +4396,7 @@
             "onlyOnDiscover": true
           },
           {
+            "__if": "services.pikpak",
             "id": "ae74bd7.aiostreams::library.pikpak",
             "name": "PikPak",
             "type": "library",
@@ -4396,6 +4409,7 @@
             "onlyOnDiscover": true
           },
           {
+            "__if": "services.nzbdav",
             "id": "ae74bd7.aiostreams::library.nzbdav",
             "name": "NzbDAV",
             "type": "library",
@@ -4408,6 +4422,7 @@
             "onlyOnDiscover": true
           },
           {
+            "__if": "services.stremthruNewz",
             "id": "ae74bd7.aiostreams::library.stremthru_newz",
             "name": "StremThru Newz",
             "type": "library",
@@ -4420,6 +4435,7 @@
             "onlyOnDiscover": true
           },
           {
+            "__if": "services.altmount",
             "id": "ae74bd7.aiostreams::library.altmount",
             "name": "AltMount",
             "type": "library",
@@ -4463,7 +4479,7 @@
       "description": "A focused template for importing partial aspects of Tamtaro SEL Setup, without overriding your existing configurations. Use this 'Partial' template if you want to keep your current setup but upgrade your filtering and sorting logic. \n* **Core Filtering Engine**: Choose between **Standard** (keeps top 3 streams per Quality/Resolution, approx. 20 total) or **Extended** (keeps top 6, approx. 40 total) to eliminate clutter while maintaining quality coverage.\n* **Synced URL Integration**: Automatically pulls the latest synced URLs for Excluded, Included, and Preferred Stream Expressions from [GitHub](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting).\n* To use Preferred Stream Expressions, ensure 'Stream Expressions' is added to your Sort Order.\n* **Custom Formatter Only**: Includes the custom Tamtaro formatter with options for a clean look or a full debug view (RSE Matched).",
       "source": "external",
       "author": "Tamtaro",
-      "version": "2.5.1",
+      "version": "2.5.2",
       "category": "AIO",
       "serviceRequired": false,
       "services": [],
@@ -4472,7 +4488,7 @@
         {
           "id": "header.intro1",
           "name": "",
-          "description": "Welcome to Partial SEL Setup v2.5.1",
+          "description": "Welcome to Partial SEL Setup v2.5.2",
           "type": "alert",
           "intent": "success"
         },
@@ -4628,7 +4644,7 @@
       ]
     },
     "config": {
-      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.5.1. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.5.2. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
       "addonLogo": "https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/blob/main/logo.png?raw=true",
       "formatter": {
         "__switch": "inputs.formatterChoice",
@@ -4715,7 +4731,7 @@
           "cases": {
             "standard": [
               {
-                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.1: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.2: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
                 "enabled": true
               },
               {
@@ -4729,7 +4745,7 @@
             ],
             "extended": [
               {
-                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.1: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.2: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
                 "enabled": true
               },
               {
