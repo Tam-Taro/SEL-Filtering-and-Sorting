@@ -4,7 +4,7 @@
     "enabled": true
   },
   {
-    "expression": "/*Extended ESE v1.2.7 [git.tamtaro.de]*/[]",
+    "expression": "/*Extended ESE v1.2.8 [git.tamtaro.de]*/[]",
     "enabled": true
   },
   {
@@ -41,6 +41,10 @@
   },
   {
     "expression": "/*Bad 1080P Bluray*/(queryType=='movie') and count(quality(resolution(streams,'2160p'),'Bluray REMUX'))==0 and (count(quality(resolution(streams,'1080p'),'Bluray REMUX'))==0) and count(rseMatched(resolution(quality(streams, 'Bluray'), '1080p'), 'DE Bluray T1', 'DE Bluray T2', 'DE Bluray T3', 'UHD Bluray T1', 'HD Bluray T1', 'UHD Bluray T2', 'HD Bluray T2', 'UHD Bluray T3', 'HD Bluray T3')) == 0 ? negate(merge(seadex(streams),library(streams)),quality(resolution(streams,'1080p'),'Bluray')):[]",
+    "enabled": true
+  },
+  {
+    "expression": "/*RD Copyright (per DMM)*/ service( keyword(streams, 'all', 'web-dl', 'webrip', 'bdrip', 'hdrip', 'dvdrip', 'bluray.x264', 'hdtv.x264', 'hdtv.xvid', 'web.x264', 'web.h264'), 'realdebrid')",
     "enabled": true
   },
   {

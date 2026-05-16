@@ -6,7 +6,7 @@
       "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://git.tamtaro.de). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Comes with optional add-ons and optional formatter. \n * Dynamic core filtering options: Standard SEL (keeps ~20 results) or Extended SEL (keeps ~40).\n * Comes with auto-synced urls for SELs & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so you'll receive latest SEL hotfixes automatically. Set & forget.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
       "source": "external",
       "author": "Tamtaro",
-      "version": "2.5.2",
+      "version": "2.6.0",
       "category": "AIO",
       "serviceRequired": false,
       "changelogUrl": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/CHANGELOG.md",
@@ -14,7 +14,7 @@
         {
           "__if": "services",
           "id": "header.intro",
-          "name": "Complete SEL Setup v2.5.2: Debrid/Usenet Mode",
+          "name": "Complete SEL Setup v2.6.0: Debrid/Usenet Mode",
           "description": "An advanced filtering & sorting setup powered by Stream Expression Language (SEL) & [Vidhin's Regex Patterns](https://github.com/Vidhin05/Releases-Regex)",
           "type": "alert",
           "intent": "success"
@@ -22,7 +22,7 @@
         {
           "__if": "!services",
           "id": "header.p2p",
-          "name": "Complete SEL Setup v2.5.2: P2P Mode",
+          "name": "Complete SEL Setup v2.6.0: P2P Mode",
           "description": "No services selected. In some countries, torrenting is restricted,so a VPN or a debrid service from previous page may be required.",
           "type": "alert",
           "intent": "warning"
@@ -2408,7 +2408,7 @@
         },
         "default": "{{inputs.misc.addonName}}"
       },
-      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.5.2. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.6.0. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
       "addonLogo": {
         "__switch": "inputs.misc.addonLogo",
         "cases": {
@@ -2542,26 +2542,51 @@
         "DivX"
       ],
       "excludedRegexPatterns": [
-        "\\.(iso|r\\d{2}|zip|rar|7z|tar|gz|zipx|arj|txt|nfo|jpg|png|pdf|exe|bat|cmd|scr|msi|ps1|vbs|js|jar|com|pif|reg|dll|sys|lnk|url)$"
+        "/\\.(iso|img|bin|dmg|pkg|r\\d{2}|zip|rar|7z|tar|gz|zipx|arj|txt|nfo|html|htm|torrent|jpg|png|pdf|epub|cbz|exe|bat|cmd|scr|msi|ps1|vbs|js|jar|com|pif|reg|dll|sys|lnk|url|uue|sfv|m2ts)$/i"
       ],
       "includedRegexPatterns": [],
       "requiredRegexPatterns": [],
       "preferredRegexPatterns": [],
       "rankedRegexPatterns": [
         {
+          "__if": "!inputs.languages includes German",
           "name": "𝚅𝚒𝚍𝚑𝚒𝚗'𝚜 𝙴𝚗𝚐𝚕𝚒𝚜𝚑 𝚁𝚊𝚗𝚔𝚎𝚍 𝚁𝚎𝚐𝚎𝚡𝚎𝚜 (𝚜𝚢𝚗𝚌𝚎𝚍)",
           "pattern": "/^(?!𝚅𝚒𝚍𝚑𝚒𝚗'𝚜 𝙴𝚗𝚐𝚕𝚒𝚜𝚑 𝚁𝚊𝚗𝚔𝚎𝚍 𝚁𝚎𝚐𝚎𝚡𝚎𝚜 (𝚜𝚢𝚗𝚌𝚎𝚍))𝚅𝚒𝚍𝚑𝚒𝚗'𝚜 𝙴𝚗𝚐𝚕𝚒𝚜𝚑 𝚁𝚊𝚗𝚔𝚎𝚍 𝚁𝚎𝚐𝚎𝚡𝚎𝚜 (𝚜𝚢𝚗𝚌𝚎𝚍)$/",
           "score": 0
         },
         {
+          "__if": "!inputs.languages includes German",
           "pattern": "<SYNCED: https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/English/regexes.json>",
+          "name": "",
+          "score": 0
+        },
+        {
+          "__if": "inputs.languages includes German",
+          "name": "𝚅𝚒𝚍𝚑𝚒𝚗'𝚜 𝙶𝚎𝚛𝚖𝚊𝚗 𝚁𝚊𝚗𝚔𝚎𝚍 𝚁𝚎𝚐𝚎𝚡𝚎𝚜 (𝚜𝚢𝚗𝚌𝚎𝚍)",
+          "pattern": "/^(?!𝚅𝚒𝚍𝚑𝚒𝚗'𝚜 𝙶𝚎𝚛𝚖𝚊𝚗 𝚁𝚊𝚗𝚔𝚎𝚍 𝚁𝚎𝚐𝚎𝚡𝚎𝚜 (𝚜𝚢𝚗𝚌𝚎𝚍))𝚅𝚒𝚍𝚑𝚒𝚗'𝚜 𝙶𝚎𝚛𝚖𝚊𝚗 𝚁𝚊𝚗𝚔𝚎𝚍 𝚁𝚎𝚐𝚎𝚡𝚎𝚜 (𝚜𝚢𝚗𝚌𝚎𝚍)$/",
+          "score": 0
+        },
+        {
+          "__if": "inputs.languages includes German",
+          "pattern": "<SYNCED: https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/German/regexes.json>",
           "name": "",
           "score": 0
         }
       ],
       "syncedPreferredRegexUrls": [],
       "syncedRankedRegexUrls": [
-        "https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/English/regexes.json"
+        {
+          "__if": "!inputs.languages includes German",
+          "__value": [
+            "https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/English/regexes.json"
+          ]
+        },
+        {
+          "__if": "inputs.languages includes German",
+          "__value": [
+            "https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/German/regexes.json"
+          ]
+        }
       ],
       "syncedPreferredStreamExpressionUrls": [
         "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-PSEs.json"
@@ -2584,7 +2609,18 @@
         "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ISEs.json"
       ],
       "syncedRankedStreamExpressionUrls": [
-        "https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/English/expressions.json"
+        {
+          "__if": "!inputs.languages includes German",
+          "__value": [
+            "https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/English/expressions.json"
+          ]
+        },
+        {
+          "__if": "inputs.languages includes German",
+          "__value": [
+            "https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/German/expressions.json"
+          ]
+        }
       ],
       "requiredKeywords": [],
       "includedKeywords": [],
@@ -2632,7 +2668,7 @@
       "excludedStreamExpressions": [
         {
           "__if": "inputs.coreFilter includes extended",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.2: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.6.0: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
           "enabled": true
         },
         {
@@ -2641,7 +2677,7 @@
         },
         {
           "__if": "inputs.coreFilter includes standard",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.2: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 SEL filtering engine*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.6.0: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 SEL filtering engine*/ []",
           "enabled": true
         },
         {
@@ -2658,6 +2694,11 @@
         },
         {
           "expression": "/*Bad 1080P Bluray*/(queryType=='movie') and count(quality(resolution(streams,'2160p'),'Bluray REMUX'))==0 and (count(quality(resolution(streams,'1080p'),'Bluray REMUX'))==0) and count(rseMatched(resolution(quality(streams, 'Bluray'), '1080p'), 'DE Bluray T1', 'DE Bluray T2', 'DE Bluray T3', 'UHD Bluray T1', 'HD Bluray T1', 'UHD Bluray T2', 'HD Bluray T2', 'UHD Bluray T3', 'HD Bluray T3')) == 0 ? negate(merge(seadex(streams),library(streams)),quality(resolution(streams,'1080p'),'Bluray')):[]",
+          "enabled": true
+        },
+        {
+          "__if": "services.realdebrid",
+          "expression": "/*RD Copyright (per DMM)*/ service( keyword(streams, 'all', 'web-dl', 'webrip', 'bdrip', 'hdrip', 'dvdrip', 'bluray.x264', 'hdtv.x264', 'hdtv.xvid', 'web.x264', 'web.h264'), 'realdebrid')",
           "enabled": true
         },
         {
@@ -2790,7 +2831,7 @@
         },
         {
           "__if": "inputs.bitrate.mobileBackup != 0.0",
-          "expression": "/*Mobile Backup: {{inputs.bitrate.mobileBackupAmount}} x 1080p/720p/(480p) @ {{inputs.bitrate.mobileBackup}} Mbps Cap*/ count(perGroup(bitrate(negate(merge(library(streams), seadex(streams)),merge(cached(streams),type(streams,'p2p','http'))), 200000,  {{inputs.bitrate.mobileBackup}}*1000000), 'resolution', {{inputs.bitrate.mobileBackupAmount}}, '1080p', '720p')) >= {{inputs.bitrate.mobileBackupAmount}} ?  pin(passthrough(perGroup(bitrate(negate(merge(library(streams), seadex(streams)),merge(cached(streams),type(streams,'p2p','http'))), 200000,  {{inputs.bitrate.mobileBackup}}*1000000), 'resolution', {{inputs.bitrate.mobileBackupAmount}}, '1080p', '720p'), 'excluded', 'required'), 'bottom') : pin(passthrough(perGroup(bitrate(negate(merge(library(streams), seadex(streams)),merge(cached(streams),type(streams,'p2p','http'))), 200000,  {{inputs.bitrate.mobileBackup}}*1000000), 'resolution', {{inputs.bitrate.mobileBackupAmount}}, '1080p', '720p', '480'), 'excluded', 'required'), 'bottom')",
+          "expression": "/*Mobile Backup: {{inputs.bitrate.mobileBackupAmount}} x 1080p/720p/(480p) @ {{inputs.bitrate.mobileBackup}} Mbps Cap*/ count(perGroup(bitrate(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')),merge(cached(streams),type(streams,'p2p','http'))), 500000,  {{inputs.bitrate.mobileBackup}}*1000000), 'resolution', {{inputs.bitrate.mobileBackupAmount}}, '1080p', '720p')) >= {{inputs.bitrate.mobileBackupAmount}} ?  pin(passthrough(perGroup(bitrate(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')),merge(cached(streams),type(streams,'p2p','http'))), 500000,  {{inputs.bitrate.mobileBackup}}*1000000), 'resolution', {{inputs.bitrate.mobileBackupAmount}}, '1080p', '720p'), 'excluded', 'required'), 'bottom') : pin(passthrough(perGroup(bitrate(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')),merge(cached(streams),type(streams,'p2p','http'))), 500000,  {{inputs.bitrate.mobileBackup}}*1000000), 'resolution', {{inputs.bitrate.mobileBackupAmount}}, '1080p', '720p', '480'), 'excluded', 'required'), 'bottom')",
           "enabled": true
         },
         {
@@ -2841,6 +2882,11 @@
         {
           "__if": "inputs.LanguagePassthrough.language == English and inputs.LanguagePassthrough.languagePin and inputs.LanguagePassthrough.languageAnimeOnly",
           "expression": "/*Pin Anime Only {{inputs.LanguagePassthrough.languageAmount}} {{inputs.LanguagePassthrough.language}} Passthrough*/ isAnime ? merge(pin(seadex(streams)), pin(passthrough(slice(language(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')), '{{inputs.LanguagePassthrough.language}}', 'Dual Audio'), 0, {{inputs.LanguagePassthrough.languageAmount}}), 'excluded', 'required'), 'top')) : []",
+          "enabled": true
+        },
+        {
+          "__if": "inputs.LanguagePassthrough.language == Portuguese (Brazil)",
+          "expression": "/*Passthrough PT-BR Release Groups*/ passthrough(rseMatched(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')), 'PT-BR Group'), 'excluded', 'required')",
           "enabled": true
         },
         {
@@ -3021,7 +3067,14 @@
         "__if": "!inputs.misc.ignoreRSE",
         "__value": [
           {
+            "__if": "!inputs.languages includes German",
             "expression": "/*#𝚅𝚒𝚍𝚑𝚒𝚗'𝚜 𝚁𝚎𝚐𝚎𝚡𝚎𝚜 — 𝙴𝚗𝚐𝚕𝚒𝚜𝚑 𝚁𝚊𝚗𝚔𝚎𝚍 𝚂𝚝𝚛𝚎𝚊𝚖 𝙴𝚡𝚙𝚛𝚎𝚜𝚜𝚒𝚘𝚗𝚜 (𝚜𝚢𝚗𝚌𝚎𝚍). 𝚄𝚜𝚎𝚍 𝚝𝚘 𝚜𝚌𝚘𝚛𝚎 𝚊𝚗𝚍 𝚝𝚊𝚐 𝚜𝚝𝚛𝚎𝚊𝚖𝚜, 𝚟𝚒𝚜𝚒𝚋𝚕𝚎 𝚒𝚗 𝚏𝚘𝚛𝚖𝚊𝚝𝚝𝚎𝚛.*/ []",
+            "score": 0,
+            "enabled": true
+          },
+          {
+            "__if": "inputs.languages includes German",
+            "expression": "/*#𝚅𝚒𝚍𝚑𝚒𝚗'𝚜 𝚁𝚎𝚐𝚎𝚡𝚎𝚜 — 𝙶𝚎𝚛𝚖𝚊𝚗 𝚁𝚊𝚗𝚔𝚎𝚍 𝚂𝚝𝚛𝚎𝚊𝚖 𝙴𝚡𝚙𝚛𝚎𝚜𝚜𝚒𝚘𝚗𝚜 (𝚜𝚢𝚗𝚌𝚎𝚍). 𝚄𝚜𝚎𝚍 𝚝𝚘 𝚜𝚌𝚘𝚛𝚎 𝚊𝚗𝚍 𝚝𝚊𝚐 𝚜𝚝𝚛𝚎𝚊𝚖𝚜, 𝚟𝚒𝚜𝚒𝚋𝚕𝚎 𝚒𝚗 𝚏𝚘𝚛𝚖𝚊𝚝𝚝𝚎𝚛.*/ []",
             "score": 0,
             "enabled": true
           },
@@ -3031,7 +3084,20 @@
             "enabled": true
           },
           {
+            "__if": "inputs.languages includes Portuguese (Brazil)",
+            "expression": "/*#Sterzeck*/ /*PT-BR Group*/ releaseGroup(streams,'AlfaHD','BiOMA','BRHD','FileHD','FreedomHD','RiPER','PLuSHD','PlusHD','SiGLA','PD','FiDO','G4RiS','RK','MASTER','FOXX','GUEIRA','Cory','PirataDigital','RARBR','Shelby','TARS','Wyrm','Adamantium','Troidex','NEX','THR','MLH','WTV','VNLLS','ZMG','BAD','BIG','FF','ASY','AZX','C76','C0RAL','Extr3muss','DKS','GOT','100REAL','BDC','IZards','Emmid','Fantasma223','CBR','Xiquexique','Olympus','OscarNiemeyer','Tupac','Tijuco','Gris','ElM4g0','Fly','FranzOPL','LaPumia','Lukas','Lucano22','WitchHunter','Potatin','N3G4N','Shaka','Sacerdoti','UPD','Anonimo','Anonymous07','Byoutou','Estagiario','Madruga','LCD','LMB','LTDA','MDG','MiColeaoDublado','PIA','VARYG','ZNM','Yatogam1','CZA','JUS','3lton','AConduta','AmanteDoHarpia','ECK','FABR','FreddieGellar','INSS','SpaghettiMancer','TheCS','Titans','Siz3D','Netope','7Sprite7','ToonsHub')",
+            "score": 10000,
+            "enabled": true
+          },
+          {
+            "__if": "!inputs.languages includes German",
             "expression": "<SYNCED: https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/English/expressions.json>",
+            "score": 0,
+            "enabled": true
+          },
+          {
+            "__if": "inputs.languages includes German",
+            "expression": "<SYNCED: https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/German/expressions.json>",
             "score": 0,
             "enabled": true
           }
@@ -3076,9 +3142,24 @@
             "disabled": true
           },
           {
+            "expression": "/*RD Copyright (per DMM)*/ service( keyword(streams, 'all', 'web-dl', 'webrip', 'bdrip', 'hdrip', 'dvdrip', 'bluray.x264', 'hdtv.x264', 'hdtv.xvid', 'web.x264', 'web.h264'), 'realdebrid')",
+            "exprNames": [
+              "RD Copyright (per DMM)"
+            ],
+            "disabled": true
+          },
+          {
             "expression": "/*Low SEL Score*/ count(streamExpressionScore(negate(merge(library(streams), seadex(streams)),merge(cached(streams),type(streams,'p2p','http'))),-50))<10?[]:streamExpressionScore(negate(merge(library(streams),seadex(streams)),streams),-1000000,-50)",
             "exprNames": [
               "Low SEL Score"
+            ],
+            "disabled": true
+          },
+          {
+            "__if": "services.realdebrid",
+            "expression": "/*x265*/ isAnime ? [] : negate(merge(visualTag(streams, 'HDR', 'HDR10', 'HDR10+'), visualTag(streams, 'DV')), encode(negate(resolution(streams, '2160p'), streams), 'HEVC'))",
+            "exprNames": [
+              "x265"
             ],
             "disabled": true
           },
@@ -3101,8 +3182,12 @@
         ]
       },
       "enableSeadex": {
-        "__if": "inputs.includeAddon.noAnime",
-        "__value": false
+        "__switch": "inputs.includeAddon.noAnime",
+        "cases": {
+          "true": false,
+          "false": true
+        },
+        "default": true
       },
       "dynamicAddonFetching": {
         "__if": "inputs.addonPreset == default",
@@ -3522,10 +3607,18 @@
               "addon",
               "filter",
               "timing"
-            ]
+            ],
+            "showFilterStatsOnNoStreams": false
           },
           "false": {
-            "enabled": false
+            "enabled": false,
+            "position": "bottom",
+            "statsToShow": [
+              "addon",
+              "filter",
+              "timing"
+            ],
+            "showFilterStatsOnNoStreams": false
           }
         },
         "default": {
@@ -3873,7 +3966,7 @@
                   "language": "{{inputs.includeAddon.subtitleLanguages}}",
                   "sources": "all",
                   "includeAiTranslated": false,
-                  "movieHashPlusAutoAdjustment": true
+                  "movieHashPlusAutoAdjustment": false
                 },
                 "category": "Subs"
               }
@@ -4221,7 +4314,7 @@
                 "language": "{{inputs.includeAddon.subtitleLanguages}}",
                 "sources": "all",
                 "includeAiTranslated": false,
-                "movieHashPlusAutoAdjustment": true
+                "movieHashPlusAutoAdjustment": false
               },
               "category": "Subs"
             }
@@ -4479,7 +4572,7 @@
       "description": "A focused template for importing partial aspects of Tamtaro SEL Setup, without overriding your existing configurations. Use this 'Partial' template if you want to keep your current setup but upgrade your filtering and sorting logic. \n* **Core Filtering Engine**: Choose between **Standard** (keeps top 3 streams per Quality/Resolution, approx. 20 total) or **Extended** (keeps top 6, approx. 40 total) to eliminate clutter while maintaining quality coverage.\n* **Synced URL Integration**: Automatically pulls the latest synced URLs for Excluded, Included, and Preferred Stream Expressions from [GitHub](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting).\n* To use Preferred Stream Expressions, ensure 'Stream Expressions' is added to your Sort Order.\n* **Custom Formatter Only**: Includes the custom Tamtaro formatter with options for a clean look or a full debug view (RSE Matched).",
       "source": "external",
       "author": "Tamtaro",
-      "version": "2.5.2",
+      "version": "2.6.0",
       "category": "AIO",
       "serviceRequired": false,
       "services": [],
@@ -4488,7 +4581,7 @@
         {
           "id": "header.intro1",
           "name": "",
-          "description": "Welcome to Partial SEL Setup v2.5.2",
+          "description": "Welcome to Partial SEL Setup v2.6.0",
           "type": "alert",
           "intent": "success"
         },
@@ -4644,7 +4737,7 @@
       ]
     },
     "config": {
-      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.5.2. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v2.6.0. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
       "addonLogo": "https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/blob/main/logo.png?raw=true",
       "formatter": {
         "__switch": "inputs.formatterChoice",
@@ -4731,7 +4824,7 @@
           "cases": {
             "standard": [
               {
-                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.2: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.6.0: 𝚂𝚝𝚊𝚗𝚍𝚊𝚛𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
                 "enabled": true
               },
               {
@@ -4745,7 +4838,7 @@
             ],
             "extended": [
               {
-                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.5.2: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
+                "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙿𝚊𝚛𝚝𝚒𝚊𝚕 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟2.6.0: 𝙴𝚡𝚝𝚎𝚗𝚍𝚎𝚍 𝚂𝙴𝙻 𝚏𝚒𝚕𝚝𝚎𝚛𝚒𝚗𝚐 𝚎𝚗𝚐𝚒𝚗𝚎*/ []",
                 "enabled": true
               },
               {

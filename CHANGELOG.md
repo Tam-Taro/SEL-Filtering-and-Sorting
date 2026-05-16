@@ -1,5 +1,30 @@
 # Changelog
 
+## 2.6.0 (2026-05-16)
+- **Update**
+  - Expanded the `excludedRegexPatterns` to support case insensitivity & include some more file extensions (thanks Tick & iMakeSoftware)
+      - Selfhosters, please add `REGEX_FILTER_ACCESS=all` if you haven't already so this custom regex works
+      - Public AIOStreams users, **disable this Regex until it's allowed in ~24h by your hoster** (to avoid the not allowed regex error when trying to save).
+  - Default OpenSubtitles addon now has `movieHashPlusAutoAdjustment` setting set to `false` (thanks Arcitec)
+  - `showFilterStatsOnNoStreams` now disabled
+    - To prevent regular users from accidentally clicking on a Stat stream and get stuck on Viren's repo for eternity
+  - `Mobile Backup` under `Bitrate Options` now excludes `'CAM','TS','TC','SCR' when picking low bitrate options to pin to the bottom (thanks umbliger for the suggestion)
+- **New**
+  - If RD service is selected during onboarding of template:
+    - `RD Copyright (per DMM)` SEL will appear in your list of ESE
+      - See DMM's post for more information: https://www.patreon.com/posts/complete-list-of-158388927
+    - Vidhin's RSE `x265` (which penalizes certain x265 streams) will be disabled by selOverride
+      - Since RD filters mots of x264 streams, disabling this RSE ensures remaining streams, although not the best quality, are not negatively scored and thus further removed by Low SEL Score. 
+  - If `German` is selected as one of your `Preferred Languages`
+    - Vidhin's German regexes and ranked stream expressions synced urls will be used instead of the default English preset
+  - If `Portugese (Brazil)` is selected as one of your `Preferred Languages`
+    - A custom ranked stream expression `PT-BR Group` courtesy of Sterzeck, will be added to RSE field, scoring 10000 for streams matching any of these Brazillian release groups
+  - If `Portugese (Brazil)` is selected for `Language Passthrough` under `Language Passthrough Options`
+    - An additional passthrough SEL will be added to passthrough the `PT-BR Group` ranked stream expression provided by Sterzeck, ensuring they don't get filtered out by subsequent filters.
+- New to syncedURLs
+  - `RD Copyright (per DMM)` now added to synced ESE (v1.2.8)
+    - It becomes disabled in synced ESE and moves up the front of inline ESE list when importing Complete SEL Setup template.
+
 ## 2.5.2 (2026-05-11)
 - Bug fixes:
   - MediaFusion add-on now actually defaults to disabled - enable whenever server is online.

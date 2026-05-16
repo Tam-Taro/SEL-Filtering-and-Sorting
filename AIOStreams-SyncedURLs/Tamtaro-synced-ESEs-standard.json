@@ -4,7 +4,7 @@
     "enabled": true
   },
   {
-    "expression": "/*Standard ESE v1.2.7 [git.tamtaro.de]*/[]",
+    "expression": "/*Standard ESE v1.2.8 [git.tamtaro.de]*/[]",
     "enabled": true
   },
   {
@@ -45,6 +45,10 @@
   },
   {
     "expression": "/*Bad NZBs*/ merge(releaseGroup(type(streams,'usenet','stremio-usenet'),'sample'),message(type(streams,'usenet','stremio-usenet'),'includes','🚫'))",
+    "enabled": true
+  },
+  {
+    "expression": "/*RD Copyright (per DMM)*/ service( keyword(streams, 'all', 'web-dl', 'webrip', 'bdrip', 'hdrip', 'dvdrip', 'bluray.x264', 'hdtv.x264', 'hdtv.xvid', 'web.x264', 'web.h264'), 'realdebrid')",
     "enabled": true
   },
   {
