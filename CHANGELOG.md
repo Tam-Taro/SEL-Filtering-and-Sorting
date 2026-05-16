@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.6.1 (2026-05-16)
+- Update:
+  - Previously mentioned excludedRegexPatterns now moved into a syncedURL for excludedRegex
+    - `https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-excluded-regex.json`
+    - This allows me to easily update regex without you having to re-update your excluded regex manually
+    - Partial & Complete now has this new syncedUrl included
+
 ## 2.6.0 (2026-05-16)
 - **Update**
   - Expanded the `excludedRegexPatterns` to support case insensitivity & include some more file extensions (thanks Tick & iMakeSoftware)
