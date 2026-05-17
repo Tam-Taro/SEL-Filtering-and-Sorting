@@ -1,16 +1,16 @@
 # Changelog
 
 ## 2.6.1 (2026-05-16)
-- Update:
+- **Update:**
   - Previously mentioned excludedRegexPatterns now moved into a syncedURL for excludedRegex
     - `https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-excluded-regex.json`
-    - This allows me to easily update regex without you having to re-update your excluded regex manually
+    - This allows me to easily update regex without having to re-update your excluded regex manually
     - Partial & Complete now has this new syncedUrl included
 
 ## 2.6.0 (2026-05-16)
 - **Update**
   - Expanded the `excludedRegexPatterns` to support case insensitivity & include some more file extensions (thanks Tick & iMakeSoftware)
-      - Selfhosters, please add `REGEX_FILTER_ACCESS=all` if you haven't already so this custom regex works
+      - Selfhosters, please add `REGEX_FILTER_ACCESS=all` if you haven't already so this custom regex works (see [FAQ entry](https://discord.com/channels/1225024298490662974/1485057373453156666/1505253232031830058))
       - Public AIOStreams users, **disable this Regex until it's allowed in ~24h by your hoster** (to avoid the not allowed regex error when trying to save).
   - Default OpenSubtitles addon now has `movieHashPlusAutoAdjustment` setting set to `false` (thanks Arcitec)
   - `showFilterStatsOnNoStreams` now disabled
@@ -21,16 +21,18 @@
     - `RD Copyright (per DMM)` SEL will appear in your list of ESE
       - See DMM's post for more information: https://www.patreon.com/posts/complete-list-of-158388927
     - Vidhin's RSE `x265` (which penalizes certain x265 streams) will be disabled by selOverride
-      - Since RD filters mots of x264 streams, disabling this RSE ensures remaining streams, although not the best quality, are not negatively scored and thus further removed by Low SEL Score. 
+      - Since RD filters most of x264 streams, disabling this RSE ensures remaining streams, although not the best quality, are not negatively scored and thus further removed by Low SEL Score. 
   - If `German` is selected as one of your `Preferred Languages`
     - Vidhin's German regexes and ranked stream expressions synced urls will be used instead of the default English preset
-  - If `Portugese (Brazil)` is selected as one of your `Preferred Languages`
+  - If `Portuguese (Brazil)` is selected as one of your `Preferred Languages`
     - A custom ranked stream expression `PT-BR Group` courtesy of Sterzeck, will be added to RSE field, scoring 10000 for streams matching any of these Brazillian release groups
-  - If `Portugese (Brazil)` is selected for `Language Passthrough` under `Language Passthrough Options`
+  - If `Portuguese (Brazil)` is selected for `Language Passthrough` under `Language Passthrough Options`
     - An additional passthrough SEL will be added to passthrough the `PT-BR Group` ranked stream expression provided by Sterzeck, ensuring they don't get filtered out by subsequent filters.
-- New to syncedURLs
+- **New to syncedURLs**
   - `RD Copyright (per DMM)` now added to synced ESE (v1.2.8)
     - It becomes disabled in synced ESE and moves up the front of inline ESE list when importing Complete SEL Setup template.
+
+If you want deeper integration for your particular language, feel free to reach out over Discord (like Sterzeck did with PT-BR), we can figure something out together. At minimum, we need a list of release groups specific for your language.
 
 ## 2.5.2 (2026-05-11)
 - Bug fixes:
