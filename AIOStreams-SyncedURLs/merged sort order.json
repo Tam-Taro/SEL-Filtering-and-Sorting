@@ -1,0 +1,78 @@
+[
+  {
+    "expression": "/*PSE v2.0 [git.tamtaro.de]*/[]",
+    "enabled": true
+  },
+  {
+    "expression": "/*For Use w/ \"Stream Expressions\" inside Sort Order*/ []",
+    "enabled": true
+  },
+  {
+    "expression": "/*SeaDex → Stream Expressions → Resolution → Quality → Stream Type (asc).*/ []",
+    "enabled": true
+  },
+  {
+    "expression": "/*UHD*/ resolution(quality(negate(type(uncached(streams),'debrid'), streams),'Bluray REMUX','Bluray'), '2160p','1440p')",
+    "enabled": true
+  },
+  {
+    "expression": "/*FHD*/ resolution(quality(negate(type(uncached(streams),'debrid'), streams),'Bluray REMUX'), '1080p')",
+    "enabled": true
+  },
+  {
+    "expression": "/*FHD+*/ resolution(quality(negate(type(uncached(streams),'debrid'), streams),'Bluray','Web-DL','WEBRip'), '2160p','1440p','1080p')",
+    "enabled": true
+  },
+  {
+    "expression": "/*HD+*/ resolution(quality(negate(type(uncached(streams),'debrid'), streams),'Bluray REMUX','Bluray','Web-DL','WEBRip','HDRip','HC HDRip','HDTV','Unknown'), '2160p','1440p','1080p','720p')",
+    "enabled": true
+  },
+  {
+    "expression": "/*SD+*/ resolution(quality(negate(type(uncached(streams),'debrid'), streams), 'Bluray REMUX','Bluray','Web-DL','WEBRip','HDRip','HC HDRip','HDTV','DVD REMUX','DVDRip'), '576p','480p')",
+    "enabled": true
+  },
+  {
+    "expression": "/*Unknown+*/ resolution(quality(negate(type(uncached(streams),'debrid'), streams), 'Bluray REMUX','Bluray','Web-DL','WEBRip','HDRip','HC HDRip','HDTV','DVD REMUX','DVDRip','Unknown'), '576p','480p','Unknown')",
+    "enabled": true
+  },
+  {
+    "expression": "/*Unknown+*/ resolution(quality(negate(type(uncached(streams),'debrid'), streams), 'Bluray REMUX','Bluray','Web-DL','WEBRip','HDRip','HC HDRip','HDTV','DVD REMUX','DVDRip','SCR','TC','TS','CAM','Unknown'), '2160p','1440p','1080p','720p','576p','480p','Unknonwn')",
+    "enabled": true
+  },
+  {
+    "expression": "/*Rest*/ negate(type(uncached(streams),'debrid'), streams)",
+    "enabled": true
+  },
+  {
+    "expression": "/*Uncached Debrid UHD*/ resolution(quality(streams,'Bluray REMUX','Bluray'), '2160p','1440p')",
+    "enabled": true
+  },
+  {
+    "expression": "/*Uncached Debrid FHD*/ resolution(quality(streams,'Bluray REMUX'), '1080p')",
+    "enabled": true
+  },
+  {
+    "expression": "/*Uncached Debrid FHD+*/ resolution(quality(streams,'Bluray','Web-DL','WEBRip'), '2160p','1440p','1080p')",
+    "enabled": true
+  },
+  {
+    "expression": "/*Uncached Debrid HD+*/ resolution(quality(streams,'Bluray REMUX','Bluray','Web-DL','WEBRip','HDRip','HC HDRip','HDTV','Unknown'), '2160p','1440p','1080p','720p')",
+    "enabled": true
+  },
+  {
+    "expression": "/*Uncached Debrid SD+*/ resolution(quality(streams, 'Bluray REMUX','Bluray','Web-DL','WEBRip','HDRip','HC HDRip','HDTV','DVD REMUX','DVDRip'), '576p','480p')",
+    "enabled": true
+  },
+  {
+    "expression": "/*Uncached Debrid Unknown+*/ resolution(quality(streams, 'Bluray REMUX','Bluray','Web-DL','WEBRip','HDRip','HC HDRip','HDTV','DVD REMUX','DVDRip','Unknown'), '576p','480p','Unknown')",
+    "enabled": true
+  },
+  {
+    "expression": "/*Uncached Debrid Unknown+*/ resolution(quality(streams, 'Bluray REMUX','Bluray','Web-DL','WEBRip','HDRip','HC HDRip','HDTV','DVD REMUX','DVDRip','SCR','TC','TS','CAM','Unknown'), '2160p','1440p','1080p','720p','576p','480p','Unknonwn')",
+    "enabled": true
+  },
+  {
+    "expression": "/*Uncached Debrid Rest*/ streams",
+    "enabled": true
+  }
+]
