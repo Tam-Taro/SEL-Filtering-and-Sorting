@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.6.2 (2026-05-18)
+- **Update:**
+  - Removed restraint on number box for `Overall Passthrough per Q/R..` and `Usenet Passthrough per Q/R..`
+    - Fixes a bug where it would default to 1 when clicking on it
+  - Rearranged various Options menu around so they make more sense
+  - Partial Template now erases existing inline excludedRegex, unless 'Synced URL Only' is toggled
+  - Removed "Unknown" from Pin Top 1 Resolution SEL
+  
+  
+
 ## 2.6.1 (2026-05-16)
 - **Update:**
   - Previously mentioned excludedRegexPatterns now moved into a syncedURL for excludedRegex
