@@ -4,11 +4,11 @@
     "enabled": true
   },
   {
-    "expression": "/*Protect Library & Others*/ merge(passthrough(merge(negate(merge(type(uncached(streams),'debrid'), quality(streams, 'CAM','TS','TC','SCR')), library(streams)), seadex(streams)), 'excluded', 'required', 'limit'), pin(passthrough(message(streams,'includes','🎯 Smart Play'))))",
+    "expression": "/*SeaDex Duplicates*/ merge(negate(merge(perGroup(seadex(streams, 'best','hash'), 'releaseGroup', 1), merge(perGroup(seadex(streams, 'alt','hash'), 'releaseGroup', 1)), count(perGroup(seadex(streams, 'best','hash'), 'releaseGroup', 1)) >0? [] : perGroup(seadex(streams, 'best','group'), 'releaseGroup', 1), count(perGroup(seadex(streams, 'alt','hash'), 'releaseGroup', 1)) >0? [] : perGroup(seadex(streams, 'alt','group'), 'releaseGroup', 1)), seadex(streams)))",
     "enabled": true
   },
   {
-    "expression": "/*SeaDex Duplicates*/ merge(negate(merge(perGroup(seadex(streams, 'best','hash'), 'releaseGroup', 1), merge(perGroup(seadex(streams, 'alt','hash'), 'releaseGroup', 1)), count(perGroup(seadex(streams, 'best','hash'), 'releaseGroup', 1)) >0? [] : perGroup(seadex(streams, 'best','group'), 'releaseGroup', 1), count(perGroup(seadex(streams, 'alt','hash'), 'releaseGroup', 1)) >0? [] : perGroup(seadex(streams, 'alt','group'), 'releaseGroup', 1)), seadex(streams)))",
+    "expression": "/*Protect Library & Others*/ merge(passthrough(merge(negate(merge(type(uncached(streams),'debrid'), quality(streams, 'CAM','TS','TC','SCR')), library(streams)), seadex(streams)), 'excluded', 'required', 'limit'), pin(passthrough(message(streams,'includes','🎯 Smart Play'))))",
     "enabled": true
   },
   {
@@ -48,7 +48,7 @@
     "enabled": true
   },
   {
-    "expression": "/*Info & Other Unwanted*/ merge( type(streams, 'info'), type(uncached(streams),'debrid'), negate(size(streams,1),type(streams,'debrid','p2p','usenet','stremio-usenet')), releaseGroup(type(streams,'usenet','stremio-usenet'),'sample'), message(type(streams,'usenet','stremio-usenet'),'includes','🚫'), keyword(streams, 'all', 'trailer teaser'))",
+    "expression": "/*Info & Other Unwanted*/ merge( type(streams, 'info'), library(type(uncached(streams),'debrid')), negate(size(streams,1),type(streams,'debrid','p2p','usenet','stremio-usenet')), releaseGroup(type(streams,'usenet','stremio-usenet'),'sample'), message(type(streams,'usenet','stremio-usenet'),'includes','🚫'), keyword(streams, 'all', 'trailer teaser'))",
     "enabled": true
   },
   {
