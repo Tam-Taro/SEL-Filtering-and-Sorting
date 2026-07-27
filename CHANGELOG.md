@@ -33,11 +33,11 @@
   - ComeTorz (`https://comet.feels.legal/torznab/api`) now replaces marketplace Comet
     - ComeTorz provides accurate media-info when available (aka accurate languages), and failover works to trigger. 
   - STorz (torznab) now replaced by marketplace StremThru addon
-    - now with ComeTorz providing torznab endpoint capabilities, we can now switch back to the og ST addon, which does provide more results (private torrents) in less time. It also provides accurate media-info languages, unlike marketplace Comet. We lose out on failover, hence ComeTorz is placed higher in priority. 
+    - with ComeTorz providing torznab endpoint capabilities, we can now switch back to the og ST addon, which does provide more results (private torrents) in less time. It also provides accurate media-info languages, unlike marketplace Comet. We lose out on failover, hence ComeTorz is placed higher in priority. 
   - Meteor's Usenet options is now only pre-selected for Torbox - Pro Tier
   - ENS (Easynews Search) addon is auto-included if Easynews service is detected
   - Sootio is now included only if "Includes HTTP" is toggled
-- **Formatter Update**
+- **Formatter Updates**
   - Rewrote all formatters to make use of the recent formatter changes from Viren
   - Added new "Chillio" formatter style option (thanks @curiousnomadx)
   - Some neat updates:
