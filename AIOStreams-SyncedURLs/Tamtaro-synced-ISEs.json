@@ -1,22 +1,14 @@
 [
   {
-    "expression": "/*Part of Tamtaro SEL Setup*/[]",
+    "expression": "/*ISE v2.0* [git.tamtaro.de]*/[]",
     "enabled": true
   },
   {
-    "expression": "/*ISE v1.2.3* [git.tamtaro.de]*/[]",
-    "enabled": true
-  },
-  {
-    "expression": "/*SeaDex*/merge(count(addon(cached(streams),'SeaDex'))>0?passthrough(addon(streams,'SeaDex'),'title','year'):passthrough(seadex(streams),'title','year'),queryType=='anime.movie'?passthrough(seadex(streams),'episode'):[])",
+    "expression": "/*SeaDex*/count(addon(cached(streams),'SeaDex'))>0?passthrough(addon(streams,'SeaDex'),'title','year'):passthrough(seadex(streams),'title','year')",
     "enabled": true
   },
   {
     "expression": "/*Library*/count(streams)==count(library(streams))?library(streams):[]",
-    "enabled": true
-  },
-  {
-    "expression": "/*digitalRelease Bypass*/queryType=='movie' or queryType=='anime.movie'? (count(passthrough(quality(streams,'CAM','TS','TC','SCR','WEBRip'),'digitalRelease')) > 15 ? passthrough(quality(streams,'CAM','TS','TC','SCR','WEBRip'),'digitalRelease') : passthrough(streams,'digitalRelease')) : []",
     "enabled": true
   },
   {

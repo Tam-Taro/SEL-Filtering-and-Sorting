@@ -1,5 +1,90 @@
 # Changelog
 
+## 3.0.0 (2026-07-27)
+
+- Largest revamp since v2.0.0, new ESE logic & many template options got reconsolidated
+- **Core Filtering Engine Overhaul**
+  - The old "Core Filtering Engine" (Standard/Extended SEL) has been replaced with a new "QR SELect Engine," which now separates Debrid/HTTP/P2P filtering from Usenet filtering entirely. 
+  - `coreFilter` switched from a dropdown (standard/extended) to a numeric "SELect" value defaulting to 2, and a brand-new `coreFilterUsenet` field lets you set the SELect threshold for Usenet independently, with 0 to disable it.
+- **New Debrid/Usenet Sort Preference**
+  - A new `coreFilterPriority` option lets you choose how Usenet and Debrid streams are prioritized against each other — Merged (default, equal priority), Usenet First, or Debrid First
+  - Each selection changes the Stream Type sort direction inside Sort Order and the content inside Preferred Stream Types Filter page may appear weird. This is intentional to achieve merging behaviour of unlisted Stream Types.
+- **Strict Language Filtering Added**
+  - A new `strictLanguage` toggle removes the automatic appendment of *Original, Dual Audio, Multi, Dubbed, and Unknown* language tags, so only your explicitly selected languages get added to the Required Languages filter.
+- **Bitrate Cap Changes**
+  - Default bitrate cap lowered from 150 Mbps to 100 Mbps, with option tiers changed (75 added, 150 removed, top option now labeled ">100 Uncapped" instead of ">150 Uncapped")
+- **Final Filter / Passthrough Restructuring**
+  - "Limit Options" renamed to "Final Filter Options" and simplified
+    - `top1QualRes`, `top1Res`, and the visual tag limit (visualTag) removed
+    - `removeUnknownRes`, `removeUnknownQuality`, and a new `topResOnly` moved in from the old "Core Filter Modifications" section
+  - "Passthrough Options" renamed to "Pin Options" and reworked
+    - All the previous passthrough & pin top 1 SELs (such as `overallTopQualRes`, `top1QualResPin`, and `top1ResPin`) were removed 
+    - Added three new numerically adjustable pin controls: `topQualResPin` (Pin Top Overall Per Q/R, max 4 pairs), `topResPin` (Pin Top Overall Per Resolution, max 2 res), and `topResPinScore` (Pin Top Score Per Resolution, max 2 res).
+- **Usenet Options**
+  - Boost Cached Usenet removed; "Boost All Usenet" renamed to "Boost Uncached Usenet"
+  - "Overall Passthrough per Q/R" option renamed to "Pin Top Usenet Per Q/R" with its constraints simplified (dropped the min/max/forceInUi limits).
+    - Fixed a bug where it would default to 1 when clicking on it
+- **Sorting Order**
+  - Stream Expression now sorts before Resolution/Quality (previously after), and P2P sorting now also includes Stream Type in the order.
+  - Language is slightly higher (above SEL Score) when English is not one of the selected languages.
+- **Minor Updates**
+  - Added new "VC-1 Encode" exclusion option
+  - MediaFusion now enabled by default
+  - ComeTorz (`https://comet.feels.legal/torznab/api`) now replaces marketplace Comet
+    - ComeTorz provides accurate media-info when available (aka accurate languages), and failover works to trigger. 
+  - STorz (torznab) now replaced by marketplace StremThru addon
+    - now with ComeTorz providing torznab endpoint capabilities, we can now switch back to the og ST addon, which does provide more results (private torrents) in less time. It also provides accurate media-info languages, unlike marketplace Comet. We lose out on failover, hence ComeTorz is placed higher in priority. 
+  - Meteor's Usenet options is now only pre-selected for Torbox - Pro Tier
+  - ENS (Easynews Search) addon is auto-included if Easynews service is detected
+  - Sootio is now included only if "Includes HTTP" is toggled
+- **Formatter Update**
+  - Rewrote all formatters to make use of the recent formatter changes from Viren
+  - Added new "Chillio" formatter style option (thanks @curiousnomadx)
+  - Some neat updates:
+    - All formatters now has fallbacks to show stream.network and stream.editions if you're not using ranked stream expressions from this template
+    - If accurate language (media-info) is found, ✓ will replace the usual ⛿
+    - stream.date (▦) will be shown when available, on series such as the Daily Show
+    - preloading icon (➤) will appear on non-library preload, instead of the usual ✎ for those that want to turn this feature on
+    - Cleaned up a lot of visual imperfections, not possible before
+    - Last but not least, I really love the new Minimalist version, I think you will like it too!
+- **Synced URL v2.0.0 Update**
+  - On your next template update, it will import these shorter synced urls into your AIOStreams (template will support both the new & the previously longer GitHub urls)
+    - `https://git.tamtaro.de/ESE.json`
+    - `https://git.tamtaro.de/ISE.json`
+    - `https://git.tamtaro.de/PSE.json`
+    - `https://git.tamtaro.de/Excluded-Regex.json`
+  - New import of the template will use the ESE.json (v2.0) going forward, while the ESEs-standard and ESEs-extended.json (v1.3.0) are phasing out. **The old ESE jsons are not updated to v2.0.0**, but still there so existing SEL setups continue to work as before. The other jsons (ISE, PSE, Excluded-Regex jsons) are updated, as they should not break existing setup.
+- **Changes in ESE v2.0.0**
+  - SeaDex Duplicates (was Extra SeaDex)
+    - added per-release-group hash/group dedupe for both "best" and "alt" tiers
+  - Protect Library & Others (was No Sootio Library)
+    - now protects library (except uncached debrid & CAM/TS/TC/SCR quality), SeaDex, and pin "🎯 Smart Play" streams
+  - Info & Other Unwanted (was Bad NZBs)
+    - now also removes info-type streams, zero-size streams, uncached library, and trailer/teaser keywords
+  - Bad 4k Anime 
+    - rseMatched now checks cached streams only, tightening the match
+  - Upscaled 4k
+    - added Asian T1/T2/T3 tier tags to the allow-list logic
+  - LQ w/o Proper Tags
+    -  new rule to filter low-quality streams missing a proper release-group tag or known language
+  - Low Seeders
+    - removed the adaptive quartile/percentile thresholds, now simply a flat 1-seeder cutoff
+  - Low SEL Score
+    - trigger threshold loosened from "<10" to "<5" remaining streams
+  - SELect Q/R ESEs
+    - now use perGroup() filtering instead of slice(), reducing massive amount of code
+    - now splits QR filtering to Cached Non-Usenet, Cached Usenet, Uncached, which allows for better independent debrid/usenet control via template options
+    - Previous Final Limit (All) now splits into two separate ESEs: Final Q SELection & Final R SELection, both with new and improved logic
+  - Unknown Resolution/Quality Filters now removed from ESE, same options now inside template's Final Filter Options
+- **Changes in PSE v2.0.0**
+  - Complete revamp, introducing an alternate sort order based on Quality/Resolution, for use with "Stream Expressions" inside Sort Order
+- **Changes in ISE v2.0.0**
+  - Removed digitalRelease Bypass
+
+- **Partial SEL Setup**
+  - Now erases existing inline excludedRegex, unless 'Synced URL Only' is toggled
+  - No further update to Partial Template, it will continues to add the old version of ESEs (extended/standard), until I phase this template out completely. To get the latest v2.0 ESE, please use the Complete SEL Setup Template
+
 ## 2.6.1 (2026-05-16)
 - **Update:**
   - Previously mentioned excludedRegexPatterns now moved into a syncedURL for excludedRegex
