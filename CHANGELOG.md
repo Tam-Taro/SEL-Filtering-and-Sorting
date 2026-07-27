@@ -1,5 +1,8 @@
 # Changelog
 
+## 3.0.1 (2026-07-27)
+- Removed idMatched from Merge Duplicates to fix incompatibility issue in stable AIOStreams
+
 ## 3.0.0 (2026-07-27)
 
 - Largest revamp since v2.0.0, new ESE logic & many template options got reconsolidated
@@ -80,10 +83,15 @@
   - Complete revamp, introducing an alternate sort order based on Quality/Resolution, for use with "Stream Expressions" inside Sort Order
 - **Changes in ISE v2.0.0**
   - Removed digitalRelease Bypass
-
 - **Partial SEL Setup**
   - Now erases existing inline excludedRegex, unless 'Synced URL Only' is toggled
   - No further update to Partial Template, it will continues to add the old version of ESEs (extended/standard), until I phase this template out completely. To get the latest v2.0 ESE, please use the Complete SEL Setup Template
+
+- **Changes to AIOStreams Configuration**
+  - Title Episode Matching
+  - Merge Duplicates
+  - HTTP Dedupe set to per_addon (hidden option)
+  - Failover cross-over enabled for both Debrid & Usenet
 
 ## 2.6.1 (2026-05-16)
 - **Update:**
