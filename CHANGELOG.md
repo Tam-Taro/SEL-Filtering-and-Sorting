@@ -7,7 +7,7 @@
   - The old "Core Filtering Engine" (Standard/Extended SEL) has been replaced with a new "QR SELect Engine," which now separates Debrid/HTTP/P2P filtering from Usenet filtering entirely. 
   - `coreFilter` switched from a dropdown (standard/extended) to a numeric "SELect" value defaulting to 2, and a brand-new `coreFilterUsenet` field lets you set the SELect threshold for Usenet independently, with 0 to disable it.
 - **New Debrid/Usenet Sort Preference**
-  - A new `coreFilterPriority` option lets you choose how Usenet and Debrid streams are prioritized against each other — Merged (default, equal priority), Usenet First, or Debrid First
+  - A new `coreFilterPriority` option lets you choose how Usenet and Debrid streams are prioritized against each other: Merged (default, equal priority), Usenet First, or Debrid First
   - Each selection changes the Stream Type sort direction inside Sort Order and the content inside Preferred Stream Types Filter page may appear weird. This is intentional to achieve merging behaviour of unlisted Stream Types.
 - **Strict Language Filtering Added**
   - A new `strictLanguage` toggle removes the automatic appendment of *Original, Dual Audio, Multi, Dubbed, and Unknown* language tags, so only your explicitly selected languages get added to the Required Languages filter.
