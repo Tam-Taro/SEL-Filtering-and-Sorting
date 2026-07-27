@@ -1760,7 +1760,7 @@
         "name": "QR SELect Engine (non-Usenet)",
         "description": "Defaults to **SELect 2**, which dynamically keeps at least 2-3 per Quality/Resolution (depends on availability of high quality streams), resulting in about 10-15 total. **Applies to Cached Debrid/HTTP/P2P only**. Usenet SELection is now handled separately below. Enter a custom number to adjust this limit. Enter 0 to disable the QR SELect Engine.",
         "type": "number",
-        "required": false,
+        "required": true,
         "advanced": false,
         "default": 2
       },
@@ -1769,7 +1769,7 @@
         "name": "QR SELect Engine (Usenet)",
         "description": "Defaults to **SELect 2**, which dynamically keeps at least 2-3 per Quality/Resolution (depends on availability of high quality streams), resulting in about 10-15 total. **This setting only applies to Usenet results**. Enter 0 to disable.",
         "type": "number",
-        "required": false,
+        "required": true,
         "advanced": false,
         "default": 2
       },
