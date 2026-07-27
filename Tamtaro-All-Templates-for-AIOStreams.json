@@ -1757,8 +1757,8 @@
           ]
         },
         {
-          "id": "coreFilter",
-          "name": "QR SELect Engine (non-Usenet)",
+          "id": "coreFilterNonUsenet",
+          "name": "SELect Engine (non-Usenet)",
           "description": "Defaults to **SELect 2**, which dynamically keeps at least 2-3 per Quality/Resolution (depends on availability of high quality streams), resulting in about 10-15 total. **Applies to Cached Debrid/HTTP/P2P only**. Usenet SELection is now handled separately below. Enter a custom number to adjust this limit. Enter 0 to disable the QR SELect Engine.",
           "type": "number",
           "required": true,
@@ -1767,7 +1767,7 @@
         },
         {
           "id": "coreFilterUsenet",
-          "name": "QR SELect Engine (Usenet)",
+          "name": "SELect Engine (Usenet)",
           "description": "Defaults to **SELect 2**, which dynamically keeps at least 2-3 per Quality/Resolution (depends on availability of high quality streams), resulting in about 10-15 total. **This setting only applies to Usenet results**. Enter 0 to disable.",
           "type": "number",
           "required": true,
@@ -2548,73 +2548,73 @@
       ],
       "syncedExcludedStreamExpressionUrls": [
         {
-          "__if": "inputs.coreFilter includes placeholder",
+          "__if": "inputs.coreFilterNonUsenet includes placeholder",
           "__value": [
             "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ESEs-extended.json"
           ]
         },
         {
-          "__if": "inputs.coreFilter includes placeholder",
+          "__if": "inputs.coreFilterNonUsenet includes placeholder",
           "__value": [
             "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ESEs-standard.json"
           ]
         },
         {
-          "__if": "inputs.coreFilter includes placeholder",
+          "__if": "inputs.coreFilterNonUsenet includes placeholder",
           "__value": [
             "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ESE.json"
           ]
         },
         {
-          "__if": "inputs.coreFilter includes placeholder",
+          "__if": "inputs.coreFilterNonUsenet includes placeholder",
           "__value": [
             "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-PSEs.json"
           ]
         },
         {
-          "__if": "inputs.coreFilter includes placeholder",
+          "__if": "inputs.coreFilterNonUsenet includes placeholder",
           "__value": [
             "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-excluded-regex.json"
           ]
         },
         {
-          "__if": "inputs.coreFilter includes placeholder",
+          "__if": "inputs.coreFilterNonUsenet includes placeholder",
           "__value": [
             "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ESEs-standard.json"
           ]
         },
         {
-          "__if": "inputs.coreFilter includes placeholder",
+          "__if": "inputs.coreFilterNonUsenet includes placeholder",
           "__value": [
             "https://git.tamtaro.de/ESE.json"
           ]
         },
         {
-          "__if": "inputs.coreFilter includes placeholder",
+          "__if": "inputs.coreFilterNonUsenet includes placeholder",
           "__value": [
             "https://git.tamtaro.de/ISE.json"
           ]
         },
         {
-          "__if": "inputs.coreFilter includes placeholder",
+          "__if": "inputs.coreFilterNonUsenet includes placeholder",
           "__value": [
             "https://git.tamtaro.de/PSE.json"
           ]
         },
         {
-          "__if": "inputs.coreFilter includes placeholder",
+          "__if": "inputs.coreFilterNonUsenet includes placeholder",
           "__value": [
             "https://git.tamtaro.de/Excluded-Regex.json"
           ]
         },
         {
-          "__if": "inputs.coreFilter includes placeholder",
+          "__if": "inputs.coreFilterNonUsenet includes placeholder",
           "__value": [
             "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ESE.json"
           ]
         },
         {
-          "__if": "inputs.coreFilter",
+          "__if": "inputs.coreFilterNonUsenet",
           "__value": [
             "https://git.tamtaro.de/ESE.json"
           ]
@@ -2686,8 +2686,8 @@
           "enabled": true
         },
         {
-          "__if": "inputs.coreFilter > 0",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.0.0: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilter}} 𝙽𝚘𝚗-𝚄𝚜𝚎𝚗𝚎𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
+          "__if": "inputs.coreFilterNonUsenet > 0",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.0.0: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterNonUsenet}} 𝙽𝚘𝚗-𝚄𝚜𝚎𝚗𝚎𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
           "enabled": true
         },
         {
@@ -2701,7 +2701,7 @@
           "enabled": true
         },
         {
-          "__if": "inputs.coreFilter",
+          "__if": "inputs.coreFilterNonUsenet",
           "expression": "<SYNCED: https://git.tamtaro.de/ESE.json>",
           "enabled": true
         },
@@ -2988,8 +2988,8 @@
           "enabled": true
         },
         {
-          "__if": "inputs.coreFilter and inputs.coreFilter != 0",
-          "expression": "/*SELect {{inputs.coreFilter}} Q/R Cached Non-Usenet*/ (1*{{inputs.coreFilter}}) !=0 ? negate( merge( perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), '2160p'), 'quality', (count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '2160p'), 'Bluray Remux', 'Bluray'))<=1*{{inputs.coreFilter}}? ceil(1.5*{{inputs.coreFilter}}) : (1*{{inputs.coreFilter}})) ), perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), '1440p'), 'quality', 1*{{inputs.coreFilter}}), perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), '1080p'), 'quality', ((count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '2160p'), 'Bluray Remux', 'Bluray', 'WEB-DL'))<=1*{{inputs.coreFilter}} or count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '1080p'), 'Bluray Remux', 'Bluray'))<=1*{{inputs.coreFilter}}) ? ceil(1.5*{{inputs.coreFilter}}) : (1*{{inputs.coreFilter}})) ), perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), '720p'), 'quality', ((count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '2160p'), 'Bluray Remux', 'Bluray', 'WEB-DL'))<=1*{{inputs.coreFilter}} or count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '1080p'), 'Bluray Remux', 'Bluray'))<=1*{{inputs.coreFilter}} or count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '720p'), 'Bluray Remux', 'Bluray'))<=1*{{inputs.coreFilter}}) ? ceil(1.5*{{inputs.coreFilter}}) : (1*{{inputs.coreFilter}}))), perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), '576p', '480p','360p','240p','144p'), 'quality', 1*{{inputs.coreFilter}}), perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), 'Unknown'), 'quality', 1*{{inputs.coreFilter}})), negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams)) : []",
+          "__if": "inputs.coreFilterNonUsenet and inputs.coreFilterNonUsenet != 0",
+          "expression": "/*SELect {{inputs.coreFilterNonUsenet}} Q/R Cached Non-Usenet*/ (1*{{inputs.coreFilterNonUsenet}}) !=0 ? negate( merge( perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), '2160p'), 'quality', (count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '2160p'), 'Bluray Remux', 'Bluray'))<=1*{{inputs.coreFilterNonUsenet}}? ceil(1.5*{{inputs.coreFilterNonUsenet}}) : (1*{{inputs.coreFilterNonUsenet}})) ), perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), '1440p'), 'quality', 1*{{inputs.coreFilterNonUsenet}}), perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), '1080p'), 'quality', ((count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '2160p'), 'Bluray Remux', 'Bluray', 'WEB-DL'))<=1*{{inputs.coreFilterNonUsenet}} or count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '1080p'), 'Bluray Remux', 'Bluray'))<=1*{{inputs.coreFilterNonUsenet}}) ? ceil(1.5*{{inputs.coreFilterNonUsenet}}) : (1*{{inputs.coreFilterNonUsenet}})) ), perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), '720p'), 'quality', ((count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '2160p'), 'Bluray Remux', 'Bluray', 'WEB-DL'))<=1*{{inputs.coreFilterNonUsenet}} or count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '1080p'), 'Bluray Remux', 'Bluray'))<=1*{{inputs.coreFilterNonUsenet}} or count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '720p'), 'Bluray Remux', 'Bluray'))<=1*{{inputs.coreFilterNonUsenet}}) ? ceil(1.5*{{inputs.coreFilterNonUsenet}}) : (1*{{inputs.coreFilterNonUsenet}}))), perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), '576p', '480p','360p','240p','144p'), 'quality', 1*{{inputs.coreFilterNonUsenet}}), perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), 'Unknown'), 'quality', 1*{{inputs.coreFilterNonUsenet}})), negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams)) : []",
           "enabled": true
         },
         {
@@ -2998,8 +2998,8 @@
           "enabled": true
         },
         {
-          "__if": "inputs.coreFilter and inputs.coreFilter != 0 or inputs.coreFilterUsenet and inputs.coreFilterUsenet != 0",
-          "expression": "/*SELect {{inputs.coreFilter}},{{inputs.coreFilter}} Q/R Uncached*/ (1*max({{inputs.coreFilter}},{{inputs.coreFilter}})) !=0 ? negate( merge( perGroup(resolution(negate(seadex(streams), uncached(streams)), '2160p'), 'quality', (count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '2160p'), 'Bluray Remux', 'Bluray'))<=1*max({{inputs.coreFilter}},{{inputs.coreFilter}})? ceil(1.5*max({{inputs.coreFilter}},{{inputs.coreFilter}})) : (1*max({{inputs.coreFilter}},{{inputs.coreFilter}}))) ), perGroup(resolution(negate(seadex(streams), uncached(streams)), '1440p'), 'quality', 1*max({{inputs.coreFilter}},{{inputs.coreFilter}})), perGroup(resolution(negate(seadex(streams), uncached(streams)), '1080p'), 'quality', ((count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '2160p'), 'Bluray Remux', 'Bluray', 'WEB-DL'))<=1*max({{inputs.coreFilter}},{{inputs.coreFilter}}) or count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '1080p'), 'Bluray Remux', 'Bluray'))<=1*max({{inputs.coreFilter}},{{inputs.coreFilter}})) ? ceil(1.5*max({{inputs.coreFilter}},{{inputs.coreFilter}})) : (1*max({{inputs.coreFilter}},{{inputs.coreFilter}}))) ), perGroup(resolution(negate(seadex(streams), uncached(streams)), '720p'), 'quality', ((count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '2160p'), 'Bluray Remux', 'Bluray', 'WEB-DL'))<=1*max({{inputs.coreFilter}},{{inputs.coreFilter}}) or count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '1080p'), 'Bluray Remux', 'Bluray'))<=1*max({{inputs.coreFilter}},{{inputs.coreFilter}})) ? ceil(1.5*max({{inputs.coreFilter}},{{inputs.coreFilter}})) : (1*max({{inputs.coreFilter}},{{inputs.coreFilter}}))) ), perGroup(resolution(negate(seadex(streams), uncached(streams)), '576p', '480p','360p','240p','144p'), 'quality', 1*max({{inputs.coreFilter}},{{inputs.coreFilter}})), perGroup(resolution(negate(seadex(streams), uncached(streams)), 'Unknown'), 'quality', 1*max({{inputs.coreFilter}},{{inputs.coreFilter}}))), negate(seadex(streams), uncached(streams))) : []",
+          "__if": "inputs.coreFilterNonUsenet and inputs.coreFilterNonUsenet != 0 or inputs.coreFilterUsenet and inputs.coreFilterUsenet != 0",
+          "expression": "/*SELect {{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}} Q/R Uncached*/ (1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) !=0 ? negate( merge( perGroup(resolution(negate(seadex(streams), uncached(streams)), '2160p'), 'quality', (count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '2160p'), 'Bluray Remux', 'Bluray'))<=1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})? ceil(1.5*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) : (1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}))) ), perGroup(resolution(negate(seadex(streams), uncached(streams)), '1440p'), 'quality', 1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})), perGroup(resolution(negate(seadex(streams), uncached(streams)), '1080p'), 'quality', ((count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '2160p'), 'Bluray Remux', 'Bluray', 'WEB-DL'))<=1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}) or count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '1080p'), 'Bluray Remux', 'Bluray'))<=1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) ? ceil(1.5*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) : (1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}))) ), perGroup(resolution(negate(seadex(streams), uncached(streams)), '720p'), 'quality', ((count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '2160p'), 'Bluray Remux', 'Bluray', 'WEB-DL'))<=1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}) or count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '1080p'), 'Bluray Remux', 'Bluray'))<=1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) ? ceil(1.5*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) : (1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}))) ), perGroup(resolution(negate(seadex(streams), uncached(streams)), '576p', '480p','360p','240p','144p'), 'quality', 1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})), perGroup(resolution(negate(seadex(streams), uncached(streams)), 'Unknown'), 'quality', 1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}))), negate(seadex(streams), uncached(streams))) : []",
           "enabled": true
         },
         {
@@ -3007,7 +3007,7 @@
           "enabled": true
         },
         {
-          "expression": "/*Final R SELection*/ merge(count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) >= min(3*({{inputs.coreFilter}}+{{inputs.coreFilter}}), 15)? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')), '720p','576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) >= min(1.5*({{inputs.coreFilter}}+{{inputs.coreFilter}}), 8)? merge(type(uncached(streams),'debrid'),slice(resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')), '720p'), 2*({{inputs.coreFilter}}+{{inputs.coreFilter}})),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) > 0? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >= min(2.5*({{inputs.coreFilter}}+{{inputs.coreFilter}}), 12)? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >= min(1.5*({{inputs.coreFilter}}+{{inputs.coreFilter}}), 6)? merge(type(uncached(streams),'debrid'),slice(resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'567','480','Unknown'), 2*({{inputs.coreFilter}}+{{inputs.coreFilter}})),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'360p','240p','144p')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >0? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'360p','240p','144p')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p','576p','480p','360p','240p','144p','Unknown')) >0? merge(type(uncached(streams),'debrid')): [])",
+          "expression": "/*Final R SELection*/ merge(count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) >= min(3*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 15)? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')), '720p','576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) >= min(1.5*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 8)? merge(type(uncached(streams),'debrid'),slice(resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')), '720p'), 2*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}})),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) > 0? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >= min(2.5*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 12)? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >= min(1.5*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 6)? merge(type(uncached(streams),'debrid'),slice(resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'567','480','Unknown'), 2*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}})),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'360p','240p','144p')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >0? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'360p','240p','144p')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p','576p','480p','360p','240p','144p','Unknown')) >0? merge(type(uncached(streams),'debrid')): [])",
           "enabled": true
         },
         {
