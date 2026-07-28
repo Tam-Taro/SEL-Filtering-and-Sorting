@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.2 (2026-07-27)
+- Fixed bug with Pin Top Overall Per Q/R
+- Fixed torznab url bug on stable AIOStreams
+- Reworded some template descriptions
+  - SELect Engine for clarity: `Sets a range of streams kept per Quality/Resolution: your number is the minimum, and up to 1.5× that number may be kept when needed. Default is 3 (usually 3-5 per group, ~15-20 total). Applies to Cached Debrid, HTTP, and P2P streams only. Enter 0 to disable.`
+- Fixed missing audiotags in Formatter. 
+  - Note: these formatters are for nightly only. If you're on stable, use the built-in Tamtaro inside Formatter page
+
 ## 3.0.1 (2026-07-27)
 - Removed idMatched from Merge Duplicates to fix incompatibility issue in stable AIOStreams
 
