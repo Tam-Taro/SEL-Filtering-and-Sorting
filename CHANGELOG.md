@@ -1,6 +1,9 @@
 # Changelog
 
 ## 3.0.3 (2026-07-30)
+- Fixed "Top Overall Per Quality/Resolution Only" bug when 0
+
+## 3.0.3 (2026-07-30)
 - **Bug Fix**
   - "Debrid First" priority now works when "Boost Uncached Usenet" is selected
   - "Pin Top Score Per Resolution" now correctly handles scenario where multiple streams have same max SEL score
