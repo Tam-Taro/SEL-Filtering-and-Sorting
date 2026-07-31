@@ -1,6 +1,6 @@
 # Changelog
 
-## 3.0.3 (2026-07-30)
+## 3.0.4 (2026-07-30)
 - Fixed "Top Overall Per Quality/Resolution Only" bug when 0
 
 ## 3.0.3 (2026-07-30)
