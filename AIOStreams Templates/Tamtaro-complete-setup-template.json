@@ -4705,7 +4705,7 @@
         "debrid"
       ],
       "allowCrossType": true,
-      "maxAttempts": 10,
+      "maxAttempts": 5,
       "parallel": 2,
       "position": "beforeLimiting",
       "includeExternalFailover": true,
