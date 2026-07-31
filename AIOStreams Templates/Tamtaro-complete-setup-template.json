@@ -5,7 +5,7 @@
     "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://git.tamtaro.de). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Includes optional add-ons and formatter styles. \n * Uses dynamic SELect Engine to retain the number of streams you choose.\n * Uses auto-synced SELs and & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so SEL fixes and updates are received automatically.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
     "source": "external",
     "author": "Tamtaro",
-    "version": "3.0.2",
+    "version": "3.0.3",
     "category": "AIO",
     "serviceRequired": false,
     "changelogUrl": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/CHANGELOG.md",
@@ -13,7 +13,7 @@
       {
         "__if": "services",
         "id": "header.intro",
-        "name": "Complete SEL Setup v3.0.2: Debrid/Usenet Mode",
+        "name": "Complete SEL Setup v3.0.3: Debrid/Usenet Mode",
         "description": "An advanced filtering & sorting setup powered by Stream Expression Language (SEL) & [Vidhin's Regex Patterns](https://github.com/Vidhin05/Releases-Regex)",
         "type": "alert",
         "intent": "success"
@@ -21,7 +21,7 @@
       {
         "__if": "!services",
         "id": "header.p2p",
-        "name": "Complete SEL Setup v3.0.2: P2P Mode",
+        "name": "Complete SEL Setup v3.0.3: P2P Mode",
         "description": "No services selected. In some countries, torrenting is restricted,so a VPN or a debrid service from previous page may be required.",
         "type": "alert",
         "intent": "warning"
@@ -35,8 +35,8 @@
       },
       {
         "id": "languages",
-        "name": "Preferred Languages",
-        "description": "Select the stream languages you prefer. Original, Dual Audio, Multi, Dubbed, and Unknown are automatically added after your selections and are included in the Preferred and Required Language filters. The included formatter displays only your selected preferred languages. A language label is guaranteed to represent the audio language only when accurate media metadata is available; otherwise, it reflects the language identified in the release filename. Use Language Passthrough Options or Sorting Options to further prioritize, pin, or reduce the effect of language preferences.",
+        "name": "Required Languages",
+        "description": "Select the stream languages you watch. Original, Dual Audio, Multi, Dubbed, and Unknown are automatically added after your selections and are included in the Preferred and Required Language filters. The included formatter displays only your selected preferred languages. A language label is guaranteed to represent the audio language only when accurate media metadata is available; otherwise, it reflects the language identified in the release filename. Use Language Passthrough Options or Sorting Options to further prioritize, pin, or reduce the effect of language preferences.",
         "type": "multi-select",
         "required": true,
         "default": [
@@ -1776,7 +1776,7 @@
       {
         "__if": "services",
         "id": "coreFilterPriority",
-        "name": "Debrid/Usenet Sort Preference",
+        "name": "Debrid/Usenet Priority",
         "description": "Choose how Debrid and Usenet streams are ordered within the same Quality/Resolution. Merged treats both equally; Usenet First prioritizes Usenet; Debrid First prioritizes Debrid. Other stream types appear afterward.",
         "type": "select",
         "required": false,
@@ -1818,7 +1818,7 @@
           {
             "id": "topResPin",
             "name": "Pin Top Overall per Resolution",
-            "description": "Pin the top stream from each resolution according to the active sort order. Supports up to two resolutions. To pin Usenet-only results, use the corresponding option under Usenet Options.",
+            "description": "Pin the top streams from each resolution according to the active sort order. Supports up to two resolutions. To pin Usenet-only results, use the corresponding option under Usenet Options.",
             "type": "number",
             "required": false,
             "default": 0
@@ -1826,7 +1826,7 @@
           {
             "id": "topQualResPin",
             "name": "Pin Top Overall per Quality/Resolution",
-            "description": "Pin the top stream from each Quality/Resolution group according to the active sort order. Supports up to four groups.",
+            "description": "Pin the top streams from each Quality/Resolution group according to the active sort order.",
             "type": "number",
             "required": false,
             "default": 0
@@ -1880,7 +1880,7 @@
           {
             "id": "usenetHealth",
             "name": "Health-☑ NZB Passthrough",
-            "description": "**☑ NZB Passthrough/Pin**: allows all health-☑ Zyclops/UsenetStreamer/AvailNZB usenet to bypass SELect Engine, optionally pin health-☑ usenet to the top. **☑ NZB-Only Passthrough/Pin**: allows only health-☑ usenet to bypass SELect Engine *and* removes all without health-☑, optionally pin health-☑ usenet to the top.",
+            "description": "**☑ NZB Passthrough/Pin**: allows all health-☑ Zyclops/UsenetStreamer/AvailNZB usenet to bypass SELect Engine, optionally pin health-☑ usenet to the top.",
             "type": "select",
             "required": false,
             "default": "none",
@@ -1896,28 +1896,20 @@
               {
                 "value": "CheckednzbPin",
                 "label": "☑ NZB Pin"
-              },
-              {
-                "value": "CheckednzbOnly",
-                "label": "☑ NZB-Only Passthrough"
-              },
-              {
-                "value": "CheckednzbOnlyPin",
-                "label": "☑ NZB-Only Pin"
               }
             ]
           },
           {
             "id": "usenetTopQualResPin",
             "name": "Pin Top Usenet per Quality/Resolution",
-            "description": "Pin the top Usenet stream from each Quality/Resolution group. Supports up to four groups.",
+            "description": "Pin the top Usenet streams from each Quality/Resolution group.",
             "type": "number",
             "required": false,
             "default": 0
           },
           {
             "id": "usenetUncachedSort",
-            "name": "Boost Uncached Usenet",
+            "name": "Boost Uncached Usenet - Torbox Only",
             "description": "Treat uncached Usenet streams from TorBox like cached streams during sorting, instead of placing them in a separate Uncached group. Global-only Sort Order will be used.",
             "type": "boolean",
             "required": false,
@@ -1956,17 +1948,26 @@
           {
             "id": "topResOnly",
             "name": "Top Resolution Only",
-            "description": "If there are >1 remaining results in 4k after SELection, this option will keep only 4K results and remove all lower resolutions (Mobile backups, library, SeaDex exempted.). If 4k check fails, 1080p and 720p are then checked for same condition.",
+            "description": "If more than one 4K stream remains after the SELect Engine, keep only 4K streams and remove lower resolutions. If not, the same check is performed for 1080p and then 720p. Mobile backups, library streams, and SeaDex streams are exempt.",
             "type": "boolean",
             "required": false,
             "default": false
           },
           {
+            "id": "topQualResOnly",
+            "name": "Top Overall per Quality/Resolution Only",
+            "description": "Keep only top streams from each Quality/Resolution group according to the active sort order. Mobile backups, library streams, and SeaDex streams are exempt.",
+            "type": "number",
+            "required": false,
+            "default": 0
+          },
+          {
             "id": "global",
             "name": "Global Result Limit",
-            "description": "Keep only the overall top X results (Mobile backups, library and SeaDex exempted). Rest will be removed unless selected by the above SEL.",
+            "description": "Keep only the top X streams after filtering. Mobile backups, library streams, and SeaDex streams are exempt; streams retained by the options above are also preserved.",
             "type": "number",
-            "required": false
+            "required": false,
+            "default": 0
           }
         ]
       },
@@ -2050,7 +2051,7 @@
           {
             "id": "bitrateCap",
             "name": "Static Bitrate Cap (Mbps)",
-            "description": "Select your bitrate cap, or enter a custom number. All streams over this cap will be removed. Further options below.",
+            "description": "Set a maximum bitrate, or enter a custom value. Streams above this limit are removed. See the options below for resolution-based and soft-limit behavior.",
             "type": "select-with-custom",
             "required": false,
             "advanced": true,
@@ -2081,7 +2082,7 @@
           {
             "id": "bitrateCapDynamic",
             "name": "Dynamic Bitrate Cap",
-            "description": "This selection will switch from a single static bitrate cap (default above) to a resolution-adjusted bitrate cap for an even more bandwidth-saving setup. Streams exceeding 80% of the selected bitrate cap at 4K resolution, 50% at 1080P and 30% at 720P will be removed.",
+            "description": "Replace the single bitrate cap with resolution-based limits for greater bandwidth savings. Streams above 80% of your selected cap at 4K, 50% at 1080p, or 30% at 720p are removed.",
             "type": "boolean",
             "required": false,
             "advanced": true,
@@ -2090,7 +2091,7 @@
           {
             "id": "bitrateCapSoft",
             "name": "Soft Bitrate Cap",
-            "description": "Instead of removing high-bitrate streams, this option prioritizes streams within bitrate limit by boosting their ranking in preferred stream expressions. Within each Quality/Resolution category, large files are pushed to the bottom of the result list and only kept as backup options if lower bitrate options are few or unavailable.",
+            "description": "Prioritize streams within the bitrate cap (via boosting SEL Score) instead of removing higher-bitrate streams. Within each Quality/Resolution group, larger files move lower in the list and are retained mainly as backups when fewer lower-bitrate choices exist.",
             "type": "boolean",
             "required": false,
             "advanced": true,
@@ -2099,7 +2100,7 @@
           {
             "id": "bitrateBoostSort",
             "name": "Sort Low Bitrate First",
-            "description": "If selected, streams will be sorted within each Quality/Resolution category based on their bitrate, lowest to highest. A selection below 100 Mbps in Bitrate Cap is required to enable this feature.",
+            "description": "Sort streams from lowest to highest bitrate within each Quality/Resolution group. Requires a bitrate cap below 100 Mbps.",
             "type": "boolean",
             "required": false,
             "advanced": true,
@@ -2116,7 +2117,7 @@
           {
             "id": "mobileBackup",
             "name": "Mobile Backup Bitrate (Mbps)",
-            "description": "Select a bitrate cap to add a few lighter backup streams for mobile data or unstable connections. **These are pinned to the bottom of your normal results**. Set to 0 to disable. Recommended: 2-4 Mbps, so that a 2-hr movie will be about 1-3.6 GB.",
+            "description": "Add lower-bitrate backup streams for mobile data or unstable connections. These are pinned below your normal results. Set to 0 to disable. A 2-4 Mbps cap is recommended; a two-hour movie is typically about 1-3.6 GB.",
             "type": "select-with-custom",
             "required": false,
             "advanced": true,
@@ -2317,7 +2318,7 @@
       },
       "default": "{{inputs.misc.addonName}}"
     },
-    "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.0.2. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+    "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.0.3. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
     "addonLogo": {
       "__switch": "inputs.misc.addonLogo",
       "cases": {
@@ -2686,17 +2687,17 @@
       },
       {
         "__if": "inputs.coreFilterNonUsenet > 0",
-        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.0.2: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterNonUsenet}} 𝙳𝚎𝚋𝚛𝚒𝚍·𝙷𝚃𝚃𝙿·𝙿2𝙿*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.0.3: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterNonUsenet}} 𝙳𝚎𝚋𝚛𝚒𝚍·𝙷𝚃𝚃𝙿·𝙿2𝙿*/ []",
         "enabled": true
       },
       {
         "__if": "inputs.coreFilterUsenet > 0",
-        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.0.2: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterUsenet}} 𝚄𝚜𝚎𝚗𝚎𝚝*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.0.3: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterUsenet}} 𝚄𝚜𝚎𝚗𝚎𝚝*/ []",
         "enabled": true
       },
       {
         "__if": "inputs.coreFilterUsenet == 0 and inputs.coreFilterUsenet == 0",
-        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.0.2: No 𝚂𝙴𝙻𝚎𝚌𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.0.3: No 𝚂𝙴𝙻𝚎𝚌𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
         "enabled": true
       },
       {
@@ -2842,6 +2843,10 @@
         "enabled": true
       },
       {
+        "expression": "/*Protect Library & Others*/ merge(passthrough(merge(negate(merge(type(uncached(streams),'debrid'), quality(streams, 'CAM','TS','TC','SCR')), library(streams)), seadex(streams)), 'excluded', 'required', 'limit'), pin(passthrough(message(streams,'includes','🎯 Smart Play'))))",
+        "enabled": true
+      },
+      {
         "__if": "inputs.usenet.usenetHealth includes Checkednzb",
         "expression": "/*☑ NZB Passthrough*/ passthrough(message(type(streams, 'usenet', 'stremio-usenet'),'includes','✅','🧝','💚'), 'excluded')",
         "enabled": true
@@ -2849,16 +2854,6 @@
       {
         "__if": "inputs.usenet.usenetHealth includes CheckednzbPin",
         "expression": "/*☑ NZB Pin*/ pin(passthrough(message(type(streams, 'usenet', 'stremio-usenet'),'includes','✅','🧝','💚'), 'excluded'))",
-        "enabled": true
-      },
-      {
-        "__if": "inputs.usenet.usenetHealth includes CheckednzbOnly",
-        "expression": "/*☑ NZB-Only Passthrough*/ merge(negate(message(streams,'includes','✅','🧝','💚'), type(streams, 'usenet', 'stremio-usenet')), passthrough(message(type(streams, 'usenet', 'stremio-usenet'),'includes','✅','🧝','💚'), 'excluded'))",
-        "enabled": true
-      },
-      {
-        "__if": "inputs.usenet.usenetHealth includes CheckednzbOnlyPin",
-        "expression": "/*☑ NZB-Only Pin*/ merge(negate(message(streams,'includes','✅','🧝','💚'), type(streams, 'usenet', 'stremio-usenet')), pin(passthrough(message(type(streams, 'usenet', 'stremio-usenet'),'includes','✅','🧝','💚'), 'excluded')))",
         "enabled": true
       },
       {
@@ -2968,22 +2963,22 @@
       },
       {
         "__if": "inputs.miscPassthrough.topResPinScore and inputs.miscPassthrough.topResPinScore > 0",
-        "expression": "/*Pin Top {{inputs.miscPassthrough.topResPinScore}} Score Per Resolution (2 Different Res)*/ pin(merge(seadex(streams), passthrough(slice(merge(count(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p')    )<=(1*{{inputs.miscPassthrough.topResPinScore}}) ? resolution(negate(uncached(type(streams,'debrid')), streams),'2160p') : seScore(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p'), percentile(values(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p'),'seScore'), (count(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p'))-(1*{{inputs.miscPassthrough.topResPinScore}}))/count(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p'))*100)),count(resolution(negate(uncached(type(streams,'debrid')), streams),'1080p'))<=(1*{{inputs.miscPassthrough.topResPinScore}}) ? resolution(negate(uncached(type(streams,'debrid')), streams),'1080p') : seScore(resolution(negate(uncached(type(streams,'debrid')), streams),'1080p'), percentile(values(resolution(negate(uncached(type(streams,'debrid')), streams),'1080p'),'seScore'), (count(resolution(negate(uncached(type(streams,'debrid')), streams),'1080p'))-(1*{{inputs.miscPassthrough.topResPinScore}}))/count(resolution(negate(uncached(type(streams,'debrid')), streams),'1080p'))*100)),count(resolution(negate(uncached(type(streams,'debrid')), streams),'720p'))<=(1*{{inputs.miscPassthrough.topResPinScore}}) ? resolution(negate(uncached(type(streams,'debrid')), streams),'720p') : seScore(resolution(negate(uncached(type(streams,'debrid')), streams),'720p'), percentile(values(resolution(negate(uncached(type(streams,'debrid')), streams),'720p'),'seScore'), (count(resolution(negate(uncached(type(streams,'debrid')), streams),'720p'))-(1*{{inputs.miscPassthrough.topResPinScore}}))/count(resolution(negate(uncached(type(streams,'debrid')), streams),'720p'))*100)),count(resolution(negate(uncached(type(streams,'debrid')), streams),'576p','480p'))<=(1*{{inputs.miscPassthrough.topResPinScore}}) ? resolution(negate(uncached(type(streams,'debrid')), streams),'576p','480p') : seScore(resolution(negate(uncached(type(streams,'debrid')), streams),'576p','480p'), percentile(values(resolution(negate(uncached(type(streams,'debrid')), streams),'576p','480p'),'seScore'), (count(resolution(negate(uncached(type(streams,'debrid')), streams),'576p','480p'))-(1*{{inputs.miscPassthrough.topResPinScore}}))/count(resolution(negate(uncached(type(streams,'debrid')), streams),'576p','480p'))*100))), 0, 2*{{inputs.miscPassthrough.topResPinScore}}), 'excluded')), 'top')",
+        "expression": "/*Pin Top {{inputs.miscPassthrough.topResPinScore}} Score Per Resolution (2 Different Res)*/ pin(merge(seadex(streams), passthrough(merge(count(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p')    )<=(1*{{inputs.miscPassthrough.topResPinScore}}) ? resolution(negate(uncached(type(streams,'debrid')), streams),'2160p') : slice(seScore(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p'), percentile(values(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p'),'seScore'), (count(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p'))-(1*{{inputs.miscPassthrough.topResPinScore}}))/count(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p'))*100)), 0, (1*{{inputs.miscPassthrough.topResPinScore}})),count(resolution(negate(uncached(type(streams,'debrid')), streams),'1080p'))<=(1*{{inputs.miscPassthrough.topResPinScore}}) ? resolution(negate(uncached(type(streams,'debrid')), streams),'1080p') : slice(seScore(resolution(negate(uncached(type(streams,'debrid')), streams),'1080p'), percentile(values(resolution(negate(uncached(type(streams,'debrid')), streams),'1080p'),'seScore'), (count(resolution(negate(uncached(type(streams,'debrid')), streams),'1080p'))-(1*{{inputs.miscPassthrough.topResPinScore}}))/count(resolution(negate(uncached(type(streams,'debrid')), streams),'1080p'))*100)), 0, (1*{{inputs.miscPassthrough.topResPinScore}})),  count(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p')) == 0? (count(resolution(negate(uncached(type(streams,'debrid')), streams),'720p'))<=(1*{{inputs.miscPassthrough.topResPinScore}}) ? resolution(negate(uncached(type(streams,'debrid')), streams),'720p') : slice(seScore(resolution(negate(uncached(type(streams,'debrid')), streams),'720p'), percentile(values(resolution(negate(uncached(type(streams,'debrid')), streams),'720p'),'seScore'), (count(resolution(negate(uncached(type(streams,'debrid')), streams),'720p'))-(1*{{inputs.miscPassthrough.topResPinScore}}))/count(resolution(negate(uncached(type(streams,'debrid')), streams),'720p'))*100)), 0, (1*{{inputs.miscPassthrough.topResPinScore}}))) : [],  count(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p', '1080p')) == 0 ? (count(resolution(negate(uncached(type(streams,'debrid')), streams),'576p','480p'))<=(1*{{inputs.miscPassthrough.topResPinScore}}) ? resolution(negate(uncached(type(streams,'debrid')), streams),'576p','480p') : slice(seScore(resolution(negate(uncached(type(streams,'debrid')), streams),'576p','480p'), percentile(values(resolution(negate(uncached(type(streams,'debrid')), streams),'576p','480p'),'seScore'), (count(resolution(negate(uncached(type(streams,'debrid')), streams),'576p','480p'))-(1*{{inputs.miscPassthrough.topResPinScore}}))/count(resolution(negate(uncached(type(streams,'debrid')), streams),'576p','480p'))*100)), 0, (1*{{inputs.miscPassthrough.topResPinScore}}))): []), 'excluded')), 'top')",
         "enabled": true
       },
       {
         "__if": "inputs.miscPassthrough.topResPin and inputs.miscPassthrough.topResPin > 0",
-        "expression": "/*Pin Top {{inputs.miscPassthrough.topResPin}} Overall Per Resolution (2 Different Res)*/ pin(merge(seadex(streams), passthrough(slice(negate(merge(uncached(type(streams, 'debrid'))), merge(slice(resolution(streams,'2160p'), 0, 1*{{inputs.miscPassthrough.topResPin}}), slice(resolution(streams,'1080p'), 0, 1*{{inputs.miscPassthrough.topResPin}}), slice(resolution(streams,'720p'), 0, 1*{{inputs.miscPassthrough.topResPin}}), slice(resolution(streams,'576p','480p'), 0, 1*{{inputs.miscPassthrough.topResPin}}))), 0, 2*{{inputs.miscPassthrough.topResPin}}), 'excluded')), 'top')",
+        "expression": "/*Pin Top {{inputs.miscPassthrough.topResPin}} Overall Per Resolution (2 Different Res)*/ pin(merge(seadex(streams), passthrough(merge(slice(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p'), 0, 1*{{inputs.miscPassthrough.topResPin}}), slice(resolution(negate(uncached(type(streams,'debrid')), streams),'1440p'), 0, 1*{{inputs.miscPassthrough.topResPin}}), slice(resolution(negate(uncached(type(streams,'debrid')), streams),'1080p'), 0, 1*{{inputs.miscPassthrough.topResPin}}), count(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p')) == 0? slice(resolution(negate(uncached(type(streams,'debrid')), streams),'720p'), 0, 1*{{inputs.miscPassthrough.topResPin}}) : [], count(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p', '1080p')) == 0? slice(resolution(negate(uncached(type(streams,'debrid')), streams),'576p','480p'), 0, 1*{{inputs.miscPassthrough.topResPin}}) : []), 'excluded')), 'top')",
         "enabled": true
       },
       {
         "__if": "inputs.miscPassthrough.topQualResPin and inputs.miscPassthrough.topQualResPin > 0",
-        "expression": "/*Pin Top {{inputs.miscPassthrough.topQualResPin}} Overall Per Q/R*/ pin(passthrough(slice(merge(perGroup(resolution(negate(merge(library(streams), seadex(streams)),merge(cached(streams),type(streams,'p2p','http'))), '2160p'), 'quality', {{inputs.miscPassthrough.topQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(negate(merge(library(streams), seadex(streams)),merge(cached(streams),type(streams,'p2p','http'))), '1440p'), 'quality', {{inputs.miscPassthrough.topQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(negate(merge(library(streams), seadex(streams)),merge(cached(streams),type(streams,'p2p','http'))), '1080p'), 'quality', {{inputs.miscPassthrough.topQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(negate(merge(library(streams), seadex(streams)),merge(cached(streams),type(streams,'p2p','http'))), '720p'), 'quality', {{inputs.miscPassthrough.topQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')  ),  0, {{inputs.miscPassthrough.topQualResPin}}*4),  'excluded'), 'top')",
+        "expression": "/*Pin Top {{inputs.miscPassthrough.topQualResPin}} Overall Per Q/R*/ pin(merge(seadex(streams), passthrough(merge(perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '2160p'), 'quality', {{inputs.miscPassthrough.topQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '1440p'), 'quality', {{inputs.miscPassthrough.topQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '1080p'), 'quality', {{inputs.miscPassthrough.topQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), count(perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '2160p'), 'quality', {{inputs.miscPassthrough.topQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')) == 0? perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '720p'), 'quality', {{inputs.miscPassthrough.topQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'): [], count(perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '2160p', '1080p'), 'quality', {{inputs.miscPassthrough.topQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')) == 0? perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '576p', '480p'), 'quality', {{inputs.miscPassthrough.topQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL', 'DVD REMUX') : []), 'excluded')), 'top')",
         "enabled": true
       },
       {
         "__if": "inputs.usenet.usenetTopQualResPin and inputs.usenet.usenetTopQualResPin > 0",
-        "expression": "/*Pin Top {{inputs.usenet.usenetTopQualResPin}} Usenet Per Q/R*/ pin(passthrough(slice(negate(merge(library(streams), message(streams,'includes','✅','🧝','💚')), merge(slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'2160p'),'Bluray REMUX'),0,{{inputs.usenet.usenetTopQualResPin}}),slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'2160p'),'Bluray'),0,{{inputs.usenet.usenetTopQualResPin}}), slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'2160p'),'WEB-DL'),0,{{inputs.usenet.usenetTopQualResPin}}),slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'1080p'),'Bluray REMUX'),0,{{inputs.usenet.usenetTopQualResPin}}), slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'1080p'),'Bluray'),0,{{inputs.usenet.usenetTopQualResPin}}),slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'1080p'),'WEB-DL'),0,{{inputs.usenet.usenetTopQualResPin}}), slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'720p'),'Bluray REMUX'),0,{{inputs.usenet.usenetTopQualResPin}}),slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'720p'),'Bluray'),0,{{inputs.usenet.usenetTopQualResPin}}), slice(quality(resolution(type(streams, 'usenet', 'stremio-usenet'),'720p'),'WEB-DL'),0,{{inputs.usenet.usenetTopQualResPin}}))), 0, {{inputs.usenet.usenetTopQualResPin}}*4), 'excluded'))",
+        "expression": "/*Pin Top {{inputs.usenet.usenetTopQualResPin}} Usenet Per Q/R*/ pin(merge(seadex(streams), passthrough(merge(perGroup(resolution(type(streams, 'usenet', 'stremio-usenet'), '2160p'), 'quality', {{inputs.usenet.usenetTopQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(type(streams, 'usenet', 'stremio-usenet'), '1440p'), 'quality', {{inputs.usenet.usenetTopQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(type(streams, 'usenet', 'stremio-usenet'), '1080p'), 'quality', {{inputs.usenet.usenetTopQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), count(perGroup(resolution(type(streams, 'usenet', 'stremio-usenet'), '2160p'), 'quality', {{inputs.usenet.usenetTopQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')) == 0? perGroup(resolution(type(streams, 'usenet', 'stremio-usenet'), '720p'), 'quality', {{inputs.usenet.usenetTopQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'): [], count(perGroup(resolution(type(streams, 'usenet', 'stremio-usenet'), '2160p', '1080p'), 'quality', {{inputs.usenet.usenetTopQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')) == 0? perGroup(resolution(type(streams, 'usenet', 'stremio-usenet'), '576p', '480p'), 'quality', {{inputs.usenet.usenetTopQualResPin}}, 'Bluray REMUX', 'Bluray', 'WEB-DL', 'DVD REMUX') : []), 'excluded')), 'top')",
         "enabled": true
       },
       {
@@ -3006,7 +3001,8 @@
         "enabled": true
       },
       {
-        "expression": "/*Final R SELection*/ merge(count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) >= min(3*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 15)? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')), '720p','576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) >= min(1.5*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 8)? merge(type(uncached(streams),'debrid'),slice(resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')), '720p'), 2*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}})),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) > 0? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >= min(2.5*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 12)? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >= min(1.5*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 6)? merge(type(uncached(streams),'debrid'),slice(resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'567','480','Unknown'), 2*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}})),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'360p','240p','144p')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >0? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'360p','240p','144p')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p','576p','480p','360p','240p','144p','Unknown')) >0? merge(type(uncached(streams),'debrid')): [])",
+        "__if": "inputs.coreFilterNonUsenet and inputs.coreFilterNonUsenet != 0 or inputs.coreFilterUsenet and inputs.coreFilterUsenet != 0",
+        "expression": "/*Final R SELection*/ merge(count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) >= min(3*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 15)? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')), '720p','576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) >= min(1.5*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 8)? merge(type(uncached(streams),'debrid'),slice(resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')), '720p'), 2*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}})),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) > 0? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >= min(2.5*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 12)? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >= min(1.5*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 6)? merge(type(uncached(streams),'debrid'),slice(resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'567p','480p','Unknown'), 2*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}})),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'360p','240p','144p')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >0? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'360p','240p','144p')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p','576p','480p','360p','240p','144p','Unknown')) >0? merge(type(uncached(streams),'debrid')): [])",
         "enabled": true
       },
       {
@@ -3027,22 +3023,17 @@
         "enabled": true
       },
       {
+        "__if": "inputs.filterLimit.topQualResOnly",
+        "expression": "/*Top {{inputs.filterLimit.topQualResOnly}} Overall Per Q/R Only*/ passthrough(merge(library(streams), seadex(streams), perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '2160p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '1440p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '1080p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), count(perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '2160p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')) == 0? perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '720p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'): [], count(perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '2160p', '1080p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')) == 0? perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '576p', '480p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL', 'DVD REMUX') : [], count(perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '2160p', '1080p','720p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')) == 0? streams : []))",
+        "enabled": true
+      },
+      {
         "__if": "inputs.filterLimit.global and inputs.filterLimit.global > 0",
         "expression": "/*Global Result Limit: {{inputs.filterLimit.global}} */ merge(library(streams), seadex(streams), slice(negate(merge(library(streams),seadex(streams)), streams), 0, {{inputs.filterLimit.global}}))",
         "enabled": true
       }
     ],
     "preferredStreamExpressions": [
-      {
-        "__if": "inputs.bitrate.bitrateCap < 100 and !inputs.bitrate.bitrateCapDynamic and inputs.bitrate.bitrateCapSoft",
-        "expression": "/*{{inputs.bitrate.bitrateCap}} Mbps Bitrate Cap (Static Soft)*/ bitrate(streams, {{inputs.bitrate.bitrateCap}}*1000000)",
-        "enabled": true
-      },
-      {
-        "__if": "inputs.bitrate.bitrateCap < 100 and inputs.bitrate.bitrateCapDynamic and inputs.bitrate.bitrateCapSoft",
-        "expression": "/*{{inputs.bitrate.bitrateCap}} Mbps Bitrate Cap (Dynamic Soft): 80% @ 4k, 50% @ 1080P, 30% @ 720P*/ merge(bitrate(resolution(streams, '2160p'), {{inputs.bitrate.bitrateCap}}*0.8*1000000), bitrate(resolution(streams, '1080p'), {{inputs.bitrate.bitrateCap}}*0.5*1000000), bitrate(resolution(streams, '720p'), {{inputs.bitrate.bitrateCap}}*0.3*1000000))",
-        "enabled": true
-      },
       {
         "expression": "/*𝙲𝚞𝚜𝚝𝚘𝚖 𝚀𝚁 𝚂𝚘𝚛𝚝 - 𝚄𝚜𝚎 𝚠𝚒𝚝𝚑 \"𝚂𝚝𝚛𝚎𝚊𝚖 𝙴𝚡𝚙𝚛𝚎𝚜𝚜𝚒𝚘𝚗𝚜\" 𝚒𝚗𝚜𝚒𝚍𝚎 𝚂𝚘𝚛𝚝 𝙾𝚛𝚍𝚎𝚛.*/ []",
         "enabled": true
@@ -3095,6 +3086,18 @@
           "enabled": true
         },
         {
+          "__if": "inputs.bitrate.bitrateCap < 100 and !inputs.bitrate.bitrateCapDynamic and inputs.bitrate.bitrateCapSoft",
+          "expression": "/*Low Bitrate*/ bitrate(streams, {{inputs.bitrate.bitrateCap}}*1000000)",
+          "score": 10000,
+          "enabled": true
+        },
+        {
+          "__if": "inputs.bitrate.bitrateCap < 100 and inputs.bitrate.bitrateCapDynamic and inputs.bitrate.bitrateCapSoft",
+          "expression": "/*Low Bitrate*/ merge(bitrate(resolution(streams, '2160p'), {{inputs.bitrate.bitrateCap}}*0.8*1000000), bitrate(resolution(streams, '1080p'), {{inputs.bitrate.bitrateCap}}*0.5*1000000), bitrate(resolution(streams, '720p'), {{inputs.bitrate.bitrateCap}}*0.3*1000000))",
+          "score": 10000,
+          "enabled": true
+        },
+        {
           "__if": "!inputs.languages includes German",
           "expression": "<SYNCED: https://raw.githubusercontent.com/Vidhin05/Releases-Regex/main/English/expressions.json>",
           "score": 0,
@@ -3143,6 +3146,13 @@
           "expression": "/*SELect *3 Q/R Cached Non-Usenet*/ (1*3) !=0 ? negate( merge( perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), '2160p'), 'quality', (count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '2160p'), 'Bluray Remux', 'Bluray'))<=1*3? ceil(1.5*3) : (1*3)) ), perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), '1440p'), 'quality', 1*3), perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), '1080p'), 'quality', ((count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '2160p'), 'Bluray Remux', 'Bluray', 'WEB-DL'))<=1*3 or count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '1080p'), 'Bluray Remux', 'Bluray'))<=1*3) ? ceil(1.5*3) : (1*3)) ), perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), '720p'), 'quality', ((count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '2160p'), 'Bluray Remux', 'Bluray', 'WEB-DL'))<=1*3 or count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '1080p'), 'Bluray Remux', 'Bluray'))<=1*3 or count(quality(resolution(negate(merge(library(streams), seadex(streams), uncached(streams)), streams), '720p'), 'Bluray Remux', 'Bluray'))<=1*3) ? ceil(1.5*3) : (1*3))), perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), '576p', '480p','360p','240p','144p'), 'quality', 1*3), perGroup(resolution(negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams), 'Unknown'), 'quality', 1*3)), negate(merge(library(streams), seadex(streams), type(streams,'usenet','stremio-usenet'), uncached(streams)), streams)) : []",
           "exprNames": [
             "SELect *3 Q/R Cached Non-Usenet"
+          ],
+          "disabled": true
+        },
+        {
+          "expression": "/*Protect Library & Others*/ merge(passthrough(merge(negate(merge(type(uncached(streams),'debrid'), quality(streams, 'CAM','TS','TC','SCR')), library(streams)), seadex(streams)), 'excluded', 'required', 'limit'), pin(passthrough(message(streams,'includes','🎯 Smart Play'))))",
+          "exprNames": [
+            "Protect Library & Others"
           ],
           "disabled": true
         },
@@ -3237,7 +3247,15 @@
             {
               "__if": "services",
               "key": "streamType",
-              "direction": "asc"
+              "direction": {
+                "__switch": "inputs.coreFilterPriority",
+                "cases": {
+                  "Merged": "asc",
+                  "DebridFirst": "desc",
+                  "UsenetFirst": "desc"
+                },
+                "default": "asc"
+              }
             },
             {
               "__if": "inputs.bitrate.bitrateCap < 100 and inputs.bitrate.bitrateBoostSort",
@@ -3555,7 +3573,7 @@
           "id": "custom",
           "definition": {
             "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K ')::replace('1440p','2K ')::replace('p','P')}‍\"||\"\"]}{?‍{stream.type::replace('debrid',' ')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','‏⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{service.cached[\"⚡\"||\"‍⏳‍​\"||\"\"]}{?〈{stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web‍-‍dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')::smallcaps::replace('ꜱ','s')}〉‍ ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{? {stream.nSeScore::star::replace('⯪','☆')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}",
-            "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(20)}\"||\"{stream.title::title::truncate(15)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')} \"||\"\"]}\"||\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦  \"||\"✧  \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')}  \"||\"\"]}{stream.visualTags::length::<=1::and::stream.audioTags::length::=1::and::stream.audioChannels::length::<=1[\"♬  {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"{stream.audioTags::length::>0[\"♬  {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}  \"||\"\"]}{stream.audioChannels::length::>0[\"♯  {stream.audioChannels::rsort::join(' · ')} \"||\"\"]}\"]}\n{stream.size::>0[\"{stream.seasonPack[\"❖  \"||\"◈  \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{stream.proxied::istrue[\" ⛊ \"||\" ⛉ \"]}{?[{service.shortName}] ?}{addon.name}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::remove('TrueHD ATMOS','DD+ ATMOS','ATMOS','TrueHD','DTS-HD MA','FLAC','DTS-HD HRA','DD+','DD','DTS-ES','DTS X','DTS','AAC','Opus','DV (Disk)','DV','HDR10+ Boost','HDR','IMAX Enhanced','IMAX','UHD Streaming Boost','HD Streaming Boost','INTERNAL','No-RlsGroup','FHD','UHD','HD','4K','126811','SiC','FraMeSToR','TheFarm','hallowed','BHDStudio','FLUX','Season Pack')::join('  ')::replace('UHD ','')::replace('HD ','')::replace('Movies Anywhere','MA')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\" · DL Stream\"||\"\"]}"
+            "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(30)}\"||\"{stream.title::title::truncate(25)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')} \"||\"\"]}\"||\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦  \"||\"✧  \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')}  \"||\"\"]}{stream.visualTags::length::<=1::and::stream.audioTags::length::=1::and::stream.audioChannels::length::<=1[\"♬  {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"{stream.audioTags::length::>0[\"♬  {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}  \"||\"\"]}{stream.audioChannels::length::>0[\"♯  {stream.audioChannels::rsort::join(' · ')} \"||\"\"]}\"]}\n{stream.size::>0[\"{stream.seasonPack[\"❖  \"||\"◈  \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{stream.proxied::istrue[\" ⛊ \"||\" ⛉ \"]}{?[{service.shortName}] ?}{addon.name}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::remove('TrueHD ATMOS','DD+ ATMOS','ATMOS','TrueHD','DTS-HD MA','FLAC','DTS-HD HRA','DD+','DD','DTS-ES','DTS X','DTS','AAC','Opus','DV (Disk)','DV','HDR10+ Boost','HDR','IMAX Enhanced','IMAX','UHD Streaming Boost','HD Streaming Boost','INTERNAL','No-RlsGroup','FHD','UHD','HD','4K','126811','SiC','FraMeSToR','TheFarm','hallowed','BHDStudio','FLUX','Season Pack')::join('  ')::replace('UHD ','')::replace('HD ','')::replace('Movies Anywhere','MA')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\" · DL Stream\"||\"\"]}"
           }
         },
         "Chillio": {
@@ -3669,7 +3687,7 @@
       "mode": "exact",
       "similarityThreshold": 1,
       "enabled": true,
-      "ambiguousResults": "discard",
+      "ambiguousResults": "keep",
       "requestTypes": [
         "movie",
         "series",
@@ -3688,7 +3706,7 @@
       "addons": []
     },
     "episodeTitleMatching": {
-      "enabled": true,
+      "enabled": false,
       "requestTypes": [
         "movie",
         "series",
@@ -4158,7 +4176,7 @@
                 "__switch": "inputs.torboxTier",
                 "cases": {
                   "pro": {
-                    "enabled": true,
+                    "enabled": false,
                     "customSearchEngines": false
                   },
                   "nonPro": {
@@ -4175,7 +4193,7 @@
             "category": {
               "__switch": "inputs.torboxTier",
               "cases": {
-                "pro": "Mix",
+                "pro": "Debrid",
                 "nonPro": "Debrid"
               },
               "default": "Debrid"

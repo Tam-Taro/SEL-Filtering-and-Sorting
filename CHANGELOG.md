@@ -1,5 +1,26 @@
 # Changelog
 
+## 3.0.3 (2026-07-30)
+**Bug Fix**
+- "Debrid First" priority now works when "Boost Uncached Usenet" is selected
+- "Pin Top Score Per Resolution" now correctly handles scenario where multiple streams have same max SEL score
+
+**Update**
+- episodeTitleMatching now defaults to false
+  - Unreliable at the moment as multiple people have reported seeing less results
+- "Protect Library & Others" from synced ESE is now moved in-line, placed right after Device Specific Exclusions & Low Bitrate ESEs
+  - This allows your library & seadex to respect those Device Specific Exclusion and Low Bitrate filters
+- Cleaned up Usenet Options, removing "☑ NZB-Only Pin/Passthrough" options
+- Soft Low Bitrate option now boosts SEL score instead of an entry in PSE
+  - `Prioritize streams within the bitrate cap (via boosting SEL Score) instead of removing higher-bitrate streams. Within each Quality/Resolution group, larger files move lower in the list and are retained mainly as backups when fewer lower-bitrate choices exist.`
+- "Pin Top Overall" SEL series now rewritten with improved logic. SeaDex results are included in the pin. 
+- SELect 0 now also disables "Final R SELection"
+  - If you choose SELect 0, best to use it with "Final Filter Options" such as "Top Overall Per Quality/Resolution Only" to clean up the massive list as a result
+- AppleTV (4-Line formatter) now has bitrate added back and loosened title truncation
+- Removed Usenet toggle from Meteor for Torbox Pro tier
+  - "Usenet removed from Meteor as the search api is being discontinued" per Midnight
+- Renamed various headers/descriptions
+
 ## 3.0.2 (2026-07-27)
 - Fixed bug with Pin Top Overall Per Q/R
 - Fixed torznab url bug on stable AIOStreams
