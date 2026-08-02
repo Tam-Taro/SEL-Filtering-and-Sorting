@@ -4,6 +4,12 @@ Tired of Stremio pages flooded with streams you'll never use? My SEL-driven AIOS
 
 With [Stream Expression Language (SEL)](https://github.com/Viren070/AIOStreams/wiki/Stream-Expression-Language) in AIOStreams, that "perfect balance" finally became possible. After months of tinkering, testing new features, chasing bugs, and trading tips in the [AIOStreams Discord](https://discord.gg/zRq8dVh5rJ), this guide shares my day-to-day config plus ready-to-import templates focused on SEL filtering and sensible sorting.
 
+> [!IMPORTANT]
+> Resources used in this Guide:
+> - Vidhin's Regex | [GitHub](https://github.com/Vidhin05/Releases-Regex) | [☕](https://ko-fi.com/vidhin)
+> - Viren's AIOStreams | [GitHub](https://github.com/Viren070/AIOStreams) | [🍵](https://ko-fi.com/Viren070)
+> - Cedya/Din's AIOMetadata | [Github](https://github.com/cedya77/aiometadata) | [🧋](https://buymeacoffee.com/cedya) 
+
 ## Who this is for
 
 Use this setup as-is, or as a base to tweak for your tastes. It's especially useful if you:
