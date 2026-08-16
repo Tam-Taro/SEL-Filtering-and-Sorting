@@ -2696,7 +2696,7 @@
         "enabled": true
       },
       {
-        "__if": "inputs.coreFilterUsenet == 0 and inputs.coreFilterUsenet == 0",
+        "__if": "inputs.coreFilterUsenet == 0",
         "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.0.4: No 𝚂𝙴𝙻𝚎𝚌𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
         "enabled": true
       },
