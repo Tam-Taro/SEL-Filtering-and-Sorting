@@ -1,0 +1,147 @@
+[
+  {
+    "name": "VFF",
+    "pattern": "/^(?!.*\\b(?:VF[2-9]|FR[2-9]|VF[FQIB][ .]VF[FQIB])\\b).*\\b(?:TRUEFRENCH|VFF)\\b/i",
+    "score": 0
+  },
+  {
+    "name": "VOF",
+    "pattern": "/\\b(?:VOF)\\b/i",
+    "score": 0
+  },
+  {
+    "name": "VFI",
+    "pattern": "/\\b(?:VFI)\\b/i",
+    "score": 0
+  },
+  {
+    "name": "VF2",
+    "pattern": "/\\b(?:VF[2-9]|FR[2-9]|VF[FQIB][ .]VF[FQIB])\\b/i",
+    "score": 0
+  },
+  {
+    "name": "VFQ",
+    "pattern": "/^(?!.*\\b(?:VF[2-9]|FR[2-9]|VF[FQIB][ .]VF[FQIB])\\b).*\\b(?:VFQ|\\d{3,4}p[ .]CAN?|(?<=MULTi[ .])(?:FR(?:A|ENCH)|CAN?))\\b/i",
+    "score": 0
+  },
+  {
+    "name": "VOQ",
+    "pattern": "/\\b(?:VOQ)\\b/i",
+    "score": 0
+  },
+  {
+    "name": "VQ",
+    "pattern": "/\\b(?:VQ)\\b/i",
+    "score": 0
+  },
+  {
+    "name": "VFB",
+    "pattern": "/\\b(?:VFB)\\b/i",
+    "score": 0
+  },
+  {
+    "name": "VOSTFR",
+    "pattern": "/\\b(VOST.*?FR(E|A)?|SUBFR(A|ENCH)?)\\b/i",
+    "score": 0
+  },
+  {
+    "name": "FanSUB",
+    "pattern": "/\\b(?:FanSUB)\\b/i",
+    "score": 0
+  },
+  {
+    "name": "FastSUB",
+    "pattern": "/\\b(?:FastSUB)\\b/i",
+    "score": 0
+  },
+  {
+    "name": "FR Groups",
+    "pattern": "/\\b(?:4FR|AAjango|AC3\\.afrique31|ACc3Ss|AiR3D|AiRDOCS|AiRFORCE|AiRLiNE|AiRTV|Aisha|AJango|AKLHD|ALCOOL|ALFA|ALLDAYiN|ALPiNE|AMB3R|Amen|AmineCamd|ANGERFIST007|ANMWR|APoK|ARK01|ASKO|AvALoN|AViTECH|AVON|AXLBEN|AYMO|AZAZE|AZR|b4dly|BABA|BANKAi|baron|BATGirl|BAWLS|BDHD|Bender37|Bender_37|BEO|BiPOLAR|BiRooT33|BLV|BlackAngel|BLACKPANTERS|BLAP|BODIE|BONBON|BOOLZ|BotchadePedreger|BOUBA|BOUC|BraD|BRINK|BtRs|BTT|BTTHD|BULiTT|BYHGO|BYOR|BzH29|CARAPILS|CARPEDIEM|CHARTAIR|CHERRYcoke|CHiLL|CHK|CHOCO|ChOuBiDoU|Chris44|chrisj42|CiELOS|CiNEMA|CiSCO|CLASSICS|CMBHD|COLL3CTiF|CoRa|COUAC|CRYPT0|Cyrill2000|CYSTEiNE|D3T3R10R1TY|D4KiD|D5T0|Dam|Darki|DEAL|Delivroozzi|DeSs|DFE|DiEBEX|Djona12|DJWEST|DKPT|DON|dooley|DownLord|DRAF|DragonMax|Dread|DREAM|dRuIdE|DsTr0y|DUFF|DUPLI|DUSS|DUSTiN|DWS|E\\.T|Elcrackito|Elecman|ELDU|ENIGMA|ENJOi|ESCANOR|ESPER|EUBDS|EXTREME|FATSiSTERS|FCK|FERVEX|FHD|FiDELiO|FiDO|Fist|FLOP|ForceBleue|FoX|FRATERNiTY|FREAMON|Freek911|FRENCHDEADPOOL2|FRESH|FrIeNdS|FRiES|FROSTIES|FtLi|FTMVHD|Fuceo|FUJiSAN|FULLSiZE|FuN|FUTiL|FVX|FW|FWDHD|Galactic|GASMAK|GDC|GDLN|GHoST|GHOULS|GHT|GHZ|GiMBAP|Gimly26|Ginonyll|gismo65|GLaDOS|GLiMMER|GLUPS|GOATLOVE|GOBO2S|Goldenyann|GOLDORAK|GOTU|GUACAMOLE|GundamGuy|GWEN|H4KIG|H4S5S|Hanami|HD2|HDForever|HDKING|HDRA|HDZ|HEAVYWEIGHT|HERC|HiDeF|HiggsBoson|HiRoSHiMa|HK31|Hom3r|HuSh|HYBRiS|HyDe|HYO|HYPERION|iDySoNaP|iLYNX|IssouCorp|J4CK|JAQC|JFK|JiHeff|JMT|JoKeR|JP48|JRabbit|JuRDeN|JUSTICELEAGUE|K7|KAF|Kaoru111|Katairi|KAZETV|KBNawak|Kenobi38|KENOBi3838|KFL|KHAYA|KHTM|Ki0squ3|KINeMA|KLP33|KPORAL|KTH|KTM|KushEnthusiast|L0SERNiGHT|LACTEL|LaFistiniere|LAOZI|LAZARUS|LazerTeam|LDCS|LEGdna|LeON|LeSharkoiste|LesMiz|LiBERTAD|LiBERTY|LiHDL|LITY|LoA|LOFiDEL|LOLOPC|LOOKAMI|LOST|LOUVRE|LOWIMDB|LRL|LUCKY|ludsfa|LYPSG|Mad\\.Darks27|MAGiCAL|MAN[ ._-]OF[ ._-]STYLE|MANGACiTY|MANOFSTYLE|MARBLECAKE|matheousse|MAX|Maxadonf|MAXAGAZ|MAXiBENoul|McNULTY|MCSwi|MEDONIZUKA|MELBA|MELLOWMAN|MenZo|Merlinou|MFRED|mHDgz|MiKi|MiND|MiniMaGik|MMCLX|MONSIEUR01|Monsterjp|MOO|MOONLY|MORELAND|MrS|MTDK|MTeam|MTLQC|MULTiViSiON|MUNSTER|MUSTANG|MUxHD|MYSTERiON|N3tFliX|N3ZUKO|Nagutos|NEO|NeoSG|Neostark|NERDHD|NERO|NGRP|NOEX|NOGRP|NoNE|NoT4G|NOWiNHD|NrZ|NTG|NTK|NYX|Obi|OBSTACLE|OECUF|OKENEDET|OkonEdet|OLRIK|ONLY|ONLYMOViE|OOHLALA|OOKAMI|OPTIMUM|OZEF|P4TRi0T|PANZeR|Papaya|PARISTOCAT|PATHECROUTE|PATOMiEL|PATOPESTO|PCH|PeLViS|Penrose|PEPiTE|PHILLY|PiCKLES|PiKES|PiNKPANTERS|PiXEL|PKPTRS|Plemo|POP|PopHD|Portos|POTO|POURMOi|prem|PREUMS|PRiDEHD|PROPJOE|Psaro|PSW|PSY|PSY4|PsYcore|PuNiSHeR03|Punisher694|PURE|PUREWASTEOFBW|QBDom|QC63|QTZ|QUALiTY|QUEBEC63|R2D2X|R3DUCT0|R3MiX|Raf66|RamirouHD|REBiRTH|RG|RHG|RiFiFi|RiPiT|ROMKENT|RONiN|Rough|RPWork|RUDE|RYO|Ryotox|S4LVE|SACRiLEGE|SAFETY|SAKADOX|SANTACRUZ|SASHiMi|SbR|SEiGHT|SEL|SENSei|SERQPH|SESKAPiLE|SEW|SF2|SHADOW|ShadowKernel|Shamir|ShC23|SHEEEiT|SHiNiGAMi|SHiTSoNy|Sicario|SiGeRiS|SILVIODANTE|Slay3R|SLEEPINGFOREST|SLOZ|SN2P|SODAPOP|sozer|SpK79|SPINE|SPOiLER|SQUEEZE|SR-71|STARLIGHTER|STIF|STRINGERBELL|STVFRV|SUB|SUBZERO|SUNNY|Sunday26th|SUNRiSE|SUPPLY|SVR|SXF|T3KASHi|telemO|Temouche|Tetine|tFR|TFA|TheFantastics|THENiGHTMAREiNHD|Thebatou8652|Theccrow|TheChirola|Themouche|THESYNDiCATE|THiNK|THREESOME|Tezcat74|TiFou|TigersClassics|TiGRON|TiMELiNE|TiNA|TkHD|tlub|toto70300|TOXIC|TRiCLUPRiD|TRUNKDU92|TSC|TSuNaMi|TTK|TTN|tundun|TyHD|TyrellCorp|ULSHD|Ulysse|UKDHD|UKDTV|UNSKiLLED|URY|USUNSKiLLED|USURY|UTT|VENUE|VFC|ViVENDi|VoMiT|VROOMM|WaCkS|WAlbator|WALTERWHITE1|Wednesday29th|Wink|Winks|WMTorrent|x264\\.GHT|XANDER|XANTAR|Xaxou|XSHD|XSPITFIRE911|Y4Y4|Yarashii|YODA|Z3US|Zapax|ZatNik07|ZEKEY|ZEST|ZezLD|ZFG|ZinGy|ZiRCON|ZiT|zYz|zza|-TANOSHii|Tsundere[ .-]?Raws|Aoi[ .-]?Project|kazui(?:zui)?|Monkey[ .-]?D[ .-]?Lulu|Anime[ .-]?Heart|Kaerizaki[ .-]?Fansub|Natsumi[ .-]?no[ .-]?Sekai|NekoYu\\'?|Onii[ .-]?ChanSub|Pikari[ .-]?Teshima|(?:Team[ .-])?Arcedo|Yangire[ .-]?Raws|Good[ .-]?(?:Job|Rip|Sub)!?[ .-]?Alexis)\\b/",
+    "score": 0
+  },
+  {
+    "name": "FR Remux T1",
+    "pattern": "/^(?=.*(?:[_. ]|\\d{4}p-|\\bHybrid-)(?:(?:BD|UHD)[-_. ]?)?Remux\\b|(?:(?:BD|UHD)[-_. ]?)?Remux[_. ]\\d{4}p)(?=.*\\b(?:BlackAngel|Choco|HDForever|MAX|ONLY|Psaro|Sicario|Tezcat74|TyrellCorp|Zapax)\\b).*/i",
+    "score": 0
+  },
+  {
+    "name": "FR Remux T2",
+    "pattern": "/^(?=.*(?:[_. ]|\\d{4}p-|\\bHybrid-)(?:(?:BD|UHD)[-_. ]?)?Remux\\b|(?:(?:BD|UHD)[-_. ]?)?Remux[_. ]\\d{4}p)(?=.*\\b(?:BDHD|FtLi|Goldenyann|HeavyWeight|KTM|MARBLECAKE|MUSTANG|Obi|PEPiTE|Q(?:UEBE)?C63|ROMKENT)\\b).*/i",
+    "score": 0
+  },
+  {
+    "name": "FR UHD Bluray T1",
+    "pattern": "/^(?=.*(BluRay|Blu-Ray|HD-?DVD|BDMux|BD(?!$)|UHD|4K))(?!.*(?:(?:[_. ]|\\d{4}p-|\\bHybrid-)(?:(?:BD|UHD)[-_. ]?)?Remux\\b|(?:(?:BD|UHD)[-_. ]?)?Remux[_. ]\\d{4}p))(?!.*(WEB[-_. ]DL(?:mux)?|WEBDL|AmazonHD|AmazonSD|iTunesHD|MaxdomeHD|NetflixU?HD|WebHD|HBOMaxHD|DisneyHD|[. ]WEB[. ](?:[xh][ .]?26[45]|AVC|HEVC|DDP?[ .]?5[. ]1)|(?:720|1080|2160)p[-. ]WEB[-. ]|[-. ]WEB[-. ](?:720|1080|2160)p|(?:AMZN|NF|DP)[. -]WEB[. -](?!Rip)))(?!.*(WebRip|Web-Rip|WEBMux))(?=.*\\b(?:FLOP|FRATERNiTY|FoX|Psaro)\\b).*/i",
+    "score": 0
+  },
+  {
+    "name": "FR UHD Bluray T2",
+    "pattern": "/^(?=.*(BluRay|Blu-Ray|HD-?DVD|BDMux|BD(?!$)|UHD|4K))(?!.*(?:(?:[_. ]|\\d{4}p-|\\bHybrid-)(?:(?:BD|UHD)[-_. ]?)?Remux\\b|(?:(?:BD|UHD)[-_. ]?)?Remux[_. ]\\d{4}p))(?!.*(WEB[-_. ]DL(?:mux)?|WEBDL|AmazonHD|AmazonSD|iTunesHD|MaxdomeHD|NetflixU?HD|WebHD|HBOMaxHD|DisneyHD|[. ]WEB[. ](?:[xh][ .]?26[45]|AVC|HEVC|DDP?[ .]?5[. ]1)|(?:720|1080|2160)p[-. ]WEB[-. ]|[-. ]WEB[-. ](?:720|1080|2160)p|(?:AMZN|NF|DP)[. -]WEB[. -](?!Rip)))(?!.*(WebRip|Web-Rip|WEBMux))(?=.*\\b(?:DUSTiN|FCK|FrIeNdS|QUALiTY)\\b).*/i",
+    "score": 0
+  },
+  {
+    "name": "FR HD Bluray T1",
+    "pattern": "/^(?=.*(BluRay|Blu-Ray|HD-?DVD|BDMux|BD(?!$)))(?!.*(?:(?:[_. ]|\\d{4}p-|\\bHybrid-)(?:(?:BD|UHD)[-_. ]?)?Remux\\b|(?:(?:BD|UHD)[-_. ]?)?Remux[_. ]\\d{4}p))(?!.*(WEB[-_. ]DL(?:mux)?|WEBDL|AmazonHD|AmazonSD|iTunesHD|MaxdomeHD|NetflixU?HD|WebHD|HBOMaxHD|DisneyHD|[. ]WEB[. ](?:[xh][ .]?26[45]|AVC|HEVC|DDP?[ .]?5[. ]1)|(?:720|1080|2160)p[-. ]WEB[-. ]|[-. ]WEB[-. ](?:720|1080|2160)p|(?:AMZN|NF|DP)[. -]WEB[. -](?!Rip)))(?!.*(WebRip|Web-Rip|WEBMux))(?=.*\\b(?:BDHD|FoX|FRATERNiTY|FrIeNdS|MAX|Psaro|YODA)\\b).*/i",
+    "score": 0
+  },
+  {
+    "name": "FR HD Bluray T2",
+    "pattern": "/^(?=.*(BluRay|Blu-Ray|HD-?DVD|BDMux|BD(?!$)))(?!.*(?:(?:[_. ]|\\d{4}p-|\\bHybrid-)(?:(?:BD|UHD)[-_. ]?)?Remux\\b|(?:(?:BD|UHD)[-_. ]?)?Remux[_. ]\\d{4}p))(?!.*(WEB[-_. ]DL(?:mux)?|WEBDL|AmazonHD|AmazonSD|iTunesHD|MaxdomeHD|NetflixU?HD|WebHD|HBOMaxHD|DisneyHD|[. ]WEB[. ](?:[xh][ .]?26[45]|AVC|HEVC|DDP?[ .]?5[. ]1)|(?:720|1080|2160)p[-. ]WEB[-. ]|[-. ]WEB[-. ](?:720|1080|2160)p|(?:AMZN|NF|DP)[. -]WEB[. -](?!Rip)))(?!.*(WebRip|Web-Rip|WEBMux))(?=.*\\b(?:HDForever|HeavyWeight|MARBLECAKE|MYSTERiON|NoNE|ONLY|ONLYMOViE|TkHD|UTT)\\b).*/i",
+    "score": 0
+  },
+  {
+    "name": "FR WEB T1",
+    "pattern": "/^(?=.*(WEB[-_. ]DL(?:mux)?|WEBDL|AmazonHD|AmazonSD|iTunesHD|MaxdomeHD|NetflixU?HD|WebHD|HBOMaxHD|DisneyHD|[. ]WEB[. ](?:[xh][ .]?26[45]|AVC|HEVC|DDP?[ .]?5[. ]1)|(?:720|1080|2160)p[-. ]WEB[-. ]|[-. ]WEB[-. ](?:720|1080|2160)p|(?:AMZN|NF|DP)[. -]WEB[. -](?!Rip)|WebRip|Web-Rip|WEBMux))(?=.*\\b(?:BONBON|FCK|FW|FoX|FRATERNiTY|FrIeNdS|MOONLY|MTDK|PATOPESTO|Psaro|RG|SUPPLY|TFA|TiNA)\\b).*/i",
+    "score": 0
+  },
+  {
+    "name": "FR WEB T2",
+    "pattern": "/^(?=.*(WEB[-_. ]DL(?:mux)?|WEBDL|AmazonHD|AmazonSD|iTunesHD|MaxdomeHD|NetflixU?HD|WebHD|HBOMaxHD|DisneyHD|[. ]WEB[. ](?:[xh][ .]?26[45]|AVC|HEVC|DDP?[ .]?5[. ]1)|(?:720|1080|2160)p[-. ]WEB[-. ]|[-. ]WEB[-. ](?:720|1080|2160)p|(?:AMZN|NF|DP)[. -]WEB[. -](?!Rip)|WebRip|Web-Rip|WEBMux))(?=.*\\b(?:ALLDAYiN|ARK01|HeavyWeight|NEO|NoNe|ONLYMOViE|POTO|Slay3R|TkHD|WaCkS)\\b).*/i",
+    "score": 0
+  },
+  {
+    "name": "FR Scene Groups",
+    "pattern": "/\\b(?:4FR|AiR3D|AiRDOCS|AiRFORCE|AiRLiNE|AiRTV|AKLHD|AMB3R|ANMWR|AVON|AYMO|AZR|BANKAi|BAWLS|BiPOLAR|BLACKPANTERS|BODIE|BOOLZ|BRiNK|BTT|CARAPiLS|CiELOS|CiNEMA|CMBHD|CoRa|COUAC|CRYPT0|D4KiD|DEAL|DiEBEX|DUPLI|DUSS|ENJOi|EUBDS|FHD|FiDELiO|FiDO|ForceBleue|FREAMON|FRENCHDEADPOOL2|FRiES|FUTiL|FWDHD|GHOULS|GiMBAP|GLiMMER|Goatlove|HERC|HiggsBoson|HiRoSHiMa|HYBRiS|HyDe|JMT|JoKeR|JUSTICELEAGUE|KAZETV|L0SERNiGHT|LaoZi|LeON|LOFiDEL|LOST|LOWIMDB|LUCKY|LYPSG|MAGiCAL|MANGACiTY|MAXAGAZ|MaxiBeNoul|McNULTY|MELBA|MiND|MORELAND|MUNSTER|MUxHD|NERDHD|NERO|NrZ|NTK|OBSTACLE|OohLaLa|OOKAMI|PANZeR|PATHECROUTE|Penrose|PiNKPANTERS|PKPTRS|PRiDEHD|PROPJOE|PURE|PUREWASTEOFBW|ROUGH|RUDE|Ryotox|SAFETY|SASHiMi|SEiGHT|SESKAPiLE|SHEEEiT|SHiNiGAMi(?:UHD)?|SiGeRiS|SILVIODANTE|SLEEPINGFOREST|SODAPOP|S4LVE|SPINE|SPOiLER|STRINGERBELL|Sunday26th|SUNRiSE|tFR|THENiGHTMAREiNHD|THiNK|THREESOME|TiMELiNE|TSuNaMi|UKDHD|UKDTV|ULSHD|Ulysse|(?:US)?UNSKiLLED|URY|VENUE|VFC|VoMiT|Wednesday29th|ZEST|ZiRCON)\\b/",
+    "score": 0
+  },
+  {
+    "name": "FR LQ Watermarks",
+    "pattern": "/\\b(?:Bandix|CZ\\d+|EXTREME|GA(?:Ï|I)A|HMiDiMADRiDi|Hush|KILLERMIX|LiBERTAD|LTa?TM|MONiCO|NEWCINE|R(?:PZ|ZP)|ShowFR|VERCLAM|ViKi47|Wawa-?(?:city|mania|porno)?|ZW)\\b/",
+    "score": 0
+  },
+  {
+    "name": "FR LQ False Releases",
+    "pattern": "/\\b(?:ACOOL|AlioZ|ASPHiXiAS|AViTECH|AZAZE|Balibalo|BLABLASTREAM|DDLFRENCH(?:ORG)?|FERVEX|FReeZeR|GHOSTSPiRiT|GHZ|GLaDOS|GZR|HEVCBay|JiHeff|KR4K3N|Matmatha|MKVXTEAM|Monchat|NLX5|NOMAD|NORRIS|PiCKLES|PREUMS|qctimb3rlandqc|ReBoT|ROLLED|SCREEN|SHiFT|SKRiN|TicaDow|Tokushi|Tonyk|TOXIC|TUTUTE|UNiKORN|Zombie)\\b/",
+    "score": 0
+  },
+  {
+    "name": "FR LQ ReTAG",
+    "pattern": "/\\b(?:(?:Cpasbien|CPB)|ANONA|AT|bigZT|Boheme|BOL|CINeHD|Cortex91|DOLL4R|Dread[ .-]?Team|Dropse|EZTV(?:[ ._-]re)?|FGT|Firetown|FUN|HDMIDIMADRIDI|JetAnime|L-?O-?L|NewZT|NG|RARBG|STVFRV|SubZero|T9|Time2Watch|TIREXO|Torrent9|WebAnime|YIFY|YTS|ZONE|ZT)\\b/",
+    "score": 0
+  },
+  {
+    "name": "FR LQ Other Reasons",
+    "pattern": "/\\b(?:AKLHD|ARKRiL|BossBaby|Champion9|Copycomic|CR4ZYTiME|EASPORTS|EliteT|FUNKKY|FZTeam|GOBO2S|HD2|LION|LMPS|LNA3d|MACK4|MeMyl|METALLIKA|MGD|Moorea81|Moviz|Muxman|Mystic|MZC|MZi?SYS|N3TFL1X|NoelMaison|nutella|OMERTA|Papaya|PIKACHU|PULSE|Q7|RELiC|SANCTUAIRE|SHARKS|SP3CTR|Spow|STR4NGE|TeamSuW|TORRiD|TSN999|TVPSLO|Upmix|VATFER|Wakanim|WaNeZt|WINCHESTER|WITA)\\b/",
+    "score": 0
+  },
+  {
+    "name": "FR Anime Tier 01",
+    "pattern": "/\\b(?:Darki|Delivroozzi|Fuceo|Good[ .-]?(?:Job|Rip|Sub)!?[ .-]?Alexis|Punisher694|SR-71|T3KASHi|-TANOSHii|Tsundere[ .-]?Raws)\\b/",
+    "score": 0
+  },
+  {
+    "name": "FR Anime Tier 02",
+    "pattern": "/\\b(?:Aoi[ .-]?Project|Elecman|FUJiSAN|GundamGuy|IssouCorp|KAF|Nagutos|OECUF|XSPITFIRE911)\\b/",
+    "score": 0
+  },
+  {
+    "name": "FR Anime Tier 03",
+    "pattern": "/\\b(?:BLV|D3T3R10R1TY|Galactic|HANAMi|kazui(?:zui)?|KHAYA|KushEnthusiast|matheousse|Monkey[ .-]?D[ .-]?Lulu|NeoSG|RONiN|TheFantastics|TTN)\\b/",
+    "score": 0
+  },
+  {
+    "name": "FR Anime FanSub",
+    "pattern": "/\\b(?:Anime[ .-]?Heart|Kaerizaki[ .-]?Fansub|Natsumi[ .-]?no[ .-]?Sekai|NekoYu\\'?|Onii[ .-]?ChanSub|Owlolf|Pikari[ .-]?Teshima|Seimeisen|(?:Team[ .-])?Arcedo|Yarashii|Yangire[ .-]?Raws)\\b/",
+    "score": 0
+  }
+]
