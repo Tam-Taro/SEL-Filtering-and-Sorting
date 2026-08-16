@@ -90,47 +90,47 @@
     "enabled": true
   },
   {
-    "expression": "/*VF2*/ regexMatched(streams, 'VF2')",
+    "expression": "/*#Dual Dub (France + Québec)*/ /*VF2*/ regexMatched(streams, 'VF2')",
     "score": 1200,
     "enabled": true
   },
   {
-    "expression": "/*VFF*/ regexMatched(streams, 'VFF')",
+    "expression": "/*#TrueFrench Dub (France)*/ /*VFF*/ regexMatched(streams, 'VFF')",
     "score": 1000,
     "enabled": true
   },
   {
-    "expression": "/*VOF*/ regexMatched(streams, 'VOF')",
+    "expression": "/*#Native French Original*/ /*VOF*/ regexMatched(streams, 'VOF')",
     "score": 1000,
     "enabled": true
   },
   {
-    "expression": "/*VFI*/ regexMatched(streams, 'VFI')",
+    "expression": "/*#International French Dub*/ /*VFI*/ regexMatched(streams, 'VFI')",
     "score": 950,
     "enabled": true
   },
   {
-    "expression": "/*VFQ*/ regexMatched(streams, 'VFQ')",
+    "expression": "/*#Québec Dub*/ /*VFQ*/ regexMatched(streams, 'VFQ')",
     "score": 950,
     "enabled": true
   },
   {
-    "expression": "/*VOQ*/ regexMatched(streams, 'VOQ')",
+    "expression": "/*#Native Québécois Original*/ /*VOQ*/ regexMatched(streams, 'VOQ')",
     "score": 950,
     "enabled": true
   },
   {
-    "expression": "/*VFB*/ regexMatched(streams, 'VFB')",
+    "expression": "/*#Belgian Dub*/ /*VFB*/ regexMatched(streams, 'VFB')",
     "score": 900,
     "enabled": true
   },
   {
-    "expression": "/*VQ*/ regexMatched(streams, 'VQ')",
+    "expression": "/*#Heavy-Accent Québec Dub*/ /*VQ*/ regexMatched(streams, 'VQ')",
     "score": 900,
     "enabled": true
   },
   {
-    "expression": "/*VOSTFR*/ regexMatched(streams, 'VOSTFR')",
+    "expression": "/*#Original Audio + French Subs*/ /*VOSTFR*/ regexMatched(streams, 'VOSTFR')",
     "score": 500,
     "enabled": true
   },
