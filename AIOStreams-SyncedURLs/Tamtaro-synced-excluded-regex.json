@@ -1,5 +1,5 @@
 {
   "values": [
-    "/\\.(iso|img|bin|dmg|pkg|r\\d{2}|zip|rar|7z|tar|gz|zipx|arj|txt|nfo|html|htm|torrent|jpg|png|pdf|epub|cbz|exe|bat|cmd|scr|msi|ps1|vbs|js|jar|com|pif|reg|dll|sys|lnk|url|uue|sfv|m2ts)$/i"
+    "/\\.(iso|img|bin|dmg|pkg|r\\d{2}|zip|rar|7z|tar|gz|zipx|arj|bz2|tbz2|xz|txz|cab|ace|lha|lzh|zpaq|txt|nfo|html|htm|torrent|jpg|png|pdf|epub|cbz|cbr|cb7|cbt|mobi|azw|azw1|azw3|azw4|djvu|fb2|lit|exe|bat|cmd|scr|msi|apk|ipa|deb|rpm|ps1|vbs|js|jar|pif|reg|dll|sys|lnk|url|uue|sfv|m2ts)$/i"
   ]
 }

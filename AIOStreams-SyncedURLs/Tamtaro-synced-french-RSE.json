@@ -163,10 +163,5 @@
     "expression": "/*FR LQ Other*/ regexMatched(streams, 'FR LQ Other Reasons')",
     "score": -5000,
     "enabled": true
-  },
-  { 
-    "expression": "/*Non-FR*/ originalLanguage != 'French' and isAnime ? negate(merge(regexMatched(streams, 'FR LQ Watermarks', 'FR LQ ReTAG', 'FR LQ False Releases', 'FR LQ Other Reasons', 'FastSUB', 'VOSTFR', 'FR Groups', 'VF2', 'VFF', 'VFI', 'VOF', 'VFB', 'VOQ', 'VQ', 'VFQ'), language(streams, 'French'), subtitle(streams, 'French')), streams) : originalLanguage != 'French' ? negate(merge(regexMatched(streams, 'FR LQ Watermarks', 'FR LQ ReTAG', 'FR LQ False Releases', 'FR LQ Other Reasons', 'FR Groups', 'VF2', 'VFF', 'VFI', 'VOF', 'VFB', 'VOQ', 'VQ', 'VFQ'), language(streams, 'French')), streams) : []",
-    "score": -10000,
-    "enabled": true
   }
 ]
