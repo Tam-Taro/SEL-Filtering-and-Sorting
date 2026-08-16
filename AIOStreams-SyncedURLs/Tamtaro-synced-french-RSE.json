@@ -5,17 +5,17 @@
     "enabled": true
   },
   {
-    "expression": "/*FR Original*/ (originalLanguage == 'French') ? merge(language(streams, 'French', 'Original'), regexMatched(streams, 'VOF', 'VOQ'), regexMatched(language(streams, 'Multi'), 'FR Groups')) : []",
+    "expression": "/*FR Original*/ (originalLanguage == 'French') ? merge(language(streams, 'French', 'Original'), regexMatched(streams, 'VOF', 'VOQ'), regexMatched(merge(language(streams, 'Multi'), regexMatched(streams, 'MULTi')), 'FR Groups')) : []",
     "score": 11000,
     "enabled": true
   },
   {
-    "expression": "/*FR Dual*/ (originalLanguage != 'French') ? regexMatched(streams, 'VF2') : []",
+    "expression": "/*FR Dual Dub*/ (originalLanguage != 'French') ? regexMatched(streams, 'VF2') : []",
     "score": 11000,
     "enabled": true
   },
   {
-    "expression": "/*FR Dub*/ (originalLanguage != 'French') ? negate(merge(regexMatched(streams, 'VF2'), regexMatched(streams, 'FastSUB')), merge(language(streams, 'French'), regexMatched(streams, 'VOF', 'VFB', 'VOQ', 'VQ'), regexMatched(language(streams, 'Multi'), 'FR Groups'))) : []",
+    "expression": "/*FR Dub*/ (originalLanguage != 'French') ? negate(merge(regexMatched(streams, 'VF2'), regexMatched(streams, 'FastSUB')), merge(language(streams, 'French'), regexMatched(streams, 'VOF', 'VFB', 'VOQ', 'VQ', 'VFQ'), regexMatched(merge(language(streams, 'Multi'), regexMatched(streams, 'MULTi')), 'FR Groups'))) : []",
     "score": 10000,
     "enabled": true
   },
@@ -101,22 +101,32 @@
   },
   {
     "expression": "/*VOF*/ regexMatched(streams, 'VOF')",
-    "score": 950,
+    "score": 1000,
     "enabled": true
   },
   {
     "expression": "/*VFI*/ regexMatched(streams, 'VFI')",
-    "score": 700,
+    "score": 950,
     "enabled": true
   },
   {
     "expression": "/*VFQ*/ regexMatched(streams, 'VFQ')",
-    "score": 650,
+    "score": 950,
     "enabled": true
   },
   {
     "expression": "/*VOQ*/ regexMatched(streams, 'VOQ')",
-    "score": 600,
+    "score": 950,
+    "enabled": true
+  },
+  {
+    "expression": "/*VFB*/ regexMatched(streams, 'VFB')",
+    "score": 900,
+    "enabled": true
+  },
+  {
+    "expression": "/*VQ*/ regexMatched(streams, 'VQ')",
+    "score": 900,
     "enabled": true
   },
   {
@@ -125,23 +135,13 @@
     "enabled": true
   },
   {
-    "expression": "/*VFB*/ regexMatched(streams, 'VFB')",
-    "score": 400,
-    "enabled": true
-  },
-  {
-    "expression": "/*VQ*/ regexMatched(streams, 'VQ')",
-    "score": 300,
-    "enabled": true
-  },
-  {
-    "expression": "/*FR FanSUB*/ regexMatched(streams, 'FanSUB')",
-    "score": 50,
-    "enabled": true
+  "expression": "/*FR FanSUB*/ isAnime ? [] : negate(regexMatched(streams, 'VOSTFR'), regexMatched(streams, 'FanSUB'))",
+  "score": 150,
+  "enabled": true
   },
   {
     "expression": "/*FR FastSUB*/ regexMatched(streams, 'FastSUB')",
-    "score": -5000,
+    "score": -2500,
     "enabled": true
   },
   {
@@ -162,6 +162,11 @@
   {
     "expression": "/*FR LQ Other*/ regexMatched(streams, 'FR LQ Other Reasons')",
     "score": -5000,
+    "enabled": true
+  },
+  { 
+    "expression": "/*Non-FR*/ originalLanguage != 'French' and isAnime ? negate(merge(regexMatched(streams, 'FR LQ Watermarks', 'FR LQ ReTAG', 'FR LQ False Releases', 'FR LQ Other Reasons', 'FastSUB', 'VOSTFR', 'FR Groups', 'VF2', 'VFF', 'VFI', 'VOF', 'VFB', 'VOQ', 'VQ', 'VFQ'), language(streams, 'French'), subtitle(streams, 'French')), streams) : originalLanguage != 'French' ? negate(merge(regexMatched(streams, 'FR LQ Watermarks', 'FR LQ ReTAG', 'FR LQ False Releases', 'FR LQ Other Reasons', 'FastSUB', 'FanSUB', 'VOSTFR', 'FR Groups', 'VF2', 'VFF', 'VFI', 'VOF', 'VFB', 'VOQ', 'VQ', 'VFQ'), language(streams, 'French'), subtitle(streams, 'French')), streams) : []",
+    "score": -10000,
     "enabled": true
   }
 ]

@@ -45,6 +45,11 @@
     "score": 0
   },
   {
+  "name": "MULTi",
+  "pattern": "/\\b(?:MULTi)\\b/i",
+  "score": 0
+  },
+  {
     "name": "FanSUB",
     "pattern": "/\\b(?:FanSUB)\\b/i",
     "score": 0
