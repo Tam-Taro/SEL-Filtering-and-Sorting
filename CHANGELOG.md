@@ -11,10 +11,15 @@
 - New "Top N Per Resolution Only" added to Final Filters
 - Formatter: Added all Tamtaro variants under "💾 Saved formatter" regardless of which version you picked
   - You can quickly switch between `tamtaro.default, tamtaro.fullRse tamtaro.appleTV & tamtaro.chillio` while inside Formatter page
+  - tamtaro.default
     - ![tamtaro.default](images/screenshots/tamtaro.default.png)
+  - tamtaro.fullRSE
     - ![tamtaro.fullRSE](images/screenshots/tamtaro.fullRse.png)
+  - tamtaro.appleTV (4 lines)
     - ![tamtaro.appleTV](images/screenshots/tamtaro.appleTV.jpg)
+  - tamtaro.min
     - ![tamtaro.min](images/screenshots/tamtaro.min.png)
+  - tamtaro.chillio (3 lines)
     - ![tamtaro.chillio](images/screenshots/tamtaro.chillio.jpg)
   - Also allows you to call those formatter ids inside Miscellaneous -> Variant profiles
     - ![use formatter tamtaro.min](<images/screenshots/aios formatter variant.png>)
