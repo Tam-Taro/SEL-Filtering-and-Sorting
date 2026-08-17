@@ -1,4 +1,10 @@
 # Changelog
+## 3.1.2 (2026-08-17)
+- "Formatter Style" is now a mandatory field so it's not accidentally left blank, causing undefined error upon saving
+- Reverted name change back to "Final R SElection" & "Final Q SElection"
+
+## 3.1.1 (2026-08-17)
+- Added back selOverrides to disable cached SELs in synced ESE (old names: Final R SELection and Final Q SELection are lingering in AIOStreams due to cache) 
 
 ## 3.1.0 (2026-08-17)
 **New**
@@ -9,7 +15,7 @@
   - Unknown Quality — Default / Remove / Keep
   - Uncached Debrid — Default / Remove / Keep
 - New "Top N Per Resolution Only" added to Final Filters
-- Formatter: Added all Tamtaro variants under "💾 Saved formatter" regardless of which version you picked
+- Formatter: Added all Tamtaro variants under "💾 Saved formatters" regardless of which version you picked
   - You can quickly switch between `tamtaro.default, tamtaro.fullRSE, tamtaro.appleTV, tamtaro.min & tamtaro.chillio` while inside Formatter page
   - tamtaro.default
     - ![tamtaro.default](images/screenshots/tamtaro.default.png)
