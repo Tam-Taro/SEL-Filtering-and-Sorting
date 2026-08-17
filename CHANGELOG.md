@@ -1,7 +1,7 @@
 # Changelog
 ## 3.1.2 (2026-08-17)
 - "Formatter Style" is now a mandatory field so it's not accidentally left blank, causing undefined error upon saving
-- Reverted name change back to "Final R SELection" & "Final Q SELection"
+- Reverted name change back to "Final R SELection" & "Final Q SELection" (ESE v2.1.1)
 
 ## 3.1.1 (2026-08-17)
 - Added back selOverrides to disable cached SELs in synced ESE (old names: Final R SELection and Final Q SELection are lingering in AIOStreams due to cache) 
