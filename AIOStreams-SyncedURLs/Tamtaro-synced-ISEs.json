@@ -1,6 +1,6 @@
 [
   {
-    "expression": "/*ISE v2.0* [git.tamtaro.de]*/[]",
+    "expression": "/*ISE v2.0.1* [git.tamtaro.de]*/[]",
     "enabled": true
   },
   {
@@ -8,7 +8,7 @@
     "enabled": true
   },
   {
-    "expression": "/*Library*/count(streams)==count(library(streams))?library(streams):[]",
+    "expression": "/*Library*/count(streams)==count(library(streams))?passthrough(library(streams)):[]",
     "enabled": true
   },
   {
