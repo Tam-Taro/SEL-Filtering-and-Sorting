@@ -10,7 +10,7 @@
   - Uncached Debrid — Default / Remove / Keep
 - New "Top N Per Resolution Only" added to Final Filters
 - Formatter: Added all Tamtaro variants under "💾 Saved formatter" regardless of which version you picked
-  - You can quickly switch between `tamtaro.default, tamtaro.fullRse tamtaro.appleTV & tamtaro.chillio` while inside Formatter page
+  - You can quickly switch between `tamtaro.default, tamtaro.fullRSE, tamtaro.appleTV, tamtaro.min & tamtaro.chillio` while inside Formatter page
   - tamtaro.default
     - ![tamtaro.default](images/screenshots/tamtaro.default.png)
   - tamtaro.fullRSE
