@@ -22,7 +22,7 @@
   - tamtaro.chillio (3 lines)
     - ![tamtaro.chillio](images/screenshots/tamtaro.chillio.jpg)
   - Also allows you to call those formatter ids inside Miscellaneous -> Variant profiles
-    - ![use formatter tamtaro.min](<images/screenshots/aios formatter variant.png>)
+    - ![formatter variants](<images/screenshots/aios tamtaro variant.png>)
 - Full French language support: thanks @yoyovero for sharing with us the French-specific release groups!
   - New auto-synced `git.tamtaro.de/French-Regex.json` and `git.tamtaro.de/French-RSE.json`, heavily reliant on TRaSH guide for French Profiles & Vidhin's base regexes/expressions.
   - To get started, just select French in "Required Languages" & "Preferred Subtitle" fields of template to auto-import the French profile jsons.
