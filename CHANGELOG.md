@@ -1,5 +1,64 @@
 # Changelog
 
+## 3.1.0 (2026-08-17)
+**New**
+- Added "1080P Remux Boost" inside Sort Options. Choose whether 1080P Remux ranks above 4K WEB-DL (default), or whether all 4K streams win regardless of quality (similar to v2.6.1).
+- New "SELect Refinement" section underneath SELect Engine, now provides finer control over the Final SELect results 
+  - 720p Resolution — Default / Remove / Keep
+  - Unknown Resolution — Default / Remove / Keep
+  - Unknown Quality — Default / Remove / Keep
+  - Uncached Debrid — Default / Remove / Keep
+- New "Top N Per Resolution Only" added to Final Filters
+- Formatter: Added all Tamtaro variants under "💾 Saved formatter" regardless of which version you picked
+  - You can quickly switch between `tamtaro.default, tamtaro.fullRse tamtaro.appleTV & tamtaro.chillio` while inside Formatter page
+    - ![tamtaro.default](images/screenshots/tamtaro.default.png)
+    - ![tamtaro.fullRSE](images/screenshots/tamtaro.fullRse.png)
+    - ![tamtaro.appleTV](images/screenshots/tamtaro.appleTV.jpg)
+    - ![tamtaro.min](images/screenshots/tamtaro.min.png)
+    - ![tamtaro.chillio](images/screenshots/tamtaro.chillio.jpg)
+  - Also allows you to call those formatter ids inside Miscellaneous -> Variant profiles
+    - ![use formatter tamtaro.min](<images/screenshots/aios formatter variant.png>)
+- Full French language support: thanks @yoyovero for sharing with us the French-specific release groups!
+  - New auto-synced `git.tamtaro.de/French-Regex.json` and `git.tamtaro.de/French-RSE.json`, heavily reliant on TRaSH guide for French Profiles & Vidhin's base regexes/expressions.
+  - To get started, just select French in "Required Languages" & "Preferred Subtitle" fields of template to auto-import the French profile jsons.
+    - "Strict Language" toggle is not recommended. There are French streams identified by our French profile (via regexes) that wouldn't appear with strict language filter.
+    - Plenty of changes to your setup behind the scene:
+      - Disabled Vidhin's default -10000 score to VOSTFR & "Bad Dual".
+      - SeaDex removed from sort order if English isn't one of your selected languages
+      - New "Non-French" rule gives -10000 score to non-French releases (as determined by our regexes), when French is your only selected language. This is the smarter method compared to strict language filter.
+      - New "FR Language Passthrough" rule ensuring MULTi/VOF/VFB/VOQ/VQ-tagged releases are not removed by strict language filter.
+  - For French-only setup, I was testing "SELect 5" and that worked well.
+    - Optionally inside "SELect Refinement": "Keep 720p", "Keep Unknown Resolution", & "Keep Unknown Quality". 
+    - For anime, you can try pinning N number of French results to the top, via "Language Passthrough Options".
+    - For Dual Language setup, you can pick the language you want on top by pinning it inside Language Passthrough Options
+
+**Update**
+- Final Filters section is now simplified around
+  - Top Resolution Only
+  - Top N per Resolution Only
+  - Top M per Quality/Resolution Only
+  - Global Result Limit
+  - The old Unknown Resolution / Unknown Quality controls have moved into the new SELect Refinement section instead
+- Removed Debridio Watchtower from Add-on Preset since it's been deprecated
+
+**Synced URLs**
+- French-RSE.json (new)
+- French-Regex.json (new)
+- ESE.json
+  - SeaDex Duplicates: Now checks addon(cached(streams),'SeaDex') first and prefers cached SeaDex addon results over the hash/group fallback
+  - Protect Library & Others: Only strips CAM/TS/TC/SCR protection when daysSinceRelease > 180 so new theatrical cams (that you added to library) now stay protected for 6 months.
+  - Low SEL Score: Threshold raised to 10 so this filter now needs a bigger pool of higher SEL score before it kicks in to remove negative SEL scores
+  - Ongoing Season-Pack: library and SeaDex streams are now exempt from season-pack-only filtering
+  - Info & Other Unwanted: external stream types are now removed too
+  - LQ w/o Proper Tags: English-original content is now exempt from this low-quality-without-tags check, adds library/seadex protection
+  - Final Q SELection renamed "Final SELect: Quality": Rewritten to scale thresholds with your SELect number ((2*3), (1*3)) instead of being hardcoded
+  - Final R SELection renamed "Final SELect: Resolution"
+- ISE.json
+  - Added result passthrough when library is the only addon (such as when you're browsing library catalog)
+- Excluded-Regex.json
+  - removed `com` due to false triggering on  filenames/release groups containing domain strings such as for miatrix.com results
+  - added a few new extensions (archive, mobile/package & ebook/comic formats)
+
 ## 3.0.4 (2026-07-30)
 - Fixed "Top Overall Per Quality/Resolution Only" bug when 0
 
