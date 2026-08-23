@@ -5,7 +5,7 @@
 -  Fixed Portuguese (Brazil) RSE score boost not being applied. If you're using PT-BR profile & recently used v3.1.x version, please run the template again
 - "Global Result Limit" now adjusts the basic filter Result Limits instead of inserting a Required SEL
 - Introduced a new ISE entry "Problematic Title Bypass" to help bypass title matching known problematic titles such as WWE SummerSlam, Love is Blind: UK, and Love Island USA. I will update this list on my end without you having to do anything.
-- If you select both Keep Unknown Resolution and Keep Unkown Quality inside "SELect Refinement" section, a third SEL will appear to specifically keep "Unknown Quality & Unknown Resolution".
+- If you select both "Keep Unknown Resolution" and "Keep Unknown Quality" inside "SELect Refinement" section, a third SEL will appear to specifically "Keep Unknown Quality & Resolution".
   - Individually, "Keep Unknown Resolution" only keeps high quality Unkonwn Resolution & "Keep Unkown Quality" only keeps high resolution Unknown Quality
 - If you select "Keep 720P Resolution" inside "SELect Refinement" then "Top N Per Resolution" or "Top N Per Quality/Resolution" inside Final Filters will also keep 720P Resolution
 - No more two of same language appearing inside Preferred Languages/Subtitles when using Language Passthrough Options
