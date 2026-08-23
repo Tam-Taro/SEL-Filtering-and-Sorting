@@ -1,5 +1,10 @@
 [
   {
+    "name": "French Regex v1.0.0 [git.tamtaro.de]",
+    "pattern": "/^(?!)$/i",
+    "score": 0
+  },
+  {
     "name": "VFF",
     "pattern": "/^(?!.*\\b(?:VF[2-9]|FR[2-9]|VF[FQIB][ .]VF[FQIB])\\b).*\\b(?:TRUEFRENCH|VFF)\\b/i",
     "score": 0

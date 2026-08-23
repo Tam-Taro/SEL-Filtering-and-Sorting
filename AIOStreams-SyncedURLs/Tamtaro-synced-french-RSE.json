@@ -1,6 +1,11 @@
 [
   {
-    "expression": "/*#𝙲𝚞𝚜𝚝𝚘𝚖 𝙵𝚛𝚎𝚗𝚌𝚑 𝚁𝚊𝚗𝚔𝚎𝚍 𝚂𝚝𝚛𝚎𝚊𝚖 𝙴𝚡𝚙𝚛𝚎𝚜𝚜𝚒𝚘𝚗𝚜 to use with 𝚅𝚒𝚍𝚑𝚒𝚗'𝚜 English 𝚁𝚊𝚗𝚔𝚎𝚍 𝚁𝚎𝚐𝚎𝚡𝚎𝚜*/ []",
+    "expression": "/*#𝙲𝚞𝚜𝚝𝚘𝚖 𝙵𝚛𝚎𝚗𝚌𝚑 𝙿𝚛𝚘𝚏𝚒𝚕𝚎 to use with 𝚅𝚒𝚍𝚑𝚒𝚗'𝚜 English 𝚁𝚊𝚗𝚔𝚎𝚍 𝚁𝚎𝚐𝚎𝚡𝚎𝚜*/ []",
+    "score": 0,
+    "enabled": true
+  },
+  {
+    "expression": "/*French RSE v1.0.0 [git.tamtaro.de]*/[]",
     "score": 0,
     "enabled": true
   },

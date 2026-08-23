@@ -1,4 +1,15 @@
 # Changelog
+## 3.1.3 (2026-08-23)
+**Some changes:**
+- Tightened "Final Q SELection" thresholds with a defined maximum, so you're less likely to see lower Quality streams; re-apply template to see the newer limit
+-  Fixed Portuguese (Brazil) RSE score boost not being applied. If you're using PT-BR profile & recently used v3.1.x version, please run the template again
+- "Global Result Limit" now adjusts the basic filter Result Limits instead of inserting a Required SEL
+- Introduced a new ISE entry "Problematic Title Bypass" to help bypass title matching known problematic titles such as WWE SummerSlam, Love is Blind: UK, and Love Island USA. I will update this list on my end without you having to do anything.
+- If you select both Keep Unknown Resolution and Keep Unkown Quality inside "SELect Refinement" section, a third SEL will appear to specifically keep "Unknown Quality & Unknown Resolution".
+  - Individually, "Keep Unknown Resolution" only keeps high quality Unkonwn Resolution & "Keep Unkown Quality" only keeps high resolution Unknown Quality
+- If you select "Keep 720P Resolution" inside "SELect Refinement" then "Top N Per Resolution" or "Top N Per Quality/Resolution" inside Final Filters will also keep 720P Resolution
+- No more two of same language appearing inside Preferred Languages/Subtitles when using Language Passthrough Options
+
 ## 3.1.2 (2026-08-17)
 - "Formatter Style" is now a mandatory field so it's not accidentally left blank, causing undefined error upon saving
 - Reverted name change back to "Final R SELection" & "Final Q SELection" (ESE v2.1.1)

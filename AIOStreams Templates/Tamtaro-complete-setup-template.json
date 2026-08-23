@@ -5,7 +5,7 @@
     "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://git.tamtaro.de). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Includes optional add-ons and formatter styles. \n * Uses dynamic SELect Engine to retain the number of streams you choose.\n * Uses auto-synced SELs and & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so SEL fixes and updates are received automatically.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
     "source": "external",
     "author": "Tamtaro",
-    "version": "3.1.2",
+    "version": "3.1.3",
     "category": "AIO",
     "serviceRequired": false,
     "changelogUrl": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/CHANGELOG.md",
@@ -13,7 +13,7 @@
       {
         "__if": "services",
         "id": "header.intro",
-        "name": "Complete SEL Setup v3.1.2: Debrid/Usenet Mode",
+        "name": "Complete SEL Setup v3.1.3: Debrid/Usenet Mode",
         "description": "An advanced filtering & sorting setup powered by Stream Expression Language (SEL) & [Vidhin's Regex Patterns](https://github.com/Vidhin05/Releases-Regex)",
         "type": "alert",
         "intent": "success"
@@ -21,7 +21,7 @@
       {
         "__if": "!services",
         "id": "header.p2p",
-        "name": "Complete SEL Setup v3.1.2: P2P Mode",
+        "name": "Complete SEL Setup v3.1.3: P2P Mode",
         "description": "No services selected. In some countries, torrenting is restricted,so a VPN or a debrid service from previous page may be required.",
         "type": "alert",
         "intent": "warning"
@@ -1540,7 +1540,7 @@
           {
             "id": "1080PRemuxBoost",
             "name": "1080P Remux Boost",
-            "description": "Default prioritizes 1080P Remux streams over 4K Web-DL streams. Set this to None to strictly prioritize all 4K streams ahead of 1080P.",
+            "description": "**Default** prioritizes 1080P Remux streams over 4K Web-DL streams. Default includes other Quality/Resolution rules found inside Preferred Stream Expressions. Set this to **None** to strictly sort by Resolution → Quality (ie., all 4K streams appears before 1080P regardless of Quality).",
             "type": "select",
             "required": false,
             "default": "default",
@@ -2111,7 +2111,7 @@
           {
             "id": "global",
             "name": "Global Result Limit",
-            "description": "Keep only the top N streams after filtering. Mobile backups, library streams, and SeaDex streams are exempt; streams retained by the options above are also preserved.",
+            "description": "Keep only the top N streams after SEL filtering. This is a global limit for all results, found inside \"Result Limits\" basic filter.",
             "type": "number",
             "required": false,
             "default": 0
@@ -2465,7 +2465,7 @@
       },
       "default": "{{inputs.misc.addonName}}"
     },
-    "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.1.2. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+    "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.1.3. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
     "addonLogo": {
       "__switch": "inputs.misc.addonLogo",
       "cases": {
@@ -2538,7 +2538,143 @@
     "preferredLanguages": [
       "{{inputs.languages}}",
       {
-        "__if": "inputs.LanguagePassthrough.language != none",
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes English and inputs.LanguagePassthrough.language != English",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes French and inputs.LanguagePassthrough.language != French",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Spanish and inputs.LanguagePassthrough.language != Spanish",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Latino and inputs.LanguagePassthrough.language != Latino",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Portuguese and inputs.LanguagePassthrough.language != Portuguese",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Portuguese (Brazil) and inputs.LanguagePassthrough.language != Portuguese (Brazil)",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes German and inputs.LanguagePassthrough.language != German",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Italian and inputs.LanguagePassthrough.language != Italian",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Japanese and inputs.LanguagePassthrough.language != Japanese",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Russian and inputs.LanguagePassthrough.language != Russian",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Hindi and inputs.LanguagePassthrough.language != Hindi",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Bangali and inputs.LanguagePassthrough.language != Bangali",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Marathi and inputs.LanguagePassthrough.language != Marathi",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Telugu and inputs.LanguagePassthrough.language != Telugu",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Tamil and inputs.LanguagePassthrough.language != Tamil",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Gujarati and inputs.LanguagePassthrough.language != Gujarati",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Kannada and inputs.LanguagePassthrough.language != Kannada ",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Malayalam and inputs.LanguagePassthrough.language != Malayalam",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Korean and inputs.LanguagePassthrough.language != Korean",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Chinese and inputs.LanguagePassthrough.language != Chinese",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Arabic and inputs.LanguagePassthrough.language != Arabic",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Turkish and inputs.LanguagePassthrough.language != Turkish",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Persian and inputs.LanguagePassthrough.language != Persian",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Polish and inputs.LanguagePassthrough.language != Polish",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Dutch and inputs.LanguagePassthrough.language != Dutch",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Swedish and inputs.LanguagePassthrough.language != Swedish",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Norwegian and inputs.LanguagePassthrough.language != Norwegian",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Danish and inputs.LanguagePassthrough.language != Danish",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Finnish and inputs.LanguagePassthrough.language != Finnish",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Thai and inputs.LanguagePassthrough.language != Thai",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Vietnamese and inputs.LanguagePassthrough.language != Vietnamese",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Indonesian and inputs.LanguagePassthrough.language != Indonesian",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Indonesian and inputs.LanguagePassthrough.language != Indonesian",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Malay and inputs.LanguagePassthrough.language != Malay",
+        "__value": "{{inputs.LanguagePassthrough.language}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.language != none and inputs.languages includes Indonesian and inputs.LanguagePassthrough.language != Indonesian",
         "__value": "{{inputs.LanguagePassthrough.language}}"
       },
       "Original",
@@ -2553,7 +2689,143 @@
     "preferredSubtitles": [
       "{{inputs.subtitles}}",
       {
-        "__if": "inputs.LanguagePassthrough.subLanguage != none",
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes English and inputs.LanguagePassthrough.subLanguage != English",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes French and inputs.LanguagePassthrough.subLanguage != French",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Spanish and inputs.LanguagePassthrough.subLanguage != Spanish",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Latino and inputs.LanguagePassthrough.subLanguage != Latino",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Portuguese and inputs.LanguagePassthrough.subLanguage != Portuguese",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Portuguese (Brazil) and inputs.LanguagePassthrough.subLanguage != Portuguese (Brazil)",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes German and inputs.LanguagePassthrough.subLanguage != German",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Italian and inputs.LanguagePassthrough.subLanguage != Italian",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Japanese and inputs.LanguagePassthrough.subLanguage != Japanese",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Russian and inputs.LanguagePassthrough.subLanguage != Russian",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Hindi and inputs.LanguagePassthrough.subLanguage != Hindi",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Bangali and inputs.LanguagePassthrough.subLanguage != Bangali",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Marathi and inputs.LanguagePassthrough.subLanguage != Marathi",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Telugu and inputs.LanguagePassthrough.subLanguage != Telugu",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Tamil and inputs.LanguagePassthrough.subLanguage != Tamil",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Gujarati and inputs.LanguagePassthrough.subLanguage != Gujarati",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Kannada and inputs.LanguagePassthrough.subLanguage != Kannada ",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Malayalam and inputs.LanguagePassthrough.subLanguage != Malayalam",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Korean and inputs.LanguagePassthrough.subLanguage != Korean",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Chinese and inputs.LanguagePassthrough.subLanguage != Chinese",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Arabic and inputs.LanguagePassthrough.subLanguage != Arabic",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Turkish and inputs.LanguagePassthrough.subLanguage != Turkish",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Persian and inputs.LanguagePassthrough.subLanguage != Persian",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Polish and inputs.LanguagePassthrough.subLanguage != Polish",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Dutch and inputs.LanguagePassthrough.subLanguage != Dutch",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Swedish and inputs.LanguagePassthrough.subLanguage != Swedish",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Norwegian and inputs.LanguagePassthrough.subLanguage != Norwegian",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Danish and inputs.LanguagePassthrough.subLanguage != Danish",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Finnish and inputs.LanguagePassthrough.subLanguage != Finnish",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Thai and inputs.LanguagePassthrough.subLanguage != Thai",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Vietnamese and inputs.LanguagePassthrough.subLanguage != Vietnamese",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Indonesian and inputs.LanguagePassthrough.subLanguage != Indonesian",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Indonesian and inputs.LanguagePassthrough.subLanguage != Indonesian",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Malay and inputs.LanguagePassthrough.subLanguage != Malay",
+        "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
+      },
+      {
+        "__if": "inputs.LanguagePassthrough.subLanguage != none and inputs.subtitles includes Indonesian and inputs.LanguagePassthrough.subLanguage != Indonesian",
         "__value": "{{inputs.LanguagePassthrough.subLanguage}}"
       }
     ],
@@ -2876,17 +3148,17 @@
       },
       {
         "__if": "inputs.coreFilterNonUsenet > 0",
-        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.1.2: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterNonUsenet}} 𝙳𝚎𝚋𝚛𝚒𝚍·𝙷𝚃𝚃𝙿·𝙿2𝙿*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.1.3: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterNonUsenet}} 𝙳𝚎𝚋𝚛𝚒𝚍·𝙷𝚃𝚃𝙿·𝙿2𝙿*/ []",
         "enabled": true
       },
       {
         "__if": "inputs.coreFilterUsenet > 0",
-        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.1.2: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterUsenet}} 𝚄𝚜𝚎𝚗𝚎𝚝*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.1.3: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterUsenet}} 𝚄𝚜𝚎𝚗𝚎𝚝*/ []",
         "enabled": true
       },
       {
         "__if": "inputs.coreFilterUsenet == 0 and inputs.coreFilterUsenet == 0",
-        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.1.2: No 𝚂𝙴𝙻𝚎𝚌𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.1.3: No 𝚂𝙴𝙻𝚎𝚌𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
         "enabled": true
       },
       {
@@ -3182,7 +3454,7 @@
       },
       {
         "__if": "inputs.coreFilterNonUsenet and inputs.coreFilterNonUsenet != 0 or inputs.coreFilterUsenet and inputs.coreFilterUsenet != 0",
-        "expression": "/*SELect {{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}} Q/R Uncached*/ (1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) !=0 ? negate( merge( perGroup(resolution(negate(seadex(streams), uncached(streams)), '2160p'), 'quality', (count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '2160p'), 'Bluray Remux', 'Bluray'))<=1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})? ceil(1.5*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) : (1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}))) ), perGroup(resolution(negate(seadex(streams), uncached(streams)), '1440p'), 'quality', 1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})), perGroup(resolution(negate(seadex(streams), uncached(streams)), '1080p'), 'quality', ((count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '2160p'), 'Bluray Remux', 'Bluray', 'WEB-DL'))<=1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}) or count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '1080p'), 'Bluray Remux', 'Bluray'))<=1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) ? ceil(1.5*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) : (1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}))) ), perGroup(resolution(negate(seadex(streams), uncached(streams)), '720p'), 'quality', ((count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '2160p'), 'Bluray Remux', 'Bluray', 'WEB-DL'))<=1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}) or count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '1080p'), 'Bluray Remux', 'Bluray'))<=1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) ? ceil(1.5*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) : (1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}))) ), perGroup(resolution(negate(seadex(streams), uncached(streams)), '576p', '480p','360p','240p','144p'), 'quality', 1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})), perGroup(resolution(negate(seadex(streams), uncached(streams)), 'Unknown'), 'quality', 1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}))), negate(seadex(streams), uncached(streams))) : []",
+        "expression": "/*SELect Q/R Uncached*/ (1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) !=0 ? negate( merge( perGroup(resolution(negate(seadex(streams), uncached(streams)), '2160p'), 'quality', (count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '2160p'), 'Bluray Remux', 'Bluray'))<=1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})? ceil(1.5*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) : (1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}))) ), perGroup(resolution(negate(seadex(streams), uncached(streams)), '1440p'), 'quality', 1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})), perGroup(resolution(negate(seadex(streams), uncached(streams)), '1080p'), 'quality', ((count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '2160p'), 'Bluray Remux', 'Bluray', 'WEB-DL'))<=1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}) or count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '1080p'), 'Bluray Remux', 'Bluray'))<=1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) ? ceil(1.5*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) : (1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}))) ), perGroup(resolution(negate(seadex(streams), uncached(streams)), '720p'), 'quality', ((count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '2160p'), 'Bluray Remux', 'Bluray', 'WEB-DL'))<=1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}) or count(quality(resolution(negate(merge(library(streams), seadex(streams)), uncached(streams)), '1080p'), 'Bluray Remux', 'Bluray'))<=1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) ? ceil(1.5*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})) : (1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}))) ), perGroup(resolution(negate(seadex(streams), uncached(streams)), '576p', '480p','360p','240p','144p'), 'quality', 1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})), perGroup(resolution(negate(seadex(streams), uncached(streams)), 'Unknown'), 'quality', 1*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}))), negate(seadex(streams), uncached(streams))) : []",
         "enabled": true
       },
       {
@@ -3191,8 +3463,13 @@
         "enabled": true
       },
       {
+        "__if": "inputs.selectRefinement.unknownQual == keep and inputs.selectRefinement.unknownRes == keep",
+        "expression": "/*Keep Unknown Quality & Resolution*/ passthrough(quality(resolution(merge(type(streams, 'p2p', 'http', 'usenet', 'stremio-usenet'), cached(type(streams, 'debrid'))), 'Unknown'), 'Unknown'), 'excluded')",
+        "enabled": true
+      },
+      {
         "__if": "inputs.coreFilterNonUsenet and inputs.coreFilterNonUsenet != 0 or inputs.coreFilterUsenet and inputs.coreFilterUsenet != 0",
-        "expression": "/*Final Q SELection*/ isAnime? ((count(quality(seadex(streams),'HDRip','HC HD-Rip','DVD REMUX','DVDRip','HDTV'))==0 and count(quality(resolution(merge(type(streams,'p2p','http','live','usenet','stremio-usenet'), cached(type(streams, 'debrid'))),'2160p','1440p','1080p','720p'), 'Bluray REMUX','DVD REMUX','Bluray','WEB-DL'))> (2*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}))) ?  quality(streams,'HDRip','HC HD-Rip','DVDRip','HDTV','CAM','TS','TC','SCR'): ((count(quality(seadex(streams),'HDRip','HC HD-Rip','DVD REMUX','DVDRip','HDTV'))>=1 or count(quality(resolution(merge(type(streams,'p2p','http','live','usenet','stremio-usenet'), cached(type(streams, 'debrid'))),'2160p','1440p','1080p','720p'),'Bluray REMUX','Bluray','WEB-DL','WEBRip','HDRip','HC HD-Rip','DVD REMUX','DVDRip','HDTV'))> (2*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}})))? quality(streams,'CAM','TS','TC','SCR') : [] )): (count(rseMatched(quality(merge(type(streams,'p2p','http','live','usenet','stremio-usenet'), cached(type(streams, 'debrid'))), 'Bluray REMUX','Bluray','WEB-DL'), 'DE Bluray T1', 'DE Bluray T2', 'DE Bluray T3', 'UHD Bluray T1', 'HD Bluray T1', 'UHD Bluray T2', 'HD Bluray T2', 'UHD Bluray T3', 'HD Bluray T3', 'DE Web T1', 'DE Web T2', 'DE Web T3', 'DE Web Scene', 'Web T1', 'Web T2', 'Web T3', 'Web Scene','Asian T1','Asian T2','Asian T3')) > (1*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}})) or count(quality(resolution(merge(type(streams,'p2p','http','live','usenet','stremio-usenet'), cached(type(streams, 'debrid'))),'2160p','1440p','1080p','720p'),'Bluray REMUX','DVD REMUX','Bluray','WEB-DL')) > (2*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}))) ?  quality(streams,'HDRip','HC HD-Rip','DVDRip','HDTV','SCR','TC','TS','CAM','Unknown'): ((count(quality(resolution(merge(type(streams,'p2p','http','live','usenet','stremio-usenet'), cached(type(streams, 'debrid'))),'2160p','1440p','1080p','720p'), 'Bluray REMUX','Bluray','WEB-DL','WEBRip','HDRip','HC HD-Rip','DVD REMUX','DVDRip','HDTV')) > (2*3))? quality(streams,'CAM','TS','TC','SCR') : [] )",
+        "expression": "/*Final Q SELection*/ isAnime? ((count(quality(seadex(streams),'HDRip','HC HD-Rip','DVD REMUX','DVDRip','HDTV'))==0 and count(quality(resolution(merge(type(streams,'p2p','http','live','usenet','stremio-usenet'), cached(type(streams, 'debrid'))),'2160p','1440p','1080p','720p'), 'Bluray REMUX','DVD REMUX','Bluray','WEB-DL'))> 2*(min(5, max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})))) ?  quality(streams,'HDRip','HC HD-Rip','DVDRip','HDTV','CAM','TS','TC','SCR'): ((count(quality(seadex(streams),'HDRip','HC HD-Rip','DVD REMUX','DVDRip','HDTV'))>=1 or count(quality(resolution(merge(type(streams,'p2p','http','live','usenet','stremio-usenet'), cached(type(streams, 'debrid'))),'2160p','1440p','1080p','720p'),'Bluray REMUX','Bluray','WEB-DL','WEBRip','HDRip','HC HD-Rip','DVD REMUX','DVDRip','HDTV'))> 1*(min(5, max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}))))? quality(streams,'CAM','TS','TC','SCR') : [] )): (count(rseMatched(quality(merge(type(streams,'p2p','http','live','usenet','stremio-usenet'), cached(type(streams, 'debrid'))), 'Bluray REMUX','Bluray','WEB-DL'), 'DE Bluray T1', 'DE Bluray T2', 'DE Bluray T3', 'UHD Bluray T1', 'HD Bluray T1', 'UHD Bluray T2', 'HD Bluray T2', 'UHD Bluray T3', 'HD Bluray T3', 'DE Web T1', 'DE Web T2', 'DE Web T3', 'DE Web Scene', 'Web T1', 'Web T2', 'Web T3', 'Web Scene','Asian T1','Asian T2','Asian T3')) > 1*(min(5, max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}))) or count(quality(resolution(merge(type(streams,'p2p','http','live','usenet','stremio-usenet'), cached(type(streams, 'debrid'))),'2160p','1440p','1080p','720p'),'Bluray REMUX','DVD REMUX','Bluray','WEB-DL')) > 2*(min(5, max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})))) ?  quality(streams,'HDRip','HC HD-Rip','DVDRip','HDTV','SCR','TC','TS','CAM','Unknown'): ((count(quality(resolution(merge(type(streams,'p2p','http','live','usenet','stremio-usenet'), cached(type(streams, 'debrid'))),'2160p','1440p','1080p','720p'), 'Bluray REMUX','Bluray','WEB-DL','WEBRip','HDRip','HC HD-Rip','DVD REMUX','DVDRip','HDTV')) > 1*(min(5, max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}))))? quality(streams,'CAM','TS','TC','SCR') : [] )",
         "enabled": true
       },
       {
@@ -3212,7 +3489,7 @@
       },
       {
         "__if": "inputs.coreFilterNonUsenet and inputs.coreFilterNonUsenet != 0 or inputs.coreFilterUsenet and inputs.coreFilterUsenet != 0",
-        "expression": "/*Final Resolution SELection*/ merge(count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) >= min(3*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 15)? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')), '720p','576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) >= min(1.5*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 8)? merge(type(uncached(streams),'debrid'),slice(resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')), '720p'), 2*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}})),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) > 0? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >= min(2.5*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 12)? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >= min(1.5*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}}), 6)? merge(type(uncached(streams),'debrid'),slice(resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','Unknown'), 2*({{inputs.coreFilterNonUsenet}}+{{inputs.coreFilterNonUsenet}})),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'360p','240p','144p')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >0? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'360p','240p','144p')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p','576p','480p','360p','240p','144p','Unknown')) >0? merge(type(uncached(streams),'debrid')): [])",
+        "expression": "/*Final R SELection*/ merge(count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) >= min(3*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}), 15)? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')), '720p','576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) >= min(1.5*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}), 8)? merge(type(uncached(streams),'debrid'),slice(resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')), '720p'), 2*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p')) > 0? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >= min(2.5*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}), 12)? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','360p','240p','144p','Unknown')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >= min(1.5*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}}), 6)? merge(type(uncached(streams),'debrid'),slice(resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'576p','480p','Unknown'), 2*max({{inputs.coreFilterNonUsenet}},{{inputs.coreFilterNonUsenet}})),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'360p','240p','144p')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p')) >0? merge(type(uncached(streams),'debrid'),resolution(merge(type(streams,'usenet','stremio-usenet','http','live','p2p'), type(cached(streams),'debrid')),'360p','240p','144p')):count(resolution( merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid')),'2160p','1440p','1080p','720p','576p','480p','360p','240p','144p','Unknown')) >0? merge(type(uncached(streams),'debrid')): [])",
         "enabled": true
       },
       {
@@ -3244,20 +3521,22 @@
       },
       {
         "__if": "inputs.filterLimit.topPerResOnly and inputs.filterLimit.topPerResOnly > 0",
-        "expression": "/*Top {{inputs.filterLimit.topPerResOnly}} Per Resolution Only (2 Different Res)*/ passthrough(merge(library(streams), seadex(streams), slice(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p'), 0, 1*{{inputs.filterLimit.topPerResOnly}}), slice(resolution(negate(uncached(type(streams,'debrid')), streams),'1440p'), 0, 1*{{inputs.filterLimit.topPerResOnly}}), slice(resolution(negate(uncached(type(streams,'debrid')), streams),'1080p'), 0, 1*{{inputs.filterLimit.topPerResOnly}}), count(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p')) == 0? slice(resolution(negate(uncached(type(streams,'debrid')), streams),'720p'), 0, 1*{{inputs.filterLimit.topPerResOnly}}) : [], count(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p', '1080p')) == 0? slice(resolution(negate(uncached(type(streams,'debrid')), streams),'576p','480p'), 0, 1*{{inputs.filterLimit.topPerResOnly}}) : streams))",
+        "expression": "/*Top {{inputs.filterLimit.topPerResOnly}} Per Resolution Only*/ passthrough(merge(library(streams), seadex(streams), slice(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p'), 0, 1*{{inputs.filterLimit.topPerResOnly}}), slice(resolution(negate(uncached(type(streams,'debrid')), streams),'1440p'), 0, 1*{{inputs.filterLimit.topPerResOnly}}), slice(resolution(negate(uncached(type(streams,'debrid')), streams),'1080p'), 0, 1*{{inputs.filterLimit.topPerResOnly}}), count(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p')) == 0 or count(resolution(negate(uncached(type(streams,'debrid')), streams),'720p')) > 0 ? slice(resolution(negate(uncached(type(streams,'debrid')), streams),'720p'), 0, 1*{{inputs.filterLimit.topPerResOnly}}) : [], count(resolution(negate(uncached(type(streams,'debrid')), streams),'2160p', '1080p')) == 0? slice(resolution(negate(uncached(type(streams,'debrid')), streams),'576p','480p'), 0, 1*{{inputs.filterLimit.topPerResOnly}}) : streams))",
         "enabled": true
       },
       {
         "__if": "inputs.filterLimit.topQualResOnly and inputs.filterLimit.topQualResOnly > 0",
-        "expression": "/*Top {{inputs.filterLimit.topQualResOnly}} Per Quality/Resolution Only*/ passthrough(merge(library(streams), seadex(streams), perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '2160p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '1440p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '1080p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), count(perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '2160p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')) == 0? perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '720p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'): [], count(perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '2160p', '1080p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')) == 0? perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '576p', '480p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL', 'DVD REMUX') : [], count(perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '2160p', '1080p','720p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')) == 0? streams : []))",
-        "enabled": true
-      },
-      {
-        "__if": "inputs.filterLimit.global and inputs.filterLimit.global > 0",
-        "expression": "/*Global Result Limit: {{inputs.filterLimit.global}} */ merge(library(streams), seadex(streams), slice(negate(merge(library(streams),seadex(streams)), streams), 0, {{inputs.filterLimit.global}}))",
+        "expression": "/*Top {{inputs.filterLimit.topQualResOnly}} Per Quality/Resolution Only*/ passthrough(merge(library(streams), seadex(streams), perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '2160p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '1440p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '1080p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'), count(perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '2160p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')) == 0 or count(perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '720p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')) > 0? perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '720p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL'): [], count(perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '2160p', '1080p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')) == 0? perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '576p', '480p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL', 'DVD REMUX') : [], count(perGroup(resolution(negate(uncached(type(streams,'debrid')), streams), '2160p', '1080p','720p'), 'quality', {{inputs.filterLimit.topQualResOnly}}, 'Bluray REMUX', 'Bluray', 'WEB-DL')) == 0? streams : []))",
         "enabled": true
       }
     ],
+    "resultLimits": {
+      "mode": "conjunctive",
+      "global": {
+        "__if": "inputs.filterLimit.global and inputs.filterLimit.global > 0",
+        "__value": "{{inputs.filterLimit.global}}"
+      }
+    },
     "preferredStreamExpressions": [
       {
         "expression": "/*𝙲𝚞𝚜𝚝𝚘𝚖 𝚀𝚁 𝚂𝚘𝚛𝚝 - 𝚄𝚜𝚎 𝚠𝚒𝚝𝚑 \"𝚂𝚝𝚛𝚎𝚊𝚖 𝙴𝚡𝚙𝚛𝚎𝚜𝚜𝚒𝚘𝚗𝚜\" 𝚒𝚗𝚜𝚒𝚍𝚎 𝚂𝚘𝚛𝚝 𝙾𝚛𝚍𝚎𝚛.*/ []",
@@ -3308,6 +3587,12 @@
           "__if": "inputs.languages == French",
           "expression": "/*Non-FR*/ originalLanguage != 'French' and isAnime ? negate(merge(regexMatched(streams, 'FR LQ Watermarks', 'FR LQ ReTAG', 'FR LQ False Releases', 'FR LQ Other Reasons', 'FastSUB', 'VOSTFR', 'FR Groups', 'VF2', 'VFF', 'VFI', 'VOF', 'VFB', 'VOQ', 'VQ', 'VFQ'), language(streams, 'French'), subtitle(streams, 'French')), streams) : originalLanguage != 'French' ? negate(merge(regexMatched(streams, 'FR LQ Watermarks', 'FR LQ ReTAG', 'FR LQ False Releases', 'FR LQ Other Reasons', 'FR Groups', 'VF2', 'VFF', 'VFI', 'VOF', 'VFB', 'VOQ', 'VQ', 'VFQ'), language(streams, 'French')), streams) : []",
           "score": -10000,
+          "enabled": true
+        },
+        {
+          "__if": "inputs.languages includes Portuguese (Brazil)",
+          "expression": "/*#Sterzeck*/ /*PT-BR Group*/ releaseGroup(streams,'AlfaHD','BiOMA','BRHD','FileHD','FreedomHD','RiPER','PLuSHD','PlusHD','SiGLA','PD','FiDO','G4RiS','RK','MASTER','FOXX','GUEIRA','Cory','PirataDigital','RARBR','Shelby','TARS','Wyrm','Adamantium','Troidex','NEX','THR','MLH','WTV','VNLLS','ZMG','BAD','BIG','FF','ASY','AZX','C76','C0RAL','Extr3muss','DKS','GOT','100REAL','BDC','IZards','Emmid','Fantasma223','CBR','Xiquexique','Olympus','OscarNiemeyer','Tupac','Tijuco','Gris','ElM4g0','Fly','FranzOPL','LaPumia','Lukas','Lucano22','WitchHunter','Potatin','N3G4N','Shaka','Sacerdoti','UPD','Anonimo','Anonymous07','Byoutou','Estagiario','Madruga','LCD','LMB','LTDA','MDG','MiColeaoDublado','PIA','VARYG','ZNM','Yatogam1','CZA','JUS','3lton','AConduta','AmanteDoHarpia','ECK','FABR','FreddieGellar','INSS','SpaghettiMancer','TheCS','Titans','Siz3D','Netope','7Sprite7','ToonsHub')",
+          "score": 10000,
           "enabled": true
         },
         {
@@ -3893,7 +4178,6 @@
         }
       }
     },
-    "resultLimits": {},
     "size": {
       "global": {
         "movies": [
