@@ -9,6 +9,7 @@
   - Individually, "Keep Unknown Resolution" only keeps high quality Unkonwn Resolution & "Keep Unkown Quality" only keeps high resolution Unknown Quality
 - If you select "Keep 720P Resolution" inside "SELect Refinement" then "Top N Per Resolution" or "Top N Per Quality/Resolution" inside Final Filters will also keep 720P Resolution
 - No more two of same language appearing inside Preferred Languages/Subtitles when using Language Passthrough Options
+- Removed "LQ w/o Proper Tags" from ESE
 
 ## 3.1.2 (2026-08-17)
 - "Formatter Style" is now a mandatory field so it's not accidentally left blank, causing undefined error upon saving
