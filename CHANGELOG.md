@@ -1,4 +1,37 @@
 # Changelog
+## 3.2.0 (2026-08-30)
+**New**
+- Added three Variants to go along with your Base Config once you complete my setup template.
+  - `Debrid Only Variant`. Disables all usenet related services and addons from your base config. If your base config contains Http & P2P streams, then they are retained.
+  - `Usenet Only Variant`. Disables all debrid/p2p related services and addons from your base config. If your base config contains Http streams, then they are retained.
+  - `Nuvio P2P Instant Variant`. Inserts p2p-only scrapers, switches to Tamtaro "(Nuvio P2P Instant)" formatter, strips debrid/usenet/http services and addons, and disables seeder-specific filter & sorting.
+  - To use these variants, go to Save & Install page, select one of the Variants to get a new manifest URL for your installation.
+  ![alt text](images/screenshots/aios-variants.png)
+- New submenu "Backup Options", found under Advanced Options
+  - Configure backup streams (pinned to the bottom) for when your debrid services are unavailable or when you're on mobile data. These streams are exempt from all subsequent filtering.
+  - Previous Mobile Backup options are found here, along with two new Backup options, Http & P2P
+  - Each Backup Option has two number fields, you need to input something in both to enable said Backup Option.
+    - Example: Pin to the bottom 2 HTTP streams per Resolution, total 5 HTTP streams. 
+- New Formatter Variant: Tamtaro (Nuvio P2P Instant) as requested. 
+  - This is same as Tamtaro (Default) with a few changes: removed p2p marker on p2p results, flattened the Name Template so they appear in one horizontal line, and inserted the full filename at the bottom.
+  - These changese (& any Tamtaro variants) are prone to change, per popular request or my fancy.
+- New SEL for ESE v2.1.3: "Multi-Ep Anime"
+  - This removes some falsely labeled anime files where AIOS thinks are multi-episode packs
+  - Example: `Dr..STONE.(2019)-S04E16-074-` is currently parsed as Season 4 Episode 16 to 74, resulting in false episode matching
+  - This SEL may remove genuine multi-episode packs too, so let me know if that happens
+
+**Changes**
+- Final Filters got updated. 
+  - Fixed issue with "Top N per Resolution Only" returning all streams
+  - "Top N per Resolution Only" and "Top N per Quality/Resolution Only" are now aware of each other. When selecting something in both, a new SEL is created combining both logic
+    - Example: Selecting "Top 3 Per Quality/Resolution Only" and "Top 6 per Resolution Only" will combine into "Top 3 Per Quality/Resolution Only (Max 6 Per Resolution)"
+    - As before, Backup streams, library, and SeaDex streams are exempt.
+- titleMatching.ambiguousResults now sets to "discard"
+  - This solves various instances where ambiguous (and wrong) results are kept such as when searching for Dark Matter (2024), you will no longer see false results from Dark Matter (2015) series
+- Small tweaks and fixes (but took me a long time ._,) to all included formatter variants
+- TVDB API is now optional, temporarily, since new users are having issues with obtaining new API. If you have TVDB API, I strongly recommend entering it still, as it improves reliability for various metadata-reliant features.
+- Permanently retiring Partial Setup Template, RIP.
+
 ## 3.1.3 (2026-08-23)
 **Some changes:**
 - Tightened "Final Q SELection" thresholds with a defined maximum, so you're less likely to see lower Quality streams; re-apply template to see the newer limit
