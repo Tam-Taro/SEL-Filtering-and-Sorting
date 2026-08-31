@@ -3,7 +3,7 @@
 **Fix**
 - SELect Refinement window no longer appears blank
 - Tamtaro (Default) formatter selection now works as intended
-- 
+ 
 ## 3.2.1 (2026-08-31)
 **Change**
 - New "Setup Variants" toggle allows you to include template's variants or keep your existing
