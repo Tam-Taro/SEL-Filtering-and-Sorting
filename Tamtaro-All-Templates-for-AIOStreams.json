@@ -14,7 +14,7 @@
         {
           "__if": "services",
           "id": "header.intro",
-          "name": "Complete SEL Setup v3.2.1: Debrid/Usenet Mode",
+          "name": "Complete SEL Setup v3.2.2: Debrid/Usenet Mode",
           "description": "An advanced filtering & sorting setup powered by Stream Expression Language (SEL) & [Vidhin's Regex Patterns](https://github.com/Vidhin05/Releases-Regex)",
           "type": "alert",
           "intent": "success"
@@ -22,7 +22,7 @@
         {
           "__if": "!services",
           "id": "header.p2p",
-          "name": "Complete SEL Setup v3.2.1: P2P Mode",
+          "name": "Complete SEL Setup v3.2.2: P2P Mode",
           "description": "No services selected. In some countries, torrenting is restricted, so a VPN or a debrid service from previous page may be required.",
           "type": "alert",
           "intent": "warning"
@@ -2539,7 +2539,7 @@
         },
         "default": "{{inputs.misc.addonName}}"
       },
-      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.2.1. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.2.2. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
       "addonLogo": {
         "__switch": "inputs.misc.addonLogo",
         "cases": {
@@ -3214,17 +3214,17 @@
         },
         {
           "__if": "inputs.coreFilterNonUsenet > 0",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.1: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterNonUsenet}} 𝙳𝚎𝚋𝚛𝚒𝚍·𝙷𝚃𝚃𝙿·𝙿2𝙿*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 v3.2.2: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterNonUsenet}} 𝙳𝚎𝚋𝚛𝚒𝚍·𝙷𝚃𝚃𝙿·𝙿2𝙿*/ []",
           "enabled": true
         },
         {
           "__if": "inputs.coreFilterUsenet > 0",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.1: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterUsenet}} 𝚄𝚜𝚎𝚗𝚎𝚝*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 v3.2.2: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterUsenet}} 𝚄𝚜𝚎𝚗𝚎𝚝*/ []",
           "enabled": true
         },
         {
           "__if": "inputs.coreFilterUsenet == 0 and inputs.coreFilterUsenet == 0",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.1: No 𝚂𝙴𝙻𝚎𝚌𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 v3.2.2: No 𝚂𝙴𝙻𝚎𝚌𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
           "enabled": true
         },
         {
