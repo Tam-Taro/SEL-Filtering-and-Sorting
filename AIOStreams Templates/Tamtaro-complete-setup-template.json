@@ -5,7 +5,7 @@
     "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://git.tamtaro.de). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Includes optional add-ons and formatter styles. \n * Uses dynamic SELect Engine to retain the number of streams you choose.\n * Uses auto-synced SELs and & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so SEL fixes and updates are received automatically.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
     "source": "external",
     "author": "Tamtaro",
-    "version": "3.2.0",
+    "version": "3.2.1",
     "category": "AIO",
     "serviceRequired": false,
     "changelogUrl": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/CHANGELOG.md",
@@ -13,7 +13,7 @@
       {
         "__if": "services",
         "id": "header.intro",
-        "name": "Complete SEL Setup v3.2.0: Debrid/Usenet Mode",
+        "name": "Complete SEL Setup v3.2.1: Debrid/Usenet Mode",
         "description": "An advanced filtering & sorting setup powered by Stream Expression Language (SEL) & [Vidhin's Regex Patterns](https://github.com/Vidhin05/Releases-Regex)",
         "type": "alert",
         "intent": "success"
@@ -21,7 +21,7 @@
       {
         "__if": "!services",
         "id": "header.p2p",
-        "name": "Complete SEL Setup v3.2.0: P2P Mode",
+        "name": "Complete SEL Setup v3.2.1: P2P Mode",
         "description": "No services selected. In some countries, torrenting is restricted, so a VPN or a debrid service from previous page may be required.",
         "type": "alert",
         "intent": "warning"
@@ -262,7 +262,7 @@
         "name": "Strict Language Filtering",
         "description": "Use only the languages selected above in the Required Languages filter. This removes the automatically added Original, Dual Audio, Multi, Dubbed, and Unknown categories. Streams that do not match one of your selected languages are removed. This may exclude valid streams that are tagged only as Dual Audio, Multi, or Unknown.",
         "type": "boolean",
-        "advanced": true,
+        "advanced": false,
         "required": false,
         "default": false
       },
@@ -467,524 +467,6 @@
           {
             "value": "Vietnamese",
             "label": "Vietnamese"
-          }
-        ]
-      },
-      {
-        "id": "LanguagePassthrough",
-        "name": "Language Passthrough Options",
-        "description": "Bypass select language streams from SELect Engine, and optionally pin them to the top. Rest of the results will still follow default SEL setup.",
-        "type": "subsection",
-        "advanced": true,
-        "required": false,
-        "subsectionIntent": "inline",
-        "buttonIntent": "white-subtle",
-        "subOptions": [
-          {
-            "id": "languageNotice",
-            "name": "",
-            "description": "Language Passthrough Options",
-            "type": "alert",
-            "intent": "info-basic"
-          },
-          {
-            "id": "language",
-            "name": "Language Passthrough",
-            "description": "Always include streams in this language when available, bypassing SELect Engine. Matching language streams are exempt from language filter and added to Preferred (to show up in Formatter). Audio-language labels depend on available media info and may be inaccurate when it has not been scraped by StremThru.",
-            "type": "select",
-            "default": "none",
-            "required": false,
-            "options": [
-              {
-                "value": "none",
-                "label": "Disabled"
-              },
-              {
-                "value": "Arabic",
-                "label": "Arabic"
-              },
-              {
-                "value": "Bengali",
-                "label": "Bengali"
-              },
-              {
-                "value": "Bulgarian",
-                "label": "Bulgarian"
-              },
-              {
-                "value": "Chinese",
-                "label": "Chinese"
-              },
-              {
-                "value": "Croatian",
-                "label": "Croatian"
-              },
-              {
-                "value": "Czech",
-                "label": "Czech"
-              },
-              {
-                "value": "Danish",
-                "label": "Danish"
-              },
-              {
-                "value": "Dubbed",
-                "label": "Dubbed"
-              },
-              {
-                "value": "Dual Audio",
-                "label": "Dual Audio"
-              },
-              {
-                "value": "Dutch",
-                "label": "Dutch"
-              },
-              {
-                "value": "English",
-                "label": "English"
-              },
-              {
-                "value": "Estonian",
-                "label": "Estonian"
-              },
-              {
-                "value": "Finnish",
-                "label": "Finnish"
-              },
-              {
-                "value": "French",
-                "label": "French"
-              },
-              {
-                "value": "German",
-                "label": "German"
-              },
-              {
-                "value": "Greek",
-                "label": "Greek"
-              },
-              {
-                "value": "Gujarati",
-                "label": "Gujarati"
-              },
-              {
-                "value": "Hebrew",
-                "label": "Hebrew"
-              },
-              {
-                "value": "Hindi",
-                "label": "Hindi"
-              },
-              {
-                "value": "Hungarian",
-                "label": "Hungarian"
-              },
-              {
-                "value": "Indonesian",
-                "label": "Indonesian"
-              },
-              {
-                "value": "Italian",
-                "label": "Italian"
-              },
-              {
-                "value": "Japanese",
-                "label": "Japanese"
-              },
-              {
-                "value": "Kannada",
-                "label": "Kannada"
-              },
-              {
-                "value": "Korean",
-                "label": "Korean"
-              },
-              {
-                "value": "Latino",
-                "label": "Latino"
-              },
-              {
-                "value": "Latvian",
-                "label": "Latvian"
-              },
-              {
-                "value": "Lithuanian",
-                "label": "Lithuanian"
-              },
-              {
-                "value": "Malayalam",
-                "label": "Malayalam"
-              },
-              {
-                "value": "Malay",
-                "label": "Malay"
-              },
-              {
-                "value": "Marathi",
-                "label": "Marathi"
-              },
-              {
-                "value": "Multi",
-                "label": "Multi"
-              },
-              {
-                "value": "Norwegian",
-                "label": "Norwegian"
-              },
-              {
-                "value": "Original",
-                "label": "Original"
-              },
-              {
-                "value": "Persian",
-                "label": "Persian"
-              },
-              {
-                "value": "Polish",
-                "label": "Polish"
-              },
-              {
-                "value": "Portuguese",
-                "label": "Portuguese"
-              },
-              {
-                "value": "Portuguese (Brazil)",
-                "label": "Portuguese (Brazil)"
-              },
-              {
-                "value": "Punjabi",
-                "label": "Punjabi"
-              },
-              {
-                "value": "Romanian",
-                "label": "Romanian"
-              },
-              {
-                "value": "Russian",
-                "label": "Russian"
-              },
-              {
-                "value": "Serbian",
-                "label": "Serbian"
-              },
-              {
-                "value": "Slovak",
-                "label": "Slovak"
-              },
-              {
-                "value": "Slovenian",
-                "label": "Slovenian"
-              },
-              {
-                "value": "Spanish",
-                "label": "Spanish"
-              },
-              {
-                "value": "Swedish",
-                "label": "Swedish"
-              },
-              {
-                "value": "Tamil",
-                "label": "Tamil"
-              },
-              {
-                "value": "Telugu",
-                "label": "Telugu"
-              },
-              {
-                "value": "Thai",
-                "label": "Thai"
-              },
-              {
-                "value": "Turkish",
-                "label": "Turkish"
-              },
-              {
-                "value": "Ukrainian",
-                "label": "Ukrainian"
-              },
-              {
-                "value": "Unknown",
-                "label": "Unknown"
-              },
-              {
-                "value": "Vietnamese",
-                "label": "Vietnamese"
-              }
-            ]
-          },
-          {
-            "id": "languageAmount",
-            "name": "Language Passthrough Amount",
-            "description": "Set how many streams in the selected language can bypass SELect Engine.",
-            "type": "number",
-            "required": false,
-            "default": 5
-          },
-          {
-            "id": "languagePin",
-            "name": "Pin Language Passthrough",
-            "description": "Pin selected language-passthrough streams to the top of the results.",
-            "type": "boolean",
-            "required": false,
-            "default": false
-          },
-          {
-            "id": "languageAnimeOnly",
-            "name": "Anime only",
-            "description": "Apply these language-passthrough settings to anime only. When English is selected, Dual Audio and SeaDex results are included as well.",
-            "type": "boolean",
-            "required": false,
-            "default": false
-          },
-          {
-            "id": "SubLanguageNotice",
-            "name": "",
-            "description": "Subtitle Passthrough Options",
-            "type": "alert",
-            "intent": "info-basic"
-          },
-          {
-            "id": "subLanguage",
-            "name": "Embedded Subtitle Passthrough",
-            "description": "Always include streams with embedded subtitles in this language when reliable subtitle metadata is available, bypassing SELect Engine. Matching stream is exempt from language filter & added to Preferred (to show up in Formatter). Reliable metadata is commonly available from built-in add-ons, StremThru Torz, Meteor, and Torrentio.",
-            "type": "select",
-            "default": "none",
-            "required": false,
-            "options": [
-              {
-                "value": "none",
-                "label": "Disabled"
-              },
-              {
-                "value": "Arabic",
-                "label": "Arabic"
-              },
-              {
-                "value": "Bengali",
-                "label": "Bengali"
-              },
-              {
-                "value": "Bulgarian",
-                "label": "Bulgarian"
-              },
-              {
-                "value": "Chinese",
-                "label": "Chinese"
-              },
-              {
-                "value": "Croatian",
-                "label": "Croatian"
-              },
-              {
-                "value": "Czech",
-                "label": "Czech"
-              },
-              {
-                "value": "Danish",
-                "label": "Danish"
-              },
-              {
-                "value": "Dutch",
-                "label": "Dutch"
-              },
-              {
-                "value": "English",
-                "label": "English"
-              },
-              {
-                "value": "Estonian",
-                "label": "Estonian"
-              },
-              {
-                "value": "Finnish",
-                "label": "Finnish"
-              },
-              {
-                "value": "French",
-                "label": "French"
-              },
-              {
-                "value": "German",
-                "label": "German"
-              },
-              {
-                "value": "Greek",
-                "label": "Greek"
-              },
-              {
-                "value": "Gujarati",
-                "label": "Gujarati"
-              },
-              {
-                "value": "Hebrew",
-                "label": "Hebrew"
-              },
-              {
-                "value": "Hindi",
-                "label": "Hindi"
-              },
-              {
-                "value": "Hungarian",
-                "label": "Hungarian"
-              },
-              {
-                "value": "Indonesian",
-                "label": "Indonesian"
-              },
-              {
-                "value": "Italian",
-                "label": "Italian"
-              },
-              {
-                "value": "Japanese",
-                "label": "Japanese"
-              },
-              {
-                "value": "Kannada",
-                "label": "Kannada"
-              },
-              {
-                "value": "Korean",
-                "label": "Korean"
-              },
-              {
-                "value": "Latino",
-                "label": "Latino"
-              },
-              {
-                "value": "Latvian",
-                "label": "Latvian"
-              },
-              {
-                "value": "Lithuanian",
-                "label": "Lithuanian"
-              },
-              {
-                "value": "Malayalam",
-                "label": "Malayalam"
-              },
-              {
-                "value": "Malay",
-                "label": "Malay"
-              },
-              {
-                "value": "Marathi",
-                "label": "Marathi"
-              },
-              {
-                "value": "Multi",
-                "label": "Multi"
-              },
-              {
-                "value": "Norwegian",
-                "label": "Norwegian"
-              },
-              {
-                "value": "Original",
-                "label": "Original"
-              },
-              {
-                "value": "Persian",
-                "label": "Persian"
-              },
-              {
-                "value": "Polish",
-                "label": "Polish"
-              },
-              {
-                "value": "Portuguese",
-                "label": "Portuguese"
-              },
-              {
-                "value": "Portuguese (Brazil)",
-                "label": "Portuguese (Brazil)"
-              },
-              {
-                "value": "Punjabi",
-                "label": "Punjabi"
-              },
-              {
-                "value": "Romanian",
-                "label": "Romanian"
-              },
-              {
-                "value": "Russian",
-                "label": "Russian"
-              },
-              {
-                "value": "Serbian",
-                "label": "Serbian"
-              },
-              {
-                "value": "Slovak",
-                "label": "Slovak"
-              },
-              {
-                "value": "Slovenian",
-                "label": "Slovenian"
-              },
-              {
-                "value": "Spanish",
-                "label": "Spanish"
-              },
-              {
-                "value": "Swedish",
-                "label": "Swedish"
-              },
-              {
-                "value": "Tamil",
-                "label": "Tamil"
-              },
-              {
-                "value": "Telugu",
-                "label": "Telugu"
-              },
-              {
-                "value": "Thai",
-                "label": "Thai"
-              },
-              {
-                "value": "Turkish",
-                "label": "Turkish"
-              },
-              {
-                "value": "Ukrainian",
-                "label": "Ukrainian"
-              },
-              {
-                "value": "Unknown",
-                "label": "Unknown"
-              },
-              {
-                "value": "Vietnamese",
-                "label": "Vietnamese"
-              }
-            ]
-          },
-          {
-            "id": "subLanguageAmount",
-            "name": "Subtitle Language Passthrough Amount",
-            "description": "Set how many streams with the selected embedded subtitle language can bypass SELect Engine.",
-            "type": "number",
-            "required": false,
-            "default": 5
-          },
-          {
-            "id": "subLanguagePin",
-            "name": "Pin Subtitle Language Passthrough",
-            "description": "Pin selected subtitle-passthrough streams to the top of the results.",
-            "type": "boolean",
-            "required": false,
-            "default": false
-          },
-          {
-            "id": "subLanguageAnimeOnly",
-            "name": "Anime only",
-            "description": "Apply these subtitle-passthrough settings to anime only.",
-            "type": "boolean",
-            "required": false,
-            "default": false
           }
         ]
       },
@@ -1827,7 +1309,7 @@
         "name": "SELect Refinement",
         "description": "Refine your Final SELection results, such as keeping or removing 720p or Unknown Resolution, Unknown Quality, or Uncached Debrid.",
         "type": "subsection",
-        "advanced": true,
+        "advanced": false,
         "required": false,
         "subsectionIntent": "inline",
         "buttonIntent": "white-subtle",
@@ -1959,174 +1441,20 @@
         ]
       },
       {
-        "id": "miscPassthrough",
-        "name": "Pin Options",
-        "description": "Pin various top streams to the top for easy navigation, or boost various visual tags to guarantee their inclusion.",
-        "type": "subsection",
-        "advanced": true,
-        "required": false,
-        "subsectionIntent": "inline",
-        "buttonIntent": "white-subtle",
-        "subOptions": [
+        "id": "variants",
+        "name": "Setup Variants",
+        "description": "Variants are extra profiles that come with your template setup. This template currently comes with 5 profiles, each with its own installation url found in *Save & Install* page. \"Base Config\": the main setup as configured by this template and various AIOStreams pages. \"Debrid Only\": same as base config, but only Debrid is shown. \"Usenet Only\": only Usenet is shown. \"HTTP Only\": only HTTP is shown. \"Nuvio P2P Instant\": only P2P streams for Nuvio Instant feature. Select **None** to retain your existing variants.",
+        "type": "select",
+        "required": true,
+        "default": "includeVariants",
+        "options": [
           {
-            "id": "topResPinScore",
-            "name": "Pin Top Score Per Resolution",
-            "description": "Pin the highest SEL-score stream from each resolution. Supports up to two resolutions.",
-            "type": "number",
-            "required": false,
-            "default": 0
+            "value": "includeVariants",
+            "label": "Include Variants"
           },
           {
-            "id": "topResPin",
-            "name": "Pin Top N per Resolution",
-            "description": "Pin the top N streams from each resolution according to the active sort order. Supports up to two resolutions. To pin Usenet-only results, use the corresponding option under Usenet Options.",
-            "type": "number",
-            "required": false,
-            "default": 0
-          },
-          {
-            "id": "topQualResPin",
-            "name": "Pin Top N per Quality/Resolution",
-            "description": "Pin the top N streams from each Quality/Resolution group according to the active sort order.",
-            "type": "number",
-            "required": false,
-            "default": 0
-          },
-          {
-            "id": "visualTag",
-            "name": "Visual Tag Passthrough",
-            "description": "Allow up to five streams for each selected visual tag to bypass the SELect Engine. Use this when normal filtering leaves too few streams with your preferred visual format.",
-            "type": "multi-select",
-            "required": false,
-            "default": [],
-            "options": [
-              {
-                "value": "DV",
-                "label": "Any DV"
-              },
-              {
-                "value": "dvHDR",
-                "label": "DV + HDR"
-              },
-              {
-                "value": "HDRonly",
-                "label": "HDR Only"
-              },
-              {
-                "value": "SDR",
-                "label": "SDR (Non-HDR/DV)"
-              }
-            ]
-          },
-          {
-            "id": "visualTagPin",
-            "name": "Pin Visual Tags",
-            "description": "Pin visual tag passthrough streams to the top of the results",
-            "type": "boolean",
-            "required": false,
-            "default": false
-          }
-        ]
-      },
-      {
-        "id": "usenet",
-        "name": "Usenet Options",
-        "description": "Some additional options for Usenet.",
-        "type": "subsection",
-        "advanced": true,
-        "required": false,
-        "subsectionIntent": "inline",
-        "buttonIntent": "white-subtle",
-        "subOptions": [
-          {
-            "id": "usenetHealth",
-            "name": "Health-☑ NZB Passthrough",
-            "description": "**☑ NZB Passthrough/Pin**: allows all health-☑ Zyclops/UsenetStreamer/AvailNZB usenet to bypass SELect Engine, optionally pin health-☑ usenet to the top.",
-            "type": "select",
-            "required": false,
-            "default": "none",
-            "options": [
-              {
-                "value": "none",
-                "label": "Disabled"
-              },
-              {
-                "value": "Checkednzb",
-                "label": "☑ NZB Passthrough"
-              },
-              {
-                "value": "CheckednzbPin",
-                "label": "☑ NZB Pin"
-              }
-            ]
-          },
-          {
-            "id": "usenetTopQualResPin",
-            "name": "Pin Top Usenet per Quality/Resolution",
-            "description": "Pin the top Usenet streams from each Quality/Resolution group.",
-            "type": "number",
-            "required": false,
-            "default": 0
-          },
-          {
-            "id": "usenetUncachedSort",
-            "name": "Boost Uncached Usenet - Torbox Only",
-            "description": "Treat uncached Usenet streams from TorBox like cached streams during sorting, instead of placing them in a separate Uncached group. Global-only Sort Order will be used.",
-            "type": "boolean",
-            "required": false,
-            "default": false
-          }
-        ]
-      },
-      {
-        "id": "filterLimit",
-        "name": "Final Filters",
-        "description": " Trim your results one last time for a cleaner list. They run after all other SEL filtering has completed.",
-        "type": "subsection",
-        "advanced": true,
-        "required": false,
-        "subsectionIntent": "inline",
-        "buttonIntent": "white-subtle",
-        "subOptions": [
-          {
-            "id": "header.finalFilter",
-            "name": "",
-            "description": "Additional Filtering After SELect Engine",
-            "type": "alert",
-            "advanced": true,
-            "intent": "info"
-          },
-          {
-            "id": "topResOnly",
-            "name": "Top Resolution Only",
-            "description": "If more than one 4K stream remains after the SELect Engine, keep only 4K streams and remove lower resolutions. If not, the same check is performed for 1080p and then 720p. Backup streams, library streams, and SeaDex streams are exempt. Note: streams selected by this toggle *will not* be affected by \"Top N per\" options below.",
-            "type": "boolean",
-            "required": false,
-            "default": false
-          },
-          {
-            "id": "topPerResOnly",
-            "name": "Top N per Resolution Only",
-            "description": "Keep only top N streams for each Resolution according to the active sort order. Backup streams, library streams, and SeaDex streams are exempt. Note: Does not work on streams selected by \"Top Resolution Only\" above.",
-            "type": "number",
-            "required": false,
-            "default": 0
-          },
-          {
-            "id": "topQualResOnly",
-            "name": "Top N per Quality/Resolution Only",
-            "description": "Keep only top N streams for each Quality/Resolution group according to the active sort order. Backup streams, library streams, and SeaDex streams are exempt.  Note: Does not work on streams selected by \"Top Resolution Only\" above.",
-            "type": "number",
-            "required": false,
-            "default": 0
-          },
-          {
-            "id": "global",
-            "name": "Global Result Limit",
-            "description": "Keep only the top N streams after SEL filtering. This is a global limit that works on *all results*, found inside \"Result Limits\" basic filter.",
-            "type": "number",
-            "required": false,
-            "default": 0
+            "value": "retain",
+            "label": "None (Keep Existing)"
           }
         ]
       },
@@ -2198,9 +1526,9 @@
         ]
       },
       {
-        "id": "bitrate",
-        "name": "Bitrate Options",
-        "description": "Configure low bitrate settings for filtering and sorting.",
+        "id": "LanguagePassthrough",
+        "name": "Language Passthrough Options",
+        "description": "Bypass select language streams from SELect Engine, and optionally pin them to the top. Rest of the results will still follow default SEL setup.",
         "type": "subsection",
         "advanced": true,
         "required": false,
@@ -2208,61 +1536,579 @@
         "buttonIntent": "white-subtle",
         "subOptions": [
           {
-            "id": "bitrateCap",
-            "name": "Static Bitrate Cap (Mbps)",
-            "description": "Set a maximum bitrate that streams cannot exceed. You may enter a custom value between 1 to 99. Set 100+ to disable this cap (default). See the options below for resolution-based and soft-limit behavior.",
-            "type": "select-with-custom",
+            "id": "languageNotice",
+            "name": "",
+            "description": "Language Passthrough Options",
+            "type": "alert",
+            "intent": "info-basic"
+          },
+          {
+            "id": "language",
+            "name": "Language Passthrough",
+            "description": "Always include streams in this language when available, bypassing SELect Engine. Matching language streams are exempt from language filter and added to Preferred (to show up in Formatter). Audio-language labels depend on available media info and may be inaccurate when it has not been scraped by StremThru.",
+            "type": "select",
+            "default": "none",
             "required": false,
-            "advanced": true,
-            "default": "100",
             "options": [
               {
-                "value": "10",
-                "label": "<10 (Data saver)"
+                "value": "none",
+                "label": "Disabled"
               },
               {
-                "value": "25",
-                "label": "25"
+                "value": "Arabic",
+                "label": "Arabic"
               },
               {
-                "value": "50",
-                "label": "50"
+                "value": "Bengali",
+                "label": "Bengali"
               },
               {
-                "value": "75",
-                "label": "75"
+                "value": "Bulgarian",
+                "label": "Bulgarian"
               },
               {
-                "value": "100",
-                "label": ">100 (Uncapped)"
+                "value": "Chinese",
+                "label": "Chinese"
+              },
+              {
+                "value": "Croatian",
+                "label": "Croatian"
+              },
+              {
+                "value": "Czech",
+                "label": "Czech"
+              },
+              {
+                "value": "Danish",
+                "label": "Danish"
+              },
+              {
+                "value": "Dubbed",
+                "label": "Dubbed"
+              },
+              {
+                "value": "Dual Audio",
+                "label": "Dual Audio"
+              },
+              {
+                "value": "Dutch",
+                "label": "Dutch"
+              },
+              {
+                "value": "English",
+                "label": "English"
+              },
+              {
+                "value": "Estonian",
+                "label": "Estonian"
+              },
+              {
+                "value": "Finnish",
+                "label": "Finnish"
+              },
+              {
+                "value": "French",
+                "label": "French"
+              },
+              {
+                "value": "German",
+                "label": "German"
+              },
+              {
+                "value": "Greek",
+                "label": "Greek"
+              },
+              {
+                "value": "Gujarati",
+                "label": "Gujarati"
+              },
+              {
+                "value": "Hebrew",
+                "label": "Hebrew"
+              },
+              {
+                "value": "Hindi",
+                "label": "Hindi"
+              },
+              {
+                "value": "Hungarian",
+                "label": "Hungarian"
+              },
+              {
+                "value": "Indonesian",
+                "label": "Indonesian"
+              },
+              {
+                "value": "Italian",
+                "label": "Italian"
+              },
+              {
+                "value": "Japanese",
+                "label": "Japanese"
+              },
+              {
+                "value": "Kannada",
+                "label": "Kannada"
+              },
+              {
+                "value": "Korean",
+                "label": "Korean"
+              },
+              {
+                "value": "Latino",
+                "label": "Latino"
+              },
+              {
+                "value": "Latvian",
+                "label": "Latvian"
+              },
+              {
+                "value": "Lithuanian",
+                "label": "Lithuanian"
+              },
+              {
+                "value": "Malayalam",
+                "label": "Malayalam"
+              },
+              {
+                "value": "Malay",
+                "label": "Malay"
+              },
+              {
+                "value": "Marathi",
+                "label": "Marathi"
+              },
+              {
+                "value": "Multi",
+                "label": "Multi"
+              },
+              {
+                "value": "Norwegian",
+                "label": "Norwegian"
+              },
+              {
+                "value": "Original",
+                "label": "Original"
+              },
+              {
+                "value": "Persian",
+                "label": "Persian"
+              },
+              {
+                "value": "Polish",
+                "label": "Polish"
+              },
+              {
+                "value": "Portuguese",
+                "label": "Portuguese"
+              },
+              {
+                "value": "Portuguese (Brazil)",
+                "label": "Portuguese (Brazil)"
+              },
+              {
+                "value": "Punjabi",
+                "label": "Punjabi"
+              },
+              {
+                "value": "Romanian",
+                "label": "Romanian"
+              },
+              {
+                "value": "Russian",
+                "label": "Russian"
+              },
+              {
+                "value": "Serbian",
+                "label": "Serbian"
+              },
+              {
+                "value": "Slovak",
+                "label": "Slovak"
+              },
+              {
+                "value": "Slovenian",
+                "label": "Slovenian"
+              },
+              {
+                "value": "Spanish",
+                "label": "Spanish"
+              },
+              {
+                "value": "Swedish",
+                "label": "Swedish"
+              },
+              {
+                "value": "Tamil",
+                "label": "Tamil"
+              },
+              {
+                "value": "Telugu",
+                "label": "Telugu"
+              },
+              {
+                "value": "Thai",
+                "label": "Thai"
+              },
+              {
+                "value": "Turkish",
+                "label": "Turkish"
+              },
+              {
+                "value": "Ukrainian",
+                "label": "Ukrainian"
+              },
+              {
+                "value": "Unknown",
+                "label": "Unknown"
+              },
+              {
+                "value": "Vietnamese",
+                "label": "Vietnamese"
               }
             ]
           },
           {
-            "id": "bitrateCapDynamic",
-            "name": "Dynamic Bitrate Cap",
-            "description": "Replace the single bitrate cap with resolution-based limits for greater bandwidth savings. Streams above 80% of your selected cap at 4K, 50% at 1080p, or 30% at 720p are removed.",
+            "id": "languageAmount",
+            "name": "Language Passthrough Amount",
+            "description": "Set how many streams in the selected language can bypass SELect Engine.",
+            "type": "number",
+            "required": false,
+            "default": 5
+          },
+          {
+            "id": "languagePin",
+            "name": "Pin Language Passthrough",
+            "description": "Pin selected language-passthrough streams to the top of the results.",
             "type": "boolean",
             "required": false,
-            "advanced": true,
             "default": false
           },
           {
-            "id": "bitrateCapSoft",
-            "name": "Soft Bitrate Cap",
-            "description": "Prioritize streams within the bitrate cap (via boosting SEL Score) instead of removing higher-bitrate streams. Within each Quality/Resolution group, larger files move lower in the list and are retained mainly as backups when fewer lower-bitrate choices exist.",
+            "id": "languageAnimeOnly",
+            "name": "Anime only",
+            "description": "Apply these language-passthrough settings to anime only. When English is selected, Dual Audio and SeaDex results are included as well.",
             "type": "boolean",
             "required": false,
-            "advanced": true,
             "default": false
           },
           {
-            "id": "bitrateBoostSort",
-            "name": "Sort Low Bitrate First",
-            "description": "Sort streams from lowest to highest bitrate within each Quality/Resolution group. Requires a bitrate cap below 100 Mbps.",
+            "id": "SubLanguageNotice",
+            "name": "",
+            "description": "Subtitle Passthrough Options",
+            "type": "alert",
+            "intent": "info-basic"
+          },
+          {
+            "id": "subLanguage",
+            "name": "Embedded Subtitle Passthrough",
+            "description": "Always include streams with embedded subtitles in this language when reliable subtitle metadata is available, bypassing SELect Engine. Matching stream is exempt from language filter & added to Preferred (to show up in Formatter). Reliable metadata is commonly available from built-in add-ons, StremThru Torz, Meteor, and Torrentio.",
+            "type": "select",
+            "default": "none",
+            "required": false,
+            "options": [
+              {
+                "value": "none",
+                "label": "Disabled"
+              },
+              {
+                "value": "Arabic",
+                "label": "Arabic"
+              },
+              {
+                "value": "Bengali",
+                "label": "Bengali"
+              },
+              {
+                "value": "Bulgarian",
+                "label": "Bulgarian"
+              },
+              {
+                "value": "Chinese",
+                "label": "Chinese"
+              },
+              {
+                "value": "Croatian",
+                "label": "Croatian"
+              },
+              {
+                "value": "Czech",
+                "label": "Czech"
+              },
+              {
+                "value": "Danish",
+                "label": "Danish"
+              },
+              {
+                "value": "Dutch",
+                "label": "Dutch"
+              },
+              {
+                "value": "English",
+                "label": "English"
+              },
+              {
+                "value": "Estonian",
+                "label": "Estonian"
+              },
+              {
+                "value": "Finnish",
+                "label": "Finnish"
+              },
+              {
+                "value": "French",
+                "label": "French"
+              },
+              {
+                "value": "German",
+                "label": "German"
+              },
+              {
+                "value": "Greek",
+                "label": "Greek"
+              },
+              {
+                "value": "Gujarati",
+                "label": "Gujarati"
+              },
+              {
+                "value": "Hebrew",
+                "label": "Hebrew"
+              },
+              {
+                "value": "Hindi",
+                "label": "Hindi"
+              },
+              {
+                "value": "Hungarian",
+                "label": "Hungarian"
+              },
+              {
+                "value": "Indonesian",
+                "label": "Indonesian"
+              },
+              {
+                "value": "Italian",
+                "label": "Italian"
+              },
+              {
+                "value": "Japanese",
+                "label": "Japanese"
+              },
+              {
+                "value": "Kannada",
+                "label": "Kannada"
+              },
+              {
+                "value": "Korean",
+                "label": "Korean"
+              },
+              {
+                "value": "Latino",
+                "label": "Latino"
+              },
+              {
+                "value": "Latvian",
+                "label": "Latvian"
+              },
+              {
+                "value": "Lithuanian",
+                "label": "Lithuanian"
+              },
+              {
+                "value": "Malayalam",
+                "label": "Malayalam"
+              },
+              {
+                "value": "Malay",
+                "label": "Malay"
+              },
+              {
+                "value": "Marathi",
+                "label": "Marathi"
+              },
+              {
+                "value": "Multi",
+                "label": "Multi"
+              },
+              {
+                "value": "Norwegian",
+                "label": "Norwegian"
+              },
+              {
+                "value": "Original",
+                "label": "Original"
+              },
+              {
+                "value": "Persian",
+                "label": "Persian"
+              },
+              {
+                "value": "Polish",
+                "label": "Polish"
+              },
+              {
+                "value": "Portuguese",
+                "label": "Portuguese"
+              },
+              {
+                "value": "Portuguese (Brazil)",
+                "label": "Portuguese (Brazil)"
+              },
+              {
+                "value": "Punjabi",
+                "label": "Punjabi"
+              },
+              {
+                "value": "Romanian",
+                "label": "Romanian"
+              },
+              {
+                "value": "Russian",
+                "label": "Russian"
+              },
+              {
+                "value": "Serbian",
+                "label": "Serbian"
+              },
+              {
+                "value": "Slovak",
+                "label": "Slovak"
+              },
+              {
+                "value": "Slovenian",
+                "label": "Slovenian"
+              },
+              {
+                "value": "Spanish",
+                "label": "Spanish"
+              },
+              {
+                "value": "Swedish",
+                "label": "Swedish"
+              },
+              {
+                "value": "Tamil",
+                "label": "Tamil"
+              },
+              {
+                "value": "Telugu",
+                "label": "Telugu"
+              },
+              {
+                "value": "Thai",
+                "label": "Thai"
+              },
+              {
+                "value": "Turkish",
+                "label": "Turkish"
+              },
+              {
+                "value": "Ukrainian",
+                "label": "Ukrainian"
+              },
+              {
+                "value": "Unknown",
+                "label": "Unknown"
+              },
+              {
+                "value": "Vietnamese",
+                "label": "Vietnamese"
+              }
+            ]
+          },
+          {
+            "id": "subLanguageAmount",
+            "name": "Subtitle Language Passthrough Amount",
+            "description": "Set how many streams with the selected embedded subtitle language can bypass SELect Engine.",
+            "type": "number",
+            "required": false,
+            "default": 5
+          },
+          {
+            "id": "subLanguagePin",
+            "name": "Pin Subtitle Language Passthrough",
+            "description": "Pin selected subtitle-passthrough streams to the top of the results.",
             "type": "boolean",
             "required": false,
-            "advanced": true,
+            "default": false
+          },
+          {
+            "id": "subLanguageAnimeOnly",
+            "name": "Anime only",
+            "description": "Apply these subtitle-passthrough settings to anime only.",
+            "type": "boolean",
+            "required": false,
+            "default": false
+          }
+        ]
+      },
+      {
+        "id": "miscPassthrough",
+        "name": "Pin Options",
+        "description": "Pin various top streams to the top for easy navigation, or boost various visual tags to guarantee their inclusion.",
+        "type": "subsection",
+        "advanced": true,
+        "required": false,
+        "subsectionIntent": "inline",
+        "buttonIntent": "white-subtle",
+        "subOptions": [
+          {
+            "id": "topResPinScore",
+            "name": "Pin Top Score Per Resolution",
+            "description": "Pin the highest SEL-score stream from each resolution. Supports up to two resolutions.",
+            "type": "number",
+            "required": false,
+            "default": 0
+          },
+          {
+            "id": "topResPin",
+            "name": "Pin Top N per Resolution",
+            "description": "Pin the top N streams from each resolution according to the active sort order. Supports up to two resolutions. To pin Usenet-only results, use the corresponding option under Usenet Options.",
+            "type": "number",
+            "required": false,
+            "default": 0
+          },
+          {
+            "id": "topQualResPin",
+            "name": "Pin Top N per Quality/Resolution",
+            "description": "Pin the top N streams from each Quality/Resolution group according to the active sort order.",
+            "type": "number",
+            "required": false,
+            "default": 0
+          },
+          {
+            "id": "visualTag",
+            "name": "Visual Tag Passthrough",
+            "description": "Allow up to five streams for each selected visual tag to bypass the SELect Engine. Use this when normal filtering leaves too few streams with your preferred visual format.",
+            "type": "multi-select",
+            "required": false,
+            "default": [],
+            "options": [
+              {
+                "value": "DV",
+                "label": "Any DV"
+              },
+              {
+                "value": "dvHDR",
+                "label": "DV + HDR"
+              },
+              {
+                "value": "HDRonly",
+                "label": "HDR Only"
+              },
+              {
+                "value": "SDR",
+                "label": "SDR (Non-HDR/DV)"
+              }
+            ]
+          },
+          {
+            "id": "visualTagPin",
+            "name": "Pin Visual Tags",
+            "description": "Pin visual tag passthrough streams to the top of the results",
+            "type": "boolean",
+            "required": false,
             "default": false
           }
         ]
@@ -2270,7 +2116,7 @@
       {
         "id": "backup",
         "name": "Backup Options",
-        "description": "Configure backup streams (pinned to the bottom) for when your debrid services are unavailable or when you're on mobile data. These streams are exempt from all subsequent filtering.",
+        "description": "Pin various streams to the bottom as backup streams for when your debrid services are unavailable or when you're on mobile data. These streams are exempt from all subsequent filtering.",
         "type": "subsection",
         "advanced": true,
         "required": false,
@@ -2382,6 +2228,178 @@
             "type": "number",
             "required": false,
             "advanced": true,
+            "default": 0
+          }
+        ]
+      },
+      {
+        "id": "usenet",
+        "name": "Usenet Options",
+        "description": "Some additional options for Usenet.",
+        "type": "subsection",
+        "advanced": true,
+        "required": false,
+        "subsectionIntent": "inline",
+        "buttonIntent": "white-subtle",
+        "subOptions": [
+          {
+            "id": "usenetHealth",
+            "name": "Health-☑ NZB Passthrough",
+            "description": "**☑ NZB Passthrough/Pin**: allows all health-☑ Zyclops/UsenetStreamer/AvailNZB usenet to bypass SELect Engine, optionally pin health-☑ usenet to the top.",
+            "type": "select",
+            "required": false,
+            "default": "none",
+            "options": [
+              {
+                "value": "none",
+                "label": "Disabled"
+              },
+              {
+                "value": "Checkednzb",
+                "label": "☑ NZB Passthrough"
+              },
+              {
+                "value": "CheckednzbPin",
+                "label": "☑ NZB Pin"
+              }
+            ]
+          },
+          {
+            "id": "usenetTopQualResPin",
+            "name": "Pin Top Usenet per Quality/Resolution",
+            "description": "Pin the top Usenet streams from each Quality/Resolution group.",
+            "type": "number",
+            "required": false,
+            "default": 0
+          },
+          {
+            "id": "usenetUncachedSort",
+            "name": "Boost Uncached Usenet - Torbox Only",
+            "description": "Treat uncached Usenet streams from TorBox like cached streams during sorting, instead of placing them in a separate Uncached group. Global-only Sort Order will be used.",
+            "type": "boolean",
+            "required": false,
+            "default": false
+          }
+        ]
+      },
+      {
+        "id": "bitrate",
+        "name": "Bitrate Options",
+        "description": "Configure low bitrate settings for filtering and sorting.",
+        "type": "subsection",
+        "advanced": true,
+        "required": false,
+        "subsectionIntent": "inline",
+        "buttonIntent": "white-subtle",
+        "subOptions": [
+          {
+            "id": "bitrateCap",
+            "name": "Static Bitrate Cap (Mbps)",
+            "description": "Set a maximum bitrate that streams cannot exceed. You may enter a custom value between 1 to 99. Set 100+ to disable this cap (default). See the options below for resolution-based and soft-limit behavior.",
+            "type": "select-with-custom",
+            "required": false,
+            "advanced": true,
+            "default": "100",
+            "options": [
+              {
+                "value": "10",
+                "label": "<10 (Data saver)"
+              },
+              {
+                "value": "25",
+                "label": "25"
+              },
+              {
+                "value": "50",
+                "label": "50"
+              },
+              {
+                "value": "75",
+                "label": "75"
+              },
+              {
+                "value": "100",
+                "label": ">100 (Uncapped)"
+              }
+            ]
+          },
+          {
+            "id": "bitrateCapDynamic",
+            "name": "Dynamic Bitrate Cap",
+            "description": "Replace the single bitrate cap with resolution-based limits for greater bandwidth savings. Streams above 80% of your selected cap at 4K, 50% at 1080p, or 30% at 720p are removed.",
+            "type": "boolean",
+            "required": false,
+            "advanced": true,
+            "default": false
+          },
+          {
+            "id": "bitrateCapSoft",
+            "name": "Soft Bitrate Cap",
+            "description": "Prioritize streams within the bitrate cap (via boosting SEL Score) instead of removing higher-bitrate streams. Within each Quality/Resolution group, larger files move lower in the list and are retained mainly as backups when fewer lower-bitrate choices exist.",
+            "type": "boolean",
+            "required": false,
+            "advanced": true,
+            "default": false
+          },
+          {
+            "id": "bitrateBoostSort",
+            "name": "Sort Low Bitrate First",
+            "description": "Sort streams from lowest to highest bitrate within each Quality/Resolution group. Requires a bitrate cap below 100 Mbps.",
+            "type": "boolean",
+            "required": false,
+            "advanced": true,
+            "default": false
+          }
+        ]
+      },
+      {
+        "id": "filterLimit",
+        "name": "Final Filters",
+        "description": " Trim your results one last time for a cleaner list. They run after all other SEL filtering has completed.",
+        "type": "subsection",
+        "advanced": true,
+        "required": false,
+        "subsectionIntent": "inline",
+        "buttonIntent": "white-subtle",
+        "subOptions": [
+          {
+            "id": "header.finalFilter",
+            "name": "",
+            "description": "Additional Filtering After SELect Engine",
+            "type": "alert",
+            "advanced": true,
+            "intent": "info"
+          },
+          {
+            "id": "topResOnly",
+            "name": "Top Resolution Only",
+            "description": "If more than one 4K stream remains after the SELect Engine, keep only 4K streams and remove lower resolutions. If not, the same check is performed for 1080p and then 720p. Backup streams, library streams, and SeaDex streams are exempt. Note: streams selected by this toggle *will not* be affected by \"Top N per\" options below.",
+            "type": "boolean",
+            "required": false,
+            "default": false
+          },
+          {
+            "id": "topPerResOnly",
+            "name": "Top N per Resolution Only",
+            "description": "Keep only top N streams for each Resolution according to the active sort order. Backup streams, library streams, and SeaDex streams are exempt. Note: Does not work on streams selected by \"Top Resolution Only\" above.",
+            "type": "number",
+            "required": false,
+            "default": 0
+          },
+          {
+            "id": "topQualResOnly",
+            "name": "Top N per Quality/Resolution Only",
+            "description": "Keep only top N streams for each Quality/Resolution group according to the active sort order. Backup streams, library streams, and SeaDex streams are exempt.  Note: Does not work on streams selected by \"Top Resolution Only\" above.",
+            "type": "number",
+            "required": false,
+            "default": 0
+          },
+          {
+            "id": "global",
+            "name": "Global Result Limit",
+            "description": "Keep only the top N streams after SEL filtering. This is a global limit that works on *all results*, found inside \"Result Limits\" basic filter.",
+            "type": "number",
+            "required": false,
             "default": 0
           }
         ]
@@ -2531,7 +2549,12 @@
   },
   "config": {
     "trusted": false,
-    "showChanges": false,
+    "appliedTemplates": [
+      {
+        "id": "tamtaro.complete",
+        "version": "3.2.1"
+      }
+    ],
     "addonName": {
       "__switch": "inputs.misc.addonName",
       "cases": {
@@ -2541,7 +2564,7 @@
       },
       "default": "{{inputs.misc.addonName}}"
     },
-    "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.2.0. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+    "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.2.1. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
     "addonLogo": {
       "__switch": "inputs.misc.addonLogo",
       "cases": {
@@ -3216,17 +3239,17 @@
       },
       {
         "__if": "inputs.coreFilterNonUsenet > 0",
-        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.0: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterNonUsenet}} 𝙳𝚎𝚋𝚛𝚒𝚍·𝙷𝚃𝚃𝙿·𝙿2𝙿*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.1: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterNonUsenet}} 𝙳𝚎𝚋𝚛𝚒𝚍·𝙷𝚃𝚃𝙿·𝙿2𝙿*/ []",
         "enabled": true
       },
       {
         "__if": "inputs.coreFilterUsenet > 0",
-        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.0: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterUsenet}} 𝚄𝚜𝚎𝚗𝚎𝚝*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.1: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterUsenet}} 𝚄𝚜𝚎𝚗𝚎𝚝*/ []",
         "enabled": true
       },
       {
         "__if": "inputs.coreFilterUsenet == 0 and inputs.coreFilterUsenet == 0",
-        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.0: No 𝚂𝙴𝙻𝚎𝚌𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.1: No 𝚂𝙴𝙻𝚎𝚌𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
         "enabled": true
       },
       {
@@ -3373,12 +3396,12 @@
       },
       {
         "__if": "inputs.backup.httpPerRes and inputs.backup.httpPerRes > 0 and inputs.backup.httpTotal and inputs.backup.httpTotal > 0",
-        "expression": "/*HTTP Backup: {{inputs.backup.httpPerRes}} Per Resolution, ({{inputs.backup.httpTotal}} Total)*/ count(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'live','http')), 'resolution', {{inputs.backup.httpPerRes}}, '2160p', '1440p', '1080p', '720p', 'Unknown')) >= {{inputs.backup.httpTotal}} ?  merge( negate(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'live','http')), 'resolution', {{inputs.backup.httpPerRes}}, '2160p', '1440p', '1080p', '720p', 'Unknown'), 0, {{inputs.backup.httpTotal}}), type(streams,'live','http')),  pin(passthrough(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'live','http')), 'resolution', {{inputs.backup.httpPerRes}}, '2160p', '1440p', '1080p', '720p', 'Unknown'), 0, {{inputs.backup.httpTotal}}), 'excluded', 'required'), 'bottom')) : merge( negate(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'live','http')), 'resolution', {{inputs.backup.httpPerRes}}), 0, {{inputs.backup.httpTotal}}), type(streams,'live','http')),  pin(passthrough(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'live','http')), 'resolution', {{inputs.backup.httpPerRes}}), 0, {{inputs.backup.httpTotal}}), 'excluded', 'required', 'limit'), 'bottom'))",
+        "expression": "/*HTTP Backup: {{inputs.backup.httpPerRes}} Per Resolution ({{inputs.backup.httpTotal}} Total)*/ count(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'live','http')), 'resolution', {{inputs.backup.httpPerRes}}, '2160p', '1440p', '1080p', '720p', 'Unknown')) >= {{inputs.backup.httpTotal}} ?  merge( negate(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'live','http')), 'resolution', {{inputs.backup.httpPerRes}}, '2160p', '1440p', '1080p', '720p', 'Unknown'), 0, {{inputs.backup.httpTotal}}), type(streams,'live','http')),  pin(passthrough(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'live','http')), 'resolution', {{inputs.backup.httpPerRes}}, '2160p', '1440p', '1080p', '720p', 'Unknown'), 0, {{inputs.backup.httpTotal}}), 'excluded', 'required'), 'bottom')) : merge( negate(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'live','http')), 'resolution', {{inputs.backup.httpPerRes}}), 0, {{inputs.backup.httpTotal}}), type(streams,'live','http')),  pin(passthrough(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'live','http')), 'resolution', {{inputs.backup.httpPerRes}}), 0, {{inputs.backup.httpTotal}}), 'excluded', 'required', 'limit'), 'bottom'))",
         "enabled": true
       },
       {
         "__if": "inputs.backup.p2pPerRes and inputs.backup.p2pTotal > 0 and inputs.backup.p2pPerRes and inputs.backup.p2pTotal > 0",
-        "expression": "/*P2P Backup: {{inputs.backup.p2pPerRes}} Per Resolution, ({{inputs.backup.p2pTotal}} Total)*/ count(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'p2p')), 'resolution', {{inputs.backup.p2pPerRes}}, '2160p', '1440p', '1080p', '720p', 'Unknown')) >= {{inputs.backup.p2pTotal}} ?  merge( negate(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'p2p')), 'resolution', {{inputs.backup.p2pPerRes}}, '2160p', '1440p', '1080p', '720p', 'Unknown'), 0, {{inputs.backup.p2pTotal}}), type(streams,'p2p')),  pin(passthrough(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'p2p')), 'resolution', {{inputs.backup.p2pPerRes}}, '2160p', '1440p', '1080p', '720p', 'Unknown'), 0, {{inputs.backup.p2pTotal}}), 'excluded', 'required'), 'bottom')) : merge( negate(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'p2p')), 'resolution', {{inputs.backup.p2pPerRes}}), 0, {{inputs.backup.p2pTotal}}), type(streams,'p2p')),  pin(passthrough(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'p2p')), 'resolution', {{inputs.backup.p2pPerRes}}), 0, {{inputs.backup.p2pTotal}}), 'excluded', 'required', 'limit'), 'bottom'))",
+        "expression": "/*P2P Backup: {{inputs.backup.p2pPerRes}} Per Resolution ({{inputs.backup.p2pTotal}} Total)*/ count(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'p2p')), 'resolution', {{inputs.backup.p2pPerRes}}, '2160p', '1440p', '1080p', '720p', 'Unknown')) >= {{inputs.backup.p2pTotal}} ?  merge( negate(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'p2p')), 'resolution', {{inputs.backup.p2pPerRes}}, '2160p', '1440p', '1080p', '720p', 'Unknown'), 0, {{inputs.backup.p2pTotal}}), type(streams,'p2p')),  pin(passthrough(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'p2p')), 'resolution', {{inputs.backup.p2pPerRes}}, '2160p', '1440p', '1080p', '720p', 'Unknown'), 0, {{inputs.backup.p2pTotal}}), 'excluded', 'required'), 'bottom')) : merge( negate(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'p2p')), 'resolution', {{inputs.backup.p2pPerRes}}), 0, {{inputs.backup.p2pTotal}}), type(streams,'p2p')),  pin(passthrough(slice(perGroup(negate(merge(library(streams), seadex(streams), quality(streams,'CAM','TS','TC','SCR')), type(streams,'p2p')), 'resolution', {{inputs.backup.p2pPerRes}}), 0, {{inputs.backup.p2pTotal}}), 'excluded', 'required', 'limit'), 'bottom'))",
         "enabled": true
       },
       {
@@ -4215,55 +4238,55 @@
             "__switch": "inputs.formatterChoice",
             "cases": {
               "Tamtaro (Minimalist)": {
-                "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K    ')::replace('1440p','2K    ')::replace('p','P')}\"||\"\"]}{service.cached[\"⚡\"||\"⏳\"||\" \"]}\n{?{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"ᴴᴰᴿ \"||\"\"]}{stream.quality::title::replace('Bluray Remux','Best')::replace('Bluray','Bluray')::replace('Web-dl','Stream')::replace('Webrip','Stream')::replace('Hdrip','Stream')::replace('Hc Hd-rip','Stream')::replace('Hdtv','TV')::replace('Dvd Remux','Best DVD')::replace('Dvdrip','DVD')::replace('Scr','Leak')::replace('Tc','Leak')::replace('Ts','Cam')::replace('Cam','Cam')}?}",
+                "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K    ')::replace('1440p','2K    ')::replace('p','P')}\"||\"\"]}{service.cached[\"⚡\"||\"⏳\"||\" \"]}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}\n{?{stream.visualTags::in('DV')[\"ᴰⱽ \"||\"\"]}{stream.visualTags::in('HLG','HDR','HDR10','HDR10+')[\"ᴴᴰᴿ \"||\"\"]}{stream.quality::title::replace('Bluray Remux','Best')::replace('Bluray','Bluray')::replace('Web-dl','Stream')::replace('Webrip','Stream')::replace('Hdrip','Stream')::replace('Hc Hd-rip','Stream')::replace('Hdtv','TV')::replace('Dvd Remux','Best DVD')::replace('Dvdrip','DVD')::replace('Scr','Leak')::replace('Tc','Leak')::replace('Ts','Cam')::replace('Cam','Cam')}?}",
                 "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(20)}\"||\"{stream.title::title::truncate(15)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\"\n▦  {stream.date::date('%-d %b %Y')} \"||\"\"]}\"||\"{stream.date::exists[\"\n▦  {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{stream.size::>0[\"{stream.seasonPack[\"❖  \"||\"◈  \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\" ⇄ {stream.seeders}❦\"||\"\"]}{stream.type::~debrid::isfalse[\"  ▪  {stream.type::replace('p2p','P2P')::replace('live','Live')::replace('http','Web Direct')::replace('usenet','Usenet')::replace('stremio-usenet','Usenet')::replace('youtube','YouTube')::smallcaps}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n‌\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}\n{stream.seadex::or::stream.message::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.rseMatched::in('B&W Boost')[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{? {stream.network::smallcaps::replace('ꜱ','s')} ?}{stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.rseMatched::in('B&W Boost')[\"ʙ&ᴡ \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}"
               },
               "Tamtaro (Default)": {
-                "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','   4K ')::replace('1440p','    2K ')::replace('p','P')}‍\"||\"‍     \"]}{?‍{stream.type::replace('debrid','    ')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','‏⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{service.cached[\"⚡\"||\"‍⏳‍​\"||\"\"]}{?‍‍\n  〈{stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web‍-‍dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')}〉‍     ?}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}{?‍\n  {stream.nSeScore::star::replace('⯪','☆')}            ?}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}",
+                "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','   4K ')::replace('1440p','    2K ')::replace('p','P')}‍\"||\"‍     \"]}{?‍{stream.type::replace('debrid','    ')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','‏⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{service.cached[\"⚡\"||\"‍⏳‍​\"||\"\"]}{?‍‍\n  〈{stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web‍-‍dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')}〉‍     ?}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}{?‍\n  {stream.nSeScore::star::replace('⯪','☆')}            ?}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}",
                 "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(20)}\"||\"{stream.title::title::truncate(15)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\"\n▦  {stream.date::date('%-d %b %Y')}\"||\"\"]}\"||\"{stream.date::exists[\"▦  {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦ \"||\"✧ \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')}  \"||\"\"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::<=6::and::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::<=10::and::stream.audioChannels::length::<=2[\"{?♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::>6::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioChannels::length::>2[\"{?♬  {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.size::>0[\"{stream.seasonPack[\"❖ \"||\"◈ \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{?· {stream.age}?}\n{stream.proxied[\"⛊ \"||\"⛉ \"]}{?[{service.shortName}] ?}{addon.name}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::remove('TrueHD ATMOS','DD+ ATMOS','ATMOS','TrueHD','DTS-HD MA','FLAC','DTS-HD HRA','DD+','DD','DTS-ES','DTS X','DTS','AAC','Opus','DV (Disk)','DV','HDR10+ Boost','HDR','IMAX Enhanced','IMAX','INTERNAL','No-RlsGroup','FHD','HD','4K','126811','Season Pack')::join(' ')::replace('UHD ','')::replace('HD ','')::replace('Movies Anywhere','MA')::replace('Streaming Boost','')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}"
               },
               "Tamtaro (Full rseMatched)": {
-                "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','   4K ')::replace('1440p','    2K ')::replace('p','P')}‍\"||\"‍     \"]}{?‍{stream.type::replace('debrid','    ')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','‏⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{service.cached[\"⚡\"||\"‍⏳‍​\"||\"\"]}{?‍‍\n  〈{stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web‍-‍dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')}〉‍     ?}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}{?‍\n  {stream.nSeScore::star::replace('⯪','☆')}            ?}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}",
-                "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(20)}\"||\"{stream.title::title::truncate(15)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\"\n▦  {stream.date::date('%-d %b %Y')}\"||\"\"]}\"||\"{stream.date::exists[\"▦  {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦ \"||\"✧ \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')}  \"||\"\"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::<=6::and::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::<=10::and::stream.audioChannels::length::<=2[\"{?♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::>6::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioChannels::length::>2[\"{?♬  {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.size::>0[\"{stream.seasonPack[\"❖ \"||\"◈ \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{?· {stream.age}?}\n{stream.proxied[\"⛊ \"||\"⛉ \"]}{?[{service.shortName}] ?}{addon.name}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched:::join(' ')::replace('UHD ','')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}"
+                "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','   4K ')::replace('1440p','    2K ')::replace('p','P')}‍\"||\"‍     \"]}{?‍{stream.type::replace('debrid','    ')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','‏⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{service.cached[\"⚡\"||\"‍⏳‍​\"||\"\"]}{?‍‍\n  〈{stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web‍-‍dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')}〉‍     ?}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}{?‍\n  {stream.nSeScore::star::replace('⯪','☆')}            ?}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}",
+                "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(20)}\"||\"{stream.title::title::truncate(15)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\"\n▦  {stream.date::date('%-d %b %Y')}\"||\"\"]}\"||\"{stream.date::exists[\"▦  {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦ \"||\"✧ \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')}  \"||\"\"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::<=6::and::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::<=10::and::stream.audioChannels::length::<=2[\"{?♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::>6::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioChannels::length::>2[\"{?♬  {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.size::>0[\"{stream.seasonPack[\"❖ \"||\"◈ \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{?· {stream.age}?}\n{stream.proxied[\"⛊ \"||\"⛉ \"]}{?[{service.shortName}] ?}{addon.name}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::join(' ')::replace('UHD ','')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}"
               },
               "Tamtaro (AppleTV)": {
-                "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K ')::replace('1440p','2K ')::replace('p','P')}‍\"||\"\"]}{?‍{stream.type::replace('debrid',' ')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','‏⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{service.cached[\"⚡\"||\"‍⏳‍​\"||\"\"]}{?〈{stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web‍-‍dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')::smallcaps::replace('ꜱ','s')}〉‍ ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{? {stream.nSeScore::star::replace('⯪','☆')} ?}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}",
-                "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(30)}\"||\"{stream.title::title::truncate(25)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')} \"||\"\"]}\"||\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦  \"||\"✧  \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')}  \"||\"\"]}{?  ♯ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\n{stream.size::>0[\"{stream.seasonPack[\"❖  \"||\"◈  \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{? · [{service.shortName}{stream.proxied[\" ⛊ \"||\" ⛉ \"]}{addon.name}]?}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::remove('TrueHD ATMOS','DD+ ATMOS','ATMOS','TrueHD','DTS-HD MA','FLAC','DTS-HD HRA','DD+','DD','DTS-ES','DTS X','DTS','AAC','Opus','DV (Disk)','DV','HDR10+ Boost','HDR','IMAX Enhanced','IMAX','UHD Streaming Boost','HD Streaming Boost','INTERNAL','No-RlsGroup','FHD','UHD','HD','4K','126811','SiC','FraMeSToR','TheFarm','hallowed','BHDStudio','FLUX','Season Pack')::join('  ')::replace('UHD ','')::replace('HD ','')::replace('Movies Anywhere','MA')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}"
+                "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K ')::replace('1440p','2K ')::replace('p','P')}‍\"||\"\"]}{?‍{stream.type::replace('debrid',' ')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','‏⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{service.cached[\"⚡\"||\"‍⏳‍​\"||\"\"]}{?〈{stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web‍-‍dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')::smallcaps::replace('ꜱ','s')}〉‍ ?}{? {stream.nSeScore::star::replace('⯪','☆')} ?}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}",
+                "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(30)}\"||\"{stream.title::title::truncate(25)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')} \"||\"\"]}\"||\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦  \"||\"✧  \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')} \"||\"\"]}{? ♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\n{stream.size::>0[\"{stream.seasonPack[\"❖  \"||\"◈  \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{? · [{service.shortName}{stream.proxied[\" ⛊ \"||\" ⛉ \"]}{addon.name}]?}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::remove('TrueHD ATMOS','DD+ ATMOS','ATMOS','TrueHD','DTS-HD MA','FLAC','DTS-HD HRA','DD+','DD','DTS-ES','DTS X','DTS','AAC','Opus','DV (Disk)','DV','HDR10+ Boost','HDR','IMAX Enhanced','IMAX','UHD Streaming Boost','HD Streaming Boost','INTERNAL','No-RlsGroup','FHD','UHD','HD','4K','126811','SiC','FraMeSToR','TheFarm','hallowed','BHDStudio','FLUX','Season Pack')::join('  ')::replace('UHD ','')::replace('HD ','')::replace('Movies Anywhere','MA')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}"
               },
               "Tamtaro (Chillio)": {
                 "name": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]} {stream.title}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')}\"||\"\"]}\"||\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')}\"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')})?}\"]}\"]}{? {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K')::replace('1440p','2K')::replace('p','P')}\"||\"\"]} {service.cached[\"⚡\"||\"⏳\"||\"\"]} {?〈{stream.type::replace('debrid','')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','⁽ⁿᶻᵇ⁾')::replace('stremio-usenet','⁽ⁿᶻᵇ⁾')::replace('youtube','⁽ʸᵗ⁾')} {stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web-dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')}〉?} {?{stream.nSeScore::star::replace('⯪','☆')}?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »  \"||\" »  \"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::remove('TrueHD ATMOS','DD+ ATMOS','ATMOS','TrueHD','DTS-HD MA','FLAC','DTS-HD HRA','DD+','DD','DTS-ES','DTS X','DTS','AAC','Opus','DV (Disk)','DV','HDR10+ Boost','HDR','IMAX Enhanced','IMAX','UHD Streaming Boost','HD Streaming Boost','INTERNAL','No-RlsGroup','FHD','UHD','HD','4K','126811','SiC','FraMeSToR','TheFarm','hallowed','BHDStudio','FLUX','Season Pack')::join('  ')::replace('UHD ','')::replace('HD ','')::replace('Movies Anywhere','MA')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}",
-                "description": "〈{stream.size::>0[\"{stream.seasonPack[\"❖ \"||\"◈ \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{? · {stream.age}?}{stream.proxied::istrue[\" ⛊ \"||\" ⛉ \"]}{?[{service.shortName}] ?}{addon.name}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}〉{?〈▣ {stream.encode}〉‍ ?}{?〈{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦ \"||\"✧ \"]}{stream.visualTags::sort::join(' · ')::replace('HDR HDR','HDR')::replace('HDR10 HDR10','HDR10')}〉?}{?〈♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}〉‍ ?}{?〈♯ {stream.audioChannels::rsort::join(' · ')}〉?}{stream.uSmallLanguageCodes::exists::or::stream.uSmallSubtitleCodes::exists::or::stream.subbed::istrue[\"〈{stream.uSmallLanguageCodes::exists::or::stream.uSmallSubtitleCodes::exists[\"{stream.subtitles::exists[\"✓\"||\"⛿\"]} \"||\"\"]}{stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')}{stream.subbed::istrue[\"{stream.uLanguages::exists[\" · sᴜʙ\"||\"sᴜʙ\"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})?}〉 \"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}"
+                "description": "〈{stream.size::>0[\"{stream.seasonPack[\"❖ \"||\"◈ \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{? · {stream.age}?}{? · [{service.shortName}{stream.proxied[\" ⛊ \"||\" ⛉ \"]}{addon.name}]?}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}〉{?〈▣ {stream.encode}〉‍ ?}{?〈{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦ \"||\"✧ \"]}{stream.visualTags::sort::join(' · ')::replace('HDR HDR','HDR')::replace('HDR10 HDR10','HDR10')}〉?}{?〈♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}〉‍ ?}{?〈♯ {stream.audioChannels::rsort::join(' · ')}〉?}{stream.uSmallLanguageCodes::exists::or::stream.uSmallSubtitleCodes::exists::or::stream.subbed::istrue[\"〈{stream.uSmallLanguageCodes::exists::or::stream.uSmallSubtitleCodes::exists[\"{stream.subtitles::exists[\"✓\"||\"⛿\"]} \"||\"\"]}{stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')}{stream.subbed::istrue[\"{stream.uLanguages::exists[\" · sᴜʙ\"||\"sᴜʙ\"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})?}〉 \"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}"
               },
               "Tamtaro (Nuvio P2P Instant)": {
                 "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','   4K ')::replace('1440p','    2K ')::replace('p','P')}‍\"||\"‍  \"]}{?‍{stream.type::replace('debrid','    ')::replace('p2p','    ')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{service.cached[\"⚡\"||\"‍⏳‍​\"||\"\"]}{?  〈{stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web‍-‍dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')}〉‍ ?}{?‍   {stream.nSeScore::star::replace('⯪','☆')}?}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}",
-                "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(20)}\"||\"{stream.title::title::truncate(15)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\"\n▦  {stream.date::date('%-d %b %Y')}\"||\"\"]}\"||\"{stream.date::exists[\"▦  {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦ \"||\"✧ \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')}  \"||\"\"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::<=6::and::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::<=10::and::stream.audioChannels::length::<=2[\"{?♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::>6::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioChannels::length::>2[\"{?♬  {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.size::>0[\"{stream.seasonPack[\"❖ \"||\"◈ \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{?· {stream.age}?}\n{stream.proxied[\"⛊ \"||\"⛉ \"]}{?[{service.shortName}] ?}{addon.name}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::remove('TrueHD ATMOS','DD+ ATMOS','ATMOS','TrueHD','DTS-HD MA','FLAC','DTS-HD HRA','DD+','DD','DTS-ES','DTS X','DTS','AAC','Opus','DV (Disk)','DV','HDR10+ Boost','HDR','IMAX Enhanced','IMAX','INTERNAL','No-RlsGroup','FHD','HD','4K','126811','Season Pack')::join(' ')::replace('UHD ','')::replace('HD ','')::replace('Movies Anywhere','MA')::replace('Streaming Boost','')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}\n{stream.filename}"
+                "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(30)}\"||\"{stream.title::title::truncate(25)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\"\n▦  {stream.date::date('%-d %b %Y')}\"||\"\"]}\"||\"{stream.date::exists[\"▦  {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦ \"||\"✧ \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')}  \"||\"\"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::<=6::and::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::<=10::and::stream.audioChannels::length::<=2[\"{?♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::>6::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioChannels::length::>2[\"{?♬  {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.size::>0[\"{stream.seasonPack[\"❖ \"||\"◈ \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{?· {stream.age}?}\n{stream.proxied[\"⛊ \"||\"⛉ \"]}{?[{service.shortName}] ?}{addon.name}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::remove('TrueHD ATMOS','DD+ ATMOS','ATMOS','TrueHD','DTS-HD MA','FLAC','DTS-HD HRA','DD+','DD','DTS-ES','DTS X','DTS','AAC','Opus','DV (Disk)','DV','HDR10+ Boost','HDR','IMAX Enhanced','IMAX','INTERNAL','No-RlsGroup','FHD','HD','4K','126811','Season Pack')::join(' ')::replace('UHD ','')::replace('HD ','')::replace('Movies Anywhere','MA')::replace('Streaming Boost','')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}\n{stream.filename}"
               }
             }
           },
           "saved": {
             "Tamtaro (Minimalist)": {
-              "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K    ')::replace('1440p','2K    ')::replace('p','P')}\"||\"\"]}{service.cached[\"⚡\"||\"⏳\"||\" \"]}\n{?{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"ᴴᴰᴿ \"||\"\"]}{stream.quality::title::replace('Bluray Remux','Best')::replace('Bluray','Bluray')::replace('Web-dl','Stream')::replace('Webrip','Stream')::replace('Hdrip','Stream')::replace('Hc Hd-rip','Stream')::replace('Hdtv','TV')::replace('Dvd Remux','Best DVD')::replace('Dvdrip','DVD')::replace('Scr','Leak')::replace('Tc','Leak')::replace('Ts','Cam')::replace('Cam','Cam')}?}",
+              "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K    ')::replace('1440p','2K    ')::replace('p','P')}\"||\"\"]}{service.cached[\"⚡\"||\"⏳\"||\" \"]}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}\n{?{stream.visualTags::in('DV')[\"ᴰⱽ \"||\"\"]}{stream.visualTags::in('HLG','HDR','HDR10','HDR10+')[\"ᴴᴰᴿ \"||\"\"]}{stream.quality::title::replace('Bluray Remux','Best')::replace('Bluray','Bluray')::replace('Web-dl','Stream')::replace('Webrip','Stream')::replace('Hdrip','Stream')::replace('Hc Hd-rip','Stream')::replace('Hdtv','TV')::replace('Dvd Remux','Best DVD')::replace('Dvdrip','DVD')::replace('Scr','Leak')::replace('Tc','Leak')::replace('Ts','Cam')::replace('Cam','Cam')}?}",
               "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(20)}\"||\"{stream.title::title::truncate(15)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\"\n▦  {stream.date::date('%-d %b %Y')} \"||\"\"]}\"||\"{stream.date::exists[\"\n▦  {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{stream.size::>0[\"{stream.seasonPack[\"❖  \"||\"◈  \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\" ⇄ {stream.seeders}❦\"||\"\"]}{stream.type::~debrid::isfalse[\"  ▪  {stream.type::replace('p2p','P2P')::replace('live','Live')::replace('http','Web Direct')::replace('usenet','Usenet')::replace('stremio-usenet','Usenet')::replace('youtube','YouTube')::smallcaps}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n‌\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}\n{stream.seadex::or::stream.message::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.rseMatched::in('B&W Boost')[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{? {stream.network::smallcaps::replace('ꜱ','s')} ?}{stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.rseMatched::in('B&W Boost')[\"ʙ&ᴡ \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}"
             },
             "Tamtaro (Default)": {
-              "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','   4K ')::replace('1440p','    2K ')::replace('p','P')}‍\"||\"‍     \"]}{?‍{stream.type::replace('debrid','    ')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','‏⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{service.cached[\"⚡\"||\"‍⏳‍​\"||\"\"]}{?‍‍\n  〈{stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web‍-‍dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')}〉‍     ?}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}{?‍\n  {stream.nSeScore::star::replace('⯪','☆')}            ?}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}",
+              "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','   4K ')::replace('1440p','    2K ')::replace('p','P')}‍\"||\"‍     \"]}{?‍{stream.type::replace('debrid','    ')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','‏⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{service.cached[\"⚡\"||\"‍⏳‍​\"||\"\"]}{?‍‍\n  〈{stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web‍-‍dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')}〉‍     ?}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}{?‍\n  {stream.nSeScore::star::replace('⯪','☆')}            ?}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}",
               "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(20)}\"||\"{stream.title::title::truncate(15)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\"\n▦  {stream.date::date('%-d %b %Y')}\"||\"\"]}\"||\"{stream.date::exists[\"▦  {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦ \"||\"✧ \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')}  \"||\"\"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::<=6::and::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::<=10::and::stream.audioChannels::length::<=2[\"{?♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::>6::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioChannels::length::>2[\"{?♬  {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.size::>0[\"{stream.seasonPack[\"❖ \"||\"◈ \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{?· {stream.age}?}\n{stream.proxied[\"⛊ \"||\"⛉ \"]}{?[{service.shortName}] ?}{addon.name}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::remove('TrueHD ATMOS','DD+ ATMOS','ATMOS','TrueHD','DTS-HD MA','FLAC','DTS-HD HRA','DD+','DD','DTS-ES','DTS X','DTS','AAC','Opus','DV (Disk)','DV','HDR10+ Boost','HDR','IMAX Enhanced','IMAX','INTERNAL','No-RlsGroup','FHD','HD','4K','126811','Season Pack')::join(' ')::replace('UHD ','')::replace('HD ','')::replace('Movies Anywhere','MA')::replace('Streaming Boost','')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}"
             },
             "Tamtaro (Full rseMatched)": {
-              "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','   4K ')::replace('1440p','    2K ')::replace('p','P')}‍\"||\"‍     \"]}{?‍{stream.type::replace('debrid','    ')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','‏⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{service.cached[\"⚡\"||\"‍⏳‍​\"||\"\"]}{?‍‍\n  〈{stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web‍-‍dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')}〉‍     ?}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}{?‍\n  {stream.nSeScore::star::replace('⯪','☆')}            ?}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}",
-              "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(20)}\"||\"{stream.title::title::truncate(15)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\"\n▦  {stream.date::date('%-d %b %Y')}\"||\"\"]}\"||\"{stream.date::exists[\"▦  {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦ \"||\"✧ \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')}  \"||\"\"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::<=6::and::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::<=10::and::stream.audioChannels::length::<=2[\"{?♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::>6::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioChannels::length::>2[\"{?♬  {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.size::>0[\"{stream.seasonPack[\"❖ \"||\"◈ \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{?· {stream.age}?}\n{stream.proxied[\"⛊ \"||\"⛉ \"]}{?[{service.shortName}] ?}{addon.name}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched:::join(' ')::replace('UHD ','')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}"
+              "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','   4K ')::replace('1440p','    2K ')::replace('p','P')}‍\"||\"‍     \"]}{?‍{stream.type::replace('debrid','    ')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','‏⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{service.cached[\"⚡\"||\"‍⏳‍​\"||\"\"]}{?‍‍\n  〈{stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web‍-‍dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')}〉‍     ?}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}{?‍\n  {stream.nSeScore::star::replace('⯪','☆')}            ?}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}",
+              "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(20)}\"||\"{stream.title::title::truncate(15)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\"\n▦  {stream.date::date('%-d %b %Y')}\"||\"\"]}\"||\"{stream.date::exists[\"▦  {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦ \"||\"✧ \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')}  \"||\"\"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::<=6::and::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::<=10::and::stream.audioChannels::length::<=2[\"{?♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::>6::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioChannels::length::>2[\"{?♬  {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.size::>0[\"{stream.seasonPack[\"❖ \"||\"◈ \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{?· {stream.age}?}\n{stream.proxied[\"⛊ \"||\"⛉ \"]}{?[{service.shortName}] ?}{addon.name}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::join(' ')::replace('UHD ','')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}"
             },
             "Tamtaro (AppleTV)": {
-              "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K ')::replace('1440p','2K ')::replace('p','P')}‍\"||\"\"]}{?‍{stream.type::replace('debrid',' ')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','‏⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{service.cached[\"⚡\"||\"‍⏳‍​\"||\"\"]}{?〈{stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web‍-‍dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')::smallcaps::replace('ꜱ','s')}〉‍ ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{? {stream.nSeScore::star::replace('⯪','☆')} ?}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}",
-              "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(30)}\"||\"{stream.title::title::truncate(25)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')} \"||\"\"]}\"||\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦  \"||\"✧  \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')}  \"||\"\"]}{?  ♯ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\n{stream.size::>0[\"{stream.seasonPack[\"❖  \"||\"◈  \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{? · [{service.shortName}{stream.proxied[\" ⛊ \"||\" ⛉ \"]}{addon.name}]?}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::remove('TrueHD ATMOS','DD+ ATMOS','ATMOS','TrueHD','DTS-HD MA','FLAC','DTS-HD HRA','DD+','DD','DTS-ES','DTS X','DTS','AAC','Opus','DV (Disk)','DV','HDR10+ Boost','HDR','IMAX Enhanced','IMAX','UHD Streaming Boost','HD Streaming Boost','INTERNAL','No-RlsGroup','FHD','UHD','HD','4K','126811','SiC','FraMeSToR','TheFarm','hallowed','BHDStudio','FLUX','Season Pack')::join('  ')::replace('UHD ','')::replace('HD ','')::replace('Movies Anywhere','MA')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}"
+              "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K ')::replace('1440p','2K ')::replace('p','P')}‍\"||\"\"]}{?‍{stream.type::replace('debrid',' ')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','‏⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{service.cached[\"⚡\"||\"‍⏳‍​\"||\"\"]}{?〈{stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web‍-‍dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')::smallcaps::replace('ꜱ','s')}〉‍ ?}{? {stream.nSeScore::star::replace('⯪','☆')} ?}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}",
+              "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(30)}\"||\"{stream.title::title::truncate(25)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')} \"||\"\"]}\"||\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦  \"||\"✧  \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')} \"||\"\"]}{? ♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\n{stream.size::>0[\"{stream.seasonPack[\"❖  \"||\"◈  \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{? · [{service.shortName}{stream.proxied[\" ⛊ \"||\" ⛉ \"]}{addon.name}]?}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::remove('TrueHD ATMOS','DD+ ATMOS','ATMOS','TrueHD','DTS-HD MA','FLAC','DTS-HD HRA','DD+','DD','DTS-ES','DTS X','DTS','AAC','Opus','DV (Disk)','DV','HDR10+ Boost','HDR','IMAX Enhanced','IMAX','UHD Streaming Boost','HD Streaming Boost','INTERNAL','No-RlsGroup','FHD','UHD','HD','4K','126811','SiC','FraMeSToR','TheFarm','hallowed','BHDStudio','FLUX','Season Pack')::join('  ')::replace('UHD ','')::replace('HD ','')::replace('Movies Anywhere','MA')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}"
             },
             "Tamtaro (Chillio)": {
               "name": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]} {stream.title}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')}\"||\"\"]}\"||\"{stream.date::exists[\" · {stream.date::date('%-d %b %Y')}\"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')})?}\"]}\"]}{? {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K')::replace('1440p','2K')::replace('p','P')}\"||\"\"]} {service.cached[\"⚡\"||\"⏳\"||\"\"]} {?〈{stream.type::replace('debrid','')::replace('p2p','⁽ᵖ²ᵖ⁾')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','⁽ⁿᶻᵇ⁾')::replace('stremio-usenet','⁽ⁿᶻᵇ⁾')::replace('youtube','⁽ʸᵗ⁾')} {stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web-dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')}〉?} {?{stream.nSeScore::star::replace('⯪','☆')}?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »  \"||\" »  \"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::remove('TrueHD ATMOS','DD+ ATMOS','ATMOS','TrueHD','DTS-HD MA','FLAC','DTS-HD HRA','DD+','DD','DTS-ES','DTS X','DTS','AAC','Opus','DV (Disk)','DV','HDR10+ Boost','HDR','IMAX Enhanced','IMAX','UHD Streaming Boost','HD Streaming Boost','INTERNAL','No-RlsGroup','FHD','UHD','HD','4K','126811','SiC','FraMeSToR','TheFarm','hallowed','BHDStudio','FLUX','Season Pack')::join('  ')::replace('UHD ','')::replace('HD ','')::replace('Movies Anywhere','MA')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}",
-              "description": "〈{stream.size::>0[\"{stream.seasonPack[\"❖ \"||\"◈ \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{? · {stream.age}?}{stream.proxied::istrue[\" ⛊ \"||\" ⛉ \"]}{?[{service.shortName}] ?}{addon.name}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}〉{?〈▣ {stream.encode}〉‍ ?}{?〈{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦ \"||\"✧ \"]}{stream.visualTags::sort::join(' · ')::replace('HDR HDR','HDR')::replace('HDR10 HDR10','HDR10')}〉?}{?〈♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS                         ')}〉‍ ?}{?〈♯ {stream.audioChannels::rsort::join(' · ')}〉?}{stream.uSmallLanguageCodes::exists::or::stream.uSmallSubtitleCodes::exists::or::stream.subbed::istrue[\"〈{stream.uSmallLanguageCodes::exists::or::stream.uSmallSubtitleCodes::exists[\"{stream.subtitles::exists[\"✓\"||\"⛿\"]} \"||\"\"]}{stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')}{stream.subbed::istrue[\"{stream.uLanguages::exists[\" · sᴜʙ\"||\"sᴜʙ\"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})?}〉 \"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}"
+              "description": "〈{stream.size::>0[\"{stream.seasonPack[\"❖ \"||\"◈ \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{? · {stream.age}?}{? · [{service.shortName}{stream.proxied[\" ⛊ \"||\" ⛉ \"]}{addon.name}]?}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}〉{?〈▣ {stream.encode}〉‍ ?}{?〈{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦ \"||\"✧ \"]}{stream.visualTags::sort::join(' · ')::replace('HDR HDR','HDR')::replace('HDR10 HDR10','HDR10')}〉?}{?〈♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}〉‍ ?}{?〈♯ {stream.audioChannels::rsort::join(' · ')}〉?}{stream.uSmallLanguageCodes::exists::or::stream.uSmallSubtitleCodes::exists::or::stream.subbed::istrue[\"〈{stream.uSmallLanguageCodes::exists::or::stream.uSmallSubtitleCodes::exists[\"{stream.subtitles::exists[\"✓\"||\"⛿\"]} \"||\"\"]}{stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')}{stream.subbed::istrue[\"{stream.uLanguages::exists[\" · sᴜʙ\"||\"sᴜʙ\"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})?}〉 \"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}"
             },
             "Tamtaro (Nuvio P2P Instant)": {
               "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','   4K ')::replace('1440p','    2K ')::replace('p','P')}‍\"||\"‍  \"]}{?‍{stream.type::replace('debrid','    ')::replace('p2p','    ')::replace('live','⁽ˡᶦᵛᵉ⁾')::replace('http','⁽ʷᵉᵇ⁾')::replace('usenet','‍⁽ⁿᶻᵇ⁾‍')::replace('stremio-usenet','⁽ⁿᶻᵇ⁾')::replace('info','⁽ᶦⁿᶠᵒ⁾')::replace('statistic','⁽ˢᵗᵃᵗˢ⁾')::replace('external','⁽ᵉˣᵗ⁾')::replace('error','⁽ᵉʳʳᵒʳ⁾')::replace('youtube','⁽ʸᵗ⁾')}‍‍‍?}{service.cached[\"⚡\"||\"‍⏳‍​\"||\"\"]}{?  〈{stream.quality::title::replace('Bluray Remux','Remux')::replace('Web-dl','Web‍-‍dl')::replace('Hc Hd-rip','HC HDRip')::replace('Hdrip','HDRip')}〉‍ ?}{?‍   {stream.nSeScore::star::replace('⯪','☆')}?}{stream.message::~Download[\"{tools.removeLine}\n​\"||\"\"]}",
-              "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(20)}\"||\"{stream.title::title::truncate(15)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\"\n▦  {stream.date::date('%-d %b %Y')}\"||\"\"]}\"||\"{stream.date::exists[\"▦  {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦ \"||\"✧ \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')}  \"||\"\"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::<=6::and::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::<=10::and::stream.audioChannels::length::<=2[\"{?♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::>6::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioChannels::length::>2[\"{?♬  {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.size::>0[\"{stream.seasonPack[\"❖ \"||\"◈ \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{?· {stream.age}?}\n{stream.proxied[\"⛊ \"||\"⛉ \"]}{?[{service.shortName}] ?}{addon.name}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::remove('TrueHD ATMOS','DD+ ATMOS','ATMOS','TrueHD','DTS-HD MA','FLAC','DTS-HD HRA','DD+','DD','DTS-ES','DTS X','DTS','AAC','Opus','DV (Disk)','DV','HDR10+ Boost','HDR','IMAX Enhanced','IMAX','INTERNAL','No-RlsGroup','FHD','HD','4K','126811','Season Pack')::join(' ')::replace('UHD ','')::replace('HD ','')::replace('Movies Anywhere','MA')::replace('Streaming Boost','')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}\n{stream.filename}"
+              "description": "{stream.title::exists[\"{stream.library::istrue[\"☁︎\"||\"{stream.preloading::istrue[\"➤\"||\"✎\"]}\"]}  {stream.date::exists[\"{stream.title::title::truncate(30)}\"||\"{stream.title::title::truncate(25)}\"]}\"||\"\"]}{? · {stream.country} ?}{metadata.queryType::~series[\"{stream.date::exists[\"\n▦  {stream.date::date('%-d %b %Y')}\"||\"\"]}\"||\"{stream.date::exists[\"▦  {stream.date::date('%-d %b %Y')} \"||\"{? ({stream.year::replace('-20', '-')::replace('-19', '-')}) ?}\"]}\"]}{?  {stream.seasonEpisode::join('·')::replace('E','ᴇ')::replace('S','s')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}?}\n{?▣  {stream.encode}  ?}{stream.visualTags::exists[\"{stream.visualTags::in('DV','HLG','HDR','HDR10','HDR10+')[\"✦ \"||\"✧ \"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')}  \"||\"\"]}{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::<=6::and::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::<=10::and::stream.audioChannels::length::<=2[\"{?♬ {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.visualTags::sort::join(' · ')::replace('HDR · HDR','HDR')::replace('HDR10 · HDR10','HDR10')::length::>6::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')::length::>10::or::stream.audioChannels::length::>2[\"{?♬  {stream.audioTags::lsort::join(' · ')::replace('DD · DD','DD')::replace('DTS · DTS','DTS')}?}{?  ♯ {stream.audioChannels::rsort::join(' · ')}?}\"||\"\"]}\n{stream.size::>0[\"{stream.seasonPack[\"❖ \"||\"◈ \"||\"\"]}{stream.size::>0::and::stream.folderSize::>0::and::stream.size::sbytes::~GB::and::stream.folderSize::sbytes::~GB[\"{stream.size::sbytes::replace(' GB','')}\"||\"{stream.size::sbytes}\"]}\"||\"\"]}{stream.folderSize::>0[\" / {stream.folderSize::sbytes}\"||\"\"]}{? · {stream.bitrate::sbitrate::replace('Mbps','ᴹᵇᵖˢ')::replace('Kbps','ᴷᵇᵖˢ')} ?}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::isfalse::or::stream.type::=p2p::and::stream.seeders::>0[\"⇄ {stream.seeders}❦ \"||\"\"]}{?· {stream.age}?}\n{stream.proxied[\"⛊ \"||\"⛉ \"]}{?[{service.shortName}] ?}{addon.name}{stream.private[\" ⚿ ᴘʀɪᴠᴀᴛᴇ \"||\"\"]}{? · {stream.releaseGroup::truncate(13)}?}{stream.indexer::exists::and::stream.type::~usenet[\" · {stream.indexer::truncate(13)}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\n\"||\"\"]}\n{?{stream.subtitles::exists[\"✓\"||\"⛿\"]}  {stream.uSmallLanguageCodes::join(' · ')::replace('ꜱ','s')::replace('ᴅᴜᴀʟ ᴀᴜᴅɪᴏ','ᴅᴜᴏ')::replace('ᴅᴜʙʙᴇᴅ','ᴅᴜʙ')}  ?}{stream.subbed[\"{stream.uLanguages::exists[\"· sᴜʙ  \"||\"⛿  sᴜʙ  \"]}\"||\"\"]}{?({stream.uSmallSubtitleCodes::join(' · ')::replace('ꜱ','s')})  ?}{stream.seadex::or::stream.message::length::>0::or::stream.rseMatched::length::>0::or::stream.editions::exists::or::stream.network::exists::or::stream.seScore::>0::or::stream.seScore::<0[\" »   \"||\"\"]}{stream.seadex[\"{stream.seadexBest[\" ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"||\" ᴀʟᴛ ʙᴇsᴛ ʀᴇʟᴇᴀsᴇ \"]}\"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0[\"{stream.rseMatched::remove('TrueHD ATMOS','DD+ ATMOS','ATMOS','TrueHD','DTS-HD MA','FLAC','DTS-HD HRA','DD+','DD','DTS-ES','DTS X','DTS','AAC','Opus','DV (Disk)','DV','HDR10+ Boost','HDR','IMAX Enhanced','IMAX','INTERNAL','No-RlsGroup','FHD','HD','4K','126811','Season Pack')::join(' ')::replace('UHD ','')::replace('HD ','')::replace('Movies Anywhere','MA')::replace('Streaming Boost','')::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists[\"{stream.network::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.seadex::isfalse::and::stream.rseMatched::length::>0::isfalse::and::stream.network::exists::isfalse::and::stream.editions::exists[\"{stream.editions::join('  ')::remove('Edition')::smallcaps::replace('ꜱ','s')} \"||\"\"]}{stream.message::length::>0[\"{stream.message::replace('NZB Health: ✅','✅ ɴᴢʙ')::replace('NZB Health: 🧝','🧝 ɴᴢʙ')::replace('AvailNZB 💚','💚 ɴᴢʙ')::replace('NZB Health: ⚠️','ᴜɴᴠᴇʀɪғɪᴇᴅ ɴᴢʙ')::replace('NZB Health: 🚫','✘ɴᴢʙ')::smallcaps} \"||\"\"]}{stream.seScore::>0::or::stream.seScore::<0[\"{stream.seScore::string::translate('0123456789','₀₁₂₃₄₅₆₇₈₉')}\"||\"\"]}{stream.message::~Download[\"{tools.removeLine}\"||\"\"]}{service.cached::istrue::and::stream.message::~Download::istrue[\"\n➥ DL Stream\"||\"\"]}\n{stream.filename}"
             }
           }
         }
@@ -5402,22 +5425,30 @@
       "enabled": false,
       "reconfigureService": false
     },
-    "variants": [
-      {
-        "id": "debrid-only",
-        "script": "# Debrid Only Variant. Disables all usenet related services and addons from your base config. If your base config contains Http & P2P streams, then they are retained. \n\nset addonName = \"AIOStreams (Debrid Only)\"\nset excludedStreamTypes = [\"usenet\",\"stremio-usenet\"]\nremove presets[*].options.services\ndisable services[id=aiostreams]\ndisable services[id=nzbdav]\ndisable services[id=altmount]\ndisable services[id=easynews]\ndisable services[id=stremio_nntp]\ndisable services[id=stremthru_newz]\ndisable presets[type=newznab]\ndisable presets[type=easynews-search]\ndisable presets[type=easynews]\ndisable presets[type=easynewsPlus]\ndisable presets[type=easynewsPlusPlus]\ndisable presets[type=nzbhydra]\ndisable presets[type=usenet-streamer]\ndisable presets[type=streamnzb]\ndisable presets[type=davex]",
-        "name": "Debrid Only"
-      },
-      {
-        "id": "usenet-only",
-        "script": "# Usenet Only Variant. Disables all debrid/p2p related services and addons from your base config. If your base config contains Http streams, then they are retained. \n\nset addonName = \"AIOStreams (Usenet Only)\"\nset excludedStreamTypes = [\"debrid\", \"p2p\"]\nremove presets[*].options.services\ndisable services[id=torbox]\ndisable services[id=realdebrid]\ndisable services[id=alldebrid]\ndisable services[id=premiumize]\ndisable services[id=debridlink]\ndisable services[id=offcloud]\ndisable services[id=putio]\ndisable services[id=easydebrid]\ndisable services[id=debrider]\ndisable services[id=pikpak]\ndisable services[id=seedr]\ndisable services[id=torrin]\ndisable presets[type=neko-bt]\ndisable presets[type=torznab]\ndisable presets[type=knaben]\ndisable presets[type=zilean]\ndisable presets[type=seadex]\ndisable presets[type=knaben]\ndisable presets[type=debridio]\ndisable presets[type=sootio]\ndisable presets[type=stremthruStore]\ndisable presets[type=torrentio]\ndisable presets[type=meteor]\ndisable presets[type=comet]\ndisable presets[type=stremthruTorz]\ndisable presets[type=mediafusion]\ndisable presets[type=torrents-db]\ndisable presets[type=peerflix]",
-        "name": "Usenet Only"
-      },
-      {
-        "id": "nuvio-instant",
-        "name": "Nuvio P2P Instant",
-        "script": "# Nuvio P2P Instant Variant. Inserts p2p-only scrapers, switches to \"Tamtaro (Nuvio P2P Instant)\" formatter, strips debrid/usenet/http services and addons, and disables seeder-specific filter & sorting.\n\nset addonName = \"AIOStreams (Instant)\"\nuse formatter \"Tamtaro (Nuvio P2P Instant)\"\nset excludedStreamTypes = [\"usenet\",\"stremio-usenet\",\"http\",\"live\"]\ndisable services[*]\nremove sortCriteria.global[key=seeders]\nremove sortCriteria.cached[key=seeders]\nremove sortCriteria.uncached[key=seeders]\nadd selOverrides {\"expression\": \"[]\", \"exprNames\": [\"Low Seeders\"], \"disabled\": true}\ndisable presets[type=library]\ndisable presets[type=stremthruStore]\ndisable presets[type=neko-bt]\ndisable presets[type=torznab]\ndisable presets[type=newznab]\ndisable presets[type=knaben]\ndisable presets[type=zilean]\ndisable presets[type=seadex]\ndisable presets[type=knaben]\ndisable presets[type=debridio]\ndisable presets[type=easynews-search]\ndisable presets[type=easynews]\ndisable presets[type=easynewsPlus]\ndisable presets[type=easynewsPlusPlus]\ndisable presets[type=nzbhydra]\ndisable presets[type=usenet-streamer]\ndisable presets[type=streamnzb]\ndisable presets[type=davex]\ndisable presets[type=sootio]\ndisable presets[type=webstreamr]\ndisable presets[type=yastream]\ndisable presets[type=stremthruStore]\ndisable presets[type=torrentio]\ndisable presets[type=meteor]\ndisable presets[type=comet]\ndisable presets[type=stremthruTorz]\ndisable presets[type=mediafusion]\ndisable presets[type=torrents-db]\ndisable presets[type=peerflix]\nprepend presets\n  { \"type\": \"meteor\", \"instanceId\": \"064p2p\", \"enabled\": true, \"options\": { \"name\": \"Meteor\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"removeTrash\": false, \"useMultipleInstances\": false, \"mediaTypes\": [] }, \"category\": \"P2P\" },\n  { \"type\": \"comet\", \"instanceId\": \"b0fp2p\", \"enabled\": true, \"options\": { \"name\": \"Comet\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"removeTrash\": false, \"mediaTypes\": [], \"url\": \"\" }, \"category\": \"P2P\" },\n  { \"type\": \"stremthruTorz\", \"instanceId\": \"bb9p2p\", \"enabled\": true, \"options\": { \"name\": \"STorz\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"mediaTypes\": [], \"includeP2P\": true, \"useMultipleInstances\": false, \"url\": \"\" }, \"category\": \"P2P\" },\n  { \"type\": \"torrentio\", \"instanceId\": \"4efp2p\", \"enabled\": true, \"options\": { \"name\": \"Torrentio\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"providers\": [], \"useMultipleInstances\": false }, \"category\": \"P2P\" },\n  { \"type\": \"mediafusion\", \"instanceId\": \"276p2p\", \"enabled\": true, \"options\": { \"name\": \"MediaFusion\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"useCachedResultsOnly\": true, \"enableWatchlistCatalogs\": false, \"downloadViaBrowser\": false, \"contributorStreams\": false, \"certificationLevelsFilter\": [], \"nudityFilter\": [], \"mediaTypes\": [], \"url\": \"\" }, \"category\": \"P2P\" },\n  { \"type\": \"torrents-db\", \"instanceId\": \"a15p2p\", \"enabled\": true, \"options\": { \"name\": \"TorrentsDB\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"mediaTypes\": [], \"providers\": [], \"includeP2P\": true, \"useMultipleInstances\": false }, \"category\": \"P2P\" },\n  { \"type\": \"peerflix\", \"instanceId\": \"8b6p2p\", \"enabled\": true, \"options\": { \"name\": \"Peerflix\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"mediaTypes\": [], \"useMultipleInstances\": false, \"showTorrentLinks\": true }, \"category\": \"P2P\" }"
-      }
-    ]
+    "variants": {
+      "__if": "inputs.variants != retain",
+      "__value": [
+        {
+          "id": "debrid-only",
+          "name": "Debrid Only",
+          "script": "# Debrid Only Variant. Disables all usenet/p2p/http related services and addons from your base config.\n\nset addonName = \"AIOStreams (Debrid Only)\"\nset excludedStreamTypes = [\"usenet\",\"stremio-usenet\",\"p2p\",\"http\",\"live\"]\nremove presets[*].options.services\ndisable services[id=aiostreams]\ndisable services[id=nzbdav]\ndisable services[id=altmount]\ndisable services[id=easynews]\ndisable services[id=stremio_nntp]\ndisable services[id=stremthru_newz]\ndisable presets[type=newznab]\ndisable presets[type=easynews-search]\ndisable presets[type=easynews]\ndisable presets[type=easynewsPlus]\ndisable presets[type=easynewsPlusPlus]\ndisable presets[type=nzbhydra]\ndisable presets[type=usenet-streamer]\ndisable presets[type=streamnzb]\ndisable presets[type=davex]\ndisable presets[type=yastream]\ndisable presets[type=hdhub]\ndisable presets[type=webstreamr]"
+        },
+        {
+          "id": "usenet-only",
+          "name": "Usenet Only",
+          "script": "# Debrid Only Variant. Disables all debrid/p2p/http related services and addons from your base config.\n\nset addonName = \"AIOStreams (Usenet Only)\"\nset excludedStreamTypes = [\"debrid\", \"p2p\", \"live\", \"http\"]\nremove presets[*].options.services\ndisable services[id=torbox]\ndisable services[id=realdebrid]\ndisable services[id=alldebrid]\ndisable services[id=premiumize]\ndisable services[id=debridlink]\ndisable services[id=offcloud]\ndisable services[id=putio]\ndisable services[id=easydebrid]\ndisable services[id=debrider]\ndisable services[id=pikpak]\ndisable services[id=seedr]\ndisable services[id=torrin]\ndisable presets[type=neko-bt]\ndisable presets[type=torznab]\ndisable presets[type=knaben]\ndisable presets[type=zilean]\ndisable presets[type=seadex]\ndisable presets[type=knaben]\ndisable presets[type=debridio]\ndisable presets[type=sootio]\ndisable presets[type=stremthruStore]\ndisable presets[type=torrentio]\ndisable presets[type=meteor]\ndisable presets[type=comet]\ndisable presets[type=stremthruTorz]\ndisable presets[type=mediafusion]\ndisable presets[type=torrents-db]\ndisable presets[type=peerflix]\ndisable presets[type=yastream]\ndisable presets[type=hdhub]\ndisable presets[type=webstreamr]"
+        },
+        {
+          "id": "http-only",
+          "script": "# Debrid Only Variant. Disables all debrid/usenet related services and addons from your base config.\n\nset addonName = \"AIOStreams (HTTP Only)\"\nset excludedStreamTypes = [\"usenet\",\"stremio-usenet\",\"debrid\",\"p2p\"]\ndisable excludedStreamExpressions[expression*=\"HTTP Backup\"]\nremove presets[*].options.services\ndisable services[id=aiostreams]\ndisable services[id=nzbdav]\ndisable services[id=altmount]\ndisable services[id=easynews]\ndisable services[id=stremio_nntp]\ndisable services[id=stremthru_newz]\ndisable presets[type=newznab]\ndisable presets[type=easynews-search]\ndisable presets[type=easynews]\ndisable presets[type=easynewsPlus]\ndisable presets[type=easynewsPlusPlus]\ndisable presets[type=nzbhydra]\ndisable presets[type=usenet-streamer]\ndisable presets[type=streamnzb]\ndisable presets[type=davex]\ndisable presets[type=neko-bt]\ndisable presets[type=torznab]\ndisable presets[type=knaben]\ndisable presets[type=zilean]\ndisable presets[type=seadex]\ndisable presets[type=knaben]\ndisable presets[type=debridio]\ndisable presets[type=stremthruStore]\ndisable presets[type=torrentio]\ndisable presets[type=meteor]\ndisable presets[type=comet]\ndisable presets[type=stremthruTorz]\ndisable presets[type=mediafusion]\ndisable presets[type=torrents-db]\ndisable presets[type=peerflix]\ndisable presets[type=newznab]\ndisable presets[type=easynews-search]\ndisable presets[type=easynews]\ndisable presets[type=easynewsPlus]\ndisable presets[type=easynewsPlusPlus]\ndisable presets[type=nzbhydra]\ndisable presets[type=usenet-streamer]\ndisable presets[type=streamnzb]\ndisable presets[type=davex]",
+          "name": "HTTP Only"
+        },
+        {
+          "id": "nuvio-instant",
+          "name": "Nuvio P2P Instant",
+          "script": "# Nuvio P2P Instant Variant. Inserts p2p-only scrapers, switches to \"Tamtaro (Nuvio P2P Instant)\" formatter, strips debrid/usenet/http services and addons, and disables seeder-specific filter & sorting.\n\nset addonName = \"AIOStreams (Instant)\"\nuse formatter \"Tamtaro (Nuvio P2P Instant)\"\nset excludedStreamTypes = [\"usenet\",\"stremio-usenet\",\"http\",\"live\"]\ndisable excludedStreamExpressions[expression*=\"P2P Backup\"]\ndisable services[*]\nremove sortCriteria.global[key=seeders]\nremove sortCriteria.cached[key=seeders]\nremove sortCriteria.uncached[key=seeders]\nadd selOverrides {\"expression\": \"[]\", \"exprNames\": [\"Low Seeders\"], \"disabled\": true}\ndisable presets[type=library]\ndisable presets[type=stremthruStore]\ndisable presets[type=neko-bt]\ndisable presets[type=torznab]\ndisable presets[type=newznab]\ndisable presets[type=knaben]\ndisable presets[type=zilean]\ndisable presets[type=seadex]\ndisable presets[type=knaben]\ndisable presets[type=debridio]\ndisable presets[type=easynews-search]\ndisable presets[type=easynews]\ndisable presets[type=easynewsPlus]\ndisable presets[type=easynewsPlusPlus]\ndisable presets[type=nzbhydra]\ndisable presets[type=usenet-streamer]\ndisable presets[type=streamnzb]\ndisable presets[type=davex]\ndisable presets[type=sootio]\ndisable presets[type=webstreamr]\ndisable presets[type=yastream]\ndisable presets[type=stremthruStore]\ndisable presets[type=torrentio]\ndisable presets[type=meteor]\ndisable presets[type=comet]\ndisable presets[type=stremthruTorz]\ndisable presets[type=mediafusion]\ndisable presets[type=torrents-db]\ndisable presets[type=peerflix]\ndisable presets[type=yastream]\ndisable presets[type=hdhub]\ndisable presets[type=webstreamr]\nprepend presets\n  { \"type\": \"meteor\", \"instanceId\": \"064p2p\", \"enabled\": true, \"options\": { \"name\": \"Meteor\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"removeTrash\": false, \"useMultipleInstances\": false, \"mediaTypes\": [] }, \"category\": \"P2P\" },\n  { \"type\": \"comet\", \"instanceId\": \"b0fp2p\", \"enabled\": true, \"options\": { \"name\": \"Comet\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"removeTrash\": false, \"mediaTypes\": [], \"url\": \"\" }, \"category\": \"P2P\" },\n  { \"type\": \"stremthruTorz\", \"instanceId\": \"bb9p2p\", \"enabled\": true, \"options\": { \"name\": \"STorz\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"mediaTypes\": [], \"includeP2P\": true, \"useMultipleInstances\": false, \"url\": \"\" }, \"category\": \"P2P\" },\n  { \"type\": \"torrentio\", \"instanceId\": \"4efp2p\", \"enabled\": true, \"options\": { \"name\": \"Torrentio\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"providers\": [], \"useMultipleInstances\": false }, \"category\": \"P2P\" },\n  { \"type\": \"mediafusion\", \"instanceId\": \"276p2p\", \"enabled\": true, \"options\": { \"name\": \"MediaFusion\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"useCachedResultsOnly\": true, \"enableWatchlistCatalogs\": false, \"downloadViaBrowser\": false, \"contributorStreams\": false, \"certificationLevelsFilter\": [], \"nudityFilter\": [], \"mediaTypes\": [], \"url\": \"\" }, \"category\": \"P2P\" },\n  { \"type\": \"torrents-db\", \"instanceId\": \"a15p2p\", \"enabled\": true, \"options\": { \"name\": \"TorrentsDB\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"mediaTypes\": [], \"providers\": [], \"includeP2P\": true, \"useMultipleInstances\": false }, \"category\": \"P2P\" },\n  { \"type\": \"peerflix\", \"instanceId\": \"8b6p2p\", \"enabled\": true, \"options\": { \"name\": \"Peerflix\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"mediaTypes\": [], \"useMultipleInstances\": false, \"showTorrentLinks\": true }, \"category\": \"P2P\" }"
+        }
+      ]
+    }
   }
 }

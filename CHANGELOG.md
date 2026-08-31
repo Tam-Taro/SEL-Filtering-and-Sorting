@@ -1,4 +1,14 @@
 # Changelog
+## 3.2.1 (2026-08-31)
+**Change**
+- New "Setup Variants" toggle allows you to include template's variants or keep your existing
+- New "HTTP Only" Variant added
+- Fixed some CEL for variants, now HTTP is excluded from all variants except HTTP Only
+- Importing this template will now erase your template import history
+  - You won't get notification to update my now dead Partial Template anymore
+- Fixed some errors in various Formatters
+- Re-arranged various template options around
+
 ## 3.2.0 (2026-08-30)
 **New**
 - Added three Variants to go along with your Base Config once you complete my setup template.
@@ -31,6 +41,7 @@
 - Small tweaks and fixes (but took me a long time ._,) to all included formatter variants
 - TVDB API is now optional, temporarily, since new users are having issues with obtaining new API. If you have TVDB API, I strongly recommend entering it still, as it improves reliability for various metadata-reliant features.
 - Permanently retiring Partial Setup Template, RIP.
+- Fixed bug to Final Q/R SELection where it didn't use your SELect Usenet number in its threshold calculation
 
 ## 3.1.3 (2026-08-23)
 **Some changes:**
