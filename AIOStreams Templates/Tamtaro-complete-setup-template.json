@@ -5,7 +5,7 @@
     "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://git.tamtaro.de). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Includes optional add-ons and formatter styles. \n * Uses dynamic SELect Engine to retain the number of streams you choose.\n * Uses auto-synced SELs and & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so SEL fixes and updates are received automatically.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
     "source": "external",
     "author": "Tamtaro",
-    "version": "3.2.1",
+    "version": "3.2.2",
     "category": "AIO",
     "serviceRequired": false,
     "changelogUrl": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/CHANGELOG.md",
@@ -13,7 +13,7 @@
       {
         "__if": "services",
         "id": "header.intro",
-        "name": "Complete SEL Setup v3.2.1: Debrid/Usenet Mode",
+        "name": "Complete SEL Setup v3.2.2: Debrid/Usenet Mode",
         "description": "An advanced filtering & sorting setup powered by Stream Expression Language (SEL) & [Vidhin's Regex Patterns](https://github.com/Vidhin05/Releases-Regex)",
         "type": "alert",
         "intent": "success"
@@ -21,7 +21,7 @@
       {
         "__if": "!services",
         "id": "header.p2p",
-        "name": "Complete SEL Setup v3.2.1: P2P Mode",
+        "name": "Complete SEL Setup v3.2.2: P2P Mode",
         "description": "No services selected. In some countries, torrenting is restricted, so a VPN or a debrid service from previous page may be required.",
         "type": "alert",
         "intent": "warning"
@@ -510,7 +510,6 @@
             "description": "Enter the time in ms you're willing to wait for results before your add-ons timeout. Default: 5000 ms.",
             "type": "number",
             "required": false,
-            "advanced": true,
             "default": 5000
           },
           {
@@ -988,7 +987,7 @@
         "description": "Choose the formatter. **Tamtaro (Full RSE Matched)** keeps all matched Vidhin regex tags in the last line, useful for debugging scores. **Tamtaro (default)** strips audio/video tags from the rseMatched line for a cleaner look. **Minimalist** provides a further stripped-down view, perfect for casual audience. **AppleTV** (inspired by dividedby & stepthomas) fits the 4-line format on tvOS. **Chillio** (inspired by NomadX) fits the wrapping format for Chillio. **Nuvio P2P Instant** Default with removed p2p stream type. **None** retains your existing formatter.",
         "type": "select",
         "required": true,
-        "default": "Tamtaro (default)",
+        "default": "Tamtaro (Default)",
         "options": [
           {
             "value": "Tamtaro (Minimalist)",
@@ -1146,7 +1145,7 @@
         "name": "Sorting Options",
         "description": "Streams are sorted under Global Cached: SeaDex → Stream Expression → Resolution → Quality → Library → Stream Expression Score → Seeders → Language → Subtitle → Visual Tag → Audio Tag → Encode → Age → Bitrate",
         "type": "subsection",
-        "advanced": true,
+        "advanced": false,
         "subsectionIntent": "inline",
         "buttonIntent": "white-subtle",
         "subOptions": [
@@ -1319,7 +1318,6 @@
             "name": "",
             "description": "Refine Final SELection Results",
             "type": "alert",
-            "advanced": true,
             "intent": "info"
           },
           {
@@ -1328,7 +1326,6 @@
             "description": "\"Default\": Let \"Final R SELection\" decide. 720p & lower resolutions are kept only when higher resolution results are limited. \"Remove\": Enforces stricter rule than \"Final R SELection\", so if at least one known 1080p resolution exists, remove 720p & lower resolutions. \"Keep\": Bypass \"Final R SELection\" to keep 720p resolution. Backup streams, library, and SeaDex streams are exempt.",
             "type": "select",
             "required": false,
-            "advanced": true,
             "default": "default",
             "options": [
               {
@@ -1351,7 +1348,6 @@
             "description": "\"Default\": Let \"Final R SELection\" decide. Unknown resolution is kept when high resolution results are limited. \"Remove\": Enforces stricter rule than \"Final R SELection\", so if at least one known resolution exists, remove unknown resolution. \"Keep\": Bypass \"Final R SELection\" to keep unknown resolution. Backup streams, library, and SeaDex streams are exempt.",
             "type": "select",
             "required": false,
-            "advanced": true,
             "default": "default",
             "options": [
               {
@@ -1374,7 +1370,6 @@
             "description": "\"Default\": Let \"Final Q SELection\" decide. For movies/series, Unknown Quality is kept when High Quality results are limited. For anime, Unknown Quality is always kept (since many groups don't label Quality). \"Remove\": Enforces stricter rule than \"Final Q SELection\", so if at least one known Quality exists, remove Unknown Quality. \"Keep\": Bypass \"Final Q SELection\" to keep Unknown Quality. Backup streams, library, and SeaDex streams are exempt.",
             "type": "select",
             "required": false,
-            "advanced": true,
             "default": "default",
             "options": [
               {
@@ -1397,7 +1392,6 @@
             "description": "\"Default\": Let \"Final R SELection\" decide. Uncached debrid is kept only when no cached results exist. \"Remove\": Always remove uncached debrid. \"Keep\": Bypass \"Final R SELection\" to keep uncached debrid. Streams with zero seeders are still removed by the Low Seeders filter.",
             "type": "select",
             "required": false,
-            "advanced": true,
             "default": "default",
             "options": [
               {
@@ -2128,7 +2122,6 @@
             "name": "",
             "description": "Mobile Backup",
             "type": "alert",
-            "advanced": true,
             "intent": "info"
           },
           {
@@ -2137,7 +2130,6 @@
             "description": "Add lower-bitrate backup streams for mobile data or unstable connections. These are pinned below your normal results. Set to 0 to disable. A 2-4 Mbps cap is recommended; a two-hour movie is typically about 1-3.6 GB.",
             "type": "select-with-custom",
             "required": false,
-            "advanced": true,
             "default": "0.0",
             "options": [
               {
@@ -2183,7 +2175,6 @@
             "name": "",
             "description": "HTTP Backup Streams",
             "type": "alert",
-            "advanced": true,
             "intent": "info"
           },
           {
@@ -2192,7 +2183,6 @@
             "description": "Number of HTTP streams to keep per resolution. These are pinned below your normal results, skipping the SELect Engine. Set to 0 to disable.",
             "type": "number",
             "required": false,
-            "advanced": true,
             "default": 0
           },
           {
@@ -2201,7 +2191,6 @@
             "description": "Total number of HTTP streams to keep. These are pinned below your normal results, skipping the SELect Engine. Set to 0 to disable.",
             "type": "number",
             "required": false,
-            "advanced": true,
             "default": 0
           },
           {
@@ -2209,7 +2198,6 @@
             "name": "",
             "description": "P2P Backup Streams",
             "type": "alert",
-            "advanced": true,
             "intent": "info"
           },
           {
@@ -2218,7 +2206,6 @@
             "description": "Number of P2P streams to keep per resolution. These are pinned below your normal results, skipping the SELect Engine. Set to 0 to disable.",
             "type": "number",
             "required": false,
-            "advanced": true,
             "default": 0
           },
           {
@@ -2227,7 +2214,6 @@
             "description": "Total number of P2P streams to keep. These are pinned below your normal results, skipping the SELect Engine. Set to 0 to disable.",
             "type": "number",
             "required": false,
-            "advanced": true,
             "default": 0
           }
         ]
@@ -2298,7 +2284,6 @@
             "description": "Set a maximum bitrate that streams cannot exceed. You may enter a custom value between 1 to 99. Set 100+ to disable this cap (default). See the options below for resolution-based and soft-limit behavior.",
             "type": "select-with-custom",
             "required": false,
-            "advanced": true,
             "default": "100",
             "options": [
               {
@@ -2329,7 +2314,6 @@
             "description": "Replace the single bitrate cap with resolution-based limits for greater bandwidth savings. Streams above 80% of your selected cap at 4K, 50% at 1080p, or 30% at 720p are removed.",
             "type": "boolean",
             "required": false,
-            "advanced": true,
             "default": false
           },
           {
@@ -2338,7 +2322,6 @@
             "description": "Prioritize streams within the bitrate cap (via boosting SEL Score) instead of removing higher-bitrate streams. Within each Quality/Resolution group, larger files move lower in the list and are retained mainly as backups when fewer lower-bitrate choices exist.",
             "type": "boolean",
             "required": false,
-            "advanced": true,
             "default": false
           },
           {
@@ -2347,7 +2330,6 @@
             "description": "Sort streams from lowest to highest bitrate within each Quality/Resolution group. Requires a bitrate cap below 100 Mbps.",
             "type": "boolean",
             "required": false,
-            "advanced": true,
             "default": false
           }
         ]
@@ -2367,7 +2349,6 @@
             "name": "",
             "description": "Additional Filtering After SELect Engine",
             "type": "alert",
-            "advanced": true,
             "intent": "info"
           },
           {
@@ -2410,7 +2391,6 @@
         "description": "Various options such as Keep SEL Edits, Ignore Inline RSE, Show Statistics & Errors, Digital Release Filter, Add-on Name, and Add-on Logo.",
         "type": "subsection",
         "required": false,
-        "advanced": true,
         "subsectionIntent": "inline",
         "buttonIntent": "white-subtle",
         "subOptions": [
@@ -2420,7 +2400,6 @@
             "description": "Select this option to prevent custom edits to synced urls SEL or regex from being overwritten. Leave it unchecked to benefit from Vidhin's default SEL scores, which are designed to work well with this template. If enabled, you will need to manually disable any duplicated syncedURL SELs inside synced url ESE.",
             "type": "boolean",
             "required": false,
-            "advanced": true,
             "default": false
           },
           {
@@ -2429,7 +2408,6 @@
             "description": "Select this option to prevent your additional inline Ranked Stream Expression entries from being overwritten. Vidhin's synced url for RSE will still be imported.",
             "type": "boolean",
             "required": false,
-            "advanced": true,
             "default": false
           },
           {
@@ -2438,7 +2416,6 @@
             "description": "This option will enable Statistic and Error streams at the bottom for debugging purposes.",
             "type": "boolean",
             "required": false,
-            "advanced": true,
             "default": false
           },
           {
@@ -2447,7 +2424,6 @@
             "description": "This option will enable Digital Release Filter. It uses the digital release date from metadata providers to determine when to trigger, so it may not always be accurate.",
             "type": "boolean",
             "required": false,
-            "advanced": true,
             "default": false
           },
           {
@@ -2456,7 +2432,6 @@
             "description": "What to call AIOStreams in Stremio?",
             "type": "select-with-custom",
             "required": false,
-            "advanced": true,
             "default": "AIOStreams",
             "options": [
               {
@@ -2487,7 +2462,6 @@
             "description": "Select a logo for your AIOStreams addon. Custom: Paste direct image URL.",
             "type": "select-with-custom",
             "required": false,
-            "advanced": true,
             "default": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/logo/aios.png",
             "options": [
               {
@@ -2552,7 +2526,7 @@
     "appliedTemplates": [
       {
         "id": "tamtaro.complete",
-        "version": "3.2.1"
+        "version": "3.2.2"
       }
     ],
     "addonName": {
@@ -2564,7 +2538,7 @@
       },
       "default": "{{inputs.misc.addonName}}"
     },
-    "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.2.1. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+    "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.2.2. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
     "addonLogo": {
       "__switch": "inputs.misc.addonLogo",
       "cases": {
@@ -3239,17 +3213,17 @@
       },
       {
         "__if": "inputs.coreFilterNonUsenet > 0",
-        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.1: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterNonUsenet}} 𝙳𝚎𝚋𝚛𝚒𝚍·𝙷𝚃𝚃𝙿·𝙿2𝙿*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 v3.2.2: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterNonUsenet}} 𝙳𝚎𝚋𝚛𝚒𝚍·𝙷𝚃𝚃𝙿·𝙿2𝙿*/ []",
         "enabled": true
       },
       {
         "__if": "inputs.coreFilterUsenet > 0",
-        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.1: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterUsenet}} 𝚄𝚜𝚎𝚗𝚎𝚝*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 v3.2.2: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterUsenet}} 𝚄𝚜𝚎𝚗𝚎𝚝*/ []",
         "enabled": true
       },
       {
         "__if": "inputs.coreFilterUsenet == 0 and inputs.coreFilterUsenet == 0",
-        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.1: No 𝚂𝙴𝙻𝚎𝚌𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 v3.2.2: No 𝚂𝙴𝙻𝚎𝚌𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
         "enabled": true
       },
       {
