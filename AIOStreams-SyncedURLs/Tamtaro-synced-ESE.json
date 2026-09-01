@@ -1,6 +1,6 @@
 [
   {
-    "expression": "/*ESE v2.1.4 [git.tamtaro.de]*/[]",
+    "expression": "/*ESE v2.1.5 [git.tamtaro.de]*/[]",
     "enabled": true
   },
   {
@@ -52,7 +52,7 @@
     "enabled": true
   },
   {
-    "expression": "/*Info & Other Unwanted*/ merge( type(streams, 'info', 'external'), library(type(uncached(streams),'debrid')), negate(size(streams,1),type(streams,'debrid','p2p','usenet','stremio-usenet')), releaseGroup(type(streams,'usenet','stremio-usenet'),'sample'), message(type(streams,'usenet','stremio-usenet'),'includes','🚫'), keyword(streams, 'all', 'trailer teaser'), addon(type(uncached(streams), 'usenet'),'MediaFusion'), title == 'Love Island USA' ? negate(keyword(streams,'filename,folderName', 'Love Island USA', 'Love Island US', '2019'), streams) :[], title == 'Dark Matter' and year == 2015 ? negate(merge(age(streams, 21600), keyword(streams, 'filename,folderName', '2015')), keyword(streams, 'filename,folderName', '2024', '2160p', 'ATVP', 'APTV', 'AMZN', 'EZTVx.to')) : [])",
+    "expression": "/*Info & Other Unwanted*/ merge( type(streams, 'info', 'external'), library(type(uncached(streams),'debrid')), negate(size(streams,1),type(streams,'debrid','p2p','usenet','stremio-usenet')), releaseGroup(type(streams,'usenet','stremio-usenet'),'sample'), message(type(streams,'usenet','stremio-usenet'),'includes','🚫'), keyword(streams, 'all', 'trailer teaser'), addon(type(uncached(streams), 'usenet'),'MediaFusion'), title == 'Love Island USA' ? negate(keyword(streams,'filename,folderName', 'Love Island USA', 'Love Island US', '2019'), streams) :[], title == 'Dark Matter' and year == 2015 ? negate(merge(age(streams, 21600), keyword(streams, 'filename,folderName', '2015')), keyword(streams, 'filename,folderName', '2024', '2160p', 'ATVP', 'APTV', 'AMZN', 'EZTVx.to')) : title == 'Sword Art Online' and season == 1? keyword(streams, 'filename,folderName', 'II', 'Alicization', 'War of Underworld') : title == 'Sword Art Online' and season == 2? keyword(streams, 'filename,folderName', 'Alicization', 'War of Underworld') : [])",
     "enabled": true
   },
   {
