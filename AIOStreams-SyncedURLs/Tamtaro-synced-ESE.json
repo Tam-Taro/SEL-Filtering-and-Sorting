@@ -1,6 +1,6 @@
 [
   {
-    "expression": "/*ESE v2.1.5 [git.tamtaro.de]*/[]",
+    "expression": "/*ESE v2.1.6 [git.tamtaro.de]*/[]",
     "enabled": true
   },
   {
@@ -48,11 +48,15 @@
     "enabled": true
   },
   {
-    "expression": "/*Ongoing Season‑Pack*/((queryType=='series' or queryType=='anime.series') and ongoingSeason and (daysSinceLastAired <-1 or daysUntilNextEpisode>=0))? negate(merge(library(streams), seadex(streams)), seasonPack(streams,'onlySeasons')):[]",
+    "expression": "/*Ongoing Season‑Pack*/((queryType=='series' or queryType=='anime.series') and ongoingSeason and (daysSinceLastAired <-1 or daysUntilNextEpisode>=0))? negate(merge(library(streams), seadex(streams)), seasonPack(streams,'onlySeasons')):[]\n/*Ongoing Season‑Pack*/((queryType=='series' or queryType=='anime.series') and ongoingSeason)? negate(merge(library(streams), seadex(streams)), seasonPack(streams,'onlySeasons')):[]",
     "enabled": true
   },
   {
-    "expression": "/*Info & Other Unwanted*/ merge( type(streams, 'info', 'external'), library(type(uncached(streams),'debrid')), negate(size(streams,1),type(streams,'debrid','p2p','usenet','stremio-usenet')), releaseGroup(type(streams,'usenet','stremio-usenet'),'sample'), message(type(streams,'usenet','stremio-usenet'),'includes','🚫'), keyword(streams, 'all', 'trailer teaser'), addon(type(uncached(streams), 'usenet'),'MediaFusion'), title == 'Love Island USA' ? negate(keyword(streams,'filename,folderName', 'Love Island USA', 'Love Island US', '2019'), streams) :[], title == 'Dark Matter' and year == 2015 ? negate(merge(age(streams, 21600), keyword(streams, 'filename,folderName', '2015')), keyword(streams, 'filename,folderName', '2024', '2160p', 'ATVP', 'APTV', 'AMZN', 'EZTVx.to')) : title == 'Sword Art Online' and season == 1? keyword(streams, 'filename,folderName', 'II', 'Alicization', 'War of Underworld') : title == 'Sword Art Online' and season == 2? keyword(streams, 'filename,folderName', 'Alicization', 'War of Underworld') : [])",
+    "expression": "/*Info & Other Unwanted*/ merge( type(streams, 'info', 'external'), library(type(uncached(streams),'debrid')), negate(size(streams,1),type(streams,'debrid','p2p','usenet','stremio-usenet')), releaseGroup(type(streams,'usenet','stremio-usenet'),'sample'), message(type(streams,'usenet','stremio-usenet'),'includes','🚫'), keyword(streams, 'all', 'trailer teaser'), addon(type(uncached(streams), 'usenet'),'MediaFusion'))",
+    "enabled": true
+  },
+  {
+    "expression": "/*Problematic Title Discard */ merge(title == 'Love Island USA' ? negate(keyword(streams,'filename,folderName', 'Love Island USA', 'Love Island US', '2019'), streams) :[], title == 'Dark Matter' and year == 2015 ? negate(merge(age(streams, 21600), keyword(streams, 'filename,folderName', '2015')), keyword(streams, 'filename,folderName', '2024', '2160p', 'ATVP', 'APTV', 'AMZN', 'EZTVx.to')) : title == 'Sword Art Online' and season == 1? keyword(streams, 'filename,folderName', 'II', 'Alicization', 'War of Underworld') : title == 'Sword Art Online' and season == 2? keyword(streams, 'filename,folderName', 'Alicization', 'War of Underworld') : [], title == 'Bleach' and season == 17? negate(keyword(streams, 'filename,folderName', 'TYBW', 'Thousand-Year', 'Blood War', 'Sennen Kessen Hen'), streams) : [], title == 'Bleach' and season != 17? keyword(streams, 'filename,folderName', 'TYBW', 'Thousand-Year', 'Blood War', 'Sennen Kessen Hen') : [], title == 'Bleach' and season != 1 and season !=17 ? seasonPack(keyword(streams, 'filename,folderName','S01'), 'onlySeasons') : [], title == 'Top Gear Australia' ? negate(keyword(streams,'filename,folderName', 'Top Gear Australia', 'Love Island US', '2019'), streams) :[])",
     "enabled": true
   },
   {
