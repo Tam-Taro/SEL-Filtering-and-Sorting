@@ -48,7 +48,7 @@
     "enabled": true
   },
   {
-    "expression": "/*Ongoing Season‑Pack*/((queryType=='series' or queryType=='anime.series') and ongoingSeason and (daysSinceLastAired <-1 or daysUntilNextEpisode>=0))? negate(merge(library(streams), seadex(streams)), seasonPack(streams,'onlySeasons')):[]\n/*Ongoing Season‑Pack*/((queryType=='series' or queryType=='anime.series') and ongoingSeason)? negate(merge(library(streams), seadex(streams)), seasonPack(streams,'onlySeasons')):[]",
+    "expression": "/*Ongoing Season‑Pack*/((queryType=='series' or queryType=='anime.series') and ongoingSeason and (daysSinceLastAired <-1 or daysUntilNextEpisode>=0))? negate(merge(library(streams), seadex(streams)), seasonPack(streams,'onlySeasons')):[]",
     "enabled": true
   },
   {
