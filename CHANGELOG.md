@@ -1,4 +1,14 @@
 # Changelog
+## 3.2.3 (2026-09-04)
+**Change**
+- Minor edits to Variants
+- Added more titles to "Problematic Title Bypass" synced ISE v2.2.1 (auto-updated)
+**New**
+- New ESE, "Problematic Title Discard" added to synced ESE v2.1.6 (auto-updated)
+  - Example: discarding Bleach TYBW (Season 17) streams from pre-TYBW seasons' result
+- New option for Mobile Backup (bottom pins), you can now prioritize "Mobile Backup Language"
+  - Requires a language to be selected inside "Language Passthrough Options"
+  
 ## 3.2.2 (2026-08-31)
 **Fix**
 - SELect Refinement window no longer appears blank
