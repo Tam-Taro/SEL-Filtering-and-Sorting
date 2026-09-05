@@ -1,4 +1,11 @@
 # Changelog
+## 3.2.4 (2026-09-04)
+**New**
+- Health Checks & synced ESE v2.1.7 incorporating these Health Checks
+  - Torbox, Premiumize, Real Debrid, and Torrentio now have Health Checks added, when you next run this template update
+  - New synced ESE v2.1.7 will remove results from any of the above mentioned services/addon when Health Checks deem them `down`
+- Added 'No HLG' into Device Specific Exclusionis (for those using NVidia Shield Pro)
+
 ## 3.2.3 (2026-09-04)
 **Change**
 - Minor edits to Variants
@@ -6,7 +13,7 @@
   - Added more titles to "Problematic Title Bypass"
   - Removed 0Cached
   - Revised Library (using count == 1 so that it doesn't trigger for library passthrough as often)
-  
+
 **New**
 - New ESE, "Problematic Title Discard" added to synced ESE v2.1.6 (auto-updated)
   - Example: discarding Bleach TYBW (Season 17) streams from pre-TYBW seasons' result
