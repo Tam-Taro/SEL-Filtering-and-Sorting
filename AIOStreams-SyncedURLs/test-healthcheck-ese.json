@@ -1,0 +1,6 @@
+[
+  {
+    "expression": "/*Health Checks*/ merge(health('torrentio-down') ? addon(streams, 'Torrentio') : [], health('tb-down') ? service(streams, 'torbox') : [], health('rd-down') ? service(streams, 'realdebrid') : [], health('pm-down') ? service(streams, 'premiumize') : [])",
+    "enabled": true
+  }
+]
