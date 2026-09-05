@@ -1,5 +1,5 @@
 # Changelog
-## 3.2.4 (2026-09-04)
+## 3.2.4 (2026-09-05)
 **New**
 - Health Checks & synced ESE v2.1.7 incorporating these Health Checks
   - Torbox, Premiumize, Real Debrid, and Torrentio now have Health Checks added, when you next run this template update
