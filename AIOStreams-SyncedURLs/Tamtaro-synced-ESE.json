@@ -1,6 +1,6 @@
 [
   {
-    "expression": "/*ESE v2.1.8 [git.tamtaro.de]*/[]",
+    "expression": "/*ESE v2.1.9 [git.tamtaro.de]*/[]",
     "enabled": true
   },
   {
@@ -60,7 +60,7 @@
     "enabled": true
   },
   {
-    "expression": "/*Problematic Title Discard */ merge(title == 'Love Island USA' ? negate(keyword(streams,'filename,folderName', 'Love Island USA', 'Love Island US', '2019'), streams) :[], title == 'Dark Matter' and year == 2015 ? negate(merge(age(streams, 21600), keyword(streams, 'filename,folderName', '2015')), keyword(streams, 'filename,folderName', '2024', '2160p', 'ATVP', 'APTV', 'AMZN', 'EZTVx.to')) : title == 'Sword Art Online' and season == 1? keyword(streams, 'filename,folderName', 'II', 'Alicization', 'War of Underworld') : title == 'Sword Art Online' and season == 2? keyword(streams, 'filename,folderName', 'Alicization', 'War of Underworld') : [], title == 'Bleach' and season == 17? negate(keyword(streams, 'filename,folderName', 'TYBW', 'Thousand-Year', 'Blood War', 'Sennen Kessen Hen'), streams) : [], title == 'Bleach' and season != 17? keyword(streams, 'filename,folderName', 'TYBW', 'Thousand-Year', 'Blood War', 'Sennen Kessen Hen') : [], title == 'Bleach' and season != 1 and season !=17 ? seasonPack(keyword(streams, 'filename,folderName','S01'), 'onlySeasons') : [], title == 'Top Gear Australia' ? negate(keyword(streams,'filename,folderName', 'Top Gear Australia', 'Love Island US', '2019'), streams) :[])",
+    "expression": "/*Problematic Title Discard */ merge(title == 'Love Island USA' ? negate(keyword(streams,'filename,folderName', 'Love Island USA', 'Love Island US', '2019'), streams) :[], title == 'Dark Matter' and year == 2015 ? negate(merge(age(streams, 21600), keyword(streams, 'filename,folderName', '2015')), keyword(streams, 'filename,folderName', '2024', '2160p', 'ATVP', 'APTV', 'AMZN', 'EZTVx.to')) : title == 'Sword Art Online' and season == 1? keyword(streams, 'filename,folderName', 'II', 'Alicization', 'War of Underworld') : title == 'Sword Art Online' and season == 2? keyword(streams, 'filename,folderName', 'Alicization', 'War of Underworld') : [], title == 'Bleach' and season == 17? merge(seasonPack(streams, 'onlySeasons'), negate(keyword(streams, 'filename,folderName', 'TYBW', 'Thousand-Year', 'Blood War', 'Sennen Kessen Hen', 's17e01', 's17e02', 's17e03', 's17e04', 's17e05', 's17e06', 's17e07', 's17e08', 's17e09', 's17e10', 's17e11', 's17e12', 's17e13', 's17e14', 's17e15', 's17e16', 's17e17', 's17e18', 's17e19', 's17e20', 's17e21', 's17e22', 's17e23', 's17e24', 's17e25', 's17e26', 's17e27', 's17e28', 's17e29', 's17e30', 's17e31', 's17e32', 's17e33', 's17e34', 's17e35', 's17e36', 's17e37', 's17e38', 's17e39', 's17e40', 's17e41', 's17e42', 's17e43', 's17e44', 's17e45', 's17e46', 's17e47', 's17e48', 's17e49', 's17e50'), streams)) : [], title == 'Bleach' and season != 17? keyword(streams, 'filename,folderName', 'TYBW', 'Thousand-Year', 'Blood War', 'Sennen Kessen Hen', 's17') : [], title == 'Bleach' and season != 1 and season !=17 ? seasonPack(keyword(streams, 'filename,folderName','S01'), 'onlySeasons') : [], title == 'Top Gear Australia' ? negate(keyword(streams,'filename,folderName', 'Top Gear Australia', '2019'), streams) :[])",
     "enabled": true
   },
   {
