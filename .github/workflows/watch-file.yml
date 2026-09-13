@@ -1,0 +1,40 @@
+name: Notify on file change
+on:
+  push:
+    paths:
+      - 'Tamtaro-All-Templates-for-AIOStreams.json'
+      - 'AIOStreams-SyncedURLs/**'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Commit-Uebersicht bauen
+        id: summary
+        run: |
+          MSG=$(jq -r '((.commits // []) as $c | if ($c | length) > 0 then ($c[] | ((.added // []) + (.modified // []) + (.removed // []) | map(select(startswith("AIOStreams-SyncedURLs/") or . == "Tamtaro-All-Templates-for-AIOStreams.json"))) as $files | ("🕒 " + .timestamp + "  ·  👤 " + .author.name + "\n📝 " + (.message | split("\n")[0]) + "\n" + (if ($files | length) > 0 then ($files | map("• " + .) | join("\n")) + "\n" else "" end) + "🔗 " + .url)) else ("📄 Datei wurde geändert. Vergleich: " + .compare) end)' "$GITHUB_EVENT_PATH")
+          echo "summary<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$MSG" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Diff bauen
+        id: diff
+        run: |
+          DIFF=$(git diff ${{ github.event.before }} ${{ github.sha }} -- AIOStreams-SyncedURLs Tamtaro-All-Templates-for-AIOStreams.json)
+          if [ ${#DIFF} -gt 1400 ]; then
+            DIFF="${DIFF:0:1400}"$'\n'"... (gekuerzt - vollstaendiger Diff ueber den Commit-Link oben)"
+          fi
+          echo "diff<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$DIFF" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Discord benachrichtigen
+        env:
+          SUMMARY: ${{ steps.summary.outputs.summary }}
+          DIFF: ${{ steps.diff.outputs.diff }}
+        run: |
+          jq -n --arg summary "$SUMMARY" --arg diff "$DIFF" '{content: ($summary + "\n```diff\n" + $diff + "\n```")}' | curl -H "Content-Type: application/json" -d @- "${{ secrets.DISCORD_WEBHOOK_URL }}"
