@@ -5,7 +5,7 @@
     "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://git.tamtaro.de). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Includes optional add-ons and formatter styles. \n * Uses dynamic SELect Engine to retain the number of streams you choose.\n * Uses auto-synced SELs and & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so SEL fixes and updates are received automatically.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
     "source": "external",
     "author": "Tamtaro",
-    "version": "3.2.6",
+    "version": "3.2.7",
     "category": "AIO",
     "serviceRequired": false,
     "changelogUrl": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/CHANGELOG.md",
@@ -13,7 +13,7 @@
       {
         "__if": "services",
         "id": "header.intro",
-        "name": "Complete SEL Setup v3.2.6: Debrid/Usenet Mode",
+        "name": "Complete SEL Setup v3.2.7: Debrid/Usenet Mode",
         "description": "An advanced filtering & sorting setup powered by Stream Expression Language (SEL) & [Vidhin's Regex Patterns](https://github.com/Vidhin05/Releases-Regex)",
         "type": "alert",
         "intent": "success"
@@ -21,7 +21,7 @@
       {
         "__if": "!services",
         "id": "header.p2p",
-        "name": "Complete SEL Setup v3.2.6: P2P Mode",
+        "name": "Complete SEL Setup v3.2.7: P2P Mode",
         "description": "No services selected. In some countries, torrenting is restricted, so a VPN or a debrid service from previous page may be required.",
         "type": "alert",
         "intent": "warning"
@@ -523,10 +523,17 @@
           {
             "id": "httpAddons",
             "name": "HTTP Addons",
-            "description": "If selected, HTTP streams will be included. Good backup options for niche/older titles, especially if you're without usenet. HTTP Addons are auto-included in P2P Setup.",
+            "description": "If selected, HTTP streams from Sootio, HdHub, & WebStreamr will be included. These addons don't require further credentials. They are auto-included in a P2P setup.",
             "type": "boolean",
             "required": false,
             "default": false
+          },
+          {
+            "id": "httpAddonsPenguPlay",
+            "name": "HTTP Addons: PenguPlay",
+            "description": "Enter your PenguPlay manifest URL here. PenguPlay is an actively maintained HTTP addon with extensive coverage. Make an account over at [PenguPlay](https://pengu.uk) to obtain your manifest URL. If left blank, PenguPlay will not be included in your setup.",
+            "type": "url",
+            "required": false
           },
           {
             "id": "kdramaAddons",
@@ -1140,7 +1147,7 @@
           {
             "id": "subLevels",
             "name": "For Nour: Sub Levels Boost",
-            "description": "Sub levels are how nekoBT attempts to categorize the quality of a release's subtitles. The higher the sub level (from L0 to L4), the more extensive the work put into the subtitles. **Default** prioritizes higher sub levels, boosting their SEL scores up to 500. Choose **None** to disable Sub Levels.",
+            "description": "Sub levels are how nekoBT attempts to categorize the quality of a release's subtitles. The higher the sub level (from L0 to L4), the more extensive the work put into the subtitles. **Default** prioritizes higher sub levels, boosting their SEL scores accordingly. Choose **None** to disable Sub Levels.",
             "type": "select",
             "required": false,
             "default": "default",
@@ -1520,6 +1527,10 @@
           {
             "value": "vc-1",
             "label": "VC-1 Encode"
+          },
+          {
+            "value": "hi10p",
+            "label": "Hi10P Encode"
           },
           {
             "value": "hlg",
@@ -2531,7 +2542,7 @@
       {
         "id": "header.catalogsNotice",
         "name": "",
-        "description": "**This template does not include any catalogs**. Many prefer AIOMetadata (separate add-on from AIOStreams), so after you finish importing this template, access [Tamtaro's AIOMetadata guide](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata) to complete your perfect stremio setup.",
+        "description": "**This template does not include any catalogs**. Many prefer AIOMetadata (separate add-on from AIOStreams), so after you finish importing this template, access [Tamtaro's AIOMetadata guide](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata) to complete your perfect streaming setup.",
         "type": "alert",
         "intent": "alert"
       },
@@ -2574,7 +2585,7 @@
     "appliedTemplates": [
       {
         "id": "tamtaro.complete",
-        "version": "3.2.6"
+        "version": "3.2.7"
       }
     ],
     "addonName": {
@@ -2586,7 +2597,7 @@
       },
       "default": "{{inputs.misc.addonName}}"
     },
-    "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.2.6. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+    "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.2.7. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
     "addonLogo": {
       "__switch": "inputs.misc.addonLogo",
       "cases": {
@@ -3076,24 +3087,6 @@
         "pattern": "<SYNCED: https://git.tamtaro.de/for-nour-Regex.json>",
         "name": "",
         "score": 0
-      },
-      {
-        "__if": "inputs.languages includes placeholder",
-        "pattern": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-French-Regex.json",
-        "name": "",
-        "score": 0
-      },
-      {
-        "__if": "inputs.languages includes placeholder]",
-        "pattern": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-excluded-regex.json",
-        "name": "",
-        "score": 0
-      },
-      {
-        "__if": "inputs.languages includes placeholder]",
-        "pattern": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-for-nour-Regex.json",
-        "name": "",
-        "score": 0
       }
     ],
     "syncedPreferredRegexUrls": [],
@@ -3120,6 +3113,24 @@
         "__if": "inputs.sorting.subLevels == default or inputs.sortingP2P.subLevels == default",
         "__value": [
           "https://git.tamtaro.de/for-nour-Regex.json"
+        ]
+      },
+      {
+        "__if": "inputs.languages includes placeholder",
+        "__value": [
+          "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-for-nour-Regex.json"
+        ]
+      },
+      {
+        "__if": "inputs.languages includes placeholder",
+        "__value": [
+          "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-excluded-regex.json"
+        ]
+      },
+      {
+        "__if": "inputs.languages includes placeholder",
+        "__value": [
+          "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-french-Regex.json"
         ]
       }
     ],
@@ -3154,7 +3165,7 @@
       {
         "__if": "inputs.coreFilterNonUsenet includes placeholder",
         "__value": [
-          "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ESEs-standard.json"
+          "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-ISEs.json"
         ]
       },
       {
@@ -3184,7 +3195,7 @@
       {
         "__if": "inputs.coreFilterNonUsenet includes placeholder",
         "__value": [
-          "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-French-RSE.json"
+          "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/AIOStreams-SyncedURLs/Tamtaro-synced-french-RSE.json"
         ]
       },
       {
@@ -3279,17 +3290,17 @@
       },
       {
         "__if": "inputs.coreFilterNonUsenet > 0",
-        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.6: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterNonUsenet}} 𝙳𝚎𝚋𝚛𝚒𝚍·𝙷𝚃𝚃𝙿·𝙿2𝙿*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.7: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterNonUsenet}} 𝙳𝚎𝚋𝚛𝚒𝚍·𝙷𝚃𝚃𝙿·𝙿2𝙿*/ []",
         "enabled": true
       },
       {
         "__if": "inputs.coreFilterUsenet > 0",
-        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.6: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterUsenet}} 𝚄𝚜𝚎𝚗𝚎𝚝*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.7: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterUsenet}} 𝚄𝚜𝚎𝚗𝚎𝚝*/ []",
         "enabled": true
       },
       {
         "__if": "inputs.coreFilterUsenet == 0 and inputs.coreFilterUsenet == 0",
-        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.6: No 𝚂𝙴𝙻𝚎𝚌𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
+        "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.7: No 𝚂𝙴𝙻𝚎𝚌𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
         "enabled": true
       },
       {
@@ -3342,6 +3353,14 @@
         "expression": "/*No VC-1*/ encode(streams, 'VC-1')",
         "exprNames": [
           "No VC-1"
+        ],
+        "enabled": true
+      },
+      {
+        "__if": "inputs.deviceExclude includes hi10p",
+        "expression": "/*No Hi10P*/ merge(keyword(streams, 'filename,folderName', 'hi10p'), visualTag(encode(streams, 'AVC'), '10bit'))",
+        "exprNames": [
+          "No Hi10P"
         ],
         "enabled": true
       },
@@ -4737,6 +4756,25 @@
               "category": "HTTP"
             },
             {
+              "__if": "inputs.includeAddon.httpAddonsPenguPlay",
+              "type": "penguplay",
+              "instanceId": "13d",
+              "enabled": true,
+              "options": {
+                "name": "PenguPlay",
+                "manifestUrl": "{{inputs.includeAddon.httpAddonsPenguPlay}}",
+                "timeout": "{{inputs.includeAddon.timeout}}",
+                "resources": [
+                  "stream",
+                  "subtitles",
+                  "meta",
+                  "catalog"
+                ],
+                "mediaTypes": []
+              },
+              "category": "HTTP"
+            },
+            {
               "__if": "inputs.includeAddon.kdramaAddons",
               "type": "yastream",
               "instanceId": "28f",
@@ -5144,6 +5182,25 @@
             }
           },
           {
+            "__if": "inputs.includeAddon.httpAddonsPenguPlay",
+            "type": "penguplay",
+            "instanceId": "13d",
+            "enabled": true,
+            "options": {
+              "name": "PenguPlay",
+              "manifestUrl": "{{inputs.includeAddon.httpAddonsPenguPlay}}",
+              "timeout": "{{inputs.includeAddon.timeout}}",
+              "resources": [
+                "stream",
+                "subtitles",
+                "meta",
+                "catalog"
+              ],
+              "mediaTypes": []
+            },
+            "category": "HTTP"
+          },
+          {
             "__if": "inputs.includeAddon.kdramaAddons",
             "type": "yastream",
             "instanceId": "28f",
@@ -5549,12 +5606,12 @@
         {
           "id": "debrid-only",
           "name": "Debrid Only",
-          "script": "# Debrid Only Variant. Disables all usenet/p2p/http related services and addons from your base config.\n\nset addonName = \"AIOStreams (Debrid Only)\"\nset excludedStreamTypes = [\"usenet\",\"stremio-usenet\",\"p2p\",\"http\",\"live\"]\nremove presets[*].options.services\ndisable services[id=aiostreams]\ndisable services[id=nzbdav]\ndisable services[id=altmount]\ndisable services[id=easynews]\ndisable services[id=stremio_nntp]\ndisable services[id=stremthru_newz]\ndisable presets[type=newznab]\ndisable presets[type=easynews-search]\ndisable presets[type=easynews]\ndisable presets[type=easynewsPlus]\ndisable presets[type=easynewsPlusPlus]\ndisable presets[type=nzbhydra]\ndisable presets[type=usenet-streamer]\ndisable presets[type=streamnzb]\ndisable presets[type=davex]\nremove presets[*].options.httpProviders\ndisable presets[type=yastream]\ndisable presets[type=hdhub]\ndisable presets[type=webstreamr]"
+          "script": "# Debrid Only Variant. Disables all usenet/p2p/http related services and addons from your base config.\n\nset addonName = \"AIOStreams (Debrid Only)\"\nset excludedStreamTypes = [\"usenet\",\"stremio-usenet\",\"p2p\",\"http\",\"live\"]\nremove presets[*].options.services\ndisable services[id=aiostreams]\ndisable services[id=nzbdav]\ndisable services[id=altmount]\ndisable services[id=easynews]\ndisable services[id=stremio_nntp]\ndisable services[id=stremthru_newz]\ndisable presets[type=newznab]\ndisable presets[type=easynews-search]\ndisable presets[type=easynews]\ndisable presets[type=easynewsPlus]\ndisable presets[type=easynewsPlusPlus]\ndisable presets[type=nzbhydra]\ndisable presets[type=usenet-streamer]\ndisable presets[type=streamnzb]\ndisable presets[type=davex]\nremove presets[*].options.httpProviders\ndisable presets[type=yastream]\ndisable presets[type=hdhub]\ndisable presets[type=webstreamr]\ndisable presets[type=penguplay]"
         },
         {
           "id": "usenet-only",
           "name": "Usenet Only",
-          "script": "# Usenet Only Variant. Disables all debrid/p2p/http related services and addons from your base config.\n\nset addonName = \"AIOStreams (Usenet Only)\"\nset excludedStreamTypes = [\"debrid\", \"p2p\", \"live\", \"http\"]\ndisable services[id=realdebrid]\ndisable services[id=alldebrid]\ndisable services[id=premiumize]\ndisable services[id=debridlink]\ndisable services[id=offcloud]\ndisable services[id=putio]\ndisable services[id=easydebrid]\ndisable services[id=debrider]\ndisable services[id=pikpak]\ndisable services[id=seedr]\ndisable services[id=torrin]\ndisable presets[type=neko-bt]\ndisable presets[type=anime-tosho-new]\ndisable presets[type=animetosho]\ndisable presets[type=torznab]\ndisable presets[type=knaben]\ndisable presets[type=zilean]\ndisable presets[type=seadex]\ndisable presets[type=knaben]\ndisable presets[type=debridio]\ndisable presets[type=sootio]\ndisable presets[type=stremthruStore]\ndisable presets[type=torrentio]\ndisable presets[type=meteor]\ndisable presets[type=comet]\ndisable presets[type=stremthruTorz]\ndisable presets[type=mediafusion]\ndisable presets[type=torrents-db]\ndisable presets[type=peerflix]\ndisable presets[type=sootio]\nremove presets[*].options.httpProviders\ndisable presets[type=yastream]\ndisable presets[type=hdhub]\ndisable presets[type=webstreamr]"
+          "script": "# Usenet Only Variant. Disables all debrid/p2p/http related services and addons from your base config.\n\nset addonName = \"AIOStreams (Usenet Only)\"\nset excludedStreamTypes = [\"debrid\", \"p2p\", \"live\", \"http\"]\ndisable services[id=realdebrid]\ndisable services[id=alldebrid]\ndisable services[id=premiumize]\ndisable services[id=debridlink]\ndisable services[id=offcloud]\ndisable services[id=putio]\ndisable services[id=easydebrid]\ndisable services[id=debrider]\ndisable services[id=pikpak]\ndisable services[id=seedr]\ndisable services[id=torrin]\ndisable presets[type=neko-bt]\ndisable presets[type=anime-tosho-new]\ndisable presets[type=animetosho]\ndisable presets[type=torznab]\ndisable presets[type=knaben]\ndisable presets[type=zilean]\ndisable presets[type=seadex]\ndisable presets[type=knaben]\ndisable presets[type=debridio]\ndisable presets[type=sootio]\ndisable presets[type=stremthruStore]\ndisable presets[type=torrentio]\ndisable presets[type=meteor]\ndisable presets[type=comet]\ndisable presets[type=stremthruTorz]\ndisable presets[type=mediafusion]\ndisable presets[type=torrents-db]\ndisable presets[type=peerflix]\ndisable presets[type=sootio]\nremove presets[*].options.httpProviders\ndisable presets[type=yastream]\ndisable presets[type=hdhub]\ndisable presets[type=penguplay]"
         },
         {
           "id": "http-only",
@@ -5564,7 +5621,7 @@
         {
           "id": "nuvio-instant",
           "name": "Nuvio P2P Instant",
-          "script": "# Nuvio P2P Instant Variant. Inserts p2p-only scrapers, switches to \"Tamtaro (Nuvio P2P Instant)\" formatter, strips debrid/usenet/http services and addons, and disables seeder-specific filter & sorting.\n\nset addonName = \"AIOStreams (Instant)\"\nuse formatter \"Tamtaro (Nuvio P2P Instant)\"\nset excludedStreamTypes = [\"usenet\",\"stremio-usenet\",\"http\",\"live\"]\ndisable excludedStreamExpressions[expression*=\"P2P Backup\"]\ndisable services[*]\nremove sortCriteria.global[key=seeders]\nremove sortCriteria.cached[key=seeders]\nremove sortCriteria.uncached[key=seeders]\nadd selOverrides {\"expression\": \"[]\", \"exprNames\": [\"Low Seeders\"], \"disabled\": true}\ndisable presets[type=library]\ndisable presets[type=stremthruStore]\ndisable presets[type=neko-bt]\ndisable presets[type=anime-tosho-new]\ndisable presets[type=animetosho]\ndisable presets[type=torznab]\ndisable presets[type=newznab]\ndisable presets[type=knaben]\ndisable presets[type=zilean]\ndisable presets[type=seadex]\ndisable presets[type=knaben]\ndisable presets[type=debridio]\ndisable presets[type=easynews-search]\ndisable presets[type=easynews]\ndisable presets[type=easynewsPlus]\ndisable presets[type=easynewsPlusPlus]\ndisable presets[type=nzbhydra]\ndisable presets[type=usenet-streamer]\ndisable presets[type=streamnzb]\ndisable presets[type=davex]\ndisable presets[type=sootio]\ndisable presets[type=webstreamr]\ndisable presets[type=yastream]\ndisable presets[type=stremthruStore]\ndisable presets[type=torrentio]\ndisable presets[type=meteor]\ndisable presets[type=comet]\ndisable presets[type=stremthruTorz]\ndisable presets[type=mediafusion]\ndisable presets[type=torrents-db]\ndisable presets[type=peerflix]\ndisable presets[type=sootio]\nremove presets[*].options.httpProviders\ndisable presets[type=yastream]\ndisable presets[type=hdhub]\ndisable presets[type=webstreamr]\nprepend presets\n  { \"type\": \"meteor\", \"instanceId\": \"064p2p\", \"enabled\": true, \"options\": { \"name\": \"Meteor\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"removeTrash\": false, \"useMultipleInstances\": false, \"mediaTypes\": [] }, \"category\": \"P2P\" },\n  { \"type\": \"comet\", \"instanceId\": \"b0fp2p\", \"enabled\": true, \"options\": { \"name\": \"Comet\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"removeTrash\": false, \"mediaTypes\": [], \"url\": \"\" }, \"category\": \"P2P\" },\n  { \"type\": \"stremthruTorz\", \"instanceId\": \"bb9p2p\", \"enabled\": true, \"options\": { \"name\": \"STorz\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"mediaTypes\": [], \"includeP2P\": true, \"useMultipleInstances\": false, \"url\": \"\" }, \"category\": \"P2P\" },\n  { \"type\": \"torrentio\", \"instanceId\": \"4efp2p\", \"enabled\": true, \"options\": { \"name\": \"Torrentio\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"providers\": [], \"useMultipleInstances\": false }, \"category\": \"P2P\" },\n  { \"type\": \"mediafusion\", \"instanceId\": \"276p2p\", \"enabled\": true, \"options\": { \"name\": \"MediaFusion\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"useCachedResultsOnly\": true, \"enableWatchlistCatalogs\": false, \"downloadViaBrowser\": false, \"contributorStreams\": false, \"certificationLevelsFilter\": [], \"nudityFilter\": [], \"mediaTypes\": [], \"url\": \"\" }, \"category\": \"P2P\" },\n  { \"type\": \"torrents-db\", \"instanceId\": \"a15p2p\", \"enabled\": true, \"options\": { \"name\": \"TorrentsDB\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"mediaTypes\": [], \"providers\": [], \"includeP2P\": true, \"useMultipleInstances\": false }, \"category\": \"P2P\" },\n  { \"type\": \"peerflix\", \"instanceId\": \"8b6p2p\", \"enabled\": true, \"options\": { \"name\": \"Peerflix\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"mediaTypes\": [], \"useMultipleInstances\": false, \"showTorrentLinks\": true }, \"category\": \"P2P\" }"
+          "script": "# Nuvio P2P Instant Variant. Inserts p2p-only scrapers, switches to \"Tamtaro (Nuvio P2P Instant)\" formatter, strips debrid/usenet/http services and addons, and disables seeder-specific filter & sorting.\n\nset addonName = \"AIOStreams (Instant)\"\nuse formatter \"Tamtaro (Nuvio P2P Instant)\"\nset excludedStreamTypes = [\"usenet\",\"stremio-usenet\",\"http\",\"live\"]\ndisable excludedStreamExpressions[expression*=\"P2P Backup\"]\ndisable services[*]\nremove sortCriteria.global[key=seeders]\nremove sortCriteria.cached[key=seeders]\nremove sortCriteria.uncached[key=seeders]\nadd selOverrides {\"expression\": \"[]\", \"exprNames\": [\"Low Seeders\"], \"disabled\": true}\ndisable presets[type=library]\ndisable presets[type=stremthruStore]\ndisable presets[type=neko-bt]\ndisable presets[type=anime-tosho-new]\ndisable presets[type=animetosho]\ndisable presets[type=torznab]\ndisable presets[type=newznab]\ndisable presets[type=knaben]\ndisable presets[type=zilean]\ndisable presets[type=seadex]\ndisable presets[type=knaben]\ndisable presets[type=debridio]\ndisable presets[type=easynews-search]\ndisable presets[type=easynews]\ndisable presets[type=easynewsPlus]\ndisable presets[type=easynewsPlusPlus]\ndisable presets[type=nzbhydra]\ndisable presets[type=usenet-streamer]\ndisable presets[type=streamnzb]\ndisable presets[type=davex]\ndisable presets[type=stremthruStore]\ndisable presets[type=torrentio]\ndisable presets[type=meteor]\ndisable presets[type=comet]\ndisable presets[type=stremthruTorz]\ndisable presets[type=mediafusion]\ndisable presets[type=torrents-db]\ndisable presets[type=peerflix]\ndisable presets[type=sootio]\nremove presets[*].options.httpProviders\ndisable presets[type=yastream]\ndisable presets[type=hdhub]\ndisable presets[type=penguplay]\nprepend presets\n  { \"type\": \"meteor\", \"instanceId\": \"064p2p\", \"enabled\": true, \"options\": { \"name\": \"Meteor\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"removeTrash\": false, \"useMultipleInstances\": false, \"mediaTypes\": [] }, \"category\": \"P2P\" },\n  { \"type\": \"comet\", \"instanceId\": \"b0fp2p\", \"enabled\": true, \"options\": { \"name\": \"Comet\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"removeTrash\": false, \"mediaTypes\": [], \"url\": \"\" }, \"category\": \"P2P\" },\n  { \"type\": \"stremthruTorz\", \"instanceId\": \"bb9p2p\", \"enabled\": true, \"options\": { \"name\": \"STorz\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"mediaTypes\": [], \"includeP2P\": true, \"useMultipleInstances\": false, \"url\": \"\" }, \"category\": \"P2P\" },\n  { \"type\": \"torrentio\", \"instanceId\": \"4efp2p\", \"enabled\": true, \"options\": { \"name\": \"Torrentio\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"providers\": [], \"useMultipleInstances\": false }, \"category\": \"P2P\" },\n  { \"type\": \"mediafusion\", \"instanceId\": \"276p2p\", \"enabled\": true, \"options\": { \"name\": \"MediaFusion\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"useCachedResultsOnly\": true, \"enableWatchlistCatalogs\": false, \"downloadViaBrowser\": false, \"contributorStreams\": false, \"certificationLevelsFilter\": [], \"nudityFilter\": [], \"mediaTypes\": [], \"url\": \"\" }, \"category\": \"P2P\" },\n  { \"type\": \"torrents-db\", \"instanceId\": \"a15p2p\", \"enabled\": true, \"options\": { \"name\": \"TorrentsDB\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"mediaTypes\": [], \"providers\": [], \"includeP2P\": true, \"useMultipleInstances\": false }, \"category\": \"P2P\" },\n  { \"type\": \"peerflix\", \"instanceId\": \"8b6p2p\", \"enabled\": true, \"options\": { \"name\": \"Peerflix\", \"timeout\": {{inputs.includeAddon.timeout}}, \"resources\": [\"stream\"], \"mediaTypes\": [], \"useMultipleInstances\": false, \"showTorrentLinks\": true }, \"category\": \"P2P\" }"
         },
         {
           "__if": "services.torbox and !inputs.includeAddon.p2pAddons",

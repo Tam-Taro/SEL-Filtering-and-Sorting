@@ -1,4 +1,17 @@
 # Changelog
+## 3.2.7 (2026-09-19)
+**Changes**
+- Added Hi10P filter to Device Specific Exclusions
+  - Many devices have playback issues (black screens/stuttering) when playing 10-bit H.264 (Hi10P) videos
+- Added PenguPlay to Addon Preset: you must input your personalized manifest URL, found inside Addon Preset Modifications
+  - PenguPlay is an actively maintained HTTP addon with extensive coverage. Make an account over at [PenguPlay](https://pengu.uk) to obtain your manifest URL. If left blank, PenguPlay will not be included in your setup.
+- Lowered default scores for Anime Sub Levels
+  - L1 = 100, L2 = 200, L3 = 300
+- Fixed some syncedURLs typos and re-arranged them inside template as placeholders, so AIOS instances should whitelist both short and long versions appropriately
+**SyncedURLs** (auto-update)
+- Tweaked "Problematic Title" ISE and ESE
+  - Added some new titles (Ann Droid), and Season 17 of Bleach should work better
+
 ## 3.2.6 (2026-09-07)
 **New for Nour & fellow anime enjoyers**
 - Sub Levels Regex & RSE are here!

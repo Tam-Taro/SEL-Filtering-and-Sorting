@@ -21,17 +21,17 @@
   },
   {
     "expression": "/*L2*/ isAnime? regexMatched(streams, 'L2') : []",
-    "score": 300,
+    "score": 200,
     "enabled": true
   },
   {
     "expression": "/*L3*/ isAnime? regexMatched(streams, 'L3') : []",
-    "score": 400,
+    "score": 300,
     "enabled": true
   },
   {
     "expression": "/*L4*/ isAnime? regexMatched(streams, 'L4') : []",
-    "score": 500,
+    "score": 400,
     "enabled": true
   }
 ]
