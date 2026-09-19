@@ -8,6 +8,7 @@
 - Lowered default scores for Anime Sub Levels
   - L1 = 100, L2 = 200, L3 = 300
 - Fixed some syncedURLs typos and re-arranged them inside template as placeholders, so AIOS instances should whitelist both short and long versions appropriately
+
 **SyncedURLs** (auto-update)
 - Tweaked "Problematic Title" ISE and ESE
   - Added some new titles (Ann Droid), and Season 17 of Bleach should work better
