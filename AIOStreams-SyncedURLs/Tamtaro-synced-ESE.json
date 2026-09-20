@@ -1,6 +1,6 @@
 [
   {
-    "expression": "/*ESE v2.1.10 [git.tamtaro.de]*/[]",
+    "expression": "/*ESE v2.1.11 [git.tamtaro.de]*/[]",
     "enabled": true
   },
   {
@@ -56,7 +56,7 @@
     "enabled": true
   },
   {
-    "expression": "/*Info & Other Unwanted*/ merge( type(streams, 'info', 'external'), library(type(uncached(streams),'debrid')), negate(size(streams,1),type(streams,'debrid','p2p','usenet','stremio-usenet')), releaseGroup(type(streams,'usenet','stremio-usenet'),'sample'), message(type(streams,'usenet','stremio-usenet'),'includes','🚫'), keyword(streams, 'all', 'trailer teaser'), addon(type(uncached(streams), 'usenet'),'MediaFusion'), (daysSinceRelease > 0) ? age(streams, ((daysSinceRelease + 1) * 24), 99999) : [])",
+    "expression": "/*Info & Other Unwanted*/ merge( type(streams, 'info', 'external'), library(type(uncached(streams),'debrid')), negate(size(streams,1),type(streams,'debrid','p2p','usenet','stremio-usenet')), releaseGroup(type(streams,'usenet','stremio-usenet'),'sample'), message(type(streams,'usenet','stremio-usenet'),'includes','🚫'), keyword(streams, 'all', 'trailer teaser'), addon(type(uncached(streams), 'usenet'),'MediaFusion'), (daysSinceRelease > 0) ? age(streams, ((daysSinceRelease + 1) * 24), 99999999) : [])",
     "enabled": true
   },
   {
