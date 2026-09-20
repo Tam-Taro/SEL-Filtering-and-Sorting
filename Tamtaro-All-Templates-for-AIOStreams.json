@@ -2489,10 +2489,10 @@
             {
               "id": "addonName",
               "name": "Add-on Name",
-              "description": "What to call AIOStreams in Stremio?",
+              "description": "What to call AIOStreams addon?",
               "type": "select-with-custom",
               "required": false,
-              "default": "AIOStreams",
+              "default": "SELection",
               "options": [
                 {
                   "value": "AIOStreams",
@@ -2598,7 +2598,7 @@
         },
         "default": "{{inputs.misc.addonName}}"
       },
-      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.2.8. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect Stremio experience.",
+      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.2.8. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect streaming experience.",
       "addonLogo": {
         "__switch": "inputs.misc.addonLogo",
         "cases": {

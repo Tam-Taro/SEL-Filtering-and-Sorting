@@ -1,7 +1,9 @@
 # Changelog
 ## 3.2.8 (2026-09-20)
-- Minor: fixed some backend typo for a syncedURL inside template that doesn't affect your setup (selfhosters won't see this template error inside their AIOStreams log)
+**Minor**
+- Fixed some backend typo for a syncedURL inside template that doesn't affect your setup (selfhosters won't see this template error inside their AIOStreams log)
 - Tweaked HTTP-Only Variant so they keep more results by default (disabled SELect Engine and included "Keep 720p & Lower", "Keep Unknown Resolution", "Keep Unknown Quality", and "Keep Unknown Quality & Resolution" SELs)
+- Addon name defaults to "SELection", you can change it inside Miscellaneous Options
 
 ## 3.2.7 (2026-09-19)
 **Changes**
