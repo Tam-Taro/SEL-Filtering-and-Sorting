@@ -1,5 +1,5 @@
 # Changelog
-## 3.2.8 (2026-09-19)
+## 3.2.8 (2026-09-20)
 - Minor: fixed some backend typo for a syncedURL inside template that doesn't affect your setup (selfhosters won't see this template error inside their AIOStreams log)
 
 ## 3.2.7 (2026-09-19)
