@@ -2,7 +2,7 @@
 
 Tired of Stremio pages flooded with streams you'll never use? My SEL-driven AIOStreams setup keeps all the good stuff while hiding the clutter. It started as a personal project during the early v2 AIOStreams betas, when I wanted one config I could share with family and friends: mid-resolution options for slower devices, premium remuxes for my own setup, all in a single, smart template.
 
-With [Stream Expression Language (SEL)](https://github.com/Viren070/AIOStreams/wiki/Stream-Expression-Language) in AIOStreams, that "perfect balance" finally became possible. After months of tinkering, testing new features, chasing bugs, and trading tips in the [AIOStreams Discord](https://discord.gg/zRq8dVh5rJ), this guide shares my day-to-day config plus ready-to-import templates focused on SEL filtering and sensible sorting.
+With [Stream Expression Language (SEL)](https://github.com/Viren070/AIOStreams/wiki/Stream-Expression-Language) in AIOStreams, that "perfect balance" finally became possible. After months of tinkering, testing new features, chasing bugs, and trading tips in the [AIOStreams Discord](https://discord.gg/aiostreams), this guide shares my day-to-day config plus ready-to-import templates focused on SEL filtering and sensible sorting.
 
 > [!IMPORTANT]
 > Resources used in this Guide:
@@ -42,9 +42,8 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
    - TMDB and TVDB credentials are required for matching, bitrate and other features.
    - Load Template, Save your AIOStreams into Stremio.
 3. Advanced setup after template import:
-  - Browse list of [Optional SELs](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-optional-sels), most of which are incoroprated into the Template Wizard.  
+  - Add Usenet addons if you use them. See [Viren's ⁠usenet page](https://docs.aiostreams.viren070.me/guides/usenet/) for guidance.
   - Adjust Ranked Stream Expressions score as you wish for more nuanced sorting. See ⁠his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more details on customization.
-  - Add usenet addons or others you find useful.
 4. [AIOMetadata for catalogs/meta](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata): Import one of my JSONs (with/without anime) via trusted AIOMetadata instances from [this page](https://docs.aiostreams.viren070.me/getting-started/public-instances/). 
   - Refer to full AIOMetadata guide at end of page.
 ---
