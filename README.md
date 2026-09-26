@@ -733,8 +733,12 @@ The second block of ESE is the Main Quality/Resolution Filter. It uses `slice(..
 Third block of ESE is the Low Quality/Resolution Filter. It checks how many streams made through the Main Filter above, and removes low quality and low resolution streams when there are already enough present. It also removes regex-matched streams from "Bad" quality release groups when there are enough non-"Bad" streams present (for those that use Vidhin's regex).
 </details>
 
-## 🔧 Optional SELs
+---
 
+ 
+ <details>
+        <summary> 🔧 Optional SELs (Deprecated)</summary>
+	 
 While my default SEL setup is a complete setup, it can be tweaked further for various specific needs. Over the months I've shared these SELs with you guys on Discord, or found them useful, shared by others. Most of these are Excluded Stream Expressions, which are meant to be used *before* my ESEs/synced url. Some are Included expressions, which is meant to bypass certain streams before filtering. Some are Required expressions, which is meant to provide one last filtering that will run *after* all previous filtering. Where to put each optional SEL is important and will be noted. It's recommended to use the Template Wizard as that will automatically adjust and place the SELs appropriately for your config. A lot of these SELs is incoropated into the template already.
 
 These go into Excluded *before* all my Excluded SELs, by adding a box yourself above my synced url:
@@ -785,7 +789,7 @@ These go into Excluded *before* all my Excluded SELs, by adding a box yourself a
 			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'20Mbps'))>5?'20Mbps':
 			max(values(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),'bitrate'))
 			))
-</details>
+
 
 These go into Excluded *after* all my Excluded SELs:
   - __Global Result Limit__: After all my filtering SELs have ran you get left off with 3 of each category, totalling about 20 streams in all. You can simply cut this number down to any number you want, I will go with 6 to get even amount from 2 categories (eg. 3 x 4k Remux + 3 x 4k Bluray). Library and Seadex results are not counted.
@@ -812,7 +816,11 @@ These go into Included Stream Expressions, order doesn't matter here:
     - ```text
       /*SDR Passthrough*/ count(resolution(negate(merge(visualTag(streams, 'HDR', 'HDR10', 'HDR10+', 'DV')), visualTag(merge(cached(streams), type(streams, 'usenet')), 'SDR', 'HLG', '10bit', 'IMAX', 'Unknown')), '2160p', '1080p')) > 5 ? passthrough(slice(resolution(negate(merge(visualTag(streams, 'HDR', 'HDR10', 'HDR10+', 'DV')), visualTag(merge(cached(streams), type(streams, 'usenet')), 'SDR', 'HLG', '10bit', 'IMAX', 'Unknown')), '2160p', '1080p'), 0, 5), 'excluded') : passthrough(slice(resolution(negate(merge(visualTag(streams, 'HDR', 'HDR10', 'HDR10+', 'DV')), visualTag(merge(cached(streams), type(streams, 'usenet')), 'SDR', 'HLG', '10bit', 'IMAX', 'Unknown')), '2160p', '1080p', '720p'), 0, 5), 'excluded')
 
+</details>
+</details>
+
 ---
+
 ## ⚙️ What’s Included for AIOMetadata
 
 These are setup configs to use with AIOMetadata. It is a powerful tool for all things metadata and catalogs. If you're not sure where to start, pick an AIOMetadata instance from [here](https://uptime.ibbylabs.dev/aiometadata). I recommend the public [Elfhosted instance](https://aiometadata.elfhosted.com/configure/).
