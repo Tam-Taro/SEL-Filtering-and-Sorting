@@ -23,29 +23,28 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
 >
 > 2. While my AIOStreams template works on stable AIOStreams, I recommend a nightly instance as it is just as reliable as stable, plus it has the latest unreleased features. You can choose any AIOStreams instance (a list is found below or in [viren-guide](https://docs.aiostreams.viren070.me/getting-started/public-instances/)) . If selfhosting, make sure to add `https://git.tamtaro.de/complete` inside AIOStreams -> Dashboard → Ctrl K → Templates URL.
 
-> PS. I just switched to TorBox on their BF deal, so now I can share my code like everyone else woo!! For the best streaming experience, you need a debrid service, and TB is current top recommendation especially if you're like me, and like to share your streaming setup with family and friends. 
->
-    f1cdd3f8-aeee-48f1-849b-64fc7e5aeb3c
-> Use my [referral](https://torbox.app/subscription?referral=f1cdd3f8-aeee-48f1-849b-64fc7e5aeb3c) and we both get +84 days on a yearly sub, if it's your first ever purchase.
+> PS. For the best streaming experience, you need a debrid service, and TB is currently the top recommendation especially if you're like me and like to share your streaming setup with family and friends. 
+> Use this [referral](https://torbox.app/subscription?referral=f1cdd3f8-aeee-48f1-849b-64fc7e5aeb3c) or `f1cdd3f8-aeee-48f1-849b-64fc7e5aeb3c` and we both get +84 days on a yearly sub, if it's your first ever purchase.
     
 
 ---
 ## Quick Setup Overview
-1. Choose an AIOStreams instance from [this page](https://docs.aiostreams.viren070.me/getting-started/public-instances/) or click the link below to directly access my template. Nightly is recommended but not required. **Selfhosters**: Dashboard → Ctrl K → Templates URL & enter https://git.tamtaro.de/complete
-2. [Import templates](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-how-to-import): Paste `https://git.tamtaro.de/complete.json` into *AIOStreams → Save & Install :floppy_disk: → Import Template*
 
 > [!NOTE]
 > * [**Yeb's Nightly**](https://aiostreams-nightly.fortheweak.cloud/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) | [**Kuu's Nightly**](https://aiostreams-nightly.206111.xyz/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)| [**Midnight's Nightly**](https://aiostreamsfortheweebs.midnightignite.me/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) | [**Viren's Nightly**](https://aiostreams.viren070.me/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
 > * [**OMNI**](https://aiostreams.12312023.xyz/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) | [**ATBP Hosting**](https://aio.atbphosting.com/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) | [**D4rk(StremioFR)**](https://aiostreams.noplay.fr/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) | \[[**ElfHosted**](https://aiostreams.elfhosted.com/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) ⚠️ (*No P2P/Torrentio*)\]
+
+1. Choose an AIOStreams instance from [this page](https://docs.aiostreams.viren070.me/getting-started/public-instances/) or click the link aboveOptional Advanced Customization after template to directly access my template. Nightly is recommended but not required. **Selfhosters**: Dashboard → Ctrl K → Templates URL & enter https://git.tamtaro.de/complete
+2. [Import templates](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-how-to-import): Paste `https://git.tamtaro.de/complete.json` into *AIOStreams → Save & Install :floppy_disk: → Import Template*
    - Start with "Tamtaro Complete SEL Setup" which has options for both Debrid/Usenet or P2P users.
    - Select your debrid services (skip for P2P), and follow the customization steps that appear to personalize your setup.
    - TMDB and TVDB credentials are required for matching, bitrate and other features.
-   - Load Template, Save your AIOStreams into Stremio.
-3. Advanced setup after template import:
-  - Add Usenet addons if you use them. See [Viren's ⁠usenet page](https://docs.aiostreams.viren070.me/guides/usenet/) for guidance.
-  - Adjust Ranked Stream Expressions score as you wish for more nuanced sorting. See ⁠his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more details on customization.
+   - Load Template, Save your AIOStreams and add it into Stremio/Nuvio or your preferred client.
+3. Optional Advanced Customization after template:
+   - Add Usenet addons if you use them. See [Viren's ⁠usenet page](https://docs.aiostreams.viren070.me/guides/usenet/) for guidance.
+   - Adjust Ranked Stream Expressions score as you wish for more nuanced sorting. See ⁠his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more details on customization.
 4. [AIOMetadata for catalogs/meta](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata): Import one of my JSONs (with/without anime) via trusted AIOMetadata instances from [this page](https://docs.aiostreams.viren070.me/getting-started/public-instances/). 
-  - Refer to full AIOMetadata guide at end of page.
+   - Refer to full AIOMetadata guide at end of page.
 ---
 ## ✨ Release Notes
 
