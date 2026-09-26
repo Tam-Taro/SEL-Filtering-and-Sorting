@@ -1,6 +1,6 @@
 # SEL-Filtering-and-Sorting
 
-Tired of Stremio pages flooded with streams you'll never use? My SEL-driven AIOStreams setup keeps all the good stuff while hiding the clutter. It started as a personal project during the early v2 AIOStreams betas, when I wanted one config I could share with family and friends: mid-resolution options for slower devices, premium remuxes for my own setup, all in a single, smart template.
+Tired of result pages flooded with streams you'll never use? My SEL-driven AIOStreams setup keeps all the good stuff while hiding the clutter. It started as a personal project during the early v2 AIOStreams betas, when I wanted one config I could share with family and friends: mid-resolution options for slower devices, premium remuxes for my own setup, all in a single, smart template.
 
 With [Stream Expression Language (SEL)](https://github.com/Viren070/AIOStreams/wiki/Stream-Expression-Language) in AIOStreams, that "perfect balance" finally became possible. After months of tinkering, testing new features, chasing bugs, and trading tips in the [AIOStreams Discord](https://discord.gg/aiostreams), this guide shares my day-to-day config plus ready-to-import templates focused on SEL filtering and sensible sorting.
 
@@ -23,7 +23,7 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
 >
 > 2. While my AIOStreams template works on stable AIOStreams, I recommend a nightly instance as it is just as reliable as stable, plus it has the latest unreleased features. You can choose any AIOStreams instance (a list is found below or in [viren-guide](https://docs.aiostreams.viren070.me/getting-started/public-instances/)) . If selfhosting, make sure to add `https://git.tamtaro.de/complete` inside AIOStreams -> Dashboard → Ctrl K → Templates URL.
 
-> PS. I just switched to TorBox on their BF deal, so now I can share my code like everyone else woo!! For the best stremio experience, you need a debrid service, and TB is current top recommendation especially if you're like me, and like to share your stremio setup with family and friends. 
+> PS. I just switched to TorBox on their BF deal, so now I can share my code like everyone else woo!! For the best streaming experience, you need a debrid service, and TB is current top recommendation especially if you're like me, and like to share your streaming setup with family and friends. 
 >
     f1cdd3f8-aeee-48f1-849b-64fc7e5aeb3c
 > Use my [referral](https://torbox.app/subscription?referral=f1cdd3f8-aeee-48f1-849b-64fc7e5aeb3c) and we both get +84 days on a yearly sub, if it's your first ever purchase.
@@ -35,8 +35,8 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
 2. [Import templates](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-how-to-import): Paste `https://git.tamtaro.de/complete.json` into *AIOStreams → Save & Install :floppy_disk: → Import Template*
 
 > [!NOTE]
-> * [**Yeb's Nightly**](https://aiostreams-nightly.fortheweak.cloud/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) | [**Kuu's Nightly**](https://aiostreams-nightly.206111.xyz/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)| [**Midnight's Nightly**](https://aiostreamsfortheweebs.midnightignite.me/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) | [**Viren's Nightly**](https://aiostreams.viren070.me/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
-> * [**OMNI**](https://aiostreams.12312023.xyz/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) | [**ATBP Hosting**](https://aio.atbphosting.com/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) | [**D4rk(StremioFR)**](https://aiostreams.noplay.fr/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) | \[[**ElfHosted**](https://aiostreams.elfhosted.com/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) ⚠️ (*No P2P/Torrentio*)\]
+> * [**Yeb's Nightly**](https://aiostreams-nightly.fortheweak.cloud/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) | [**Kuu's Nightly**](https://aiostreams-nightly.206111.xyz/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)| [**Midnight's Nightly**](https://aiostreamsfortheweebs.midnightignite.me/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) | [**Viren's Nightly**](https://aiostreams.viren070.me/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
+> * [**OMNI**](https://aiostreams.12312023.xyz/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) | [**ATBP Hosting**](https://aio.atbphosting.com/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) | [**D4rk(StremioFR)**](https://aiostreams.noplay.fr/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) | \[[**ElfHosted**](https://aiostreams.elfhosted.com/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) ⚠️ (*No P2P/Torrentio*)\]
    - Start with "Tamtaro Complete SEL Setup" which has options for both Debrid/Usenet or P2P users.
    - Select your debrid services (skip for P2P), and follow the customization steps that appear to personalize your setup.
    - TMDB and TVDB credentials are required for matching, bitrate and other features.
@@ -182,15 +182,15 @@ That's it for this All-in-One Complete template. Most Optional SELs can be added
 
 ##### Direct Links to open my template on popular public AIOS instances:
 
-- [**Yeb's Nightly**](https://aiostreams-nightly.fortheweak.cloud/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
-- [**Kuu's Nightly**](https://aiostreams-nightly.206111.xyz/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
-- [**Midnight's Nightly**](https://aiostreamsfortheweebs.midnightignite.me/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
-- [**Viren's Nightly**](https://aiostreams.viren070.me/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
-- [**ElfHosted Public**](https://aiostreams.elfhosted.com/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) :warning: 
+- [**Yeb's Nightly**](https://aiostreams-nightly.fortheweak.cloud/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
+- [**Kuu's Nightly**](https://aiostreams-nightly.206111.xyz/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
+- [**Midnight's Nightly**](https://aiostreamsfortheweebs.midnightignite.me/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
+- [**Viren's Nightly**](https://aiostreams.viren070.me/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
+- [**ElfHosted Public**](https://aiostreams.elfhosted.com/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) :warning: 
   - Note: ElfHosted public instance has P2P/Torrentio disabled. A service selection is required to proceed with Debrid/Usenet Mode.
-- [**ATBP Hosting**](https://aio.atbphosting.com/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
-- [**OMNI**](https://aiostreams.12312023.xyz/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
-- [**StremioFR**](https://aiostreams.stremiofr.com/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
+- [**ATBP Hosting**](https://aio.atbphosting.com/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
+- [**OMNI**](https://aiostreams.12312023.xyz/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
+- [**StremioFR**](https://aiostreams.stremiofr.com/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
 </details>	
 
 <details>
