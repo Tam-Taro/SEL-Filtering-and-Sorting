@@ -1,8 +1,8 @@
 # SEL-Filtering-and-Sorting
 
-Tired of Stremio pages flooded with streams you'll never use? My SEL-driven AIOStreams setup keeps all the good stuff while hiding the clutter. It started as a personal project during the early v2 AIOStreams betas, when I wanted one config I could share with family and friends: mid-resolution options for slower devices, premium remuxes for my own setup, all in a single, smart template.
+Tired of result pages flooded with streams you'll never use? My SEL-driven AIOStreams setup keeps all the good stuff while hiding the clutter. It started as a personal project during the early v2 AIOStreams betas, when I wanted one config I could share with family and friends: mid-resolution options for slower devices, premium remuxes for my own setup, all in a single, smart template.
 
-With [Stream Expression Language (SEL)](https://github.com/Viren070/AIOStreams/wiki/Stream-Expression-Language) in AIOStreams, that "perfect balance" finally became possible. After months of tinkering, testing new features, chasing bugs, and trading tips in the [AIOStreams Discord](https://discord.gg/zRq8dVh5rJ), this guide shares my day-to-day config plus ready-to-import templates focused on SEL filtering and sensible sorting.
+With [Stream Expression Language (SEL)](https://github.com/Viren070/AIOStreams/wiki/Stream-Expression-Language) in AIOStreams, that "perfect balance" finally became possible. After months of tinkering, testing new features, chasing bugs, and trading tips in the [AIOStreams Discord](https://discord.gg/aiostreams), this guide shares my day-to-day config plus ready-to-import templates focused on SEL filtering and sensible sorting.
 
 > [!IMPORTANT]
 > Resources used in this Guide:
@@ -21,32 +21,30 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
 > [!IMPORTANT]
 > 1. My AIOStreams template *does not* include any catalogs. This is because many of us prefer AIOMetadata (separate addon from AIOStreams), so just scroll down to the [AIOMetadata section](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata) for all your metadata and catalog management needs.
 >
-> 2. While my AIOStreams template works on stable AIOStreams, I recommend a nightly instance as it is just as reliable as stable, plus it has the latest unreleased features. You can choose any AIOStreams instance (a list is found below or in [viren-guide](https://docs.aiostreams.viren070.me/getting-started/public-instances/)) . If selfhosting, make sure to set `SEL_SYNC_ACCESS=all` and `REGEX_FILTER_ACCESS=all` in your .env.
+> 2. While my AIOStreams template works on stable AIOStreams, I recommend a nightly instance as it is just as reliable as stable, plus it has the latest unreleased features. You can choose any AIOStreams instance (a list is found below or in [viren-guide](https://docs.aiostreams.viren070.me/getting-started/public-instances/)) . If selfhosting, make sure to add `https://git.tamtaro.de/complete` inside AIOStreams -> Dashboard → Ctrl K → Templates URL.
 
-> PS. I just switched to TorBox on their BF deal, so now I can share my code like everyone else woo!! For the best stremio experience, you need a debrid service, and TB is current top recommendation especially if you're like me, and like to share your stremio setup with family and friends. 
->
-    f1cdd3f8-aeee-48f1-849b-64fc7e5aeb3c
-> Use my [referral](https://torbox.app/subscription?referral=f1cdd3f8-aeee-48f1-849b-64fc7e5aeb3c) and we both get +84 days on a yearly sub, if it's your first ever purchase.
+> PS. For the best streaming experience, you need a debrid service, and TB is currently the top recommendation especially if you're like me and like to share your streaming setup with family and friends. 
+> Use this [referral](https://torbox.app/subscription?referral=f1cdd3f8-aeee-48f1-849b-64fc7e5aeb3c) or `f1cdd3f8-aeee-48f1-849b-64fc7e5aeb3c` and we both get +84 days on a yearly sub, if it's your first ever purchase.
     
 
 ---
 ## Quick Setup Overview
-1. Choose an AIOStreams instance from [this page](https://docs.aiostreams.viren070.me/getting-started/public-instances/) or click the link below to directly access my template. Nightly is recommended but not required. **Selfhosters**:  Set `SEL_SYNC_ACCESS=all` and `REGEX_FILTER_ACCESS=all` in your .env
-2. [Import templates](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-how-to-import): Paste `https://git.tamtaro.de/complete.json` into *AIOStreams → Save & Install :floppy_disk: → Import Template*
 
 > [!NOTE]
-> * [**Yeb's Nightly**](https://aiostreams-nightly.fortheweak.cloud/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) | [**Kuu's Nightly**](https://aiostreams-nightly.206111.xyz/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)| [**Midnight's Nightly**](https://aiostreamsfortheweebs.midnightignite.me/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) | [**Viren's Nightly**](https://aiostreams.viren070.me/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
-> * [**OMNI**](https://aiostreams.12312023.xyz/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) | [**ATBP Hosting**](https://aio.atbphosting.com/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) | [**StremioFR**](https://aiostreams.stremiofr.com/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) | \[[**ElfHosted**](https://aiostreams.elfhosted.com/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) ⚠️ (*No P2P/Torrentio*)\]
+> * [**Yeb's Nightly**](https://aiostreams-nightly.fortheweak.cloud/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) | [**Kuu's Nightly**](https://aiostreams-nightly.206111.xyz/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)| [**Midnight's Nightly**](https://aiostreamsfortheweebs.midnightignite.me/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) | [**Viren's Nightly**](https://aiostreams.viren070.me/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
+> * [**OMNI**](https://aiostreams.12312023.xyz/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) | [**ATBP Hosting**](https://aio.atbphosting.com/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) | [**D4rk(StremioFR)**](https://aiostreams.noplay.fr/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) | \[[**ElfHosted**](https://aiostreams.elfhosted.com/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) ⚠️ (*No P2P/Torrentio*)\]
+
+1. Choose an AIOStreams instance from [this page](https://docs.aiostreams.viren070.me/getting-started/public-instances/) or click the link aboveOptional Advanced Customization after template to directly access my template. Nightly is recommended but not required. **Selfhosters**: Dashboard → Ctrl K → Templates URL & enter `https://git.tamtaro.de/complete`
+2. [Import templates](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-how-to-import): Paste `https://git.tamtaro.de/complete.json` into *AIOStreams → Save & Install :floppy_disk: → Import Template*
    - Start with "Tamtaro Complete SEL Setup" which has options for both Debrid/Usenet or P2P users.
    - Select your debrid services (skip for P2P), and follow the customization steps that appear to personalize your setup.
    - TMDB and TVDB credentials are required for matching, bitrate and other features.
-   - Load Template, Save your AIOStreams into Stremio.
-3. Advanced setup after template import:
-  - Browse list of [Optional SELs](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#-optional-sels), most of which are incoroprated into the Template Wizard.  
-  - Adjust Ranked Stream Expressions score as you wish for more nuanced sorting. See ⁠his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more details on customization.
-  - Add usenet addons or others you find useful.
+   - Load Template, Save your AIOStreams and add it into Stremio/Nuvio or your preferred client.
+3. Optional Advanced Customization after template:
+   - Add Usenet addons if you use them. See [Viren's ⁠usenet page](https://docs.aiostreams.viren070.me/guides/usenet/) for guidance.
+   - Adjust Ranked Stream Expressions score as you wish for more nuanced sorting. See ⁠his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more details on customization.
 4. [AIOMetadata for catalogs/meta](https://github.com/Tam-Taro/SEL-Filtering-and-Sorting/tree/main?tab=readme-ov-file#%EF%B8%8F-whats-included-for-aiometadata): Import one of my JSONs (with/without anime) via trusted AIOMetadata instances from [this page](https://docs.aiostreams.viren070.me/getting-started/public-instances/). 
-  - Refer to full AIOMetadata guide at end of page.
+   - Refer to full AIOMetadata guide at end of page.
 ---
 ## ✨ Release Notes
 
@@ -183,15 +181,15 @@ That's it for this All-in-One Complete template. Most Optional SELs can be added
 
 ##### Direct Links to open my template on popular public AIOS instances:
 
-- [**Yeb's Nightly**](https://aiostreams-nightly.fortheweak.cloud/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
-- [**Kuu's Nightly**](https://aiostreams-nightly.206111.xyz/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
-- [**Midnight's Nightly**](https://aiostreamsfortheweebs.midnightignite.me/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
-- [**Viren's Nightly**](https://aiostreams.viren070.me/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
-- [**ElfHosted Public**](https://aiostreams.elfhosted.com/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json) :warning: 
+- [**Yeb's Nightly**](https://aiostreams-nightly.fortheweak.cloud/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
+- [**Kuu's Nightly**](https://aiostreams-nightly.206111.xyz/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
+- [**Midnight's Nightly**](https://aiostreamsfortheweebs.midnightignite.me/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
+- [**Viren's Nightly**](https://aiostreams.viren070.me/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
+- [**ElfHosted Public**](https://aiostreams.elfhosted.com/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json) :warning: 
   - Note: ElfHosted public instance has P2P/Torrentio disabled. A service selection is required to proceed with Debrid/Usenet Mode.
-- [**ATBP Hosting**](https://aio.atbphosting.com/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
-- [**OMNI**](https://aiostreams.12312023.xyz/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
-- [**StremioFR**](https://aiostreams.stremiofr.com/stremio/configure?menu=about&template=https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/main/Tamtaro-All-Templates-for-AIOStreams.json)
+- [**ATBP Hosting**](https://aio.atbphosting.com/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
+- [**OMNI**](https://aiostreams.12312023.xyz/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
+- [**StremioFR**](https://aiostreams.stremiofr.com/stremio/configure?menu=about&template=https://git.tamtaro.de/complete.json)
 </details>	
 
 <details>
@@ -735,36 +733,12 @@ The second block of ESE is the Main Quality/Resolution Filter. It uses `slice(..
 Third block of ESE is the Low Quality/Resolution Filter. It checks how many streams made through the Main Filter above, and removes low quality and low resolution streams when there are already enough present. It also removes regex-matched streams from "Bad" quality release groups when there are enough non-"Bad" streams present (for those that use Vidhin's regex).
 </details>
 
+---
 
-## ⚙️ Templates Included for AIOStreams
-
-These are setup templates to use with AIOStreams. If you're not sure which AIOStreams instance to start with, check out the list of trusted public instances [here](https://docs.aiostreams.viren070.me/getting-started/public-instances/). I recommend *nightly* AIOStreams from Midnight, Yeb, Viren, or Kuu. My setup is fine-tuned and tested on latest nightly, so you don't have to worry about features not yet released. Make sure the instance you chose have a working Torrentio add-on. If not, switch to a different instance.
-
-| Template | Description |
-|-----------|--------------|
-| **Tamtaro Complete SEL Setup** | Complete configuration with filters, sort orders, streaming addons, and formatter. Template Wizard will guide you through various options, such as without addons or without formatter setup to keep your existing addons or formatter |
-| **Formatter & SEL Only Template** | Imports only the core filtering Engine (Standard or Extended SEL, which consists of Excluded, Included & Preferred Stream Expressions synced urls) or formatter used in the Complete SEL Setup | 
-
-## 📥 How to Import
-
-1. **AIOStreams → Save & Install 💾 → Import** 
-2. Click **Import Template**
-3. Copy & Paste the URL to "Tamtaro-All-Templates-for-AIOStreams"
-```text
-https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/Tamtaro-All-Templates-for-AIOStreams.json
-```
-4. "Confirm Import" to import all templates available from me.  This will save them into your browser cache for future use. If you already imported previously, this will refresh them to the latest version. 
-5. Select "Tamtaro Complete SEL Setup". Read through the various options to customize. Leaving everything default gets you my recommended setup. 
-6. Follow the prompt to configure your debrid credentials. API Keys already configured inside AIOStreams will be prefilled.
-7. Enter your TMDB/TVDB credentials for Title Matching and various other features.
-8. Load Template, Save your AIOStreams, install into stremio.
-9. Go to end of this page for instructions on how to setup your catalogs via AIOMetadata addon (which is a separate addon from AIOStrems).
-
-  > [!NOTE]
-> To further enhance your sorting, Vidhin's regex template is now incorporated, which tags and scores streams based on the quality of the release groups and other attributes. Check his [GitHub](https://github.com/Vidhin05/Releases-Regex) for more instructions on further customization
-
-## 🔧 Optional SELs
-
+ 
+ <details>
+        <summary> 🔧 Optional SELs (Deprecated)</summary>
+	 
 While my default SEL setup is a complete setup, it can be tweaked further for various specific needs. Over the months I've shared these SELs with you guys on Discord, or found them useful, shared by others. Most of these are Excluded Stream Expressions, which are meant to be used *before* my ESEs/synced url. Some are Included expressions, which is meant to bypass certain streams before filtering. Some are Required expressions, which is meant to provide one last filtering that will run *after* all previous filtering. Where to put each optional SEL is important and will be noted. It's recommended to use the Template Wizard as that will automatically adjust and place the SELs appropriately for your config. A lot of these SELs is incoropated into the template already.
 
 These go into Excluded *before* all my Excluded SELs, by adding a box yourself above my synced url:
@@ -815,7 +789,7 @@ These go into Excluded *before* all my Excluded SELs, by adding a box yourself a
 			count(bitrate(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),1,'20Mbps'))>5?'20Mbps':
 			max(values(resolution(merge(cached(streams), type(streams, 'p2p','http','usenet','stremio-usenet')),'720p'),'bitrate'))
 			))
-</details>
+
 
 These go into Excluded *after* all my Excluded SELs:
   - __Global Result Limit__: After all my filtering SELs have ran you get left off with 3 of each category, totalling about 20 streams in all. You can simply cut this number down to any number you want, I will go with 6 to get even amount from 2 categories (eg. 3 x 4k Remux + 3 x 4k Bluray). Library and Seadex results are not counted.
@@ -842,7 +816,11 @@ These go into Included Stream Expressions, order doesn't matter here:
     - ```text
       /*SDR Passthrough*/ count(resolution(negate(merge(visualTag(streams, 'HDR', 'HDR10', 'HDR10+', 'DV')), visualTag(merge(cached(streams), type(streams, 'usenet')), 'SDR', 'HLG', '10bit', 'IMAX', 'Unknown')), '2160p', '1080p')) > 5 ? passthrough(slice(resolution(negate(merge(visualTag(streams, 'HDR', 'HDR10', 'HDR10+', 'DV')), visualTag(merge(cached(streams), type(streams, 'usenet')), 'SDR', 'HLG', '10bit', 'IMAX', 'Unknown')), '2160p', '1080p'), 0, 5), 'excluded') : passthrough(slice(resolution(negate(merge(visualTag(streams, 'HDR', 'HDR10', 'HDR10+', 'DV')), visualTag(merge(cached(streams), type(streams, 'usenet')), 'SDR', 'HLG', '10bit', 'IMAX', 'Unknown')), '2160p', '1080p', '720p'), 0, 5), 'excluded')
 
+</details>
+</details>
+
 ---
+
 ## ⚙️ What’s Included for AIOMetadata
 
 These are setup configs to use with AIOMetadata. It is a powerful tool for all things metadata and catalogs. If you're not sure where to start, pick an AIOMetadata instance from [here](https://uptime.ibbylabs.dev/aiometadata). I recommend the public [Elfhosted instance](https://aiometadata.elfhosted.com/configure/).
