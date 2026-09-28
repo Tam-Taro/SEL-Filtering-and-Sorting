@@ -36,7 +36,7 @@ Use this setup as-is, or as a base to tweak for your tastes. It's especially use
 
 1. Choose an AIOStreams instance from [this page](https://docs.aiostreams.viren070.me/getting-started/public-instances/) or click the link above to directly access my template. Nightly is recommended but not required. 
    - **Selfhosters**: Dashboard → Ctrl K → Templates URL & enter `https://git.tamtaro.de/complete`
-2. Import & use template: *AIOStreams → About → Get Started → Browse a Setup → Tamtaro Complete SEL Setup* or *AIOStreams → Save & Install :floppy_disk: → Import Template → Paste `https://git.tamtaro.de/complete.json` *
+2. Import & use template: *AIOStreams → About → Get Started → Browse a Setup → Tamtaro Complete SEL Setup* or *AIOStreams → Save & Install :floppy_disk: → Import Template → Paste `https://git.tamtaro.de/complete`
    - Start with "Tamtaro Complete SEL Setup" which has options for both Debrid/Usenet or P2P users.
    - Select your debrid services (skip for P2P), and follow the customization steps that appear to personalize your setup.
    - TMDB and TVDB credentials are required for matching, bitrate and other features.
