@@ -1,6 +1,10 @@
 [
   {
-    "expression": "/*ESE v2.1.16 [git.tamtaro.de]*/[]",
+    "expression": "/*ESE v2.1.17 [git.tamtaro.de]*/[]",
+    "enabled": true
+  },
+  {
+    "expression": "/*RD Copyright (per DMM)*/ service(regexMatched(streams, 'RD Copyright'), 'realdebrid')",
     "enabled": true
   },
   {
@@ -49,10 +53,6 @@
   },
   {
     "expression": "/*Low SEL Score*/ count(streamExpressionScore(negate(merge(library(streams), seadex(streams)), merge(type(streams,'usenet','stremio-usenet','http','live','p2p'),type(cached(streams),'debrid'))),-50))<10?[]:streamExpressionScore(negate(merge(library(streams),seadex(streams)),streams),-1000000,-50)",
-    "enabled": true
-  },
-  {
-    "expression": "/*RD Copyright (per DMM)*/ service( keyword(streams, 'all', 'web-dl', 'webrip', 'bdrip', 'hdrip', 'dvdrip', 'bluray.x264', 'hdtv.x264', 'hdtv.xvid', 'web.x264', 'web.h264'), 'realdebrid')",
     "enabled": true
   },
   {

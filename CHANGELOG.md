@@ -1,4 +1,13 @@
 # Changelog
+## 3.2.9 (2026-10-05)
+**Update**
+- RD Copyright ESE updated
+  - If you're using Real Debrid and your template version is older than v3.2.6, you need to run template again to get this update.
+- Updated all Tamtaro formatters to include language and subtitle track details, whenever available via probed media info. Re-run the template to get these updated formatters.
+  - Superscripts above your preferred language can tell whether the audio is describeb audio (ᴇɴᵈᵉˢᶜʳⁱᵇᵉᵈ) or commentary track (ᴇɴᵈᵉˢᶜʳⁱᵇᵉᵈ)
+  - Subtitles for only foreign dialogue/on-screen signs (ᴇɴᶠᵒʳᶜᵉᵈ), subtitles for the Deaf and Hard of Hearing (ᴇɴᶜᶜ), and subtitles for English dub in anime, aka dubtitles (ᴇɴᵈᵘᵇ)   
+- Enabled RemuxDB Integration inside AIOStreams -> Filters -> Miscellaneous 
+
 ## 3.2.8 (2026-09-20)
 **Minor**
 - Fixed some backend typo for a syncedURL inside template that doesn't affect your setup (selfhosters won't see this template error inside their AIOStreams log)
