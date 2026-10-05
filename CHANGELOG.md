@@ -4,7 +4,7 @@
 - RD Copyright ESE updated ([per DMM post](https://www.patreon.com/debridmediamanager/posts/complete-list-of-158388927))
   - If you're using Real Debrid and your template version is older than v3.2.6, you need to run template again to get this update.
 - Updated all Tamtaro formatters to include language and subtitle track details, whenever available via probed media info. Re-run the template to get these updated formatters.
-  - Superscripts above your preferred language can tell whether the audio is describeb audio (ᴇɴᵈᵉˢᶜʳⁱᵇᵉᵈ) or commentary track (ᴇɴᵈᵉˢᶜʳⁱᵇᵉᵈ)
+  - Superscripts above your preferred language can tell whether the audio is describeb audio (ᴇɴᵈᵉˢᶜʳⁱᵇᵉᵈ) or commentary track (ᶜᵒᵐᵐ)
   - Subtitles for only foreign dialogue/on-screen signs (ᴇɴᶠᵒʳᶜᵉᵈ), subtitles for the Deaf and Hard of Hearing (ᴇɴᶜᶜ), and subtitles for English dub in anime, aka dubtitles (ᴇɴᵈᵘᵇ)   
 - Enabled RemuxDB Integration inside AIOStreams -> Filters -> Miscellaneous 
 
