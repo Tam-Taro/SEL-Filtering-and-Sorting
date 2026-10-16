@@ -6,7 +6,7 @@
       "description": "Fully configurable all-in-one setup based on Tamtaro's recommended filters, sort orders, and SELs described on the [GitHub](https://git.tamtaro.de). One template for both Debrid/Usenet or P2P users. \n\n * Guides you through API keys, language preferences, optional filters and smart passthroughs during import.\n * Includes optional add-ons and formatter styles. \n * Uses dynamic SELect Engine to retain the number of streams you choose.\n * Uses auto-synced SELs and & [Vidhin's Regexes](https://github.com/Vidhin05/Releases-Regex) so SEL fixes and updates are received automatically.\n * **ⓘ For catalogs, check out GitHub for AIOMetadata configs.**",
       "source": "external",
       "author": "Tamtaro",
-      "version": "3.2.11",
+      "version": "3.2.12",
       "category": "AIO",
       "serviceRequired": false,
       "changelogUrl": "https://raw.githubusercontent.com/Tam-Taro/SEL-Filtering-and-Sorting/refs/heads/main/CHANGELOG.md",
@@ -14,7 +14,7 @@
         {
           "__if": "services",
           "id": "header.intro",
-          "name": "Complete SEL Setup v3.2.11: Debrid/Usenet Mode",
+          "name": "Complete SEL Setup v3.2.12: Debrid/Usenet Mode",
           "description": "An advanced filtering & sorting setup powered by Stream Expression Language (SEL) & [Vidhin's Regex Patterns](https://github.com/Vidhin05/Releases-Regex)",
           "type": "alert",
           "intent": "success"
@@ -22,7 +22,7 @@
         {
           "__if": "!services",
           "id": "header.p2p",
-          "name": "Complete SEL Setup v3.2.11: P2P Mode",
+          "name": "Complete SEL Setup v3.2.12: P2P Mode",
           "description": "No services selected. In some countries, torrenting is restricted, so a VPN or a debrid service from previous page may be required.",
           "type": "alert",
           "intent": "warning"
@@ -2599,7 +2599,7 @@
       "appliedTemplates": [
         {
           "id": "tamtaro.complete",
-          "version": "3.2.11"
+          "version": "3.2.12"
         }
       ],
       "addonName": {
@@ -2611,7 +2611,7 @@
         },
         "default": "{{inputs.misc.addonName}}"
       },
-      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.2.11. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect streaming experience.",
+      "addonDescription": "Custom AIOStreams powered by Tamtaro SEL Setup v3.2.12. Features advanced filtering with Stream Expression Language and smart sorting with Vidhin's Regex Patterns. Your personal all-in-one setup for the perfect streaming experience.",
       "addonLogo": {
         "__switch": "inputs.misc.addonLogo",
         "cases": {
@@ -3302,17 +3302,17 @@
         },
         {
           "__if": "inputs.coreFilterNonUsenet > 0",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.11: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterNonUsenet}} 𝙳𝚎𝚋𝚛𝚒𝚍·𝙷𝚃𝚃𝙿·𝙿2𝙿*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.12: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterNonUsenet}} 𝙳𝚎𝚋𝚛𝚒𝚍·𝙷𝚃𝚃𝙿·𝙿2𝙿*/ []",
           "enabled": true
         },
         {
           "__if": "inputs.coreFilterUsenet > 0",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.11: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterUsenet}} 𝚄𝚜𝚎𝚗𝚎𝚝*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.12: 𝚂𝙴𝙻𝚎𝚌𝚝 {{inputs.coreFilterUsenet}} 𝚄𝚜𝚎𝚗𝚎𝚝*/ []",
           "enabled": true
         },
         {
           "__if": "inputs.coreFilterUsenet == 0 and inputs.coreFilterUsenet == 0",
-          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.11: No 𝚂𝙴𝙻𝚎𝚌𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
+          "expression": "/*𝚃𝚊𝚖𝚝𝚊𝚛𝚘 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎 𝚂𝙴𝙻 𝚂𝚎𝚝𝚞𝚙 𝚟3.2.12: No 𝚂𝙴𝙻𝚎𝚌𝚝 𝙴𝚗𝚐𝚒𝚗𝚎*/ []",
           "enabled": true
         },
         {
@@ -3321,7 +3321,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes 4k",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes 4k",
           "expression": "/*No 4K*/ resolution(streams,'2160p')",
           "exprNames": [
             "No 4K"
@@ -3329,7 +3329,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes 4kRemux",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes 4kRemux",
           "expression": "/*No 4K Remux*/ quality(resolution(streams,'2160p'),'Bluray REMUX')",
           "exprNames": [
             "No 4K Remux"
@@ -3337,7 +3337,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes 1080pRemux",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes 1080pRemux",
           "expression": "/*No 1080P Remux*/ quality(resolution(streams,'1080p'),'Bluray REMUX')",
           "exprNames": [
             "No 1080P Remux"
@@ -3345,7 +3345,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes 720pRemux",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes 720pRemux",
           "expression": "/*No 720P Remux*/ quality(resolution(streams,'720p'),'Bluray REMUX')",
           "exprNames": [
             "No 720P Remux"
@@ -3353,7 +3353,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes av1",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes av1",
           "expression": "/*No AV1*/ encode(streams, 'AV1')",
           "exprNames": [
             "No AV1"
@@ -3361,7 +3361,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes vc-1",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes vc-1",
           "expression": "/*No VC-1*/ encode(streams, 'VC-1')",
           "exprNames": [
             "No VC-1"
@@ -3369,7 +3369,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes hi10p",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes hi10p",
           "expression": "/*No Hi10P*/ merge(keyword(streams, 'filename,folderName', 'hi10p'), visualTag(encode(streams, 'AVC'), '10bit'))",
           "exprNames": [
             "No Hi10P"
@@ -3377,7 +3377,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes hlg",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes hlg",
           "expression": "/*No HLG*/ visualTag(streams, 'HLG')",
           "exprNames": [
             "No HLG"
@@ -3385,7 +3385,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes trueHD",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes trueHD",
           "expression": "/*No TrueHD & Unknown BD Audio*/ merge(audioTag(streams, 'TrueHD'), audioTag(quality(streams, 'Bluray Remux', 'Bluray'), 'Unknown'))",
           "exprNames": [
             "No TrueHD"
@@ -3393,7 +3393,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes dts",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes dts",
           "expression": "/*No DTS & Unknown BD Audio*/ merge(audioTag(streams, 'DTS:X', 'DTS-ES', 'DTS-HD MA', 'DTS-HD', 'DTS'), audioTag(quality(streams, 'Bluray Remux', 'Bluray'), 'Unknown'))",
           "exprNames": [
             "No DTS"
@@ -3401,7 +3401,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes DVonly",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes DVonly",
           "expression": "/*No DV-Only*/ visualTag(streams,'DV Only')",
           "exprNames": [
             "No DV-Only"
@@ -3409,7 +3409,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes dvOnlyNonRemux",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes dvOnlyNonRemux",
           "expression": "/*No DV-Only Non-Remux (P5)*/ isAnime?[]:negate(merge(quality(streams,'BluRay REMUX'),releaseGroup(streams, 'Flights'),regexMatched(streams, 'Hulu')),visualTag(streams,'DV Only'))",
           "exprNames": [
             "No DV-Only Non-Remux (P5)"
@@ -3417,7 +3417,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes DVall",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes DVall",
           "expression": "/*No DV (All)*/ visualTag(streams,'DV')",
           "exprNames": [
             "No DV (All)"
@@ -3425,7 +3425,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes DVP7",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes DVP7",
           "expression": "/*No DV Bluray (P7)*/ negate(rseMatched(streams, 'Hybrid'), quality(visualTag(resolution(streams, '2160p'), 'DV'), 'Bluray Remux', 'Bluray'))",
           "exprNames": [
             "No DV Bluray (P7)"
@@ -3433,7 +3433,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes HDR10+",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes HDR10+",
           "expression": "/*No HDR10+ Only*/ visualTag(streams, 'HDR10+')",
           "exprNames": [
             "No HDR10+ Only"
@@ -3441,7 +3441,7 @@
           "enabled": true
         },
         {
-          "__if": "!inputs.deviceExclude and inputs.deviceExclude includes HDR",
+          "__if": "!inputs.deviceExcludePenalize and inputs.deviceExclude includes HDR",
           "expression": "/*No HDR (All)*/ visualTag(streams, 'HDR', 'HDR10','HDR10+','HLG')",
           "exprNames": [
             "No HDR (All)"

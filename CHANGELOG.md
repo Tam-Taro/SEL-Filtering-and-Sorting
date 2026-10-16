@@ -1,4 +1,8 @@
 # Changelog
+## 3.2.12 (2026-10-15)
+**Fix**
+- "Device Specific Exclusions" without "Penalize" toggle wasn't doing anything, now fixed
+
 ## 3.2.11 (2026-10-15)
 **New**
 - "Device Specific Exclusions" under advanced filters now has a toggle to "Penalize Instead of Exclude"
