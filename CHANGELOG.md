@@ -1,4 +1,9 @@
 # Changelog
+## 3.2.13 (2026-10-18)
+**New**
+- New Variant added: `1080P`
+  - Removes 4K and 1080P Remux. Keeps 1080P & 720P Rresolution. Boosts x265/HEVC. Intended for slower connections (eg. Mobile Profile inside Nuvio). 
+
 ## 3.2.12 (2026-10-15)
 **Fix**
 - "Device Specific Exclusions" without "Penalize" toggle wasn't doing anything, now fixed
