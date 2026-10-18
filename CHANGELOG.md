@@ -3,6 +3,8 @@
 **New**
 - New Variant added: `1080P`
   - Removes 4K and 1080P Remux. Keeps 1080P & 720P Rresolution. Boosts x265/HEVC. Intended for slower connections (eg. Mobile Profile inside Nuvio). 
+**Update**
+- Torbox health check url changed to `https://uptime.ibbylabs.dev/v1/health/torbox?degraded=down`
 
 ## 3.2.12 (2026-10-15)
 **Fix**

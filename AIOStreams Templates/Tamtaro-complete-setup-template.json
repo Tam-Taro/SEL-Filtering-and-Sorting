@@ -5679,7 +5679,7 @@
       },
       {
         "id": "torbox-down",
-        "url": "https://uptime.ibbylabs.dev/v1/health/torbox",
+        "url": "https://uptime.ibbylabs.dev/v1/health/torbox?degraded=down",
         "name": "Torbox",
         "expect": {
           "status": "503",
